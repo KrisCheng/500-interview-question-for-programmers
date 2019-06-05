@@ -1,2 +1,36 @@
 # 500-interview-question-for-programmers
-This repo is used to record all the good interview questions and answers that I meet.
+
+## 概述
+
+本代码仓用于记录个人平时面试和个人学习时碰到到问题，所有问题均为我真实碰到过，一律采用问答形式，希望以此来保持个人基础的扎实性，希望能做成一份自己的“面试宝典”（其实面试只是第一步，积累是个长期的过程），欢迎Star，可配合同目录 KnowledgeStructure 同步使用，500只是一个数，切莫计较。
+
+## Java
+
+
+
+## Python
+
+
+
+## 操作系统
+
+
+
+## 数据结构与算法
+
+
+
+## 数据库
+
+
+
+## 计算机网络
+
+
+
+## Linux相关
+
+
+
+## 编程之美
+
