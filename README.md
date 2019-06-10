@@ -9,7 +9,7 @@
 ## Java
 
 * 描述Spring的IOC
-	*  
+	* IOC是一种思想，并非一个技术，
 * 什么是Spring注解，以及Spring中有哪些常用的注解
 	* [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)
 	* 
@@ -23,7 +23,14 @@
 ## Python
 
 * 用map/reduce实现数组求和
+	* [map/reduce](https://www.liaoxuefeng.com/wiki/1016959663602400/1017329367486080)
+	* map --> 将传入函数依次作用于序列中的每个元素，并把结果作为新的Iterator返回;
+	* reduce --> 累积计算, 求和 ```reduce(lambda x, y : x + y, [1,2,3,4,5])```.
+
 * 实现一个lambda表达式
+	* 匿名函数，个人理解为一种语法糖
+	* [Lambda 表达式有何用处？如何使用？](https://www.zhihu.com/question/20125256)
+
 * Python如何实现真正的多线程
 * 一段Python代码，有哪些优化策略
 * 如何写一个程序计算一段Python代码的耗时
