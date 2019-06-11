@@ -9,14 +9,26 @@
 ## Java
 
 * 描述Spring的IOC
-	* IOC是一种思想，并非一个技术，
+	* IOC是一种思想，并非一个具体技术。
+	* 好处 --> “让你脱离对依赖对象的维护，只需要随用随取，不需要关心依赖对象的任何过程。”
+	* “反转” --> 由容器来帮忙创建及注入依赖对象。
+	* 实现 --> 依赖注入
+		* 谁依赖于谁：当然是应用程序依赖于IoC容器；
+		* 为什么需要依赖：应用程序需要IoC容器来提供对象需要的外部资源；
+		* 谁注入谁：很明显是IoC容器注入应用程序某个对象，应用程序依赖的对象；
+		* 注入了什么：就是注入某个对象所需要的外部资源（包括对象、资源、常量数据）。
+	* [IoC-spring 的灵魂(带你轻松理解IOC思想及bean对象的生成过程)](https://juejin.im/post/593386ca2f301e00584f8036)
+	* [【第二章】 IoC 之 2.1 IoC基础 ——跟我学Spring3](https://jinnianshilongnian.iteye.com/blog/1413846)	
+
 * 什么是Spring注解，以及Spring中有哪些常用的注解
-	* [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)
-	* 
+	*  注解 --> 减少配置文件内容
+	* [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
+
+
 * 乐观锁与悲观锁的概念，常见实现
 * HashMap和TreeMap的区别
 * 描述HashMap的底层实现
-* 什么是反射
+* 什么是反射以及反射有什么具体应用
 * 描述Java的GC过程
 * 描述Java内存模型
 
