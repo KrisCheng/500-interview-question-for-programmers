@@ -27,6 +27,16 @@
 
 * 乐观锁与悲观锁的概念，常见实现
 * HashMap和TreeMap的区别
+	* HashMap通过hashcode对其内容进行快速查找，而 TreeMap中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap（HashMap中元素的排列顺序是不固定的）；
+	* HashMap 允许使用 null 值和 null 键，而 TreeMap 不可以；
+	* 实现:
+		* HashMap --> HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体；如果追加节点后，链表数量 >= 8，则转化为红黑树；
+		* TreeMap --> 红黑树
+	* HashMap 非线程安全 / TreeMap 非线程安全
+	* [HashMap和TreeMap区别详解以及底层实现](https://blog.csdn.net/xlgen157387/article/details/47907721)
+	* [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？](https://time.geekbang.org/column/article/8053)
+
+	
 * 描述HashMap的底层实现
 * 什么是反射以及反射有什么具体应用
 * 描述Java的GC过程
