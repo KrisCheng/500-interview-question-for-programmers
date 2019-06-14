@@ -28,6 +28,7 @@
 	* 《Spring实战（第四版）》
 	* [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)
 
+* 描述Spring Boot框架
 
 * 什么是Bean
 	* “在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为bean。bean是一个由Spring IoC容器实例化、组装和管理的对象。”
@@ -93,6 +94,10 @@
 		* [第25讲 | 谈谈JVM内存区域的划分，哪些区域可能发生OutOfMemoryError?](https://time.geekbang.org/column/article/10192)
 		* [jvm系列(二):JVM内存结构](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483949&idx=1&sn=8b69d833bbc805e63d5b2fa7c73655f5&chksm=ebf6da52dc815344add64af6fb78fee439c8c27b539b3c0e87d8f6861c8422144d516ae0a837&scene=21#wechat_redirect)
 
+		
+* 描述Java语境下的并发编程
+
+
 
 ## Python
 
@@ -106,52 +111,136 @@
 	* [Lambda 表达式有何用处？如何使用？](https://www.zhihu.com/question/20125256)
 
 * Python如何实现真正的多线程
+
+
 * 一段Python代码，有哪些优化策略
+
+
 * 如何写一个程序计算一段Python代码的耗时
+
+
 * Python爬虫中存在环引用该如何处理
+
+
 * 描述Python的迭代器和生成器
 
 ## 操作系统
 
-* 进程/线程的概念，线程同步的方法
+* 进程/线程的概念和区别
+	* 进程 --> 计算机中已运行的程序，具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位；
+	* 线程 --> 操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程中的实际运作单位。
+	* 进程和线程都是一个时间段的描述，是CPU工作时间段的描述，不过是颗粒大小不同；
+	* 一个程序至少有一个进程,一个进程至少有一个线程；
+	* [腾讯面试题04.进程和线程的区别？](https://blog.csdn.net/mxsgoden/article/details/8821936)
+	* [进程与线程的一个简单解释](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html)
+	* [线程和进程的区别是什么？](https://www.zhihu.com/question/25532384)
+	* [线程 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B)
+	* [进程 Wiki](https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B)
+
+	
 * Java中如何创建线程池
+
+
 * 谈一谈操作系统的启动过程
+	* BIOS
+	* 主引导记录（Master boot record）
+	* 硬盘启动
+	* 操作系统
+	* [计算机是如何启动的？](http://www.ruanyifeng.com/blog/2013/02/booting.html) 
+	
+
 * 用一门编程语言（如Java）实现一个死锁
+
+
 * 如何判断内存泄漏
+
+
 * 什么是系统调用
+	* 指运行在用户空间的程序向操作系统内核请求需要更高权限运行的服务；
+	* linux内核中设置了一组用于实现系统功能的子程序，称为系统调用。系统调用和普通库函数调用非常相似，只是系统调用由操作系统核心提供，运行于**内核态**，而普通的函数调用由函数库或用户自己提供，运行于**用户态**；
+	* [系统调用 Wiki](https://zh.wikipedia.org/wiki/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8)
+	* [Linux系统调用详解（实现机制分析）--linux内核剖析（六）](https://blog.csdn.net/gatieme/article/details/50779184)
 
 ## 数据结构与算法
 
 * 给定一个无符号，包含10亿个数的数组，如何取出前100个数
+
+
 * 如何找到一个无序数组的中位数
+
+
 * 如何给一个很大的无序数组去重
+
+
 * Java中的 sort() 方法是如何实现的
+
+
 * 实现一个二叉搜索树的迭代器，包括next()和hasNext()方法
+
+
 * 手写快排和复杂度分析
+
+
 * 手写堆排和复杂度分析
+
+
 * 红黑树描述及其复杂度分析（插入/查找）
+
+
 * 第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题
+
+
 * 非递归从左至右打印一颗二叉树中的所有路径
+
+
 * 描述01背包问题
+
+
 * 如何将一棵非平衡二叉树转化成平衡二叉树
+
+
 * 如何从一个字符串中找出最大不重复子串
+
+
 
 ## 数据库
 
 * 描述事务隔离的级别
+
+
 * 找出在表A中但不在表B中的记录（根据一个column）
+
+
 * delete、 drop、truncate 的区别
+
+
 * 为什么MySQL使用B+树做索引
+
+
 * 对于海量数据，如何提高查询效率
+
+
 
 ## 计算机网络
 
 * 用Socket描述TCP的三次握手
+
+
 * 描述HTTPS的加密过程
+
+
 * HTTP代理的实现
+
+
 * 网络间的进程如何表示
+
+
 * 从客户端发送请求，该请求是如何传到服务端的
+
+
 * TCP和UDP的区别
+
+
 
 ## Linux相关
 
@@ -160,10 +249,16 @@
 ## 编程之美
 
 * 手写一个线程安全的单例模式
+
+
 * 设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）
+
+
 
 ## 其他
 
 * git rebase 和 git merge 有什么区别
+
+
 * git fetch 和 git pull 有什么区别
 
