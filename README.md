@@ -8,7 +8,7 @@
 
 ## Java
 
-* 描述Spring的IOC
+* **描述Spring的IOC**
 	* IOC是一种思想，并非一个具体技术。
 	* 好处 --> 让你脱离对依赖对象的维护，只需要随用随取，不需要关心依赖对象的任何过程。
 	* “反转” --> 由容器来帮忙创建及注入依赖对象。
@@ -20,7 +20,7 @@
 	* [IoC-spring 的灵魂(带你轻松理解IOC思想及bean对象的生成过程)](https://juejin.im/post/593386ca2f301e00584f8036)
 	* [【第二章】 IoC 之 2.1 IoC基础 ——跟我学Spring3](https://jinnianshilongnian.iteye.com/blog/1413846)	
 
-* 描述Spring的AOP
+* **描述Spring的AOP**
 	* AOP的理念 --> 就是将分散在各个业务逻辑代码中 相同的代码 通过 **横向切割** 的方式抽取到一个独立的模块中（模块化）。
 	* Spring AOP 原理 --> 动态代理
 	* 好处 --> 显示地声明在何处如何应用该行为，有效减少代码冗余，让类更加关注自身主要功能
@@ -28,20 +28,23 @@
 	* 《Spring实战（第四版）》
 	* [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)
 
-* 描述Spring Boot框架
 
-* 什么是Bean
+* 描述Spring Boot框架
+	* 
+
+
+* **什么是Bean**
 	* “在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为bean。bean是一个由Spring IoC容器实例化、组装和管理的对象。”
 	* [第37讲 | 谈谈Spring Bean的生命周期和作用域？](https://time.geekbang.org/column/article/12472)
 	* [Spring Bean是什么？](https://www.awaimai.com/2596.html)
 
 
-* 什么是Spring注解，以及Spring中有哪些常用的注解
+* **什么是Spring注解，以及Spring中有哪些常用的注解**
 	* 注解 --> 减少配置文件内容
 	* [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
 
 
-* 乐观锁与悲观锁的概念，常见实现
+* **乐观锁与悲观锁的概念，常见实现**
 	* 乐观锁适用于**多读**的应用类型，这样可以提高吞吐量 / 悲观锁适合于**多写**
 	* 乐观锁 --> 常见实现：CAS算法
 		* CAS 算法缺点：
@@ -49,7 +52,7 @@
 	* [何谓悲观锁与乐观锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87%E4%B9%8B%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81.md)
 
 	
-* HashMap和TreeMap的区别
+* **HashMap和TreeMap的区别**
 	* HashMap通过hashcode对其内容进行快速查找，而 TreeMap中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap（HashMap中元素的排列顺序是不固定的）；
 	* HashMap 允许使用 null 值和 null 键，而 TreeMap 不可以；
 	* 实现:
@@ -60,18 +63,20 @@
 	* [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？](https://time.geekbang.org/column/article/8053)
 
 	
-* 描述 HashMap 的底层实现
+* **描述 HashMap 的底层实现**
 	* JDK < 1.8 --> 数组和链表；
 	* JDK >= 1.8 --> 链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间；
 	* 具体方法 get(), put()
 	* [HashMap 简介](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md)
 
-* 什么是反射以及反射有什么具体应用
+
+* **什么是反射以及反射有什么具体应用**
 	* Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制；
 	* “框架设计的灵魂” --> 如：Spring 通过 XML 配置模式装载 Bean 的过程；
 	* [什么是反射机制？反射机制的应用场景有哪些？](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/MostCommonJavaInterviewQuestions/%E7%AC%AC%E4%BA%8C%E5%91%A8(2018-8-13).md#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%9C%89%E5%93%AA%E4%BA%9B)
 
-* 描述Java的GC过程
+
+* **描述Java的GC过程**
 	* 对象是否存活
 		* 引用计数
 		* 可达性分析 --> GC Roots
@@ -83,7 +88,7 @@
 	* [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
 
 	
-* 描述Java内存模型
+* **描述Java内存模型**
 	* JVM内存区域划分
 		* 程序计数器 --> 它的作用可以看做是当前线程所执行的字节码的行号指示器;
 		* Java 虚拟机栈 --> 保存一个个栈帧（Stack Frame），对应着一次次的Java方法调用；
@@ -101,12 +106,12 @@
 
 ## Python
 
-* 用map/reduce实现数组求和
+* **用map/reduce实现数组求和**
 	* [map/reduce](https://www.liaoxuefeng.com/wiki/1016959663602400/1017329367486080)
 	* map --> 将传入函数依次作用于序列中的每个元素，并把结果作为新的Iterator返回;
 	* reduce --> 累积计算, 求和 ```reduce(lambda x, y : x + y, [1,2,3,4,5])```.
 
-* 实现一个lambda表达式
+* **实现一个lambda表达式**
 	* 匿名函数，个人理解为一种语法糖
 	* [Lambda 表达式有何用处？如何使用？](https://www.zhihu.com/question/20125256)
 
@@ -126,7 +131,7 @@
 
 ## 操作系统
 
-* 进程/线程的概念和区别
+* **进程/线程的概念和区别**
 	* 进程 --> 计算机中已运行的程序，具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位；
 	* 线程 --> 操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程中的实际运作单位。
 	* 进程和线程都是一个时间段的描述，是CPU工作时间段的描述，不过是颗粒大小不同；
@@ -141,7 +146,7 @@
 * Java中如何创建线程池
 
 
-* 谈一谈操作系统的启动过程
+* **描述操作系统的启动过程**
 	* BIOS
 	* 主引导记录（Master boot record）
 	* 硬盘启动
@@ -155,11 +160,12 @@
 * 如何判断内存泄漏
 
 
-* 什么是系统调用
+* **什么是系统调用**
 	* 指运行在用户空间的程序向操作系统内核请求需要更高权限运行的服务；
 	* linux内核中设置了一组用于实现系统功能的子程序，称为系统调用。系统调用和普通库函数调用非常相似，只是系统调用由操作系统核心提供，运行于**内核态**，而普通的函数调用由函数库或用户自己提供，运行于**用户态**；
 	* [系统调用 Wiki](https://zh.wikipedia.org/wiki/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8)
 	* [Linux系统调用详解（实现机制分析）--linux内核剖析（六）](https://blog.csdn.net/gatieme/article/details/50779184)
+
 
 ## 数据结构与算法
 
@@ -245,6 +251,7 @@
 ## Linux相关
 
 * 常见的Linux指令
+
 
 ## 编程之美
 
