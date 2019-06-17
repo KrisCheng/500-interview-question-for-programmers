@@ -29,8 +29,13 @@
 	* [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)
 
 
-* 描述Spring Boot框架
+* **描述Spring Boot框架**
+	* 核心
+		* 自动配置
+		* 起步依赖
+	* 从本质上来说，Spring Boot就是Spring，它做了那些没有它你自己也会去做的Spring Bean配置；
 	* 
+	* 《Spring Boot实战》
 
 
 * **什么是Bean**
