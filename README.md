@@ -29,17 +29,20 @@
 	* [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)
 
 
-* **描述Spring Boot框架**
+* **简述Spring Boot框架**
 	* 核心
 		* 自动配置
 		* 起步依赖
 	* 从本质上来说，Spring Boot就是Spring，它做了那些没有它你自己也会去做的Spring Bean配置；
-	* 
-	* 《Spring Boot实战》
+	* 《Spring Boot实战》前三章
+
+
+* **什么是JPA**
+	* [Java持久化API Wiki](https://zh.wikipedia.org/wiki/Java%E6%8C%81%E4%B9%85%E5%8C%96API)
 
 
 * **什么是Bean**
-	* “在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为bean。bean是一个由Spring IoC容器实例化、组装和管理的对象。”
+	* 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为bean。bean是一个由Spring IoC容器实例化、组装和管理的对象。
 	* [第37讲 | 谈谈Spring Bean的生命周期和作用域？](https://time.geekbang.org/column/article/12472)
 	* [Spring Bean是什么？](https://www.awaimai.com/2596.html)
 
@@ -134,6 +137,8 @@
 
 * 描述Python的迭代器和生成器
 
+
+
 ## 操作系统
 
 * **进程/线程的概念和区别**
@@ -152,10 +157,11 @@
 
 
 * **描述操作系统的启动过程**
-	* BIOS
-	* 主引导记录（Master boot record）
-	* 硬盘启动
-	* 操作系统
+	* 步骤 
+		* BIOS
+		* 主引导记录（Master boot record）
+		* 硬盘启动
+		* 操作系统
 	* [计算机是如何启动的？](http://www.ruanyifeng.com/blog/2013/02/booting.html) 
 	
 
@@ -198,9 +204,6 @@
 * 红黑树描述及其复杂度分析（插入/查找）
 
 
-* 第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题
-
-
 * 非递归从左至右打印一颗二叉树中的所有路径
 
 
@@ -216,21 +219,51 @@
 
 ## 数据库
 
-* 描述事务隔离的级别
+* **描述事务隔离的级别**
+	* Serializable【可避免脏读，不可重复读，虚读】
+	* Repeatable read【可避免脏读，不可重复读】
+	* Read committed【可避免脏读】
+	* Read uncommitted【级别最低，什么都避免不了】
+	* [数据库事务隔离级别-- 脏读、幻读、不可重复读（清晰解释）](https://blog.csdn.net/jiesa/article/details/51317164)
 
 
-* 找出在表A中但不在表B中的记录（根据一个column）
+* **各种join操作的区别（left, right, inner join）**
+	* [mysql join操作](https://www.cnblogs.com/ggjucheng/archive/2012/11/06/2757972.html)
+
+	
+* **找出在表A中但不在表B中的记录（根据某一个共同的column）**
+	* [查询A、B表中，A表中B表没有的数据](https://blog.csdn.net/long636/article/details/51733273)（三种方法）
 
 
-* delete、 drop、truncate 的区别
+* **delete、 drop、truncate 的区别**
+	* drop 直接删掉表（不再需要一张表的时候，用drop）；
+	* truncate 删除的是表中的数据，再插入数据时自增长的数据id又重新从1开始（保留表而删除所有数据的时候用truncate）；
+	* delete 删除表中数据，可以在后面添加where字句（想删除部分数据行时候，用delete，并且带上where子句）。 
+	* [SQL truncate 、delete与drop区别](https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html)
 
 
-* 为什么MySQL使用B+树做索引
+* **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引**
+	* 索引 --> 一种数据结构
+	* B+树做索引：
+		* AVL, 红黑树等二叉树，其查找过程中要进行许多次的磁盘读取操作，非常耗时；
+		* B树
+			* B+树的层级更少：相较于B树B+每个非叶子节点存储的关键字数更多，树的层级更少所以查询数据更快；
+			* B+树查询速度更稳定：B+所有关键字数据地址都存在叶子节点上，所以每次查找的次数都相同所以查询速度要比B树更稳定;
+			* B+树天然具备排序功能：B+树所有的叶子节点数据构成了一个有序链表，在查询大小区间的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高；
+			* B+树全节点遍历更快：B+树遍历整棵树只需要遍历所有的叶子节点即可，而不需要像B树一样需要对每一层进行遍历，这有利于数据库做全表扫描。
+	* [数据库索引到底是什么，是怎样工作的？](https://blog.csdn.net/weiliangliang111/article/details/51333169)
+	* [一步步分析为什么B+树适合作为索引的结构](https://blog.csdn.net/weixin_30531261/article/details/79312676)
+	* [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
 
 
-* 对于海量数据，如何提高查询效率
+* **对于海量数据，如何提高查询效率（数据库优化策略）**
+	* [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
 
 
+* **第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题** （阿里面试官问的，我觉得这个问题很好，但总感觉这个问题不是有点自相矛盾么...）
+	* 区分快照和冗余
+	* [数据库设计冗余字段问题？](https://www.zhihu.com/question/50662784)
+	* [如何解释关系数据库的第一第二第三范式？](https://www.zhihu.com/question/24696366) 
 
 ## 计算机网络
 
