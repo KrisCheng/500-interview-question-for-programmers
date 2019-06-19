@@ -153,7 +153,9 @@
 	* [进程 Wiki](https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B)
 
 	
-* Java中如何创建线程池
+* **Java中如何使用线程池**
+	* [Java并发编程：线程池的使用](https://www.cnblogs.com/dolphin0520/p/3932921.html)
+	* [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)
 
 
 * **描述操作系统的启动过程**
@@ -165,11 +167,13 @@
 	* [计算机是如何启动的？](http://www.ruanyifeng.com/blog/2013/02/booting.html) 
 	
 
-* 用一门编程语言（如Java）实现一个死锁
+* **用一门编程语言（如Java）实现一个死锁**
+	* [JAVA实现的一个简单的死锁（附解释）](https://blog.csdn.net/zll793027848/article/details/8670546) 
 
 
-* 如何判断内存泄漏
-
+* **如何判断内存泄漏**
+	* 因为长生命周期持有它的引用而导致不能被回收，这就是Java中内存泄漏的发生场景；
+	* [Java内存泄漏分析和解决](https://www.jianshu.com/p/54b5da7c6816)
 
 * **什么是系统调用**
 	* 指运行在用户空间的程序向操作系统内核请求需要更高权限运行的服务；
@@ -264,6 +268,7 @@
 	* 区分快照和冗余
 	* [数据库设计冗余字段问题？](https://www.zhihu.com/question/50662784)
 	* [如何解释关系数据库的第一第二第三范式？](https://www.zhihu.com/question/24696366) 
+
 
 ## 计算机网络
 
