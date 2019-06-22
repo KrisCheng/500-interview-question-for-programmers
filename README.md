@@ -2,9 +2,9 @@
 
 ## 概述
 
-本代码仓用于记录个人平时面试和学习时碰到的一些有价值问题，所有问题均为我真实碰到过且思考过，一律采用问答形式，答案也只是我个人的理解，不一定正确（未贴答案为还没来得及弄 Orz...），欢迎指正。
+本代码仓用于记录个人平时面试和学习时碰到的一些有价值问题，所有问题均为我真实碰到过且思考过，一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（未贴答案为还没来得及弄 Orz...），欢迎指正。
 
-希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结了（标题只是唬人的~~），欢迎Star，可配合同目录下 KnowledgeStructure 同步使用，供所有正在找工作的小伙伴们参考（500只是一个数，切莫抬杠）。
+希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结（标题只是唬人的~~），欢迎Star，可配合同目录下 KnowledgeStructure 同步使用，供所有正在找工作的小伙伴们参考（500只是一个数，切莫抬杠）。
 
 ## Java
 
@@ -60,6 +60,11 @@
 	* [何谓悲观锁与乐观锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87%E4%B9%8B%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81.md)
 
 	
+* **字符串相关问题**
+	* StringBuffer --> 线程安全 / StringBuilder --> 非线程安全
+	* [第5讲 | String、StringBuffer、StringBuilder有什么区别？](https://time.geekbang.org/column/article/7349)
+
+		
 * **HashMap和TreeMap的区别**
 	* HashMap通过hashcode对其内容进行快速查找，而 TreeMap中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap（HashMap中元素的排列顺序是不固定的）；
 	* HashMap 允许使用 null 值和 null 键，而 TreeMap 不可以；
@@ -83,6 +88,18 @@
 	* “框架设计的灵魂” --> 如：Spring 通过 XML 配置模式装载 Bean 的过程；
 	* [什么是反射机制？反射机制的应用场景有哪些？](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/MostCommonJavaInterviewQuestions/%E7%AC%AC%E4%BA%8C%E5%91%A8(2018-8-13).md#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%9C%89%E5%93%AA%E4%BA%9B)
 
+	
+* **描述Java内存模型**
+	* JVM内存区域划分
+		* 程序计数器 --> 它的作用可以看做是当前线程所执行的字节码的行号指示器;
+		* Java 虚拟机栈 --> 保存一个个栈帧（Stack Frame），对应着一次次的Java方法调用；
+		* 堆 --> 几乎所有的**对象实例**都在这里分配内存;
+		* 方法区（Method Area） --> 所有线程共享的一块内存区域，用于存储所谓的元（Meta）数据，如类结构信息，以及对应的运行时常量池、字段、方法代码等；
+		* 运行时常量池 --> 存放各种常量信息；
+		* 本地方法栈 --> 为虚拟机使用到的Native方法服务;
+	* [第25讲 | 谈谈JVM内存区域的划分，哪些区域可能发生OutOfMemoryError?](https://time.geekbang.org/column/article/10192)
+	* [jvm系列(二):JVM内存结构](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483949&idx=1&sn=8b69d833bbc805e63d5b2fa7c73655f5&chksm=ebf6da52dc815344add64af6fb78fee439c8c27b539b3c0e87d8f6861c8422144d516ae0a837&scene=21#wechat_redirect)
+
 
 * **描述Java的GC过程**
 	* 对象是否存活
@@ -96,18 +113,6 @@
 	* [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
 
 	
-* **描述Java内存模型**
-	* JVM内存区域划分
-		* 程序计数器 --> 它的作用可以看做是当前线程所执行的字节码的行号指示器;
-		* Java 虚拟机栈 --> 保存一个个栈帧（Stack Frame），对应着一次次的Java方法调用；
-		* 堆 --> 几乎所有的**对象实例**都在这里分配内存;
-		* 方法区（Method Area） --> 所有线程共享的一块内存区域，用于存储所谓的元（Meta）数据，如类结构信息，以及对应的运行时常量池、字段、方法代码等；
-		* 运行时常量池 --> 存放各种常量信息；
-		* 本地方法栈 --> 为虚拟机使用到的Native方法服务;
-	* [第25讲 | 谈谈JVM内存区域的划分，哪些区域可能发生OutOfMemoryError?](https://time.geekbang.org/column/article/10192)
-	* [jvm系列(二):JVM内存结构](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483949&idx=1&sn=8b69d833bbc805e63d5b2fa7c73655f5&chksm=ebf6da52dc815344add64af6fb78fee439c8c27b539b3c0e87d8f6861c8422144d516ae0a837&scene=21#wechat_redirect)
-
-		
 * **描述Java下的并发编程**
 	* 线程操作相关
 		* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html)（线程的生命周期 && Java中创建线程的方法）
@@ -191,6 +196,8 @@
 
 ## 数据结构与算法
 
+#### 排序相关
+
 * 给定一个无符号，包含10亿个数的数组，如何取出前100个数
 
 
@@ -203,13 +210,19 @@
 * Java自带的 sort() 方法是如何实现的
 
 
-* 实现一个二叉搜索树的迭代器，包括next()和hasNext()方法
-
-
 * 手写快排和复杂度分析
 
 
 * 手写堆排和复杂度分析
+
+
+#### 树相关
+
+* **二叉树的遍历**
+	* 通过引入一种新的数据结构形成通用解法（Node + 是否访问标识符）
+	* [二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)
+	* [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
+	* [二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)
 
 
 * 红黑树描述及其复杂度分析（插入/查找）
@@ -218,14 +231,22 @@
 * 非递归从左至右打印一颗二叉树中的所有路径
 
 
-* 描述01背包问题
-
-
 * 如何将一棵非平衡二叉树转化成平衡二叉树
 
 
-* 如何从一个字符串中找出最大不重复子串
+#### 字符串
 
+* 如何找出一个字符串中的最大不重复子串
+
+
+#### 动态规划
+
+* 描述01背包问题
+
+
+#### 其他
+
+* 实现一个二叉搜索树的迭代器，包括next()和hasNext()方法
 
 
 ## 数据库
@@ -281,6 +302,7 @@
 
 * 用Socket描述TCP的三次握手
 	*  
+
 
 * 描述HTTPS的加密过程
 
