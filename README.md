@@ -104,12 +104,19 @@
 		* 方法区（Method Area） --> 所有线程共享的一块内存区域，用于存储所谓的元（Meta）数据，如类结构信息，以及对应的运行时常量池、字段、方法代码等；
 		* 运行时常量池 --> 存放各种常量信息；
 		* 本地方法栈 --> 为虚拟机使用到的Native方法服务;
-		* [第25讲 | 谈谈JVM内存区域的划分，哪些区域可能发生OutOfMemoryError?](https://time.geekbang.org/column/article/10192)
-		* [jvm系列(二):JVM内存结构](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483949&idx=1&sn=8b69d833bbc805e63d5b2fa7c73655f5&chksm=ebf6da52dc815344add64af6fb78fee439c8c27b539b3c0e87d8f6861c8422144d516ae0a837&scene=21#wechat_redirect)
+	* [第25讲 | 谈谈JVM内存区域的划分，哪些区域可能发生OutOfMemoryError?](https://time.geekbang.org/column/article/10192)
+	* [jvm系列(二):JVM内存结构](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483949&idx=1&sn=8b69d833bbc805e63d5b2fa7c73655f5&chksm=ebf6da52dc815344add64af6fb78fee439c8c27b539b3c0e87d8f6861c8422144d516ae0a837&scene=21#wechat_redirect)
 
 		
-* 描述Java语境下的并发编程
-
+* **描述Java下的并发编程**
+	* 线程操作相关
+		* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html)（线程的生命周期 && Java中创建线程的方法）
+	* Sychronization
+		* 
+	* [面向面试的Java并发基础整理](http://pengcheng.tech/2019/03/24/%e9%9d%a2%e5%90%91%e9%9d%a2%e8%af%95%e7%9a%84java%e5%b9%b6%e5%8f%91%e5%9f%ba%e7%a1%80%e6%95%b4%e7%90%86/) （个人初步总结）
+	* [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
+	* [Java并发编程学习路线](https://zhuanlan.zhihu.com/p/25577863)（学习思路篇）
+	
 
 
 ## Python
@@ -136,7 +143,6 @@
 
 
 * 描述Python的迭代器和生成器
-
 
 
 ## 操作系统
@@ -175,6 +181,7 @@
 	* 因为长生命周期持有它的引用而导致不能被回收，这就是Java中内存泄漏的发生场景；
 	* [Java内存泄漏分析和解决](https://www.jianshu.com/p/54b5da7c6816)
 
+
 * **什么是系统调用**
 	* 指运行在用户空间的程序向操作系统内核请求需要更高权限运行的服务；
 	* linux内核中设置了一组用于实现系统功能的子程序，称为系统调用。系统调用和普通库函数调用非常相似，只是系统调用由操作系统核心提供，运行于**内核态**，而普通的函数调用由函数库或用户自己提供，运行于**用户态**；
@@ -193,7 +200,7 @@
 * 如何给一个很大的无序数组去重
 
 
-* Java中的 sort() 方法是如何实现的
+* Java自带的 sort() 方法是如何实现的
 
 
 * 实现一个二叉搜索树的迭代器，包括next()和hasNext()方法
@@ -264,7 +271,7 @@
 	* [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
 
 
-* **第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题** （阿里面试官问的，我觉得这个问题很好，但总感觉这个问题不是有点自相矛盾么...）
+* **第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题** （阿里面试官问的，我觉得这个问题很好，但总感觉不是有点自相矛盾么 Orz...）
 	* 区分快照和冗余
 	* [数据库设计冗余字段问题？](https://www.zhihu.com/question/50662784)
 	* [如何解释关系数据库的第一第二第三范式？](https://www.zhihu.com/question/24696366) 
@@ -273,7 +280,7 @@
 ## 计算机网络
 
 * 用Socket描述TCP的三次握手
-
+	*  
 
 * 描述HTTPS的加密过程
 
@@ -298,7 +305,7 @@
 
 ## 编程之美
 
-* 手写一个线程安全的单例模式
+* 实现一个线程安全的单例模式
 
 
 * 设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）
