@@ -8,6 +8,8 @@
 
 ## Java
 
+### Spring 相关
+
 * **描述Spring的IOC**
 	* IOC是一种思想，并非一个具体技术。
 	* 好处 --> 让你脱离对依赖对象的维护，只需要随用随取，不需要关心依赖对象的任何过程。
@@ -52,6 +54,7 @@
 	* 注解 --> 减少配置文件内容
 	* [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
 
+### 语法相关
 
 * **乐观锁与悲观锁的概念，常见实现**
 	* 乐观锁适用于**多读**的应用类型，这样可以提高吞吐量 / 悲观锁适合于**多写**
@@ -78,8 +81,17 @@
 	* 4. 子类中普通成员变量和代码块，子类的构造函数
 	* (其中“和”字两端的按照代码先后顺序执行。)
 	* [java中父类和子类初始化顺序](https://blog.csdn.net/yuxin6866/article/details/53107578) 
+
+
+* **什么是反射以及反射有什么具体应用**
+	* Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制；
+	* “框架设计的灵魂” --> 如：Spring 通过 XML 配置模式装载 Bean 的过程；
+	* [什么是反射机制？反射机制的应用场景有哪些？](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/MostCommonJavaInterviewQuestions/%E7%AC%AC%E4%BA%8C%E5%91%A8(2018-8-13).md#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%9C%89%E5%93%AA%E4%BA%9B)
+
+	
+### 集合框架
 		
-* **HashMap和TreeMap的区别**
+* **HashMap 和 TreeMap 的区别**
 	* HashMap通过hashcode对其内容进行快速查找，而 TreeMap中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap（HashMap中元素的排列顺序是不固定的）；
 	* HashMap 允许使用 null 值和 null 键，而 TreeMap 不可以；
 	* 实现:
@@ -97,11 +109,17 @@
 	* [HashMap 简介](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md)
 
 
-* **什么是反射以及反射有什么具体应用**
-	* Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制；
-	* “框架设计的灵魂” --> 如：Spring 通过 XML 配置模式装载 Bean 的过程；
-	* [什么是反射机制？反射机制的应用场景有哪些？](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/MostCommonJavaInterviewQuestions/%E7%AC%AC%E4%BA%8C%E5%91%A8(2018-8-13).md#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%9C%89%E5%93%AA%E4%BA%9B)
+* **HashSet 如何判断重复元素**
+	* 首先会调用Object的hashCode方法判hashCode是否已经存在，如不存在则直接插入元素； 
+	* 如果已存在则调用Object对象的equals方法判断是否返回true， 如果为true则说明元素已经存在，如为false则插入元素。 
+	* Java对象的eqauls方法和hashCode方法是这样规定的：
+		* 1、相等（相同）的对象必须具有相等的哈希码（或者散列码）。
+		* 2、如果两个对象的hashCode相同，它们并不一定相同。
+	* [HashSet重复元素判断](https://itfafa.iteye.com/blog/1698690) 
+	* [Java提高篇——equals()与hashCode()方法详解](https://www.cnblogs.com/Qian123/p/5703507.html)
 
+
+### Java内存模型相关
 	
 * **描述Java内存模型**
 	* JVM内存区域划分
@@ -127,18 +145,29 @@
 	* [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
 
 	
+### 并发
+
 * **描述Java下的并发编程**
 	* 线程操作相关
-		* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html)（线程的生命周期 && Java中创建线程的方法）
-	* Sychronization
-		* s
-	* 线程安全
-		* [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
-	* [面向面试的Java并发基础整理](http://pengcheng.tech/2019/03/24/%e9%9d%a2%e5%90%91%e9%9d%a2%e8%af%95%e7%9a%84java%e5%b9%b6%e5%8f%91%e5%9f%ba%e7%a1%80%e6%95%b4%e7%90%86/) （个人初步总结）
+	* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html)（线程的生命周期 && Java中创建线程的方法）
 
-	* [Java并发编程学习路线](https://zhuanlan.zhihu.com/p/25577863)（学习思路篇）
-	* []()
+		
+* **什么是线程安全**
+	* [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
+
+
+* **join() 方法有什么用**
+	* Thread.join把指定的线程加入到当前线程，可以将两个交替执行的线程合并为顺序执行的线程。比如在线程B中调用了线程A的Join()方法，直到线程A执行完毕后，才会继续执行线程B；
+	* [Java多线程中join方法的理解](https://uule.iteye.com/blog/1101994)
+	* [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html) 
 	
+	
+* **sychronized关键字**
+	* [Java线程同步：synchronized锁住的是代码还是对象](https://blog.csdn.net/xiao__gui/article/details/8188833) 
+
+		
+* [面向面试的Java并发基础整理](http://pengcheng.tech/2019/03/24/%e9%9d%a2%e5%90%91%e9%9d%a2%e8%af%95%e7%9a%84java%e5%b9%b6%e5%8f%91%e5%9f%ba%e7%a1%80%e6%95%b4%e7%90%86/) （个人初步总结）
+* [Java并发编程学习路线](https://zhuanlan.zhihu.com/p/25577863)（学习思路篇）
 
 
 ## Python
@@ -153,10 +182,11 @@
 	* 匿名函数，个人理解为一种语法糖
 	* [Lambda 表达式有何用处？如何使用？](https://www.zhihu.com/question/20125256)
 
+
 * Python如何实现真正的多线程
 
 
-* 一段Python代码，有哪些优化策略
+* 给一段Python代码，有哪些优化思路和策略
 
 
 * 如何写一个程序计算一段Python代码的耗时
@@ -197,6 +227,8 @@
 	
 
 * **用一门编程语言（如Java）实现一个死锁**
+	* [死锁 Wiki](https://zh.wikipedia.org/wiki/%E6%AD%BB%E9%94%81)
+	* [第18讲 | 什么情况下Java程序会产生死锁？如何定位、修复？](https://time.geekbang.org/column/article/9266)
 	* [JAVA实现的一个简单的死锁（附解释）](https://blog.csdn.net/zll793027848/article/details/8670546) 
 
 
@@ -212,7 +244,7 @@
 	* [Linux系统调用详解（实现机制分析）--linux内核剖析（六）](https://blog.csdn.net/gatieme/article/details/50779184)
 
 
-## 数据结构与算法
+## 数据结构和算法
 
 ### 排序相关
 
@@ -276,7 +308,7 @@
 
 ## 数据库
 
-### 理论
+### 基本理论
 
 * **描述事务隔离的级别**
 	* Serializable【可避免脏读，不可重复读，虚读】
@@ -295,7 +327,7 @@
 
 * **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引**
 	* 索引 --> 一种数据结构
-	* B+树做索引：
+	* B+ 树做索引：
 		* AVL, 红黑树等二叉树，其查找过程中要进行许多次的磁盘读取操作，非常耗时；
 		* B树
 			* B+树的层级更少：相较于B树B+每个非叶子节点存储的关键字数更多，树的层级更少所以查询数据更快；
