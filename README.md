@@ -2,7 +2,7 @@
 
 ## 概述
 
-本代码仓用于记录个人平时面试和学习时碰到的一些有价值问题，所有问题均为我真实碰到过且思考过，一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（未贴答案为还没来得及弄 Orz...），欢迎指正。
+本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过，一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（未贴答案为还没来得及弄 Orz...），欢迎指正。
 
 希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结（标题只是唬人的~~），欢迎Star，可配合同目录下 KnowledgeStructure 同步使用，供所有正在找工作的小伙伴们参考（500只是一个数，切莫抬杠）。
 
@@ -22,9 +22,10 @@
 
 * **描述Spring的AOP**
 	* AOP的理念 --> 就是将分散在各个业务逻辑代码中 相同的代码 通过 **横向切割** 的方式抽取到一个独立的模块中（模块化）。
-	* Spring AOP 原理 --> 动态代理
-	* 好处 --> 显示地声明在何处如何应用该行为，有效减少代码冗余，让类更加关注自身主要功能
-	* @Aspect --> 注解来声明通知方法
+	* Spring AOP 实现 --> 动态代理
+		* 好处 --> 显示地声明在何处如何应用该行为，有效减少代码冗余，让类更加关注自身主要功能
+		* @Aspect --> 注解来声明通知方法
+	* [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821)（还没看）
 	* 《Spring实战（第四版）》
 	* [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)
 
@@ -64,6 +65,19 @@
 	* StringBuffer --> 线程安全 / StringBuilder --> 非线程安全
 	* [第5讲 | String、StringBuffer、StringBuilder有什么区别？](https://time.geekbang.org/column/article/7349)
 
+
+* **什么是序列化（Serialization）和反序列化**
+	* 对象序列化机制（object serialization）是java语言内建的一种对象持久化方式，通过对象序列化，可以将对象的状态信息保存未字节数组，并且可以在有需要的时候将这个字节数组通过反序列化的方式转换成对象，对象的序列化可以很容易的在JVM中的活动对象和字节数组（流）之间进行转换。
+	* [Java对象的序列化（Serialization）和反序列化详解](https://blog.csdn.net/yaomingyang/article/details/79321939)
+
+	
+* **Java中父类和子类初始化顺序**
+	* 1. 父类中静态成员变量和静态代码块
+	* 2. 子类中静态成员变量和静态代码块
+	* 3. 父类中普通成员变量和代码块，父类的构造函数
+	* 4. 子类中普通成员变量和代码块，子类的构造函数
+	* (其中“和”字两端的按照代码先后顺序执行。)
+	* [java中父类和子类初始化顺序](https://blog.csdn.net/yuxin6866/article/details/53107578) 
 		
 * **HashMap和TreeMap的区别**
 	* HashMap通过hashcode对其内容进行快速查找，而 TreeMap中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap（HashMap中元素的排列顺序是不固定的）；
@@ -93,7 +107,7 @@
 	* JVM内存区域划分
 		* 程序计数器 --> 它的作用可以看做是当前线程所执行的字节码的行号指示器;
 		* Java 虚拟机栈 --> 保存一个个栈帧（Stack Frame），对应着一次次的Java方法调用；
-		* 堆 --> 几乎所有的**对象实例**都在这里分配内存;
+		* 堆 --> 几乎所有的 **对象实例** 都在这里分配内存;
 		* 方法区（Method Area） --> 所有线程共享的一块内存区域，用于存储所谓的元（Meta）数据，如类结构信息，以及对应的运行时常量池、字段、方法代码等；
 		* 运行时常量池 --> 存放各种常量信息；
 		* 本地方法栈 --> 为虚拟机使用到的Native方法服务;
@@ -117,10 +131,13 @@
 	* 线程操作相关
 		* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html)（线程的生命周期 && Java中创建线程的方法）
 	* Sychronization
-		* 
+		* s
+	* 线程安全
+		* [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
 	* [面向面试的Java并发基础整理](http://pengcheng.tech/2019/03/24/%e9%9d%a2%e5%90%91%e9%9d%a2%e8%af%95%e7%9a%84java%e5%b9%b6%e5%8f%91%e5%9f%ba%e7%a1%80%e6%95%b4%e7%90%86/) （个人初步总结）
-	* [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
+
 	* [Java并发编程学习路线](https://zhuanlan.zhihu.com/p/25577863)（学习思路篇）
+	* []()
 	
 
 
@@ -130,6 +147,7 @@
 	* [map/reduce](https://www.liaoxuefeng.com/wiki/1016959663602400/1017329367486080)
 	* map --> 将传入函数依次作用于序列中的每个元素，并把结果作为新的Iterator返回;
 	* reduce --> 累积计算, 求和 ```reduce(lambda x, y : x + y, [1,2,3,4,5])```.
+
 
 * **实现一个lambda表达式**
 	* 匿名函数，个人理解为一种语法糖
@@ -216,13 +234,20 @@
 * 手写堆排和复杂度分析
 
 
-### 树相关
+### 树/链表相关
 
 * **二叉树的遍历**
 	* 通过引入一种新的数据结构形成通用解法（Node + 是否访问标识符）
+	* 用一个队列添加/删除节点
+	* 用一个list存储节点
 	* [二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)
 	* [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
 	* [二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)
+
+	
+* **求二叉树的深度（非递归实现）**
+	* 引入一个队列，逐层遍历
+	* [二叉树的深度（递归和非递归）---java实现](https://blog.csdn.net/snow_7/article/details/51818580)
 
 
 * 红黑树描述及其复杂度分析（插入/查找）
@@ -251,20 +276,14 @@
 
 ## 数据库
 
+### 理论
+
 * **描述事务隔离的级别**
 	* Serializable【可避免脏读，不可重复读，虚读】
 	* Repeatable read【可避免脏读，不可重复读】
 	* Read committed【可避免脏读】
 	* Read uncommitted【级别最低，什么都避免不了】
 	* [数据库事务隔离级别-- 脏读、幻读、不可重复读（清晰解释）](https://blog.csdn.net/jiesa/article/details/51317164)
-
-
-* **各种join操作的区别（left, right, inner join）**
-	* [mysql join操作](https://www.cnblogs.com/ggjucheng/archive/2012/11/06/2757972.html)
-
-	
-* **找出在表A中但不在表B中的记录（根据某一个共同的column）**
-	* [查询A、B表中，A表中B表没有的数据](https://blog.csdn.net/long636/article/details/51733273)（三种方法）
 
 
 * **delete、 drop、truncate 的区别**
@@ -297,6 +316,17 @@
 	* [数据库设计冗余字段问题？](https://www.zhihu.com/question/50662784)
 	* [如何解释关系数据库的第一第二第三范式？](https://www.zhihu.com/question/24696366) 
 
+
+### SQL语句相关
+
+* **各种join操作的区别（left, right, inner join）**
+	* [mysql join操作](https://www.cnblogs.com/ggjucheng/archive/2012/11/06/2757972.html)
+
+	
+* **找出在表A中但不在表B中的记录（根据某一个共同的column）**
+	* [查询A、B表中，A表中B表没有的数据](https://blog.csdn.net/long636/article/details/51733273)（三种方法）
+
+	 
 
 ## 计算机网络
 
@@ -341,3 +371,9 @@
 
 * git fetch 和 git pull 有什么区别
 
+
+* 描述 git 中的 cherry-pick 指令
+
+* **如何设计一个秒杀系统**
+	* [Java开发面试：高并发秒杀系统如何设计与优化](https://blog.csdn.net/CSDN_Terence/article/details/77744042)
+	* [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
