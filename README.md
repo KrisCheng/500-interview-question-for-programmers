@@ -199,7 +199,7 @@
 * Python如何实现真正的多线程（阿里/腾讯）
 
 
-* 给一段Python代码，有哪些优化思路和策略
+* 给一段Python代码，有哪些优化思路和策略（阿里）
 
 
 * 如何写一个程序计算一段Python代码的耗时（腾讯）
@@ -305,7 +305,7 @@
 	* [二叉树的深度（递归和非递归）---java实现](https://blog.csdn.net/snow_7/article/details/51818580)
 
 
-* **红黑树描述及其复杂度分析（插入/查找）（腾讯）**
+* **红黑树描述及其复杂度分析（插入/查找）（腾讯/阿里）**
 	* [红黑树 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91) 
 
 
@@ -313,7 +313,7 @@
 	* [257. 二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/) 
 
 
-* 如何将一棵非平衡二叉树转化成平衡二叉树（某数据公司）
+* 如何将一棵非平衡二叉树转化成平衡二叉树（HyperS）
 
 
 * **反转链表（小红书/腾讯）**
@@ -322,14 +322,15 @@
 
 ### 字符串
 
-* **如何找出一个字符串中的最大不重复子串**
+* **如何找出一个字符串中的最大不重复子串（蜻蜓FM）**
 	* [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
 
 
 ### 动态规划
 
-* **描述背包问题（某数据公司）**
+* **描述背包问题（HyperS）**
 	* [背包问题 Wiki](https://zh.wikipedia.org/wiki/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98) 
+
 
 ### 其他
 
@@ -427,16 +428,21 @@
 
 ## Linux相关
 
-* 常见的Linux指令
+### 常见Linux指令 *（TODO）*
+
+* top，load，free中（cached和buffers的区别）（阿里）
+* 找出某目录下文件中带电子邮箱的文件（爱奇艺）
+* 
 
 
 ## 编程之美
 
-* 实现一个线程安全的单例模式
+* **实现一个线程安全的单例模式**
+	* [高并发下线程安全的单例模式（最全最经典）](https://blog.csdn.net/cselmu9/article/details/51366946) *（TODO）*
 
 
-* 设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）（PayPal）
-
+* **设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）（PayPal）**
+	* [工厂模式](https://www.runoob.com/design-pattern/factory-pattern.html)
 
 
 ## 其他
