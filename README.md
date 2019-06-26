@@ -400,24 +400,29 @@
 
 ## 计算机网络
 
-* 三次握手（阿里）和用Socket描述TCP的三次握手（腾讯）
-	*  
+* **三次握手（阿里）和用Socket描述TCP的三次握手（腾讯）**
+	* [TCP协议中的三次握手和四次挥手(图解)](https://blog.csdn.net/whuslei/article/details/6667471)
+	* [Socket过程详细解释（包括三次握手建立连接，四次握手断开连接）](https://blog.csdn.net/u013782203/article/details/51767763)*（TODO）*
 
 
-* 描述HTTPS的加密过程（头条）
+* **描述HTTPS的加密过程（头条）**
+	* [HTTPS加密过程和TLS证书验证](https://juejin.im/post/5a4f4884518825732b19a3ce)*（TODO）*
 
 
 * HTTP代理的实现（阿里）
 
 
-* 网络间的进程如何表示（腾讯）
+* **网络间的进程如何表示（腾讯）**
+	* [网络中进程之间如何通信](https://blog.csdn.net/bajiudongfeng/article/details/51568874) *（TODO）*
 
 
-* 从客户端发送请求，该请求是如何传到服务端的（爱奇艺）
+* **从客户端发送请求，该请求是如何传到服务端的（爱奇艺）**
+	* [浏览器输入 URL 后发生了什么？](https://zhuanlan.zhihu.com/p/43369093)*（TODO）*
+	* [在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？](https://www.zhihu.com/question/34873227)*（TODO）*
 
 
-* TCP和UDP的区别
-
+* **TCP和UDP的区别**
+	* [TCP和UDP的区别](https://zhuanlan.zhihu.com/p/24860273) *（TODO）*
 
 
 ## Linux相关
@@ -436,15 +441,17 @@
 
 ## 其他
 
-* git rebase 和 git merge 有什么区别（小红书/野村证券/PayPal）
+* **git rebase 和 git merge 有什么区别（小红书/野村证券/PayPal）**
+	* [git rebase 和 git merge 的区别](https://www.jianshu.com/p/f23f72251abc)*（TODO）*
+ 
 
-
-* git fetch 和 git pull 有什么区别（PayPal）
+* **git fetch 和 git pull 有什么区别（PayPal）**
+	* [详解git fetch与git pull的区别](https://blog.csdn.net/riddle1981/article/details/74938111) *（TODO）*
 
 
 * 描述 git 中的 cherry-pick 指令（小红书）
 
 
-* **如何设计一个秒杀系统（小红书）**
+* **如何设计一个秒杀系统（小红书）** *（TODO）*
 	* [Java开发面试：高并发秒杀系统如何设计与优化](https://blog.csdn.net/CSDN_Terence/article/details/77744042)
 	* [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
