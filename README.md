@@ -23,7 +23,7 @@
 	* [【第二章】 IoC 之 2.1 IoC基础 ——跟我学Spring3](https://jinnianshilongnian.iteye.com/blog/1413846)
 
 
-* **描述Spring的AOP**
+* **描述Spring的AOP（小红书）**
 	* AOP的理念 --> 就是将分散在各个业务逻辑代码中 相同的代码 通过 **横向切割** 的方式抽取到一个独立的模块中（模块化）。
 	* 好处 --> 显示地声明在何处如何应用该行为，有效减少代码冗余，让类更加关注自身主要功能。
 	* 基本概念：
@@ -60,7 +60,7 @@
 	* [Java持久化API Wiki](https://zh.wikipedia.org/wiki/Java%E6%8C%81%E4%B9%85%E5%8C%96API)
 
 
-* **什么是Spring注解，以及Spring中有哪些常用的注解**
+* **什么是Spring注解，以及Spring中有哪些常用的注解（阿里）**
 	* 注解 --> 减少配置文件内容
 	* [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解， 注解 --> 标签）
 	* [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
@@ -68,7 +68,7 @@
 
 ### Java语法相关
 
-* **乐观锁与悲观锁的概念，常见实现**
+* **乐观锁与悲观锁的概念，常见实现（阿里）**
 	* 乐观锁适用于**多读**的应用类型，这样可以提高吞吐量 / 悲观锁适合于**多写**
 	* 乐观锁 --> 常见实现：CAS算法
 		* CAS 算法缺点：
@@ -81,12 +81,12 @@
 	* [第5讲 | String、StringBuffer、StringBuilder有什么区别？](https://time.geekbang.org/column/article/7349)
 
 
-* **什么是序列化（Serialization）和反序列化**
+* **什么是序列化（Serialization）和反序列化（小红书）**
 	* 对象序列化机制（object serialization）是java语言内建的一种对象持久化方式，通过对象序列化，可以将对象的状态信息保存未字节数组，并且可以在有需要的时候将这个字节数组通过反序列化的方式转换成对象，对象的序列化可以很容易的在JVM中的活动对象和字节数组（流）之间进行转换。
 	* [Java对象的序列化（Serialization）和反序列化详解](https://blog.csdn.net/yaomingyang/article/details/79321939)
 
 	
-* **Java中父类和子类初始化顺序**
+* **Java中父类和子类初始化顺序（小红书）**
 	* 优先级：
 		* 1. 父类中静态成员变量和静态代码块
 		* 2. 子类中静态成员变量和静态代码块
@@ -104,7 +104,7 @@
 	
 ### 集合框架
 		
-* **HashMap 和 TreeMap 的区别**
+* **HashMap 和 TreeMap 的区别（PayPal）**
 	* HashMap通过hashcode对其内容进行快速查找，而 TreeMap中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap（HashMap中元素的排列顺序是不固定的）；
 	* HashMap 允许使用 null 值和 null 键，而 TreeMap 不可以；
 	* 实现:
@@ -122,7 +122,7 @@
 	* [HashMap 简介](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md)
 
 
-* **HashSet 如何判断重复元素**
+* **HashSet 如何判断重复元素（小红书）**
 	* 首先会调用Object的hashCode方法判hashCode是否已经存在，如不存在则直接插入元素； 
 	* 如果已存在则调用Object对象的equals方法判断是否返回true， 如果为true则说明元素已经存在，如为false则插入元素。 
 	* Java对象的eqauls方法和hashCode方法是这样规定的：
@@ -134,7 +134,7 @@
 
 ### Java内存模型相关
 	
-* **描述Java内存模型**
+* **描述Java内存模型（阿里）**
 	* JVM内存区域划分
 		* 程序计数器 --> 它的作用可以看做是当前线程所执行的字节码的行号指示器;
 		* Java 虚拟机栈 --> 保存一个个栈帧（Stack Frame），对应着一次次的Java方法调用；
@@ -146,7 +146,7 @@
 	* [jvm系列(二):JVM内存结构](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483949&idx=1&sn=8b69d833bbc805e63d5b2fa7c73655f5&chksm=ebf6da52dc815344add64af6fb78fee439c8c27b539b3c0e87d8f6861c8422144d516ae0a837&scene=21#wechat_redirect)
 
 
-* **描述Java的GC过程**
+* **描述Java的GC过程（DaoCloud）**
 	* 对象是否存活
 		* 引用计数
 		* 可达性分析 --> GC Roots
@@ -160,7 +160,7 @@
 	
 ### 并发
 
-* **描述Java下的并发编程**
+* **描述Java下的并发编程（阿里）**
 	* 线程操作相关
 	* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html)（线程的生命周期 && Java中创建线程的方法）
 
@@ -185,30 +185,30 @@
 
 ## Python
 
-* **用map/reduce实现数组求和**
+* **用map/reduce实现数组求和（PayPal）**
 	* [map/reduce](https://www.liaoxuefeng.com/wiki/1016959663602400/1017329367486080)
 	* map --> 将传入函数依次作用于序列中的每个元素，并把结果作为新的Iterator返回;
 	* reduce --> 累积计算, 求和 ```reduce(lambda x, y : x + y, [1,2,3,4,5])```.
 
 
-* **实现一个lambda表达式**
+* **实现一个lambda表达式（头条）**
 	* 匿名函数，个人理解为一种语法糖
 	* [Lambda 表达式有何用处？如何使用？](https://www.zhihu.com/question/20125256)
 
 
-* Python如何实现真正的多线程
+* Python如何实现真正的多线程（阿里/腾讯）
 
 
 * 给一段Python代码，有哪些优化思路和策略
 
 
-* 如何写一个程序计算一段Python代码的耗时
+* 如何写一个程序计算一段Python代码的耗时（腾讯）
 
 
-* Python爬虫中存在环引用该如何处理
+* Python爬虫中存在环引用该如何处理（阿里）
 
 
-* 描述Python的迭代器和生成器
+* 描述Python的迭代器和生成器（DaoCloud）
 
 
 ## 操作系统
@@ -225,12 +225,12 @@
 	* [进程 Wiki](https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B)
 
 	
-* **Java中如何使用线程池**
+* **Java中如何使用线程池（阿里）**
 	* [Java并发编程：线程池的使用](https://www.cnblogs.com/dolphin0520/p/3932921.html)
 	* [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)
 
 
-* **描述操作系统的启动过程**
+* **描述操作系统的启动过程（头条）**
 	* 步骤 
 		* BIOS
 		* 主引导记录（Master boot record）
@@ -239,18 +239,18 @@
 	* [计算机是如何启动的？](http://www.ruanyifeng.com/blog/2013/02/booting.html) 
 	
 
-* **用一门编程语言（如Java）实现一个死锁**
+* **用一门编程语言（如Java）实现一个死锁（PayPal）**
 	* [死锁 Wiki](https://zh.wikipedia.org/wiki/%E6%AD%BB%E9%94%81)
 	* [第18讲 | 什么情况下Java程序会产生死锁？如何定位、修复？](https://time.geekbang.org/column/article/9266)
 	* [JAVA实现的一个简单的死锁（附解释）](https://blog.csdn.net/zll793027848/article/details/8670546) 
 
 
-* **如何判断内存泄漏**
+* **如何判断内存泄漏（腾讯）**
 	* 因为长生命周期持有它的引用而导致不能被回收，这就是Java中内存泄漏的发生场景；
 	* [Java内存泄漏分析和解决](https://www.jianshu.com/p/54b5da7c6816)
 
 
-* **什么是系统调用**
+* **什么是系统调用（爱奇艺）**
 	* 指运行在用户空间的程序向操作系统内核请求需要更高权限运行的服务；
 	* linux内核中设置了一组用于实现系统功能的子程序，称为系统调用。系统调用和普通库函数调用非常相似，只是系统调用由操作系统核心提供，运行于**内核态**，而普通的函数调用由函数库或用户自己提供，运行于**用户态**；
 	* [系统调用 Wiki](https://zh.wikipedia.org/wiki/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8)
@@ -261,24 +261,32 @@
 
 ### 排序相关
 
-* **给定一个无符号，包含10亿个数的数组，如何取出前100大个数**
-	* 
-	* [海量数据处理 - 10亿个数中找出最大的10000个数（top K问题）](https://blog.csdn.net/zyq522376829/article/details/47686867) 
+* **给定一个无符号，包含10亿个数的数组，如何取出前100大个数（头条/腾讯）**
+	* 参考 --> 建立最小堆
+	* [海量数据处理 - 10亿个数中找出最大的10000个数（top K问题）](https://blog.csdn.net/zyq522376829/article/details/47686867) （思路篇）
 
 
-* 如何找到一个无序数组的中位数
+* **如何找到一个无序数组的中位数**
+	* 快排 or 堆排思想
+	* [找出一个无序数组的中位数](https://blog.csdn.net/oneday_789/article/details/76681764) 
 
 
-* 如何给一个很大的无序数组去重
+* **如何给一个很大的无序数组去重（腾讯）**
+	* 排序+扫描一遍去重
+	* [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 
 
-* Java自带的 sort() 方法是如何实现的
+* **Java自带的 sort() 方法是如何实现的（阿里）**
+	* 双轴快速排序
+	* [Collections.sort()和Arrays.sort()排序算法选择](https://blog.csdn.net/TimHeath/article/details/68930482)
 
 
-* 手写快排和复杂度分析
+* **手写快排和复杂度分析（腾讯/爱奇艺）**
+	* [快排 Wiki](https://zh.wikipedia.org/zh/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F)
 
 
-* 手写堆排和复杂度分析
+* **手写堆排和复杂度分析**
+	* [堆排 Wiki](https://zh.wikipedia.org/wiki/%E5%A0%86%E6%8E%92%E5%BA%8F)
 
 
 ### 树/链表相关
@@ -292,40 +300,55 @@
 	* [二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)
 
 	
-* **求二叉树的深度（非递归实现）**
+* **非递归实现求二叉树的深度（小红书）**
 	* 引入一个队列，逐层遍历
 	* [二叉树的深度（递归和非递归）---java实现](https://blog.csdn.net/snow_7/article/details/51818580)
 
 
-* 红黑树描述及其复杂度分析（插入/查找）
+* **红黑树描述及其复杂度分析（插入/查找）（腾讯）**
+	* [红黑树 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91) 
 
 
-* 非递归从左至右打印一颗二叉树中的所有路径
+* **非递归从左至右打印一颗二叉树中的所有路径（拼多多）**
+	* [257. 二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/) 
 
 
-* 如何将一棵非平衡二叉树转化成平衡二叉树
+* 如何将一棵非平衡二叉树转化成平衡二叉树（某数据公司）
+
+
+* **反转链表（小红书/腾讯） **
+	* [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) 
 
 
 ### 字符串
 
-* 如何找出一个字符串中的最大不重复子串
+* **如何找出一个字符串中的最大不重复子串**
+	* [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
 
 
 ### 动态规划
 
-* 描述01背包问题
-
+* **描述背包问题（某数据公司）**
+	* [背包问题 Wiki](https://zh.wikipedia.org/wiki/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98) 
 
 ### 其他
 
-* 实现一个二叉搜索树的迭代器，包括next()和hasNext()方法
+* 实现一个二叉搜索树的迭代器，包括next()和hasNext()方法（PayPal）
+
+
+* **买卖股票的最佳时机（野村证券/头条）**
+	* [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 
+
+
+* **斐波那契数列的尾递归实现（Wish）**
+	* [递归与尾递归总结](https://www.cnblogs.com/Anker/archive/2013/03/04/2943498.html) 
 
 
 ## 数据库
 
-### 基本理论
+### 理论
 
-* **描述事务隔离的级别**
+* **描述事务隔离的级别（野村证券）**
 	* Serializable【可避免脏读，不可重复读，虚读】
 	* Repeatable read【可避免脏读，不可重复读】
 	* Read committed【可避免脏读】
@@ -333,14 +356,14 @@
 	* [数据库事务隔离级别-- 脏读、幻读、不可重复读（清晰解释）](https://blog.csdn.net/jiesa/article/details/51317164)
 
 
-* **delete、 drop、truncate 的区别**
+* **delete、 drop、truncate 的区别（PayPal）**
 	* drop 直接删掉表（不再需要一张表的时候，用drop）；
 	* truncate 删除的是表中的数据，再插入数据时自增长的数据id又重新从1开始（保留表而删除所有数据的时候用truncate）；
 	* delete 删除表中数据，可以在后面添加where字句（想删除部分数据行时候，用delete，并且带上where子句）。 
 	* [SQL truncate 、delete与drop区别](https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html)
 
 
-* **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引**
+* **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（头条）**
 	* 索引 --> 一种数据结构
 	* B+ 树做索引：
 		* AVL, 红黑树等二叉树，其查找过程中要进行许多次的磁盘读取操作，非常耗时；
@@ -354,11 +377,11 @@
 	* [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
 
 
-* **对于海量数据，如何提高查询效率（数据库优化策略）**
+* **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）**
 	* [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
 
 
-* **第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题** （阿里面试官问的，我觉得这个问题很好，但总感觉不是有点自相矛盾么 Orz...）
+* **第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题（阿里）**
 	* 区分快照和冗余
 	* [数据库设计冗余字段问题？](https://www.zhihu.com/question/50662784)
 	* [如何解释关系数据库的第一第二第三范式？](https://www.zhihu.com/question/24696366) 
@@ -370,27 +393,27 @@
 	* [mysql join操作](https://www.cnblogs.com/ggjucheng/archive/2012/11/06/2757972.html)
 
 	
-* **找出在表A中但不在表B中的记录（根据某一个共同的column）**
+* **找出在表A中但不在表B中的记录（根据某一个共同的column）（PayPal）**
 	* [查询A、B表中，A表中B表没有的数据](https://blog.csdn.net/long636/article/details/51733273)（三种方法）
 
 	 
 
 ## 计算机网络
 
-* 用Socket描述TCP的三次握手
+* 三次握手（阿里）和用Socket描述TCP的三次握手（腾讯）
 	*  
 
 
-* 描述HTTPS的加密过程
+* 描述HTTPS的加密过程（头条）
 
 
-* HTTP代理的实现
+* HTTP代理的实现（阿里）
 
 
-* 网络间的进程如何表示
+* 网络间的进程如何表示（腾讯）
 
 
-* 从客户端发送请求，该请求是如何传到服务端的
+* 从客户端发送请求，该请求是如何传到服务端的（爱奇艺）
 
 
 * TCP和UDP的区别
@@ -407,20 +430,21 @@
 * 实现一个线程安全的单例模式
 
 
-* 设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）
+* 设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）（PayPal）
 
 
 
 ## 其他
 
-* git rebase 和 git merge 有什么区别
+* git rebase 和 git merge 有什么区别（小红书/野村证券/PayPal）
 
 
-* git fetch 和 git pull 有什么区别
+* git fetch 和 git pull 有什么区别（PayPal）
 
 
-* 描述 git 中的 cherry-pick 指令
+* 描述 git 中的 cherry-pick 指令（小红书）
 
-* **如何设计一个秒杀系统**
+
+* **如何设计一个秒杀系统（小红书）**
 	* [Java开发面试：高并发秒杀系统如何设计与优化](https://blog.csdn.net/CSDN_Terence/article/details/77744042)
 	* [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
