@@ -68,7 +68,7 @@
 
 ### Java语法相关
 
-* **乐观锁与悲观锁的概念，常见实现（阿里）**
+* **乐观锁与悲观锁的概念，常见实现（阿里）** *TODO*
 	* 乐观锁适用于**多读**的应用类型，这样可以提高吞吐量 / 悲观锁适合于**多写**
 	* 乐观锁 --> 常见实现：CAS算法
 		* CAS 算法缺点：
@@ -81,7 +81,7 @@
 	* [第5讲 | String、StringBuffer、StringBuilder有什么区别？](https://time.geekbang.org/column/article/7349)
 
 
-* **什么是序列化（Serialization）和反序列化（小红书）**
+* **什么是序列化（Serialization）和反序列化（小红书）** *TODO*
 	* 对象序列化机制（object serialization）是java语言内建的一种对象持久化方式，通过对象序列化，可以将对象的状态信息保存未字节数组，并且可以在有需要的时候将这个字节数组通过反序列化的方式转换成对象，对象的序列化可以很容易的在JVM中的活动对象和字节数组（流）之间进行转换。
 	* [Java对象的序列化（Serialization）和反序列化详解](https://blog.csdn.net/yaomingyang/article/details/79321939)
 
@@ -158,7 +158,7 @@
 	* [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
 
 	
-### 并发
+### 并发*（TODO）*
 
 * **描述Java下的并发编程（阿里）**
 	* 线程操作相关
@@ -196,7 +196,8 @@
 	* [Lambda 表达式有何用处？如何使用？](https://www.zhihu.com/question/20125256)
 
 
-* Python如何实现真正的多线程（阿里/腾讯）
+* **Python如何实现真正的多线程（阿里/腾讯）** *TODO*
+	* [Python 多线程](https://www.runoob.com/python/python-multithreading.html) 
 
 
 * 给一段Python代码，有哪些优化思路和策略（阿里）
@@ -208,7 +209,8 @@
 * Python爬虫中存在环引用该如何处理（阿里）
 
 
-* 描述Python的迭代器和生成器（DaoCloud）
+* **描述Python的迭代器和生成器（DaoCloud）** *TODO*
+	* [Python3 迭代器与生成器](https://www.runoob.com/python3/python3-iterator-generator.html)
 
 
 ## 操作系统
@@ -225,7 +227,7 @@
 	* [进程 Wiki](https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B)
 
 	
-* **Java中如何使用线程池（阿里）**
+* **Java中如何使用线程池（阿里）** *TODO*
 	* [Java并发编程：线程池的使用](https://www.cnblogs.com/dolphin0520/p/3932921.html)
 	* [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)
 
@@ -239,7 +241,7 @@
 	* [计算机是如何启动的？](http://www.ruanyifeng.com/blog/2013/02/booting.html) 
 	
 
-* **用一门编程语言（如Java）实现一个死锁（PayPal）**
+* **用一门编程语言（如Java）实现一个死锁（PayPal）** *TODO*
 	* [死锁 Wiki](https://zh.wikipedia.org/wiki/%E6%AD%BB%E9%94%81)
 	* [第18讲 | 什么情况下Java程序会产生死锁？如何定位、修复？](https://time.geekbang.org/column/article/9266)
 	* [JAVA实现的一个简单的死锁（附解释）](https://blog.csdn.net/zll793027848/article/details/8670546) 
@@ -436,6 +438,8 @@
 
 
 ## 编程之美
+
+### 设计模式
 
 * **实现一个线程安全的单例模式**
 	* [高并发下线程安全的单例模式（最全最经典）](https://blog.csdn.net/cselmu9/article/details/51366946) *（TODO）*
