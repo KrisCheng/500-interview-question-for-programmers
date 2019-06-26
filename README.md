@@ -10,8 +10,8 @@
 
 ### Spring 相关
 
-* **描述Spring的IOC**
-	* IOC是一种思想，并非一个具体技术。
+* **描述Spring的IoC**
+	* IoC是一种思想，并非一个具体技术。
 	* 好处 --> 让你脱离对依赖对象的维护，只需要随用随取，不需要关心依赖对象的任何过程。
 	* “反转” --> 由容器来帮忙创建及注入依赖对象。
 	* 实现 --> 依赖注入
@@ -20,18 +20,32 @@
 		* 谁注入谁：很明显是IoC容器注入应用程序某个对象，应用程序依赖的对象；
 		* 注入了什么：就是注入某个对象所需要的外部资源（包括对象、资源、常量数据）。
 	* [IoC-spring 的灵魂(带你轻松理解IOC思想及bean对象的生成过程)](https://juejin.im/post/593386ca2f301e00584f8036)
-	* [【第二章】 IoC 之 2.1 IoC基础 ——跟我学Spring3](https://jinnianshilongnian.iteye.com/blog/1413846)	
+	* [【第二章】 IoC 之 2.1 IoC基础 ——跟我学Spring3](https://jinnianshilongnian.iteye.com/blog/1413846)
+
 
 * **描述Spring的AOP**
 	* AOP的理念 --> 就是将分散在各个业务逻辑代码中 相同的代码 通过 **横向切割** 的方式抽取到一个独立的模块中（模块化）。
-	* Spring AOP 实现 --> 动态代理
-		* 好处 --> 显示地声明在何处如何应用该行为，有效减少代码冗余，让类更加关注自身主要功能
-		* @Aspect --> 注解来声明通知方法
-	* []()
-	* [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) 
-	* 
-	* 《Spring实战（第四版）》
-	* [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)
+	* 好处 --> 显示地声明在何处如何应用该行为，有效减少代码冗余，让类更加关注自身主要功能。
+	* 基本概念：
+		* 通知（advice） --> 切面的工作被称为通知，定义了切面是什么以及何时被使用
+		* 连接点（join point） --> 应用执行过程中能够插入切面的一个点，可以是方法调用时，抛出异常时等等...
+		* 切点（pointcut） --> 需要应用切面的方法（具体定位的连接点）
+		* 切面（aspect） --> 切面是 通知 和 切点 的结合，共同定义：是什么，在何时和何处完成其功能
+		* 织入(weaving) --> 把切面应用到目标函数的过程
+	* Spring AOP 实现：
+		* Java JDK动态代理
+		* CGLIB动态代理
+	* [关于 Spring AOP (AspectJ) 你该知晓的一切](https://blog.csdn.net/javazejian/article/details/56267036)（AOP入门 + 应用场景 + Spring中的基本实现）
+	* [《Spring设计思想》AOP设计基本原理](https://blog.csdn.net/luanlouis/article/details/51095702)（从诚信运行角度解释AOP的工作原理）
+	* [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) （Spring AOP的完整实现过程，未细看）
+	* 《Spring实战（第四版）》第四章
+	* [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)（可在面试前看的纯干货）
+
+
+* **什么是Bean**
+	* 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为bean。bean是一个由Spring IoC容器实例化、组装和管理的对象。
+	* [第37讲 | 谈谈Spring Bean的生命周期和作用域？](https://time.geekbang.org/column/article/12472)
+	* [Spring Bean是什么？](https://www.awaimai.com/2596.html)
 
 
 * **简述Spring Boot框架**
@@ -44,12 +58,6 @@
 
 * **什么是JPA**
 	* [Java持久化API Wiki](https://zh.wikipedia.org/wiki/Java%E6%8C%81%E4%B9%85%E5%8C%96API)
-
-
-* **什么是Bean**
-	* 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为bean。bean是一个由Spring IoC容器实例化、组装和管理的对象。
-	* [第37讲 | 谈谈Spring Bean的生命周期和作用域？](https://time.geekbang.org/column/article/12472)
-	* [Spring Bean是什么？](https://www.awaimai.com/2596.html)
 
 
 * **什么是Spring注解，以及Spring中有哪些常用的注解**
