@@ -36,7 +36,7 @@
 		* Java JDK动态代理
 		* CGLIB动态代理
 	* [关于 Spring AOP (AspectJ) 你该知晓的一切](https://blog.csdn.net/javazejian/article/details/56267036)（AOP入门 + 应用场景 + Spring中的基本实现）
-	* [《Spring设计思想》AOP设计基本原理](https://blog.csdn.net/luanlouis/article/details/51095702)（从诚信运行角度解释AOP的工作原理）
+	* [《Spring设计思想》AOP设计基本原理](https://blog.csdn.net/luanlouis/article/details/51095702)（从程序运行角度解释AOP的工作原理）
 	* [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) （Spring AOP的完整实现过程，未细看）
 	* 《Spring实战（第四版）》第四章
 	* [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)（可在面试前看的纯干货）
@@ -158,7 +158,7 @@
 	* [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
 
 	
-### 并发*（TODO）*
+### 并发
 
 * **描述Java下的并发编程（阿里）**
 	* 线程操作相关
@@ -170,16 +170,32 @@
 
 
 * **join() 方法有什么用**
-	* Thread.join把指定的线程加入到当前线程，可以将两个交替执行的线程合并为顺序执行的线程。比如在线程B中调用了线程A的Join()方法，直到线程A执行完毕后，才会继续执行线程B；
+	* Thread.join把指定的线程加入到当前线程，可以将两个交替执行的线程合并为顺序执行的线程。比如在线程B中调用了线程A的join()方法，直到线程A执行完毕后，才会继续执行线程B；
 	* [Java多线程中join方法的理解](https://uule.iteye.com/blog/1101994)
 	* [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html) 
 	
 	
 * **sychronized关键字**
+	* synchronized锁住的是括号里的对象，而不是代码
 	* [Java线程同步：synchronized锁住的是代码还是对象](https://blog.csdn.net/xiao__gui/article/details/8188833) 
 
-		
-* [面向面试的Java并发基础整理](http://pengcheng.tech/2019/03/24/%e9%9d%a2%e5%90%91%e9%9d%a2%e8%af%95%e7%9a%84java%e5%b9%b6%e5%8f%91%e5%9f%ba%e7%a1%80%e6%95%b4%e7%90%86/) （个人初步总结）
+
+* **Java中如何使用线程池（阿里）**
+	* 线程池的好处
+		* 降低资源消耗 / 提高响应速度 / 提高线程的可管理性
+	* 创使用方法
+		* ThreadPoolExecutor类
+			* 线程池中的每一个线程被封装成一个 Worker 对象，ThreadPool 维护的其实就是一组 Worker 对象
+			* 一些主要参数
+				* corePoolSize --> 核心线程数
+				* maximumPoolSize --> 最大能创建的线程数（可以理解为当任务量突然过大时的一种补救措施）
+				* workQueue --> 工作队列，为 BlockingQueue，用于存储等待执行的任务
+	* [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)（ThreadPoolExecutor 源码和关键类分析）
+	* [Java并发编程：线程池的使用](https://www.cnblogs.com/dolphin0520/p/3932921.html)（ThreadPoolExecutor 源码 和 基本用法）
+	* [第21讲 | Java并发类库提供的线程池有哪几种？ 分别有什么特点？](https://time.geekbang.org/column/article/9712)（介绍 Executor 框架和从设计思想角度介绍ThreadPoolExecutor类）
+
+	
+* [面向面试的Java并发基础整理](http://pengcheng.tech/2019/03/24/%e9%9d%a2%e5%90%91%e9%9d%a2%e8%af%95%e7%9a%84java%e5%b9%b6%e5%8f%91%e5%9f%ba%e7%a1%80%e6%95%b4%e7%90%86/) （个人初步总结，发现还是应付不了面试Orz...）
 * [Java并发编程学习路线](https://zhuanlan.zhihu.com/p/25577863)（学习思路篇）
 
 
@@ -226,11 +242,6 @@
 	* [线程 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B)
 	* [进程 Wiki](https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B)
 
-	
-* **Java中如何使用线程池（阿里）** *TODO*
-	* [Java并发编程：线程池的使用](https://www.cnblogs.com/dolphin0520/p/3932921.html)
-	* [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)
-
 
 * **描述操作系统的启动过程（头条）**
 	* 步骤 
@@ -241,9 +252,13 @@
 	* [计算机是如何启动的？](http://www.ruanyifeng.com/blog/2013/02/booting.html) 
 	
 
-* **用一门编程语言（如Java）实现一个死锁（PayPal）** *TODO*
+* **用一门编程语言（如Java）实现一个死锁（PayPal）**
+	* 禁止抢占 no preemption - 系统资源不能被强制从一个进程中退出
+	* 持有和等待 hold and wait - 一个进程可以在等待时持有系统资源
+	* 互斥 mutual exclusion - 只有一个进程能持有一个资源
+	* 循环等待 circular waiting - 一系列进程互相持有其他进程所需要的资源
 	* [死锁 Wiki](https://zh.wikipedia.org/wiki/%E6%AD%BB%E9%94%81)
-	* [第18讲 | 什么情况下Java程序会产生死锁？如何定位、修复？](https://time.geekbang.org/column/article/9266)
+	* [第18讲 | 什么情况下Java程序会产生死锁？如何定位、修复？](https://time.geekbang.org/column/article/9266)（死锁代码实例）
 	* [JAVA实现的一个简单的死锁（附解释）](https://blog.csdn.net/zll793027848/article/details/8670546) 
 
 
@@ -325,7 +340,9 @@
 ### 字符串
 
 * **如何找出一个字符串中的最大不重复子串（蜻蜓FM）**
-	* [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
+	* 暴力求解 --> 逐个遍历，找最长子串（设置一个 allUnique 函数）/ O(n^3)
+	* 滑动窗口 --> 滑动窗口至到最后一个元素，每当碰到重复左指针往后走，否则右指针往后走，同时比较 / O(n)
+	* [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-by-leetcod/)
 
 
 ### 动态规划
@@ -401,7 +418,7 @@
 
 	 
 
-## 计算机网络
+## 计算机网络*（TODO）*
 
 * **三次握手（阿里）和用Socket描述TCP的三次握手（腾讯）**
 	* [TCP协议中的三次握手和四次挥手(图解)](https://blog.csdn.net/whuslei/article/details/6667471)
@@ -432,7 +449,7 @@
 
 ### 常见Linux指令 *（TODO）*
 
-* top，load，free中（cached和buffers的区别）（阿里）
+* top，load 指令，free 中 cached和buffers的区别（阿里）
 * 找出某目录下文件中带电子邮箱的文件（爱奇艺）
 * 
 
