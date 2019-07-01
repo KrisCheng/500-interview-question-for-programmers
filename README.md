@@ -2,7 +2,7 @@
 
 ## 概述
 
-本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过，一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（未贴答案为还没来得及弄 Orz...），欢迎指正。
+本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（部分附面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（未贴答案为还没来得及弄 Orz...），欢迎指正。
 
 希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结（标题只是唬人的~~），欢迎Star，可配合同目录下 KnowledgeStructure 同步使用，供所有正在找工作的小伙伴们参考（500只是一个数，切莫抬杠）。
 
@@ -67,23 +67,17 @@
 
 
 ### Java语法相关
-
-* **乐观锁与悲观锁的概念，常见实现（阿里）** *TODO*
-	* 乐观锁适用于**多读**的应用类型，这样可以提高吞吐量 / 悲观锁适合于**多写**
-	* 乐观锁 --> 常见实现：CAS算法
-		* CAS 算法缺点：
-			* ABA 问题
-	* [何谓悲观锁与乐观锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87%E4%B9%8B%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81.md)
-
 	
 * **字符串相关问题**
 	* StringBuffer --> 线程安全 / StringBuilder --> 非线程安全
 	* [第5讲 | String、StringBuffer、StringBuilder有什么区别？](https://time.geekbang.org/column/article/7349)
 
 
-* **什么是序列化（Serialization）和反序列化（小红书）** *TODO*
-	* 对象序列化机制（object serialization）是java语言内建的一种对象持久化方式，通过对象序列化，可以将对象的状态信息保存未字节数组，并且可以在有需要的时候将这个字节数组通过反序列化的方式转换成对象，对象的序列化可以很容易的在JVM中的活动对象和字节数组（流）之间进行转换。
+* **什么是序列化（Serialization）和反序列化（小红书）**
+	* 序列化：把对象转换为字节序列的过程称为对象的序列化。
+	* 反序列化：把字节序列恢复为对象的过程称为对象的反序列化。
 	* [Java对象的序列化（Serialization）和反序列化详解](https://blog.csdn.net/yaomingyang/article/details/79321939)
+	* [Java 之 Serializable 序列化和反序列化的概念,作用的通俗易懂的解释](https://blog.csdn.net/qq_27093465/article/details/78544505)
 
 	
 * **Java中父类和子类初始化顺序（小红书）**
@@ -123,9 +117,9 @@
 
 
 * **HashSet 如何判断重复元素（小红书）**
-	* 首先会调用Object的hashCode方法判hashCode是否已经存在，如不存在则直接插入元素； 
-	* 如果已存在则调用Object对象的equals方法判断是否返回true， 如果为true则说明元素已经存在，如为false则插入元素。 
-	* Java对象的eqauls方法和hashCode方法是这样规定的：
+	* 首先会调用 Object 的 hashCode 方法判 hashCode 是否已经存在，如不存在则直接插入元素； 
+	* 如果已存在则调用 Object 对象的 equals 方法判断是否返回true， 如果为true则说明元素已经存在，如为false则插入元素。 
+	* Java对象的 eqauls 方法和 hashCode 方法是这样规定的：
 		* 1、相等（相同）的对象必须具有相等的哈希码（或者散列码）。
 		* 2、如果两个对象的hashCode相同，它们并不一定相同。
 	* [HashSet重复元素判断](https://itfafa.iteye.com/blog/1698690) 
@@ -194,7 +188,15 @@
 	* [Java并发编程：线程池的使用](https://www.cnblogs.com/dolphin0520/p/3932921.html)（ThreadPoolExecutor 源码 和 基本用法）
 	* [第21讲 | Java并发类库提供的线程池有哪几种？ 分别有什么特点？](https://time.geekbang.org/column/article/9712)（介绍 Executor 框架和从设计思想角度介绍ThreadPoolExecutor类）
 
-	
+
+* **乐观锁与悲观锁的概念，常见实现（阿里）** *TODO*
+	* 乐观锁适用于**多读**的应用类型，这样可以提高吞吐量 / 悲观锁适合于**多写**
+	* 乐观锁 --> 常见实现：CAS算法
+		* CAS 算法缺点：
+			* ABA 问题
+	* [何谓悲观锁与乐观锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87%E4%B9%8B%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81.md)
+
+
 * [面向面试的Java并发基础整理](http://pengcheng.tech/2019/03/24/%e9%9d%a2%e5%90%91%e9%9d%a2%e8%af%95%e7%9a%84java%e5%b9%b6%e5%8f%91%e5%9f%ba%e7%a1%80%e6%95%b4%e7%90%86/) （个人初步总结，发现还是应付不了面试Orz...）
 * [Java并发编程学习路线](https://zhuanlan.zhihu.com/p/25577863)（学习思路篇）
 
@@ -298,7 +300,7 @@
 	* [Collections.sort()和Arrays.sort()排序算法选择](https://blog.csdn.net/TimHeath/article/details/68930482)
 
 
-* **手写快排和复杂度分析（腾讯/爱奇艺）**
+* **手写快排和复杂度分析（腾讯/头条/蜻蜓FM）**
 	* [快排 Wiki](https://zh.wikipedia.org/zh/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F)
 
 
@@ -306,7 +308,7 @@
 	* [堆排 Wiki](https://zh.wikipedia.org/wiki/%E5%A0%86%E6%8E%92%E5%BA%8F)
 
 
-### 树/链表相关
+### 树/链表/数组相关
 
 * **二叉树的遍历**
 	* 通过引入一种新的数据结构形成通用解法（Node + 是否访问标识符）
@@ -317,6 +319,10 @@
 	* [二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)
 
 	
+* **根据前&中序遍历结果重建二叉树**
+	* [重建二叉树](https://www.nowcoder.com/practice/8a19cbe657394eeaac2f6ea9b0f6fcf6?tpId=13&tqId=11157&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+	 
 * **非递归实现求二叉树的深度（小红书）**
 	* 引入一个队列，逐层遍历
 	* [二叉树的深度（递归和非递归）---java实现](https://blog.csdn.net/snow_7/article/details/51818580)
@@ -330,11 +336,12 @@
 	* [257. 二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/) 
 
 
-* 如何将一棵非平衡二叉树转化成平衡二叉树（HyperS）
-
-
 * **反转链表（小红书/腾讯）**
 	* [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) 
+
+
+* 如何将一棵非平衡二叉树转化成平衡二叉树（HyperS）
+
 
 
 ### 字符串
@@ -361,6 +368,7 @@
 
 
 * **斐波那契数列的尾递归实现（Wish）**
+	* 尾递归就是把当前的运算结果（或路径）放在参数里传给下层函数，深层函数所面对的不是越来越简单的问题，而是越来越复杂的问题，因为参数里带有前面若干步的运算路径。
 	* [递归与尾递归总结](https://www.cnblogs.com/Anker/archive/2013/03/04/2943498.html) 
 
 
@@ -418,7 +426,7 @@
 
 	 
 
-## 计算机网络*（TODO）*
+## 计算机网络 （TODO）
 
 * **三次握手（阿里）和用Socket描述TCP的三次握手（腾讯）**
 	* [TCP协议中的三次握手和四次挥手(图解)](https://blog.csdn.net/whuslei/article/details/6667471)
@@ -450,8 +458,9 @@
 ### 常见Linux指令 *（TODO）*
 
 * top，load 指令，free 中 cached和buffers的区别（阿里）
+	* 
 * 找出某目录下文件中带电子邮箱的文件（爱奇艺）
-* 
+	* 
 
 
 ## 编程之美
@@ -459,7 +468,8 @@
 ### 设计模式
 
 * **实现一个线程安全的单例模式**
-	* [高并发下线程安全的单例模式（最全最经典）](https://blog.csdn.net/cselmu9/article/details/51366946) *（TODO）*
+	* 
+	* [高并发下线程安全的单例模式（最全最经典）](https://blog.csdn.net/cselmu9/article/details/51366946)
 
 
 * **设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）（PayPal）**
