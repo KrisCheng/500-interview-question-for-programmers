@@ -308,7 +308,7 @@
 	* [堆排 Wiki](https://zh.wikipedia.org/wiki/%E5%A0%86%E6%8E%92%E5%BA%8F)
 
 
-### 树/链表/数组相关
+### 树/链表/数组/栈/队列相关
 
 * **二叉树的遍历**
 	* 通过引入一种新的数据结构形成通用解法（Node + 是否访问标识符）
@@ -425,32 +425,60 @@
 	* [查询A、B表中，A表中B表没有的数据](https://blog.csdn.net/long636/article/details/51733273)（三种方法）
 
 	 
+## 计算机网络
 
-## 计算机网络 （TODO）
+* **介绍 OSI 七层模型**
+	* [OSI七层模型详解](https://blog.csdn.net/yaopeng_2005/article/details/7064869) （上课很重要，但目前还没面到过）
+	* [干货：计算机网络知识总结.md](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/%E5%B9%B2%E8%B4%A7%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93.md#%E4%B8%80%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%BF%B0)（逐层术语解释）
 
-* **三次握手（阿里）和用Socket描述TCP的三次握手（腾讯）**
-	* [TCP协议中的三次握手和四次挥手(图解)](https://blog.csdn.net/whuslei/article/details/6667471)
-	* [Socket过程详细解释（包括三次握手建立连接，四次握手断开连接）](https://blog.csdn.net/u013782203/article/details/51767763)*（TODO）*
+	
+* **描述三次握手四次挥手（阿里）**
+	* 三次握手
+		* 发送端 --> SYN / 接收端 --> [SYN/ACK] / 发送端 --> ACK
+			* SYN 是 TCP/IP 建立连接时使用的握手信号
+		* 需要三次握手原因：双方确认自己与对方的发送与接收是正常的
+		* 接收端回传SYN --> 告诉发送端我接收到的信息确实就是你所发送的信号
+	* 四次挥手
+		* 发送端 --> FIN (客户端进入FIN-WAIT-1（终止等待1）状态) / 接收端 --> ACK (客户端收到服务器的确认请求后，此时，客户端就进入FIN-WAIT-2（终止等待2）状态) / 接收端 --> FIN / 发送端 --> ACK
+	* [TCP的三次握手与四次挥手（详解+动图）](https://blog.csdn.net/qzcsu/article/details/72861891)
 
-
-* **描述HTTPS的加密过程（头条）**
-	* [HTTPS加密过程和TLS证书验证](https://juejin.im/post/5a4f4884518825732b19a3ce)*（TODO）*
-
-
-* HTTP代理的实现（阿里）
-
-
-* **网络间的进程如何表示（腾讯）**
-	* [网络中进程之间如何通信](https://blog.csdn.net/bajiudongfeng/article/details/51568874) *（TODO）*
-
-
-* **从客户端发送请求，该请求是如何传到服务端的（爱奇艺）**
-	* [浏览器输入 URL 后发生了什么？](https://zhuanlan.zhihu.com/p/43369093)*（TODO）*
-	* [在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？](https://www.zhihu.com/question/34873227)*（TODO）*
+	
+* **用Socket描述TCP的三次握手（腾讯）** *（TODO）*
+	* [Socket过程详细解释（包括三次握手建立连接，四次握手断开连接）](https://blog.csdn.net/u013782203/article/details/51767763)（C++实现，未看）
 
 
-* **TCP和UDP的区别**
-	* [TCP和UDP的区别](https://zhuanlan.zhihu.com/p/24860273) *（TODO）*
+* **网络间的进程如何表示（腾讯）** *（TODO）*
+	* [网络中进程之间如何通信](https://blog.csdn.net/bajiudongfeng/article/details/51568874) 
+
+	
+* **TCP和UDP的特点和区别**
+	* TCP --> 面向连接 / UDP --> 无连接（发送数据前不需要建立连接）
+	* TCP 提供可靠的服务（数据传输）/ UDP 无法保证
+	* TCP --> 字节流 / UDP --> 数据报文段
+	* [TCP和UDP的区别](https://zhuanlan.zhihu.com/p/24860273)
+	* [常见面试题整理--计算机网络篇（每位开发者必备）](https://zhuanlan.zhihu.com/p/24001696)
+
+
+* **从客户端输入一个URL，该请求是如何传到服务端的（爱奇艺）**
+	* DNS解析
+		* 递归查询 --> 该模式下DNS 服务器接收到客户机请求，必须使用一个准确的查询结果回复客户机。
+		* 迭代查询 --> DNS 服务器并不直接回复查询结果，而是告诉客户机另一台DNS 服务器地址，客户机再向这台DNS 服务器提交请求，依次循环直到返回查询的结果
+	* 建立TCP连接
+	* 发送HTTP请求
+	* 服务器处理请求并返回HTTP报文
+	* 浏览器解析并渲染页面
+	* 连接结束
+	* [从输入URL到页面加载发生了什么](https://segmentfault.com/a/1190000006879700)（依次逐步解释）
+ 	* [在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？](https://www.zhihu.com/question/34873227)（更具体的解释）
+ 	* [DNS递归查询和迭代查询的区别](https://blog.csdn.net/wuchuanpingstone/article/details/6720723)
+
+
+* **描述HTTPS的加密过程（头条）** *（TODO）*
+	* [HTTPS加密过程和TLS证书验证](https://juejin.im/post/5a4f4884518825732b19a3ce)
+
+
+* **HTTP代理如何实现（阿里）** *（TODO）*
+	* [如何实现一个HTTP/HTTPS代理客户端 ](https://github.com/fwon/blog/issues/38)
 
 
 ## Linux相关
@@ -487,7 +515,7 @@
 * **设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）（PayPal）**
 	* 这题感觉非常开放，我当时答了用 适配器模式，似乎面试官并不是特别满意
 	* 适配器模式 应该是可以的
-	* 工厂模式("定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。") 应该也可以 --> 传入方法参数，实例化具体对象
+	* 工厂模式( *"定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。"* ) 应该也可以 --> 传入方法参数，实例化具体对象
 	* [两道设计模式的面试题](https://www.cnblogs.com/Binhua-Liu/archive/2010/12/23/1914935.html)
 	* [工厂模式](https://www.runoob.com/design-pattern/factory-pattern.html)
 
