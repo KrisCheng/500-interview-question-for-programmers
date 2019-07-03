@@ -2,7 +2,7 @@
 
 ## 概述
 
-本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（部分附面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（未贴答案为还没来得及弄 Orz...），欢迎指正。
+本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（部分附面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正。
 
 希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结（标题只是唬人的~~），欢迎Star，可配合同目录下 KnowledgeStructure 同步使用，供所有正在找工作的小伙伴们参考（500只是一个数，切莫抬杠）。
 
@@ -189,7 +189,7 @@
 	* [第21讲 | Java并发类库提供的线程池有哪几种？ 分别有什么特点？](https://time.geekbang.org/column/article/9712)（介绍 Executor 框架和从设计思想角度介绍ThreadPoolExecutor类）
 
 
-* **乐观锁与悲观锁的概念，常见实现（阿里）** *TODO*
+* **乐观锁与悲观锁的概念，常见实现（阿里）** *`TODO`* 
 	* 乐观锁适用于**多读**的应用类型，这样可以提高吞吐量 / 悲观锁适合于**多写**
 	* 乐观锁 --> 常见实现：CAS算法
 		* CAS 算法缺点：
@@ -214,7 +214,7 @@
 	* [Lambda 表达式有何用处？如何使用？](https://www.zhihu.com/question/20125256)
 
 
-* **Python如何实现真正的多线程（阿里/腾讯）** *TODO*
+* **Python如何实现真正的多线程（阿里/腾讯）** *`TODO`* 
 	* [Python 多线程](https://www.runoob.com/python/python-multithreading.html) 
 
 
@@ -227,7 +227,7 @@
 * Python爬虫中存在环引用该如何处理（阿里）
 
 
-* **描述Python的迭代器和生成器（DaoCloud）** *TODO*
+* **描述Python的迭代器和生成器（DaoCloud）** *`TODO`* 
 	* [Python3 迭代器与生成器](https://www.runoob.com/python3/python3-iterator-generator.html)
 
 
@@ -374,7 +374,7 @@
 
 ## 数据库
 
-### 理论
+### 数据库理论
 
 * **描述事务隔离的级别（野村证券）**
 	* Serializable【可避免脏读，不可重复读，虚读】
@@ -443,11 +443,11 @@
 	* [TCP的三次握手与四次挥手（详解+动图）](https://blog.csdn.net/qzcsu/article/details/72861891)
 
 	
-* **用Socket描述TCP的三次握手（腾讯）** *（TODO）*
+* **用Socket描述TCP的三次握手（腾讯）** *`TODO`* 
 	* [Socket过程详细解释（包括三次握手建立连接，四次握手断开连接）](https://blog.csdn.net/u013782203/article/details/51767763)（C++实现，未看）
 
 
-* **网络间的进程如何表示（腾讯）** *（TODO）*
+* **网络间的进程如何表示（腾讯）** *`TODO`* 
 	* [网络中进程之间如何通信](https://blog.csdn.net/bajiudongfeng/article/details/51568874) 
 
 	
@@ -473,17 +473,17 @@
  	* [DNS递归查询和迭代查询的区别](https://blog.csdn.net/wuchuanpingstone/article/details/6720723)
 
 
-* **描述HTTPS的加密过程（头条）** *（TODO）*
+* **描述HTTPS的加密过程（头条）** *`TODO`* 
 	* [HTTPS加密过程和TLS证书验证](https://juejin.im/post/5a4f4884518825732b19a3ce)
 
 
-* **HTTP代理如何实现（阿里）** *（TODO）*
+* **HTTP代理如何实现（阿里）** *`TODO`* 
 	* [如何实现一个HTTP/HTTPS代理客户端 ](https://github.com/fwon/blog/issues/38)
 
 
 ## Linux相关
 
-### 常见Linux指令 *（TODO）*
+### 常见Linux指令 *`TODO`* 
 
 * top，load 指令，free 中 cached和buffers的区别（阿里）
 	* 
@@ -522,17 +522,17 @@
 
 ## 其他
 
-* **git rebase 和 git merge 有什么区别（小红书/野村证券/PayPal）**
-	* [git rebase 和 git merge 的区别](https://www.jianshu.com/p/f23f72251abc)*（TODO）*
+* **git rebase 和 git merge 有什么区别（小红书/野村证券/PayPal）** *`TODO`* 
+	* [git rebase 和 git merge 的区别](https://www.jianshu.com/p/f23f72251abc) 
  
 
-* **git fetch 和 git pull 有什么区别（PayPal）**
-	* [详解git fetch与git pull的区别](https://blog.csdn.net/riddle1981/article/details/74938111) *（TODO）*
+* **git fetch 和 git pull 有什么区别（PayPal）** *`TODO`* 
+	* [详解git fetch与git pull的区别](https://blog.csdn.net/riddle1981/article/details/74938111)
 
 
 * 描述 git 中的 cherry-pick 指令（小红书）
 
 
-* **如何设计一个秒杀系统（小红书）** *（TODO）*
+* **如何设计一个秒杀系统（小红书）** *`TODO`* 
 	* [Java开发面试：高并发秒杀系统如何设计与优化](https://blog.csdn.net/CSDN_Terence/article/details/77744042)
 	* [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
