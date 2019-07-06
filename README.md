@@ -4,7 +4,7 @@
 
 本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（部分附面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正。
 
-希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结（标题只是唬人的~~），欢迎Star，可配合同目录下 KnowledgeStructure 同步使用，供所有正在找工作的小伙伴们参考（500只是一个数，切莫抬杠）。
+希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结（标题只是唬人的~~），欢迎 Star，可配合同目录下 KnowledgeStructure 同步使用，供所有正在找工作的小伙伴们参考（500是一个目标数，切莫抬杠）。
 
 ## Java
 
@@ -13,7 +13,7 @@
 * **描述Spring的IoC**
 	* IoC是一种思想，并非一个具体技术。
 	* 好处 --> 让你脱离对依赖对象的维护，只需要随用随取，不需要关心依赖对象的任何过程。
-	* “反转” --> 由容器来帮忙创建及注入依赖对象。
+	* 反转 --> 由容器来帮忙创建及注入依赖对象。
 	* 实现 --> 依赖注入
 		* 谁依赖于谁：当然是应用程序依赖于IoC容器；
 		* 为什么需要依赖：应用程序需要IoC容器来提供对象需要的外部资源；
@@ -37,13 +37,13 @@
 		* CGLIB动态代理
 	* [关于 Spring AOP (AspectJ) 你该知晓的一切](https://blog.csdn.net/javazejian/article/details/56267036)（AOP入门 + 应用场景 + Spring中的基本实现）
 	* [《Spring设计思想》AOP设计基本原理](https://blog.csdn.net/luanlouis/article/details/51095702)（从程序运行角度解释AOP的工作原理）
-	* [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) （Spring AOP的完整实现过程，未细看）
+	* [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) （Spring AOP的完整实现过程，*`TODO`*）
 	* 《Spring实战（第四版）》第四章
 	* [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)（可在面试前看的纯干货）
 
 
 * **什么是Bean**
-	* 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为bean。bean是一个由Spring IoC容器实例化、组装和管理的对象。
+	* 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为Bean。Bean是一个由Spring IoC容器实例化、组装和管理的对象。
 	* [第37讲 | 谈谈Spring Bean的生命周期和作用域？](https://time.geekbang.org/column/article/12472)
 	* [Spring Bean是什么？](https://www.awaimai.com/2596.html)
 
@@ -91,8 +91,8 @@
 
 
 * **什么是反射以及反射有什么具体应用**
-	* Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制；
-	* “框架设计的灵魂” --> 如：Spring 通过 XML 配置模式装载 Bean 的过程；
+	* Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种 **动态获取的信息以及动态调用对象的方法的功能** 称为Java语言的反射机制；
+	* 框架设计的灵魂 --> 如：Spring 通过 XML 配置模式装载 Bean 的过程；
 	* [什么是反射机制？反射机制的应用场景有哪些？](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/MostCommonJavaInterviewQuestions/%E7%AC%AC%E4%BA%8C%E5%91%A8(2018-8-13).md#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%9C%89%E5%93%AA%E4%BA%9B)
 
 	
@@ -102,7 +102,7 @@
 	* HashMap通过hashcode对其内容进行快速查找，而 TreeMap中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap（HashMap中元素的排列顺序是不固定的）；
 	* HashMap 允许使用 null 值和 null 键，而 TreeMap 不可以；
 	* 实现:
-		* HashMap --> HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体；如果追加节点后，链表数量 >= 8，则转化为红黑树；
+		* HashMap --> HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体；如果追加节点后，链表数量 >= 8，则转化为红黑树
 		* TreeMap --> 红黑树
 	* HashMap 非线程安全 / TreeMap 非线程安全
 	* [HashMap和TreeMap区别详解以及底层实现](https://blog.csdn.net/xlgen157387/article/details/47907721)
@@ -112,7 +112,7 @@
 * **描述 HashMap 的底层实现**
 	* JDK < 1.8 --> 数组和链表；
 	* JDK >= 1.8 --> 链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间；
-	* 具体方法 get(), put()
+	* 具体方法 get() / put()
 	* [HashMap 简介](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md)
 
 
@@ -120,7 +120,7 @@
 	* 首先会调用 Object 的 hashCode 方法判 hashCode 是否已经存在，如不存在则直接插入元素； 
 	* 如果已存在则调用 Object 对象的 equals 方法判断是否返回true， 如果为true则说明元素已经存在，如为false则插入元素。 
 	* Java对象的 eqauls 方法和 hashCode 方法是这样规定的：
-		* 1、相等（相同）的对象必须具有相等的哈希码（或者散列码）。
+		* 1、相等（相同）的对象必须具有相等的哈希码（或者散列码）；
 		* 2、如果两个对象的hashCode相同，它们并不一定相同。
 	* [HashSet重复元素判断](https://itfafa.iteye.com/blog/1698690) 
 	* [Java提高篇——equals()与hashCode()方法详解](https://www.cnblogs.com/Qian123/p/5703507.html)
@@ -151,8 +151,13 @@
 	* [第27讲 | Java常见的垃圾收集器有哪些？](https://time.geekbang.org/column/article/10513)
 	* [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
 
+
+* **浅拷贝&深拷贝（头条）** *`TODO`* 
+	* [什么是值传递和引用传递？](https://www.nowcoder.com/questionTerminal/b296e9e1c40542ec8677c1e452b6b576)
+	* [细说 Java 的深拷贝和浅拷贝](https://segmentfault.com/a/1190000010648514) 
 	
-### 并发
+	
+### 并发编程 *`TODO`* 
 
 * **描述Java下的并发编程（阿里）**
 	* 线程操作相关
@@ -160,11 +165,12 @@
 
 		
 * **什么是线程安全**
+	* 指某个函数、函数库在多线程环境中被调用时，能够正确地处理多个线程之间的共享变量，使程序功能正确完成。
 	* [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
 
 
 * **join() 方法有什么用**
-	* Thread.join把指定的线程加入到当前线程，可以将两个交替执行的线程合并为顺序执行的线程。比如在线程B中调用了线程A的join()方法，直到线程A执行完毕后，才会继续执行线程B；
+	* Thread.join() 把指定的线程加入到当前线程，可以将两个交替执行的线程合并为顺序执行的线程。比如在线程B中调用了线程A的join()方法，直到线程A执行完毕后，才会继续执行线程B；
 	* [Java多线程中join方法的理解](https://uule.iteye.com/blog/1101994)
 	* [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html) 
 	
@@ -189,9 +195,9 @@
 	* [第21讲 | Java并发类库提供的线程池有哪几种？ 分别有什么特点？](https://time.geekbang.org/column/article/9712)（介绍 Executor 框架和从设计思想角度介绍ThreadPoolExecutor类）
 
 
-* **乐观锁与悲观锁的概念，常见实现（阿里）** *`TODO`* 
+* **乐观锁与悲观锁的概念，常见实现（阿里）**
 	* 乐观锁适用于**多读**的应用类型，这样可以提高吞吐量 / 悲观锁适合于**多写**
-	* 乐观锁 --> 常见实现：CAS算法
+	* 乐观锁常见实现 --> 版本号机制 / CAS算法
 		* CAS 算法缺点：
 			* ABA 问题
 	* [何谓悲观锁与乐观锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87%E4%B9%8B%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81.md)
@@ -204,9 +210,9 @@
 ## Python
 
 * **用map/reduce实现数组求和（PayPal）**
-	* [map/reduce](https://www.liaoxuefeng.com/wiki/1016959663602400/1017329367486080)
 	* map --> 将传入函数依次作用于序列中的每个元素，并把结果作为新的Iterator返回;
 	* reduce --> 累积计算, 求和 ```reduce(lambda x, y : x + y, [1,2,3,4,5])```.
+	* [map/reduce](https://www.liaoxuefeng.com/wiki/1016959663602400/1017329367486080)
 
 
 * **实现一个lambda表达式（头条）**
@@ -218,13 +224,13 @@
 	* [Python 多线程](https://www.runoob.com/python/python-multithreading.html) 
 
 
-* 给一段Python代码，有哪些优化思路和策略（阿里）
+* 给一段Python代码，有哪些优化思路和策略（阿里）*`TODO`* 
 
 
-* 如何写一个程序计算一段Python代码的耗时（腾讯）
+* 如何写一个程序计算一段Python代码的耗时（腾讯）*`TODO`* 
 
 
-* Python爬虫中存在环引用该如何处理（阿里）
+* Python爬虫中存在环引用该如何处理（阿里）*`TODO`* 
 
 
 * **描述Python的迭代器和生成器（DaoCloud）** *`TODO`* 
@@ -235,7 +241,7 @@
 
 * **进程/线程的概念和区别（头条）**
 	* 进程 --> 计算机中已运行的程序，具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位；
-	* 线程 --> 操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程中的实际运作单位。
+	* 线程 --> 操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程中的实际运作单位；
 	* 进程和线程都是一个时间段的描述，是CPU工作时间段的描述，不过是颗粒大小不同；
 	* 一个程序至少有一个进程,一个进程至少有一个线程；
 	* [腾讯面试题04.进程和线程的区别？](https://blog.csdn.net/mxsgoden/article/details/8821936)
@@ -245,9 +251,22 @@
 	* [进程 Wiki](https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B)
 
 
+* **线程同步的方式**
+	* [线程同步的几种方式（转）](https://www.cnblogs.com/lebronjames/archive/2010/08/11/1797702.html)
+
+	
+* **进程间通信的方式**	
+	* 进程间通信 --> 在不同进程之间传播或交换信息
+		* 管道（数据只能单向流动）
+		* 系统IPC（InterProcess Communication）(包括消息队列, 信号量, 共享存储)
+		* Socket（可用于不同机器间的进程通信）
+	* [进程间的几种通信方式](https://blog.csdn.net/yufaw/article/details/7409596)
+	* [进程间8种通信方式详解](https://blog.csdn.net/violet_echo_0908/article/details/51201278) 
+
+
 * **描述操作系统的启动过程（头条）**
 	* 步骤 
-		* BIOS
+		* BIOS（Basic Input / Output System）
 		* 主引导记录（Master boot record）
 		* 硬盘启动
 		* 操作系统
@@ -282,7 +301,7 @@
 
 * **给定一个无符号，包含10亿个数的数组，如何取出前100大个数（头条/腾讯）**
 	* 参考 --> 建立最小堆
-	* [海量数据处理 - 10亿个数中找出最大的10000个数（top K问题）](https://blog.csdn.net/zyq522376829/article/details/47686867) （思路篇）
+	* [海量数据处理 - 10亿个数中找出最大的10000个数（top K问题）](https://blog.csdn.net/zyq522376829/article/details/47686867) （思路篇，面试时最好问清楚面试官资源（内存/核数/单机or多机），显得比较专业）
 
 
 * **如何找到一个无序数组的中位数**
@@ -291,12 +310,12 @@
 
 
 * **如何给一个很大的无序数组去重（腾讯）**
-	* 排序+扫描一遍去重
+	* 排序 + 扫描一遍去重
 	* [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 
 
 * **Java自带的 sort() 方法是如何实现的（阿里）**
-	* 双轴快速排序
+	* DualPivotQuicksort（双轴快速排序）
 	* [Collections.sort()和Arrays.sort()排序算法选择](https://blog.csdn.net/TimHeath/article/details/68930482)
 
 
@@ -328,7 +347,7 @@
 	* [二叉树的深度（递归和非递归）---java实现](https://blog.csdn.net/snow_7/article/details/51818580)
 
 
-* **红黑树描述及其复杂度分析（插入/查找）（腾讯/阿里）**
+* **红黑树描述及其复杂度分析（插入/查找）（腾讯/阿里）** *`TODO`*
 	* [红黑树 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91) 
 
 
@@ -336,12 +355,17 @@
 	* [257. 二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/) 
 
 
+* 如何将一棵非平衡二叉树转化成平衡二叉树（HyperS） *`TODO`* 
+
+
 * **反转链表（小红书/腾讯）**
 	* [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) 
 
-
-* 如何将一棵非平衡二叉树转化成平衡二叉树（HyperS）
-
+	
+* **复杂链表的复制**
+	* 连接一个重复链表
+	* 断链，拆分成两个链表（清楚断链的操作是什么）
+	* [复杂链表的复制](https://www.nowcoder.com/practice/f836b2c43afc4b35ad6adc41ec941dba?tpId=13&tqId=11178&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) 
 
 
 ### 字符串
@@ -360,7 +384,7 @@
 
 ### 其他
 
-* 实现一个二叉搜索树的迭代器，包括next()和hasNext()方法（PayPal）
+* 实现一个二叉搜索树的迭代器，包括 next() 和 hasNext() 方法（PayPal） *`TODO`* 
 
 
 * **买卖股票的最佳时机（野村证券/头条）**
@@ -370,6 +394,10 @@
 * **斐波那契数列的尾递归实现（Wish）**
 	* 尾递归就是把当前的运算结果（或路径）放在参数里传给下层函数，深层函数所面对的不是越来越简单的问题，而是越来越复杂的问题，因为参数里带有前面若干步的运算路径。
 	* [递归与尾递归总结](https://www.cnblogs.com/Anker/archive/2013/03/04/2943498.html) 
+
+	
+* **1到10000有多少个数字7（头条，说思路即可）**
+	* [腾讯面试题-0到9999这1万个数中有多少个数字7](https://www.imooc.com/article/16642)（就是个思维题 Orz...） 
 
 
 ## 数据库
@@ -381,12 +409,13 @@
 	* Repeatable read【可避免脏读，不可重复读】
 	* Read committed【可避免脏读】
 	* Read uncommitted【级别最低，什么都避免不了】
+	* [ACID Wiki](https://zh.wikipedia.org/wiki/ACID)
 	* [数据库事务隔离级别-- 脏读、幻读、不可重复读（清晰解释）](https://blog.csdn.net/jiesa/article/details/51317164)
 
 
 * **delete、 drop、truncate 的区别（PayPal）**
 	* drop 直接删掉表（不再需要一张表的时候，用drop）；
-	* truncate 删除的是表中的数据，再插入数据时自增长的数据id又重新从1开始（保留表而删除所有数据的时候用truncate）；
+	* truncate 删除的是表中的数据，再插入数据时自增长的数据id又重新从1开始（保留表而删除所有数据的时候用truncate，实际是删除原来的表并重建一张新表）；
 	* delete 删除表中数据，可以在后面添加where字句（想删除部分数据行时候，用delete，并且带上where子句）。 
 	* [SQL truncate 、delete与drop区别](https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html)
 
@@ -473,6 +502,12 @@
  	* [DNS递归查询和迭代查询的区别](https://blog.csdn.net/wuchuanpingstone/article/details/6720723)
 
 
+* **HTTP 与 HTTPS 的区别** 
+	* HTTP协议以明文方式发送内容，不提供任何方式的数据加密
+	* HTTPS其实就是建构在SSL（Secure Sockets Layer） / TLS之上的 HTTP协议
+	* [详细解析 HTTP 与 HTTPS 的区别](https://juejin.im/entry/58d7635e5c497d0057fae036) 
+
+
 * **描述HTTPS的加密过程（头条）** *`TODO`* 
 	* [HTTPS加密过程和TLS证书验证](https://juejin.im/post/5a4f4884518825732b19a3ce)
 
@@ -515,7 +550,7 @@
 * **设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）（PayPal）**
 	* 这题感觉非常开放，我当时答了用 适配器模式，似乎面试官并不是特别满意
 	* 适配器模式 应该是可以的
-	* 工厂模式( *"定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。"* ) 应该也可以 --> 传入方法参数，实例化具体对象
+	* 工厂模式(定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。) 应该也可以 --> 传入方法参数，实例化具体对象
 	* [两道设计模式的面试题](https://www.cnblogs.com/Binhua-Liu/archive/2010/12/23/1914935.html)
 	* [工厂模式](https://www.runoob.com/design-pattern/factory-pattern.html)
 
@@ -536,3 +571,7 @@
 * **如何设计一个秒杀系统（小红书）** *`TODO`* 
 	* [Java开发面试：高并发秒杀系统如何设计与优化](https://blog.csdn.net/CSDN_Terence/article/details/77744042)
 	* [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
+
+	
+* **消息中间件**  *`TODO`* 
+	* 
