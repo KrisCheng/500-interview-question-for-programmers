@@ -126,7 +126,7 @@
 	* [Java提高篇——equals()与hashCode()方法详解](https://www.cnblogs.com/Qian123/p/5703507.html)
 
 
-### Java内存模型相关
+### Java内存模型 *`TODO`* 
 	
 * **描述Java内存模型（阿里）**
 	* JVM内存区域划分
@@ -157,7 +157,7 @@
 	* [细说 Java 的深拷贝和浅拷贝](https://segmentfault.com/a/1190000010648514) 
 	
 	
-### 并发编程 *`TODO`* 
+### Java并发编程 *`TODO`* 
 
 * **描述Java下的并发编程（阿里）**
 	* 线程操作相关
@@ -175,9 +175,11 @@
 	* [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html) 
 	
 	
-* **sychronized关键字**
-	* synchronized锁住的是括号里的对象，而不是代码
+* **sychronized 和 ReentrantLock**
+	* synchronized 锁住的是括号里的对象，而不是代码
+	* 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功
 	* [Java线程同步：synchronized锁住的是代码还是对象](https://blog.csdn.net/xiao__gui/article/details/8188833) 
+	* [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799)
 
 
 * **Java中如何使用线程池（阿里）**
@@ -205,6 +207,7 @@
 
 * [面向面试的Java并发基础整理](http://pengcheng.tech/2019/03/24/%e9%9d%a2%e5%90%91%e9%9d%a2%e8%af%95%e7%9a%84java%e5%b9%b6%e5%8f%91%e5%9f%ba%e7%a1%80%e6%95%b4%e7%90%86/) （个人初步总结，发现还是应付不了面试Orz...）
 * [Java并发编程学习路线](https://zhuanlan.zhihu.com/p/25577863)（学习思路篇）
+* [Java并发编程实战](https://book.douban.com/subject/10484692/)（*`TODO`* 抛弃中文版，翻译极其垃圾，暴殄天物）
 
 
 ## Python
@@ -242,8 +245,9 @@
 * **进程/线程的概念和区别（头条）**
 	* 进程 --> 计算机中已运行的程序，具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位；
 	* 线程 --> 操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程中的实际运作单位；
-	* 进程和线程都是一个时间段的描述，是CPU工作时间段的描述，不过是颗粒大小不同；
-	* 一个程序至少有一个进程,一个进程至少有一个线程；
+	* 关系
+		* 进程和线程都是一个时间段的描述，是CPU工作时间段的描述，不过是颗粒大小不同；
+		* 一个程序至少有一个进程,一个进程至少有一个线程；
 	* [腾讯面试题04.进程和线程的区别？](https://blog.csdn.net/mxsgoden/article/details/8821936)
 	* [进程与线程的一个简单解释](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html)
 	* [线程和进程的区别是什么？](https://www.zhihu.com/question/25532384)
@@ -274,10 +278,11 @@
 	
 
 * **用一门编程语言（如Java）实现一个死锁（PayPal）**
-	* 禁止抢占 no preemption - 系统资源不能被强制从一个进程中退出
-	* 持有和等待 hold and wait - 一个进程可以在等待时持有系统资源
-	* 互斥 mutual exclusion - 只有一个进程能持有一个资源
-	* 循环等待 circular waiting - 一系列进程互相持有其他进程所需要的资源
+	* 死锁产生的条件
+		* 禁止抢占 no preemption --> 系统资源不能被强制从一个进程中退出
+		* 持有和等待 hold and wait --> 一个进程可以在等待时持有系统资源
+		* 互斥 mutual exclusion --> 只有一个进程能持有一个资源
+		* 循环等待 circular waiting --> 一系列进程互相持有其他进程所需要的资源
 	* [死锁 Wiki](https://zh.wikipedia.org/wiki/%E6%AD%BB%E9%94%81)
 	* [第18讲 | 什么情况下Java程序会产生死锁？如何定位、修复？](https://time.geekbang.org/column/article/9266)（死锁代码实例）
 	* [JAVA实现的一个简单的死锁（附解释）](https://blog.csdn.net/zll793027848/article/details/8670546) 
@@ -301,7 +306,7 @@
 
 * **给定一个无符号，包含10亿个数的数组，如何取出前100大个数（头条/腾讯）**
 	* 参考 --> 建立最小堆
-	* [海量数据处理 - 10亿个数中找出最大的10000个数（top K问题）](https://blog.csdn.net/zyq522376829/article/details/47686867) （思路篇，面试时最好问清楚面试官资源（内存/核数/单机or多机），显得比较专业）
+	* [海量数据处理 - 10亿个数中找出最大的10000个数（top K问题）](https://blog.csdn.net/zyq522376829/article/details/47686867) （思路篇，面试时最好问清楚面试官资源[内存/核数/单机or多机]，显得比较专业）
 
 
 * **如何找到一个无序数组的中位数**
@@ -310,6 +315,7 @@
 
 
 * **如何给一个很大的无序数组去重（腾讯）**
+	* 哈希分流 + 去重
 	* 排序 + 扫描一遍去重
 	* [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 
@@ -355,9 +361,6 @@
 	* [257. 二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/) 
 
 
-* 如何将一棵非平衡二叉树转化成平衡二叉树（HyperS） *`TODO`* 
-
-
 * **反转链表（小红书/腾讯）**
 	* [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) 
 
@@ -366,6 +369,13 @@
 	* 连接一个重复链表
 	* 断链，拆分成两个链表（清楚断链的操作是什么）
 	* [复杂链表的复制](https://www.nowcoder.com/practice/f836b2c43afc4b35ad6adc41ec941dba?tpId=13&tqId=11178&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) 
+
+
+* **将二叉搜索树转化成一个排序的双向链表**
+	* [二叉搜索树与双向链表](https://www.nowcoder.com/practice/947f6eb80d944a84850b0538bf0ec3a5?tpId=13&tqId=11179&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+ 
+
+* 如何将一棵非平衡二叉树转化成平衡二叉树（HyperS） *`TODO`* 
 
 
 ### 字符串
@@ -561,7 +571,8 @@
 	* [git rebase 和 git merge 的区别](https://www.jianshu.com/p/f23f72251abc) 
  
 
-* **git fetch 和 git pull 有什么区别（PayPal）** *`TODO`* 
+* **git fetch 和 git pull 有什么区别（PayPal）**
+	* pull = fetch + merge
 	* [详解git fetch与git pull的区别](https://blog.csdn.net/riddle1981/article/details/74938111)
 
 
