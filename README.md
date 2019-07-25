@@ -2,9 +2,9 @@
 
 ## 概述
 
-本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（部分附面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正。
+本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正。
 
-希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结（标题只是唬人的~~），欢迎 Star，可配合同目录下 KnowledgeStructure 同步使用，供所有正在找工作的小伙伴们参考（500是一个目标数，切莫抬杠）。
+希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结，可配合同目录下 KnowledgeStructure 同步使用，供所有正在找工作的小伙伴们参考（欢迎 Star，500是一个目标数，切莫抬杠）。
 
 ## Java
 
@@ -157,7 +157,7 @@
 	* [细说 Java 的深拷贝和浅拷贝](https://segmentfault.com/a/1190000010648514) 
 	
 	
-### Java并发编程 *`TODO`* 
+### Java并发编程
 
 * **描述Java下的并发编程（阿里）**
 	* 线程操作相关
@@ -166,22 +166,23 @@
 		
 * **什么是线程安全**
 	* 指某个函数、函数库在多线程环境中被调用时，能够正确地处理多个线程之间的共享变量，使程序功能正确完成。
+	* a class is thread safe when it continues to behave correctly when accessed from multiple threads.
 	* [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
-
-
-* **join() 方法有什么用**
-	* Thread.join() 把指定的线程加入到当前线程，可以将两个交替执行的线程合并为顺序执行的线程。比如在线程B中调用了线程A的join()方法，直到线程A执行完毕后，才会继续执行线程B；
-	* [Java多线程中join方法的理解](https://uule.iteye.com/blog/1101994)
-	* [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html) 
 	
 	
 * **sychronized 和 ReentrantLock**
 	* synchronized 锁住的是括号里的对象，而不是代码
-	* 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功
+	* 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
 	* [Java线程同步：synchronized锁住的是代码还是对象](https://blog.csdn.net/xiao__gui/article/details/8188833) 
 	* [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799)
 
 
+* **volatile**
+	* 保证变量的可见性（指示 JVM，这个变量是不稳定的，每次使用它都到主存中进行读取） & 防止指令重排序
+	* 只能用于变量
+	* [2. volatile关键字](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/Multithread/JavaConcurrencyAdvancedCommonInterviewQuestions.md#2-volatile%E5%85%B3%E9%94%AE%E5%AD%97)
+
+	
 * **Java中如何使用线程池（阿里）**
 	* 线程池的好处
 		* 降低资源消耗 / 提高响应速度 / 提高线程的可管理性
@@ -199,15 +200,24 @@
 
 * **乐观锁与悲观锁的概念，常见实现（阿里）**
 	* 乐观锁适用于**多读**的应用类型，这样可以提高吞吐量 / 悲观锁适合于**多写**
-	* 乐观锁常见实现 --> 版本号机制 / CAS算法
-		* CAS 算法缺点：
+	* 乐观锁常见实现 --> 版本号机制 / CAS 算法
+		* CAS 算法概念 / 缺点
 			* ABA 问题
 	* [何谓悲观锁与乐观锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87%E4%B9%8B%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81.md)
+	* [Compare-and-swap Wiki](https://en.wikipedia.org/wiki/Compare-and-swap)
 
 
-* [面向面试的Java并发基础整理](http://pengcheng.tech/2019/03/24/%e9%9d%a2%e5%90%91%e9%9d%a2%e8%af%95%e7%9a%84java%e5%b9%b6%e5%8f%91%e5%9f%ba%e7%a1%80%e6%95%b4%e7%90%86/) （个人初步总结，发现还是应付不了面试Orz...）
-* [Java并发编程学习路线](https://zhuanlan.zhihu.com/p/25577863)（学习思路篇）
-* [Java并发编程实战](https://book.douban.com/subject/10484692/)（*`TODO`* 抛弃中文版，翻译极其垃圾，暴殄天物）
+* **join() 方法有什么用**
+	* Thread.join() 把指定的线程加入到当前线程，可以将两个交替执行的线程合并为顺序执行的线程。比如在线程B中调用了线程A的join()方法，直到线程A执行完毕后，才会继续执行线程B；
+	* [Java多线程中join方法的理解](https://uule.iteye.com/blog/1101994)
+	* [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html) 
+
+	
+* **其他并发学习资源**
+	* [面向面试的Java并发基础整理](http://pengcheng.tech/2019/03/24/%e9%9d%a2%e5%90%91%e9%9d%a2%e8%af%95%e7%9a%84java%e5%b9%b6%e5%8f%91%e5%9f%ba%e7%a1%80%e6%95%b4%e7%90%86/) （个人初步总结，发现还是应付不了面试Orz...）
+	* [Java并发编程学习路线](https://zhuanlan.zhihu.com/p/25577863)（学习思路篇）
+	* [Java Concurrency in Practice](https://book.douban.com/subject/1888733/)（*`TODO`* 请直接抛弃中文版，翻译极其垃圾，但原版对初学者也不是很友好，不是很好懂）
+	* [Java并发编程实战](https://time.geekbang.org/column/intro/159)(*`TODO`* 极客时间课程)
 
 
 ## Python
@@ -549,8 +559,8 @@
 	* 懒汉模式 --> Lazy初始化
 	* 饿汉模式 --> 在方法调用前，实例就已经创建好了
 	* 全部 sychronized 锁住 --> 可以保证线程安全，但销效率低
-	* “双重检查锁”机制 （面试答这个吧）
-		* volatile 来保证其线程间的可见性
+	* “双重检查锁”机制版本 （面试用这个）
+		* volatile 来保证其线程间的可见性，禁止指令重排
 		* 同步代码块中使用二次检查，以保证其不被重复实例化
 	* 枚举enum和静态代码块的特性相似，在使用枚举时，构造方法会被自动调用，利用这一特性也可以实现单例（面试可稍微提及）
 	* [高并发下线程安全的单例模式（最全最经典）](https://blog.csdn.net/cselmu9/article/details/51366946) （单例的N种实现）
