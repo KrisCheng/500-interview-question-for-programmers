@@ -323,9 +323,16 @@
 
 ### 排序相关
 
-* **给定一个无符号，包含10亿个数的数组，如何取出前100大个数（头条/腾讯）**
-	* 参考 --> 建立最小堆
-	* [海量数据处理 - 10亿个数中找出最大的10000个数（top K问题）](https://blog.csdn.net/zyq522376829/article/details/47686867) （思路篇，面试时最好问清楚面试官资源[内存/核数/单机or多机]，显得比较专业）
+* **（TopK 问题）给定一个无符号，包含10亿个数的数组，如何取出前100大个数（头条/腾讯）**
+	* 答题思路
+		* 全局排序 O(nlogn)
+		* 冒泡（k个）O(kn)
+		* 堆排 O(nlogk)
+			* 建立一个容量为k的大/小顶堆
+			* n个元素逐一比较，O(logk) 完成删除和插入操作
+	* 询问资源 --> 内存 / 核数 / 单机or多机，MapReduce思想
+	* [最小的K个数](https://www.nowcoder.com/practice/6a296eb82cf844ca8539b57c23e6e9bf?tpId=13&tqId=11182&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+	* [海量数据处理 - 10亿个数中找出最大的10000个数（top K问题）](https://blog.csdn.net/zyq522376829/article/details/47686867) 
 
 
 * **如何找到一个无序数组的中位数**
@@ -380,6 +387,7 @@
 
 
 * **红黑树描述及其复杂度分析（插入/查找）（腾讯/阿里）** *`TODO`*
+	* 查找、插入、删除 -- logn
 	* [红黑树 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91) 
 
 
@@ -410,6 +418,12 @@
 	* 暴力求解 --> 逐个遍历，找最长子串（设置一个 allUnique 函数）/ O(n^3)
 	* 滑动窗口 --> 滑动窗口至到最后一个元素，每当碰到重复左指针往后走，否则右指针往后走，同时比较 / O(n)
 	* [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-by-leetcod/)
+
+
+* **字符串的排列**
+	* 理解递归结构的构造过程（固定一个字符，继续处理剩余字符）
+	* 是对一个确定的初始字符串进行操作，得到一个结果后通过需要换回来
+	* [字符串的排列](https://www.nowcoder.com/practice/fe6b651b66ae47d7acce78ffdd9a96c7?tpId=13&tqId=11180&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) 
 
 
 ### 动态规划
