@@ -37,13 +37,13 @@
 		* CGLIB动态代理
 	* [关于 Spring AOP (AspectJ) 你该知晓的一切](https://blog.csdn.net/javazejian/article/details/56267036)（AOP入门 + 应用场景 + Spring中的基本实现）
 	* [《Spring设计思想》AOP设计基本原理](https://blog.csdn.net/luanlouis/article/details/51095702)（从程序运行角度解释AOP的工作原理）
-	* [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) （Spring AOP的完整实现过程，*`TODO`*）
+	* [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) （Spring AOP的完整实现过程 *`TODO`*）
 	* 《Spring实战（第四版）》第四章
 	* [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)（可在面试前看的纯干货）
 
 
 * **什么是Bean**
-	* 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为Bean。Bean是一个由Spring IoC容器实例化、组装和管理的对象。
+	* 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为Bean。Bean是一个由Spring IoC容器实例化、组装和管理的对象
 	* [第37讲 | 谈谈Spring Bean的生命周期和作用域？](https://time.geekbang.org/column/article/12472)
 	* [Spring Bean是什么？](https://www.awaimai.com/2596.html)
 
@@ -52,7 +52,7 @@
 	* 核心
 		* 自动配置
 		* 起步依赖
-	* 从本质上来说，Spring Boot就是Spring，它做了那些没有它你自己也会去做的Spring Bean配置；
+	* 从本质上来说，Spring Boot就是Spring，它做了那些没有它你自己也会去做的Spring Bean配置
 	* 《Spring Boot实战》前三章
 
 
@@ -242,7 +242,7 @@
 	* [Lambda 表达式有何用处？如何使用？](https://www.zhihu.com/question/20125256)
 
 
-* **Python如何实现真正的多线程（阿里/腾讯）** *`TODO`* 
+* **Python如何实现真正的多线程（阿里/腾讯）** 
 	* [Python 多线程](https://www.runoob.com/python/python-multithreading.html) 
 
 
@@ -344,12 +344,19 @@
 	* [Collections.sort()和Arrays.sort()排序算法选择](https://blog.csdn.net/TimHeath/article/details/68930482)
 
 
-* **手写快排和复杂度分析（腾讯/头条/蜻蜓FM）**
+* **手写主流排序算法 & 复杂度/稳定性分析（腾讯/头条/阿里/蜻蜓FM）**
+	* 稳定排序 --> 冒泡排序、插入排序、归并排序
+	* 不稳定排序 --> 快速排序、希尔排序、选择排序、堆排序
+	* 常见问法
+		* 手写快排/堆排
+		* 快排复杂度分析（最好/最坏/平均） / 建堆的复杂度分析 O(N)
+		* 归并排序的Top-Down & Bottom-up
+	* [7种经典排序算法及实现](http://pengcheng.tech/2019/03/04/%e7%bb%8f%e5%85%b8%e6%8e%92%e5%ba%8f%e7%ae%97%e6%b3%95%e5%8f%8a%e5%ae%9e%e7%8e%b0%e6%8c%87%e5%8d%97/)
+	* [排序算法稳定性](https://baike.baidu.com/item/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%A8%B3%E5%AE%9A%E6%80%A7)
+	* [排序算法可视化](https://visualgo.net/en/sorting)
 	* [快排 Wiki](https://zh.wikipedia.org/zh/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F)
-
-
-* **手写堆排和复杂度分析**
-	* [堆排 Wiki](https://zh.wikipedia.org/wiki/%E5%A0%86%E6%8E%92%E5%BA%8F)
+	* [堆排 Wiki](https://zh.wikipedia.org/wiki/%E5%A0%86%E6%8E%92%E5%BA%8F)（*`TODO`* 堆排的实现）
+	* [归并排序 Wiki](https://zh.wikipedia.org/wiki/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F)（*`TODO`* 递归版本和循环版本的实现）
 
 
 ### 树/链表/数组/栈/队列相关
@@ -497,7 +504,10 @@
 		* 需要三次握手原因：双方确认自己与对方的发送与接收是正常的
 		* 接收端回传SYN --> 告诉发送端我接收到的信息确实就是你所发送的信号
 	* 四次挥手
-		* 发送端 --> FIN (客户端进入FIN-WAIT-1（终止等待1）状态) / 接收端 --> ACK (客户端收到服务器的确认请求后，此时，客户端就进入FIN-WAIT-2（终止等待2）状态) / 接收端 --> FIN / 发送端 --> ACK
+		* 发送端 --> FIN (客户端进入FIN-WAIT-1（终止等待1）状态) 
+		* 接收端 --> ACK (客户端收到服务器的确认请求后，此时，客户端就进入FIN-WAIT-2（终止等待2）状态) 
+		* 接收端 --> FIN 
+		* 发送端 --> ACK
 	* [TCP的三次握手与四次挥手（详解+动图）](https://blog.csdn.net/qzcsu/article/details/72861891)
 
 	
@@ -604,4 +614,3 @@
 
 	
 * **消息中间件**  *`TODO`* 
-	* 
