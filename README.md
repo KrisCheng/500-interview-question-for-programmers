@@ -366,7 +366,13 @@
 	* [归并排序 Wiki](https://zh.wikipedia.org/wiki/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F)（*`TODO`* 递归版本和循环版本的实现）
 
 
-### 树/链表/数组/栈/队列相关
+* **数组中的逆序对**
+	* 归并排序 && 递归的应用
+	* 引入中间数组临时存放排序数据w
+	* [数组中的逆序对](https://www.nowcoder.com/practice/96bd6684e04a44eb80e6a68efc0ec6c5?tpId=13&tqId=11188&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) 
+
+
+### 树
 
 * **二叉树的遍历**
 	* 通过引入一种新的数据结构形成通用解法（Node + 是否访问标识符）
@@ -386,14 +392,23 @@
 	* [二叉树的深度（递归和非递归）---java实现](https://blog.csdn.net/snow_7/article/details/51818580)
 
 
+* **非递归从左至右打印一颗二叉树中的所有路径（拼多多）**
+	* [257. 二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/) 
+
+
+* **将二叉搜索树转化成一个排序的双向链表**
+	* [二叉搜索树与双向链表](https://www.nowcoder.com/practice/947f6eb80d944a84850b0538bf0ec3a5?tpId=13&tqId=11179&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+ 
+
 * **红黑树描述及其复杂度分析（插入/查找）（腾讯/阿里）** *`TODO`*
 	* 查找、插入、删除 -- logn
 	* [红黑树 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91) 
 
 
-* **非递归从左至右打印一颗二叉树中的所有路径（拼多多）**
-	* [257. 二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/) 
+* 如何将一棵非平衡二叉树转化成平衡二叉树（HyperS） *`TODO`* 
 
+
+### 链表/数组/栈/队列
 
 * **反转链表（小红书/腾讯）**
 	* [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) 
@@ -404,14 +419,7 @@
 	* 断链，拆分成两个链表（清楚断链的操作是什么）
 	* [复杂链表的复制](https://www.nowcoder.com/practice/f836b2c43afc4b35ad6adc41ec941dba?tpId=13&tqId=11178&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) 
 
-
-* **将二叉搜索树转化成一个排序的双向链表**
-	* [二叉搜索树与双向链表](https://www.nowcoder.com/practice/947f6eb80d944a84850b0538bf0ec3a5?tpId=13&tqId=11179&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
- 
-
-* 如何将一棵非平衡二叉树转化成平衡二叉树（HyperS） *`TODO`* 
-
-
+	
 ### 字符串
 
 * **如何找出一个字符串中的最大不重复子串（蜻蜓FM）**
