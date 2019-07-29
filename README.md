@@ -368,7 +368,7 @@
 
 * **数组中的逆序对**
 	* 归并排序 && 递归的应用
-	* 引入中间数组临时存放排序数据w
+	* 引入中间数组临时存放排序数据
 	* [数组中的逆序对](https://www.nowcoder.com/practice/96bd6684e04a44eb80e6a68efc0ec6c5?tpId=13&tqId=11188&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) 
 
 
@@ -637,7 +637,11 @@
 
 ## 其他
 
-* **git rebase 和 git merge 有什么区别（小红书/野村证券/PayPal）** *`TODO`* 
+* **git rebase 和 git merge 有什么区别（小红书/野村证券/PayPal）**
+	* 同：都是用于从一个分支获取并且合并到当前分支
+	* 异：rebase --> 会合并之前的commit历史（带有破坏性的修改 commit 历史的命令）
+	* 一个干净的，没有merge commit的线性历史树 --> git rebase
+	* 保留完整的历史记录，并且想要避免重写commit history的风险 --> git merge
 	* [git rebase 和 git merge 的区别](https://www.jianshu.com/p/f23f72251abc) 
  
 
@@ -646,10 +650,11 @@
 	* [详解git fetch与git pull的区别](https://blog.csdn.net/riddle1981/article/details/74938111)
 
 
-* 描述 git 中的 cherry-pick 指令（小红书）
+* 描述 git 中的 cherry-pick 指令（小红书）*`TODO`* 
 
 
-* **如何设计一个秒杀系统（小红书）** *`TODO`* 
+* **如何设计一个秒杀系统（小红书）**
+	* 
 	* [Java开发面试：高并发秒杀系统如何设计与优化](https://blog.csdn.net/CSDN_Terence/article/details/77744042)
 	* [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
 
