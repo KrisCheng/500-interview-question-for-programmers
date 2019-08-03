@@ -112,6 +112,9 @@
 	* [什么是反射机制？反射机制的应用场景有哪些？](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/MostCommonJavaInterviewQuestions/%E7%AC%AC%E4%BA%8C%E5%91%A8(2018-8-13).md#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%9C%89%E5%93%AA%E4%BA%9B)
 
 	
+* Java提供了哪些IO方式（拼多多）*`TODO`*
+
+
 ### 集合框架
 		
 * **HashMap 和 TreeMap 的区别（PayPal）**
@@ -525,6 +528,9 @@
 	* [数据库事务隔离级别-- 脏读、幻读、不可重复读（清晰解释）](https://blog.csdn.net/jiesa/article/details/51317164)
 
 
+* MySQL是如何实现隔离级别的（拼多多）*`TODO`*
+
+
 * **delete、 drop、truncate 的区别（PayPal）**
 	* drop 直接删掉表（不再需要一张表的时候，用drop）；
 	* truncate 删除的是表中的数据，再插入数据时自增长的数据id又重新从1开始（保留表而删除所有数据的时候用truncate，实际是删除原来的表并重建一张新表）；
@@ -544,6 +550,9 @@
 	* [数据库索引到底是什么，是怎样工作的？](https://blog.csdn.net/weiliangliang111/article/details/51333169)
 	* [一步步分析为什么B+树适合作为索引的结构](https://blog.csdn.net/weixin_30531261/article/details/79312676)
 	* [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
+
+
+* 聚集索引和非聚集索引的区别（拼多多）*`TODO`*
 
 
 * **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）**
@@ -631,14 +640,18 @@
 	* [如何实现一个HTTP/HTTPS代理客户端 ](https://github.com/fwon/blog/issues/38)
 
 
+* 描述SSO的原理（拼多多）*`TODO`*
+
+
+* 描述Session的实现原理（或者如何设计一个Session）（拼多多）*`TODO`*
+
+
 ## Linux相关
 
 ### 常见Linux指令 *`TODO`* 
 
 * top，load 指令，free 中 cached和buffers的区别（阿里）
-	* 
 * 找出某目录下文件中带电子邮箱的文件（爱奇艺）
-	* 
 
 
 ## 编程之美
@@ -662,12 +675,49 @@
 	* [单例模式](https://www.runoob.com/design-pattern/singleton-pattern.html)（详尽介绍）
 
 
+### 设计/架构
+
+* 描述MVVM（拼多多）
+
+
+## 场景题
+
+* 高并发访问下如何保证用户名不冲突，比如多个用户同时创建同一个用户名（拼多多）*`TODO`* 
+
+
+* 一个任务序列执行顺序如 A --> B1,B2,B3 --> C，如何保证该任务执行先后顺序的准确性（拼多多）*`TODO`* 
+	* CountDownLatch 
+
+
+* **如何设计一个秒杀系统（小红书）** *`TODO`* 
+	* [Java开发面试：高并发秒杀系统如何设计与优化](https://blog.csdn.net/CSDN_Terence/article/details/77744042)
+	* [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
+
+
 * **设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）（PayPal）**
 	* 这题感觉非常开放，我当时答了用 适配器模式，似乎面试官并不是特别满意
 	* 适配器模式 应该是可以的
 	* 工厂模式(定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。) 应该也可以 --> 传入方法参数，实例化具体对象
 	* [两道设计模式的面试题](https://www.cnblogs.com/Binhua-Liu/archive/2010/12/23/1914935.html)
 	* [工厂模式](https://www.runoob.com/design-pattern/factory-pattern.html)
+
+
+
+## 消息队列
+* kafka
+	* 基于发布-订阅模式(publish-subscribe)
+	* 术语
+		* topic
+			* A topic is a category or feed name to which records are published
+			* partition
+				* Each partition is an ordered, immutable sequence of records that is continually appended to—a structured commit log
+				* offset
+		* stream
+	* 特征
+		* stronger ordering guarantees ("exclusive consumer")
+		* 
+	* [Introduction](http://kafka.apache.org/intro)
+* [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
 
 
 ## 其他
@@ -686,26 +736,3 @@
 
 
 * 描述 git 中的 cherry-pick 指令（小红书）*`TODO`* 
-
-
-* **如何设计一个秒杀系统（小红书）** *`TODO`* 
-	* [Java开发面试：高并发秒杀系统如何设计与优化](https://blog.csdn.net/CSDN_Terence/article/details/77744042)
-	* [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
-
-	
-* **消息队列** *`TODO`* 
-	* kafka
-		* 基于发布-订阅模式(publish-subscribe)
-		* 术语
-			* topic
-				* A topic is a category or feed name to which records are published
-				* partition
-					* Each partition is an ordered, immutable sequence of records that is continually appended to—a structured commit log
-					* offset
-			* stream
-		* 特征
-			* stronger ordering guarantees ("exclusive consumer")
-			* 
-		* [Introduction](http://kafka.apache.org/intro)
-	* [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
-	* 
