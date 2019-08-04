@@ -108,11 +108,19 @@
 	* Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性。这种 **动态获取的信息以及动态调用对象的方法的功能** 称为Java语言的反射机制
 	* 应用
 		* 框架设计的灵魂 --> 如：Spring 通过 XML 配置模式装载 Bean 的过程
-		* 使用JDBC连接数据库时使用Class.forName()通过反射加载数据库的驱动程序
+		* 使用JDBC连接数据库时使用 Class.forName() 通过反射加载数据库的驱动程序
 	* [什么是反射机制？反射机制的应用场景有哪些？](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/MostCommonJavaInterviewQuestions/%E7%AC%AC%E4%BA%8C%E5%91%A8(2018-8-13).md#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%9C%89%E5%93%AA%E4%BA%9B)
 
 	
-* Java提供了哪些IO方式（拼多多）*`TODO`*
+* **Java提供了哪些IO方式（拼多多）** *`TODO`*
+	* 同步 / 异步 && 阻塞 / 非阻塞
+	* BIO / NIO
+	* 使用场景
+	* [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473)
+	* [BIO,NIO,AIO 总结](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/BIO-NIO-AIO.md)
+	* [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)
+	* [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)
+	* [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 IO Docs）
 
 
 ### 集合框架
@@ -528,7 +536,12 @@
 	* [数据库事务隔离级别-- 脏读、幻读、不可重复读（清晰解释）](https://blog.csdn.net/jiesa/article/details/51317164)
 
 
-* MySQL是如何实现隔离级别的（拼多多）*`TODO`*
+* **MySQL是如何实现隔离级别的（如可重复读的实现原理）（拼多多）** *`TODO`*
+	* MySQL Inno DB 默认隔离级别 --> 可重复读
+	* MVCC（多版本并发控制）（Inno DB引擎实现）
+	* [InnoDB---可重复读隔离级别的底层实现原理](https://blog.csdn.net/huanghanqian/article/details/79517480)
+	* [MySQL事务隔离级别的实现原理](https://www.cnblogs.com/cjsblog/p/8365921.html)
+	* [轻松理解MYSQL MVCC 实现机制](https://blog.csdn.net/whoamiyang/article/details/51901888)
 
 
 * **delete、 drop、truncate 的区别（PayPal）**
@@ -552,7 +565,12 @@
 	* [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
 
 
-* 聚集索引和非聚集索引的区别（拼多多）*`TODO`*
+* **聚集索引（Clustered Index）和非聚集索引的区别（拼多多）**
+	* 聚集索引 --> 指数据库表行中数据的物理顺序与键值的逻辑（索引）顺序相同（正文内容本身就是一种按照一定规则排列的目录）
+	* 每个表只能有一个聚集索引，因为目录只能按照一种方法进行排序
+	* [聚合索引(clustered index) / 非聚合索引(nonclustered index)](https://blog.csdn.net/ak913/article/details/8026743)
+	* [快速理解聚集索引和非聚集索引](https://blog.csdn.net/zc474235918/article/details/50580639)
+	* [聚集索引 百度百科](https://baike.baidu.com/item/%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95)
 
 
 * **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）**
@@ -640,7 +658,9 @@
 	* [如何实现一个HTTP/HTTPS代理客户端 ](https://github.com/fwon/blog/issues/38)
 
 
-* 描述SSO的原理（拼多多）*`TODO`*
+* **描述SSO的原理（拼多多）** *`TODO`*
+	* [CAS实现单点登录SSO执行原理探究(终于明白了)](https://blog.csdn.net/javaloveiphone/article/details/52439613)
+	* [How does single sign-on work?](https://www.onelogin.com/learn/how-single-sign-on-works) *`TODO`*
 
 
 * 描述Session的实现原理（或者如何设计一个Session）（拼多多）*`TODO`*
@@ -677,21 +697,23 @@
 
 ### 设计/架构
 
-* 描述MVVM（拼多多）
+* **描述MVVM（拼多多）**
+	* [MVC，MVP 和 MVVM 的图示](http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html) 
 
 
 ## 场景题
 
-* 高并发访问下如何保证用户名不冲突，比如多个用户同时创建同一个用户名（拼多多）*`TODO`* 
-
-
-* 一个任务序列执行顺序如 A --> B1,B2,B3 --> C，如何保证该任务执行先后顺序的准确性（拼多多）*`TODO`* 
-	* CountDownLatch 
+* **一个任务序列执行顺序如 A --> B1,B2,B3 --> C，如何保证该任务执行先后顺序的准确性（拼多多）**
+	* 使用 CountDownLatch --> 可以让线程等待其它线程完成一组操作后才能执行，否则就一直等待
+	* [CountDownLatch详解](https://www.jianshu.com/p/128476015902)
 
 
 * **如何设计一个秒杀系统（小红书）** *`TODO`* 
 	* [Java开发面试：高并发秒杀系统如何设计与优化](https://blog.csdn.net/CSDN_Terence/article/details/77744042)
 	* [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
+
+
+* 高并发访问下如何保证用户名不冲突，比如多个用户同时创建同一个用户名（拼多多）*`TODO`* 
 
 
 * **设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）（PayPal）**
