@@ -217,7 +217,7 @@
 	* [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
 	
 	
-* **sychronized 和 ReentrantLock**
+* **synchronized 和 ReentrantLock**
 	* synchronized 锁住的是括号里的对象，而不是代码
 	* 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
 	* [Java线程同步：synchronized锁住的是代码还是对象](https://blog.csdn.net/xiao__gui/article/details/8188833) 
@@ -259,7 +259,14 @@
 	* [Java多线程中join方法的理解](https://uule.iteye.com/blog/1101994)
 	* [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html) 
 
-	
+
+* **ConcurrentHashMap 实现原理（星环科技）**
+	* JDK1.7 --> 分段锁（Segment）+ HashEntry
+	* JDK1.8 --> CAS + synchronized
+	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)
+	* [深入浅出ConcurrentHashMap1.8](https://www.jianshu.com/p/c0642afe03e0)
+
+
 * **其他并发学习资源**
 	* [面向面试的Java并发基础整理](http://pengcheng.tech/2019/03/24/%e9%9d%a2%e5%90%91%e9%9d%a2%e8%af%95%e7%9a%84java%e5%b9%b6%e5%8f%91%e5%9f%ba%e7%a1%80%e6%95%b4%e7%90%86/) （个人初步总结，发现还是应付不了面试Orz...）
 	* [Java并发编程学习路线](https://zhuanlan.zhihu.com/p/25577863)（学习思路篇）
@@ -713,9 +720,6 @@
 	* [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
 
 
-* 高并发访问下如何保证用户名不冲突，比如多个用户同时创建同一个用户名（拼多多）*`TODO`* 
-
-
 * **设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）（PayPal）**
 	* 这题感觉非常开放，我当时答了用 适配器模式，似乎面试官并不是特别满意
 	* 适配器模式 应该是可以的
@@ -724,8 +728,20 @@
 	* [工厂模式](https://www.runoob.com/design-pattern/factory-pattern.html)
 
 
+* 高并发访问下如何保证用户名不冲突，比如多个用户同时创建同一个用户名（拼多多）*`TODO`* 
+
+
+* 结合项目，权限管理是如何设计的（星环科技） *`TODO`* 
+
+
+* 谈一下synchronized 和 wait() 搭配使用的场景（星环科技） *`TODO`* 
+	* A `wait()` only makes sense when there is also a `notify()`, so it's always about communication between threads, and that needs synchronization to work correctly
+	* [阿里巴巴面试题： 为什么wait()和notify()需要搭配synchonized关键字使用](https://blog.csdn.net/lengxiao1993/article/details/52296220) 
+	* [Why must wait() always be in synchronized block](https://stackoverflow.com/questions/2779484/why-must-wait-always-be-in-synchronized-block)
+
 
 ## 消息队列
+
 * kafka
 	* 基于发布-订阅模式(publish-subscribe)
 	* 术语
