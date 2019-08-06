@@ -558,15 +558,23 @@
 	* [SQL truncate 、delete与drop区别](https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html)
 
 
+* **第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题（阿里）**
+	* 区分快照 & 冗余
+	* [数据库设计冗余字段问题？](https://www.zhihu.com/question/50662784)
+	* [如何解释关系数据库的第一第二第三范式？](https://www.zhihu.com/question/24696366) 
+
+
+### 索引
+
 * **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（头条）**
 	* 索引 --> 一种数据结构
 	* B+ 树做索引：
-		* AVL, 红黑树等二叉树，其查找过程中要进行许多次的磁盘读取操作，非常耗时；
+		* AVL, 红黑树等二叉树，其查找过程中要进行许多次的磁盘读取操作，非常耗时
 		* B树
-			* B+树的层级更少：相较于B树B+每个非叶子节点存储的关键字数更多，树的层级更少所以查询数据更快；
-			* B+树查询速度更稳定：B+所有关键字数据地址都存在叶子节点上，所以每次查找的次数都相同所以查询速度要比B树更稳定;
-			* B+树天然具备排序功能：B+树所有的叶子节点数据构成了一个有序链表，在查询大小区间的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高；
-			* B+树全节点遍历更快：B+树遍历整棵树只需要遍历所有的叶子节点即可，而不需要像B树一样需要对每一层进行遍历，这有利于数据库做全表扫描。
+			* B+树的层级更少：相较于B树B+每个非叶子节点存储的关键字数更多，树的层级更少所以查询数据更快
+			* B+树查询速度更稳定：B+所有关键字数据地址都存在叶子节点上，所以每次查找的次数都相同所以查询速度要比B树更稳定
+			* B+树天然具备排序功能：B+树所有的叶子节点数据构成了一个有序链表，在查询大小区间的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高
+			* B+树全节点遍历更快：B+树遍历整棵树只需要遍历所有的叶子节点即可，而不需要像B树一样需要对每一层进行遍历，这有利于数据库做全表扫描
 	* [数据库索引到底是什么，是怎样工作的？](https://blog.csdn.net/weiliangliang111/article/details/51333169)
 	* [一步步分析为什么B+树适合作为索引的结构](https://blog.csdn.net/weixin_30531261/article/details/79312676)
 	* [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
@@ -582,12 +590,6 @@
 
 * **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）**
 	* [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
-
-
-* **第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题（阿里）**
-	* 区分快照和冗余
-	* [数据库设计冗余字段问题？](https://www.zhihu.com/question/50662784)
-	* [如何解释关系数据库的第一第二第三范式？](https://www.zhihu.com/question/24696366) 
 
 
 ### SQL语句相关
@@ -679,6 +681,9 @@
 
 * top，load 指令，free 中 cached和buffers的区别（阿里）
 * 找出某目录下文件中带电子邮箱的文件（爱奇艺）
+* 杀死所有Java进程
+	* `ps -ef | grep java | grep -v grep | awk '{print $2}' | xargs kill -9`
+	* [Linux 杀掉所有Java进程](https://blog.csdn.net/u011517841/article/details/79781830) 
 
 
 ## 编程之美
@@ -734,7 +739,7 @@
 * 结合项目，权限管理是如何设计的（星环科技） *`TODO`* 
 
 
-* 谈一下synchronized 和 wait() 搭配使用的场景（星环科技） *`TODO`* 
+* **谈一下synchronized 和 wait() 搭配使用的场景（星环科技）**
 	* A `wait()` only makes sense when there is also a `notify()`, so it's always about communication between threads, and that needs synchronization to work correctly
 	* [阿里巴巴面试题： 为什么wait()和notify()需要搭配synchonized关键字使用](https://blog.csdn.net/lengxiao1993/article/details/52296220) 
 	* [Why must wait() always be in synchronized block](https://stackoverflow.com/questions/2779484/why-must-wait-always-be-in-synchronized-block)
@@ -747,13 +752,12 @@
 	* 术语
 		* topic
 			* A topic is a category or feed name to which records are published
-			* partition
-				* Each partition is an ordered, immutable sequence of records that is continually appended to—a structured commit log
-				* offset
-		* stream
+		* partition
+			* Each partition is an ordered, immutable sequence of records that is continually appended to a structured commit log
+			* offset
 	* 特征
 		* stronger ordering guarantees ("exclusive consumer")
-		* 
+	* kafka Stream
 	* [Introduction](http://kafka.apache.org/intro)
 * [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
 
