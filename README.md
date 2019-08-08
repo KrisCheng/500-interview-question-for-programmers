@@ -353,17 +353,22 @@
 
 
 * **如何判断内存泄漏（腾讯）**
-	* 因为长生命周期持有它的引用而导致不能被回收，这就是Java中内存泄漏的发生场景；
+	* 因为长生命周期持有它的引用而导致不能被回收，这就是Java中内存泄漏的发生场景
 	* [Java内存泄漏分析和解决](https://www.jianshu.com/p/54b5da7c6816)
 
 
 * **什么是系统调用（爱奇艺）**
-	* 指运行在用户空间的程序向操作系统内核请求需要更高权限运行的服务；
-	* linux内核中设置了一组用于实现系统功能的子程序，称为系统调用。系统调用和普通库函数调用非常相似，只是系统调用由操作系统核心提供，运行于**内核态**，而普通的函数调用由函数库或用户自己提供，运行于**用户态**；
+	* 指运行在用户空间的程序向操作系统内核请求需要更高权限运行的服务
+	* linux内核中设置了一组用于实现系统功能的子程序，称为系统调用。系统调用和普通库函数调用非常相似，只是系统调用由操作系统核心提供，运行于**内核态**，而普通的函数调用由函数库或用户自己提供，运行于**用户态**
 	* [系统调用 Wiki](https://zh.wikipedia.org/wiki/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8)
 	* [Linux系统调用详解（实现机制分析）--linux内核剖析（六）](https://blog.csdn.net/gatieme/article/details/50779184)
+	* [用户态和内核态的区别](https://blog.csdn.net/youngyoungla/article/details/53106671)
 
 
+* select 和 epoll 的区别
+	* [select和epoll区别](https://www.jianshu.com/p/430141f95ddb)
+
+	
 ## 数据结构和算法
 
 ### 排序相关
@@ -389,6 +394,10 @@
 	* 哈希分流 + 去重
 	* 排序 + 扫描一遍去重
 	* [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
+
+
+* **从文本中找出TOP K 的高频词汇**
+	* [大数据面试题——如何从大量数据中找出高频词](https://blog.csdn.net/kingyuan666/article/details/84502198) 
 
 
 * **Java自带的 sort() 方法是如何实现的（阿里）**
@@ -557,7 +566,7 @@
 	* delete 删除表中数据，可以在后面添加where字句（想删除部分数据行时候，用delete，并且带上where子句）。 
 	* [SQL truncate 、delete与drop区别](https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html)
 
-
+	  
 * **第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题（阿里）**
 	* 区分快照 & 冗余
 	* [数据库设计冗余字段问题？](https://www.zhihu.com/question/50662784)
@@ -566,15 +575,14 @@
 
 ### 索引
 
-* **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（头条）**
+* **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（头条/腾讯）**
 	* 索引 --> 一种数据结构
-	* B+ 树做索引：
-		* AVL, 红黑树等二叉树，其查找过程中要进行许多次的磁盘读取操作，非常耗时
+	* B+ 树做索引优势
+		* AVL, 红黑树等二叉树，查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远）
 		* B树
-			* B+树的层级更少：相较于B树B+每个非叶子节点存储的关键字数更多，树的层级更少所以查询数据更快
-			* B+树查询速度更稳定：B+所有关键字数据地址都存在叶子节点上，所以每次查找的次数都相同所以查询速度要比B树更稳定
-			* B+树天然具备排序功能：B+树所有的叶子节点数据构成了一个有序链表，在查询大小区间的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高
-			* B+树全节点遍历更快：B+树遍历整棵树只需要遍历所有的叶子节点即可，而不需要像B树一样需要对每一层进行遍历，这有利于数据库做全表扫描
+			* 由于B+树的内部节点只存放键，不存放值，因此，一次读取，可以在内存页中获取更多的键，有利于更快地缩小查找范围
+			* B+树天然具备排序功能 --> B+树所有的叶子节点数据构成了一个**有序链表**，在查询大小区间的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高
+			* B+树查询效率更稳定 --> B+所有关键字数据地址都存在叶子节点上，所以每次查找的次数都相同，所以查询速度要比B树更稳定
 	* [数据库索引到底是什么，是怎样工作的？](https://blog.csdn.net/weiliangliang111/article/details/51333169)
 	* [一步步分析为什么B+树适合作为索引的结构](https://blog.csdn.net/weixin_30531261/article/details/79312676)
 	* [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
@@ -591,6 +599,9 @@
 * **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）**
 	* [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
 
+	
+* 索引失效的可能原因及策略
+
 
 ### SQL语句相关
 
@@ -600,6 +611,10 @@
 	
 * **找出在表A中但不在表B中的记录（根据某一个共同的column）（PayPal）**
 	* [查询A、B表中，A表中B表没有的数据](https://blog.csdn.net/long636/article/details/51733273)（三种方法）
+
+
+* SQL优化策略
+	* [这大概是最全的sql优化方案了](https://zhuanlan.zhihu.com/p/48385127) 
 
 	 
 ## 计算机网络
@@ -622,7 +637,15 @@
 		* 发送端 --> ACK
 	* [TCP的三次握手与四次挥手（详解+动图）](https://blog.csdn.net/qzcsu/article/details/72861891)
 
-	
+
+* **三次握手中SYN/ACK包的具体内容（腾讯）**
+	* SYN - 创建一个连接
+	* FIN - 终结一个连接
+	* ACK - 确认接收到的数据
+	* [TCP三次握手中SYN，ACK，Seq三者的关系](https://blog.csdn.net/u014507230/article/details/45310847)
+	* [Understanding TCP Sequence and Acknowledgment Numbers](https://packetlife.net/blog/2010/jun/7/understanding-tcp-sequence-acknowledgment-numbers/)
+
+
 * **用Socket描述TCP的三次握手（腾讯）** *`TODO`* 
 	* [Socket过程详细解释（包括三次握手建立连接，四次握手断开连接）](https://blog.csdn.net/u013782203/article/details/51767763)（C++实现，未看）
 
@@ -758,8 +781,11 @@
 	* 特征
 		* stronger ordering guarantees ("exclusive consumer")
 	* kafka Stream
+		* 
 	* [Introduction](http://kafka.apache.org/intro)
+	* [kafka解决了什么问题?](https://www.zhihu.com/question/53331259)
 * [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
+* 
 
 
 ## 其他
