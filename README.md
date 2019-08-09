@@ -13,7 +13,7 @@
 * **描述Spring的IoC**
 	* IoC是一种思想，并非一个具体技术
 		* 基于 **依赖倒置原则（Dependency Inversion Principle）**
-			* 把原本的高层建筑依赖底层建筑“倒置”过来，变成底层建筑依赖高层建筑。高层建筑决定需要什么，底层去实现这样的需求，但是高层并不用管底层是怎么实现的。这样就不会出现前面的“牵一发动全身”的情况。
+			* 把原本的高层建筑依赖底层建筑“倒置”过来，变成底层建筑依赖高层建筑。高层建筑决定需要什么，底层去实现这样的需求，但是高层并不用管底层是怎么实现的。这样就不会出现前面的“牵一发动全身”的情况
 		* 将原本在程序中手动创建对象的控制权，交由Spring框架来管理
 		* 反转 --> 由 **IoC容器** 来帮忙创建及注入依赖对象
 		* 实现 --> 依赖注入（相对 IoC 而言，“依赖注入” 明确描述了 “被注入对象依赖IoC容器配置依赖对象”）
@@ -68,6 +68,12 @@
 	* 《Spring Boot实战》前三章
 
 
+* **描述一个Spring Boot项目的启动过程（阿里）**
+	* @SpringBootApplication --> 复合注解（@SpringBootConfiguration / @EnableAutoConfiguration / @ComponentScan）
+	* 
+	* [SpringBoot 应用程序启动过程探秘](https://juejin.im/post/5b8f05a5f265da43296c6102)
+
+
 * **什么是JPA**
 	* [Java持久化API Wiki](https://zh.wikipedia.org/wiki/Java%E6%8C%81%E4%B9%85%E5%8C%96API)
 
@@ -79,10 +85,10 @@
 	* [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
 
 
-### Java语法相关
+### Java语言相关
 	
 * **字符串相关问题**
-	* StringBuffer --> 线程安全 
+	* StringBuffer --> 线程安全
 	* StringBuilder --> 非线程安全
 	* [第5讲 | String、StringBuffer、StringBuilder有什么区别？](https://time.geekbang.org/column/article/7349)
 
@@ -121,6 +127,22 @@
 	* [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)
 	* [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)
 	* [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 IO Docs）
+
+
+* **描述类加载过程（阿里）** *`TODO`*
+	* 加载（Loading） --> 链接（Linking） --> 初始化（initialization）
+	* 加载
+		* 将字节码数据从不同的数据源读取到 JVM 中，并映射为 JVM 认可的数据结构（Class对象）
+	* 链接
+		* 验证（Verification）
+		* 准备（Preparation）
+		* 解析（Resolution）
+	* 初始化
+	* 双亲委派模型
+		* 当类加载器试图加载某个类型时，除非父加载器找不到相应类型，否则尽量将这个任务代理给当前加载器的父加载器去做，目的是避免重复加载Java类型
+	* [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)
+	* [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)
+	* 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章
 
 
 ### 集合框架
@@ -682,8 +704,9 @@
 	* [详细解析 HTTP 与 HTTPS 的区别](https://juejin.im/entry/58d7635e5c497d0057fae036) 
 
 
-* **描述HTTPS的加密过程（头条）** *`TODO`* 
+* **描述HTTPS的加密过程（头条/阿里）** *`TODO`* 
 	* [HTTPS加密过程和TLS证书验证](https://juejin.im/post/5a4f4884518825732b19a3ce)
+	* [HTTPS中的TLS](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/HTTPS%E4%B8%AD%E7%9A%84TLS.md)
 
 
 * **HTTP代理如何实现（阿里）** *`TODO`* 
@@ -781,9 +804,9 @@
 	* 特征
 		* stronger ordering guarantees ("exclusive consumer")
 	* kafka Stream
-		* 
 	* [Introduction](http://kafka.apache.org/intro)
 	* [kafka解决了什么问题?](https://www.zhihu.com/question/53331259)
+	* 
 * [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
 * 
 
