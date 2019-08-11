@@ -516,7 +516,7 @@
 	* [背包问题 Wiki](https://zh.wikipedia.org/wiki/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98) 
 
 
-### 其他
+### 其他算法
 
 * **买卖股票的最佳时机（野村证券/头条）**
 	* [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 
@@ -555,6 +555,14 @@
 		* dp[i][h]记录以第i块积木为底, 高为h的积木塔的最低重量
 		* dp[i][h] = nodes[i].w + dp[j][h-1]（j 从 i-1 开始遍历）
 	* [拼多多学霸批算法工程师笔试题经验](https://www.nowcoder.com/discuss/212363?type=2)
+
+
+* **头条后端开发笔试 0811**
+	* 分糖果原题
+		* 从左至右扫一遍，再从右至左扫一遍，取最大值
+		* [135. 分发糖果](https://leetcode-cn.com/problems/candy/)
+	* 异或操作题
+	* [【字节跳动2019校招笔试】编程1-3题O(n)思路及代码](https://www.nowcoder.com/discuss/221175?type=2&order=3&pos=18&page=1)
 
 
 ## 数据库
@@ -766,9 +774,16 @@
 	* [CountDownLatch详解](https://www.jianshu.com/p/128476015902)
 
 
-* **如何设计一个秒杀系统（小红书）** *`TODO`* 
+* **如何设计一个秒杀系统（小红书）**
+	* 思路
+		* 
 	* [Java开发面试：高并发秒杀系统如何设计与优化](https://blog.csdn.net/CSDN_Terence/article/details/77744042)
 	* [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
+
+
+* 高并发访问下如何保证用户名不冲突，比如多个用户同时创建同一个用户名（拼多多）*`TODO`* 
+	* 
+	* 
 
 
 * **设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）（PayPal）**
@@ -777,9 +792,6 @@
 	* 工厂模式(定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。) 应该也可以 --> 传入方法参数，实例化具体对象
 	* [两道设计模式的面试题](https://www.cnblogs.com/Binhua-Liu/archive/2010/12/23/1914935.html)
 	* [工厂模式](https://www.runoob.com/design-pattern/factory-pattern.html)
-
-
-* 高并发访问下如何保证用户名不冲突，比如多个用户同时创建同一个用户名（拼多多）*`TODO`* 
 
 
 * 结合项目，权限管理是如何设计的（星环科技） *`TODO`* 
