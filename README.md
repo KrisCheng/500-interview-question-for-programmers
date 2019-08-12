@@ -776,14 +776,17 @@
 
 * **如何设计一个秒杀系统（小红书）**
 	* 思路
-		* 
+		* 限流
+		* 削峰
+		* 异步处理
+		* 内存缓存（“多读少写”）
+		* 消息队列缓存请求 -- “数据库层订阅消息减库存，减库存成功的请求返回秒杀成功，失败的返回秒杀结束”
 	* [Java开发面试：高并发秒杀系统如何设计与优化](https://blog.csdn.net/CSDN_Terence/article/details/77744042)
 	* [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
+	* [秒杀系统架构优化思路](https://yq.aliyun.com/articles/69704?utm_campaign=wenzhang&utm_medium=article&utm_source=QQ-qun&utm_content=m_10737)
 
 
 * 高并发访问下如何保证用户名不冲突，比如多个用户同时创建同一个用户名（拼多多）*`TODO`* 
-	* 
-	* 
 
 
 * **设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）（PayPal）**
