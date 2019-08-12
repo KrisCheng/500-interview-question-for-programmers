@@ -650,14 +650,19 @@
 ## 计算机网络
 
 * **介绍 OSI 七层模型**
-	* [OSI七层模型详解](https://blog.csdn.net/yaopeng_2005/article/details/7064869) （上课很重要，但目前还没面到过）
+	* 应用层（应用层 --> 表示层 --> 会话层） --> 传输层 --> 网络层 --> 数据链路层 --> 物理层 (7层)
+	* 应用层 --> 传输层 --> 网络层 --> 数据链路层 --> 物理层 （5层）
+	* 并非标准，一个概念性框架
+	* [OSI七层模型详解](https://blog.csdn.net/yaopeng_2005/article/details/7064869)
 	* [干货：计算机网络知识总结.md](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/%E5%B9%B2%E8%B4%A7%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93.md#%E4%B8%80%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%BF%B0)（逐层术语解释）
 
 	
 * **描述三次握手四次挥手（阿里）**
 	* 三次握手
-		* 发送端 --> SYN / 接收端 --> [SYN/ACK] / 发送端 --> ACK
-			* SYN 是 TCP/IP 建立连接时使用的握手信号
+		* 发送端 --> SYN
+		* 接收端 --> [SYN/ACK]
+		* 发送端 --> ACK
+		* SYN 是 TCP/IP 建立连接时使用的握手信号
 		* 需要三次握手原因：双方确认自己与对方的发送与接收是正常的
 		* 接收端回传SYN --> 告诉发送端我接收到的信息确实就是你所发送的信号
 	* 四次挥手
@@ -669,9 +674,9 @@
 
 
 * **三次握手中SYN/ACK包的具体内容（腾讯）**
-	* SYN - 创建一个连接
-	* FIN - 终结一个连接
-	* ACK - 确认接收到的数据
+	* SYN - 同步序列，用于建立连接过程
+	* FIN - finish标志，用于释放连接
+	* ACK - 确认接收到的数据，确认序号标志
 	* [TCP三次握手中SYN，ACK，Seq三者的关系](https://blog.csdn.net/u014507230/article/details/45310847)
 	* [Understanding TCP Sequence and Acknowledgment Numbers](https://packetlife.net/blog/2010/jun/7/understanding-tcp-sequence-acknowledgment-numbers/)
 
@@ -709,12 +714,14 @@
 * **HTTP 与 HTTPS 的区别** 
 	* HTTP协议以明文方式发送内容，不提供任何方式的数据加密
 	* HTTPS其实就是建构在SSL（Secure Sockets Layer） / TLS之上的 HTTP协议
+	* HTTPS密文传输 / HTTP 明文传输
+	* HTTPS协议需要到CA申请证书
 	* [详细解析 HTTP 与 HTTPS 的区别](https://juejin.im/entry/58d7635e5c497d0057fae036) 
 
 
-* **描述HTTPS的加密过程（头条/阿里）** *`TODO`* 
+* **描述HTTPS的加密过程 / 对称加密&非对称加密在HTTPS加密过程中如何实践（头条/阿里）** *`TODO`* 
 	* [HTTPS加密过程和TLS证书验证](https://juejin.im/post/5a4f4884518825732b19a3ce)
-	* [HTTPS中的TLS](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/HTTPS%E4%B8%AD%E7%9A%84TLS.md)
+	* [HTTPS中的TLS](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/HTTPS%E4%B8%AD%E7%9A%84TLS.md)（密码学角度）
 
 
 * **HTTP代理如何实现（阿里）** *`TODO`* 
@@ -776,14 +783,15 @@
 
 * **如何设计一个秒杀系统（小红书）**
 	* 思路
-		* 限流
+		* 限流（过滤无效流量，如恶意脚本；拦截流量）
 		* 削峰
 		* 异步处理
-		* 内存缓存（“多读少写”）
-		* 消息队列缓存请求 -- “数据库层订阅消息减库存，减库存成功的请求返回秒杀成功，失败的返回秒杀结束”
+		* 内存缓存（“多读少写”, "基于Redis来实现核心的业务逻辑"）
+		* 消息队列缓存请求 --> “数据库层订阅消息减库存，减库存成功的请求返回秒杀成功，失败的返回秒杀结束”
 	* [Java开发面试：高并发秒杀系统如何设计与优化](https://blog.csdn.net/CSDN_Terence/article/details/77744042)
 	* [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
 	* [秒杀系统架构优化思路](https://yq.aliyun.com/articles/69704?utm_campaign=wenzhang&utm_medium=article&utm_source=QQ-qun&utm_content=m_10737)
+	* [如何设计一个百万级用户的抽奖系统](https://note.youdao.com/ynoteshare1/index.html?id=5c04dccbffd0b6fc511dc920e6be12e3&type=note)
 
 
 * 高并发访问下如何保证用户名不冲突，比如多个用户同时创建同一个用户名（拼多多）*`TODO`* 
