@@ -816,7 +816,7 @@
 
 ## 消息队列
 
-* kafka
+* kafka *`TODO`*
 	* 基于发布-订阅模式(publish-subscribe)
 	* 术语
 		* topic
@@ -827,11 +827,16 @@
 	* 特征
 		* stronger ordering guarantees ("exclusive consumer")
 	* kafka Stream
+		* QuickStart
+			* ZooKeeper server
+			* Kafka server
+			* Start Application (eg: WordCount)
+			* Producer & Consumer
+		* [Kafka Streams](https://kafka.apache.org/23/documentation/streams/)
 	* [Introduction](http://kafka.apache.org/intro)
 	* [kafka解决了什么问题?](https://www.zhihu.com/question/53331259)
-	* 
+	* [《Apache Kafka实战》](https://book.douban.com/subject/30221096/)
 * [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
-* 
 
 
 ## 其他
