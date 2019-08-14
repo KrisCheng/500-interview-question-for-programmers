@@ -70,7 +70,6 @@
 
 * **描述一个Spring Boot项目的启动过程（阿里）**
 	* @SpringBootApplication --> 复合注解（@SpringBootConfiguration / @EnableAutoConfiguration / @ComponentScan）
-	* 
 	* [SpringBoot 应用程序启动过程探秘](https://juejin.im/post/5b8f05a5f265da43296c6102)
 
 
@@ -168,8 +167,16 @@
 		* capacity --> buckets的数目 / load factor (负载因子) --> buckets填满程度的最大比例
 	* [HashMap 简介](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md)
 	* [使用HashMap，如果key是自定义的类，就必须重写hashcode()和equals()](https://blog.csdn.net/tuolaji8/article/details/48417031)
+	* [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html)
 
 
+* **ConcurrentHashMap 实现原理（星环科技）**
+	* JDK1.7 --> 分段锁（Segment）+ HashEntry
+	* JDK1.8 --> CAS + synchronized
+	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)
+	* [深入浅出ConcurrentHashMap1.8](https://www.jianshu.com/p/c0642afe03e0)
+
+	
 * **HashSet 如何判断重复元素（小红书）**
 	* 首先会调用 Object 的 hashCode 方法判 hashCode 是否已经存在，如不存在则直接插入元素
 	* 如果已存在则调用 Object 对象的 equals 方法判断是否返回true， 如果为true则说明元素已经存在，如为false则插入元素
@@ -246,7 +253,7 @@
 	* [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799)
 
 
-* **volatile**
+* **volatile（阿里）**
 	* 保证变量的可见性（指示 JVM，这个变量是不稳定的，每次使用它都到主存中进行读取） & 防止指令重排序
 	* 只能用于变量
 	* [2. volatile关键字](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/Multithread/JavaConcurrencyAdvancedCommonInterviewQuestions.md#2-volatile%E5%85%B3%E9%94%AE%E5%AD%97)
@@ -282,18 +289,11 @@
 	* [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html) 
 
 
-* **ConcurrentHashMap 实现原理（星环科技）**
-	* JDK1.7 --> 分段锁（Segment）+ HashEntry
-	* JDK1.8 --> CAS + synchronized
-	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)
-	* [深入浅出ConcurrentHashMap1.8](https://www.jianshu.com/p/c0642afe03e0)
-
-
-* **其他并发学习资源**
+* **并发学习资源**
 	* [面向面试的Java并发基础整理](http://pengcheng.tech/2019/03/24/%e9%9d%a2%e5%90%91%e9%9d%a2%e8%af%95%e7%9a%84java%e5%b9%b6%e5%8f%91%e5%9f%ba%e7%a1%80%e6%95%b4%e7%90%86/) （个人初步总结，发现还是应付不了面试Orz...）
 	* [Java并发编程学习路线](https://zhuanlan.zhihu.com/p/25577863)（学习思路篇）
 	* [Java Concurrency in Practice](https://book.douban.com/subject/1888733/)（*`TODO`* 请直接抛弃中文版，翻译极其垃圾，但原版对初学者不是很友好，不是很好懂）
-	* [Java并发编程实战](https://time.geekbang.org/column/intro/159)(*`TODO`* 极客时间课程)
+	* [Java并发编程实战](https://time.geekbang.org/column/intro/159)(极客时间课程)
 
 
 ## Python
@@ -500,7 +500,7 @@
 
 * **如何找出一个字符串中的最大不重复子串（蜻蜓FM）**
 	* 暴力求解 --> 逐个遍历，找最长子串（设置一个 allUnique 函数）/ O(n^3)
-	* 滑动窗口 --> 滑动窗口至到最后一个元素，每当碰到重复左指针往后走，否则右指针往后走，同时比较 / O(n)
+	* 滑动窗口 --> 滑动窗口直到最后一个元素，每当碰到重复左指针往后走，否则右指针往后走，同时比较 / O(n)
 	* [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-by-leetcod/)
 
 
@@ -657,7 +657,7 @@
 	* [干货：计算机网络知识总结.md](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/%E5%B9%B2%E8%B4%A7%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93.md#%E4%B8%80%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%BF%B0)（逐层术语解释）
 
 	
-* **描述三次握手四次挥手（阿里）**
+* **描述三次握手四次挥手以及原因（阿里/腾讯）**
 	* 三次握手
 		* 发送端 --> SYN
 		* 接收端 --> [SYN/ACK]
@@ -689,12 +689,16 @@
 	* [网络中进程之间如何通信](https://blog.csdn.net/bajiudongfeng/article/details/51568874) 
 
 	
-* **TCP和UDP的特点和区别**
+* **TCP和UDP的特点和区别（腾讯）**
 	* TCP --> 面向连接 / UDP --> 无连接（发送数据前不需要建立连接）
 	* TCP 提供可靠的服务（数据传输）/ UDP 无法保证
 	* TCP --> 字节流 / UDP --> 数据报文段
 	* [TCP和UDP的区别](https://zhuanlan.zhihu.com/p/24860273)
 	* [常见面试题整理--计算机网络篇（每位开发者必备）](https://zhuanlan.zhihu.com/p/24001696)
+
+
+* **TIME_WAIT状态产生（腾讯）**
+	* [理解TIME_WAIT，彻底弄清解决TCP: time wait bucket table overflow](https://blog.51cto.com/benpaozhe/1767612)
 
 
 * **从客户端输入一个URL，该请求是如何传到服务端的（爱奇艺）**
