@@ -4,7 +4,7 @@
 
 本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正。
 
-希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结，可配合同目录下 KnowledgeStructure 同步使用，供所有正在找工作的小伙伴们参考（欢迎 Star，500是一个目标数，切莫抬杠）。
+希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结，可配合同目录下 KnowledgeStructure 同步使用，供所有正在找工作的小伙伴们参考（欢迎 `Star`，500是一个目标数，切莫抬杠）。
 
 ## Java
 
@@ -15,7 +15,7 @@
 		* 基于 **依赖倒置原则（Dependency Inversion Principle）**
 			* 把原本的高层建筑依赖底层建筑“倒置”过来，变成底层建筑依赖高层建筑。高层建筑决定需要什么，底层去实现这样的需求，但是高层并不用管底层是怎么实现的。这样就不会出现前面的“牵一发动全身”的情况
 		* 将原本在程序中手动创建对象的控制权，交由Spring框架来管理
-		* 反转 --> 由 **IoC容器** 来帮忙创建及注入依赖对象
+		* 反转 --> 由 **IoC容器** 来帮忙创建及注入依赖对象（Spring 提供 BeanFactory 和 ApplicationContext 两种容器）
 		* 实现 --> 依赖注入（相对 IoC 而言，“依赖注入” 明确描述了 “被注入对象依赖IoC容器配置依赖对象”）
 	* 依赖注入，就是 **把底层类作为参数传入上层类，实现上层类对下层类的“控制”**
 		* 谁依赖于谁：当然是应用程序依赖于IoC容器
@@ -25,39 +25,53 @@
 	* 好处
 		* 让你脱离对依赖对象的维护，只需要随用随取，不需要关心依赖对象的任何过程
 		* 可以有效地改善模块之间的紧耦合问题
-	* [IoC-spring 的灵魂(带你轻松理解IOC思想及bean对象的生成过程)](https://juejin.im/post/593386ca2f301e00584f8036)
-	* [【第二章】 IoC 之 2.1 IoC基础 ——跟我学Spring3](https://jinnianshilongnian.iteye.com/blog/1413846)
+	* 源码实现 
+		* *`TODO`*
+	* [IoC-spring 的灵魂(带你轻松理解IOC思想及bean对象的生成过程)](https://juejin.im/post/593386ca2f301e00584f8036)（基本概念）
+	* [【第二章】 IoC 之 2.1 IoC基础 ——跟我学Spring3](https://jinnianshilongnian.iteye.com/blog/1413846)（IoC思想详解）
 	* [Spring IoC有什么好处呢？](https://www.zhihu.com/question/23277575/answer/169698662)（汽车的例子有助于理解IoC）
 	* [Inversion of Control Containers and the Dependency Injection pattern](https://martinfowler.com/articles/injection.html)（Martin文章 *`TODO`*）
 	* [Spring IOC 容器源码分析](https://javadoop.com/post/spring-ioc)（源码阅读 *`TODO`*）
 
 
-* **什么是Bean**
+* **什么是Bean以及描述Bean的生命周期**
 	* 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为Bean。一个Bean是一个由Spring IoC容器实例化、组装和管理的对象
-	* [第37讲 | 谈谈Spring Bean的生命周期和作用域？](https://time.geekbang.org/column/article/12472)
+	* 生命周期
+		* 创建Bean
+			* 实例化 Bean 对象
+			* 设置属性
+			* 减产 Aware 相关接口并注入依赖（具体包括 BeanNameAware、BeanFactoryAware 和 ApplicationContextAware，分别注入Bean ID， Bean Factory 或 ApplicationContext）
+			* 调用 BeanPostProcessor 的前置初始化方法 postProcessBeforeInitialization
+			* 如果实现了 InitializingBean 接口，则会调用 afterPropertiesSet 方法
+			* 调用 Bean 自身定义的 init 方法
+			* 调用 BeanPostProcessor 的后置初始化方法 postProcessAfterInitialization
+			* 创建过程完毕
+		* 销毁
+			* Spring Bean 的销毁过程会依次调用 DisposableBean 的 destroy 方法和 Bean 自身定制的 destroy 方法
 	* [Spring Bean是什么？](https://www.awaimai.com/2596.html)
+	* [第37讲 | 谈谈Spring Bean的生命周期和作用域？](https://time.geekbang.org/column/article/12472)
 
 	
 * **描述Spring的AOP（小红书）**
 	* AOP的理念
 		* 将分散在各个业务逻辑代码中 相同的代码 通过 **横向切割** 的方式抽取到一个独立的模块中（模块化）
-		* 将相同逻辑的重复代码横向抽取出来，使用动态代理技术将这些重复代码织入到目标对象方法中，实现和原来一样的功能。
+		* 将相同逻辑的重复代码横向抽取出来，使用动态代理技术将这些重复代码**织入**到目标对象方法中，实现和原来一样的功能
 	* 基本概念
 		* 通知（advice） --> 切面的工作被称为通知，定义了切面是什么以及何时被使用
-		* 连接点（join point） --> 应用执行过程中能够插入切面的一个点，可以是方法调用时，抛出异常时等等...
+		* 连接点（join point） --> 应用执行过程中能够插入切面的一个点，可以是方法调用时，抛出异常时等等
 		* 切点（pointcut） --> 需要应用切面的方法（具体定位的连接点）
 		* 切面（aspect） --> 切面是 通知 和 切点 的结合，共同定义：是什么，在何时和何处完成其功能
 		* 织入(weaving) --> 把切面应用到目标函数的过程
 	* 好处
 		* 显示地声明在何处如何应用该行为，有效减少代码冗余，让类更加关注自身主要功能
-	* Spring AOP 实现 *`TODO`*
-		* Java JDK 动态代理
+	* Spring AOP 具体实现（源码级别） *`TODO`*
+		* Java JDK 动态代理 （默认）
 		* CGLIB 动态代理
 	* [关于 Spring AOP (AspectJ) 你该知晓的一切](https://blog.csdn.net/javazejian/article/details/56267036)（AOP入门 + 应用场景 + Spring中的基本实现）
 	* [《Spring设计思想》AOP设计基本原理](https://blog.csdn.net/luanlouis/article/details/51095702)（从程序运行角度解释AOP的工作原理）
-	* [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) （Spring AOP的完整实现过程 *`TODO`*）
 	* 《Spring实战（第四版）》第四章
 	* [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)（可在面试前看的纯干货）
+	* [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) （Spring AOP的完整实现过程 *`TODO`*）
 
 
 * **简述Spring Boot框架**
@@ -87,8 +101,9 @@
 ### Java语言相关
 	
 * **字符串相关问题**
-	* StringBuffer --> 线程安全
+	* StringBuffer --> 线程安全 （使用 synchronized 关键字实现）
 	* StringBuilder --> 非线程安全
+	* 底层实现均为可修改数组（char, JDK 9 以后是byte数组）
 	* [第5讲 | String、StringBuffer、StringBuilder有什么区别？](https://time.geekbang.org/column/article/7349)
 
 
@@ -253,9 +268,10 @@
 	* [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799)
 
 
-* **volatile（阿里）**
+* **volatile关键字（阿里）**
 	* 保证变量的可见性（指示 JVM，这个变量是不稳定的，每次使用它都到主存中进行读取） & 防止指令重排序
 	* 只能用于变量
+	* 对一个 volatile 变量的写操作， Happens-Before 后续对这个 volatile 变量的读操作
 	* [2. volatile关键字](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/Multithread/JavaConcurrencyAdvancedCommonInterviewQuestions.md#2-volatile%E5%85%B3%E9%94%AE%E5%AD%97)
 
 	
@@ -675,7 +691,7 @@
 
 * **三次握手中SYN/ACK包的具体内容（腾讯）**
 	* SYN - 同步序列，用于建立连接过程
-	* FIN - finish标志，用于释放连接
+	* FIN - Finish标志，用于释放连接
 	* ACK - 确认接收到的数据，确认序号标志
 	* [TCP三次握手中SYN，ACK，Seq三者的关系](https://blog.csdn.net/u014507230/article/details/45310847)
 	* [Understanding TCP Sequence and Acknowledgment Numbers](https://packetlife.net/blog/2010/jun/7/understanding-tcp-sequence-acknowledgment-numbers/)
@@ -764,12 +780,13 @@
 	* 懒汉模式 --> Lazy初始化
 	* 饿汉模式 --> 在方法调用前，实例就已经创建好了
 	* 全部 sychronized 锁住 --> 可以保证线程安全，但销效率低
-	* “双重检查锁”机制版本 （面试用这个）
-		* volatile 来保证其线程间的可见性，禁止指令重排
+	* “双重检查锁” 机制版本 （面试用这个）
+		* volatile 来保证其线程间的可见性，禁止指令重排序，保证返回的是初始化**完全**的对象
 		* 同步代码块中使用二次检查，以保证其不被重复实例化
 	* 枚举enum和静态代码块的特性相似，在使用枚举时，构造方法会被自动调用，利用这一特性也可以实现单例（面试可稍微提及）
 	* [高并发下线程安全的单例模式（最全最经典）](https://blog.csdn.net/cselmu9/article/details/51366946) （单例的N种实现）
 	* [单例模式](https://www.runoob.com/design-pattern/singleton-pattern.html)（详尽介绍）
+	* [Why is volatile used in double checked locking](https://stackoverflow.com/questions/7855700/why-is-volatile-used-in-double-checked-locking)
 
 
 ### 设计/架构
