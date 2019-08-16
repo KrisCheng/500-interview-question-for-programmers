@@ -34,7 +34,7 @@
 	* [Spring IOC 容器源码分析](https://javadoop.com/post/spring-ioc)（源码阅读 *`TODO`*）
 
 
-* **什么是Bean以及描述Bean的生命周期**
+* **什么是Bean以及描述Bean的生命周期（美团）**
 	* 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为Bean。一个Bean是一个由Spring IoC容器实例化、组装和管理的对象
 	* 生命周期
 		* 创建Bean
@@ -204,7 +204,7 @@
 
 ### Java内存模型
 	
-* **描述Java内存模型（阿里）**
+* **描述Java内存模型（阿里/美团）**
 	* JVM内存区域划分
 		* 程序计数器（PC, Program Counter Register） --> 它的作用可以看做是当前线程所执行的字节码的行号指示器
 		* 虚拟机栈（Virtual Machine Stack） --> 保存一个个栈帧（Stack Frame），对应着一次次的Java **方法调用**
@@ -219,7 +219,7 @@
 	* [Java 内存区域详解](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F.md)
 
 
-* **描述Java的GC过程（DaoCloud）**
+* **描述Java的GC过程（DaoCloud/美团）**
 	* 对象存活判断
 		* 引用计数（Python 的 GC），无法解决对象相互循环引用的问题，Java中没有使用（Python GC有应用）
 		* 可达性分析（GC Roots --> 虚拟机栈和本地方法栈中正在引用的对象、静态属性引用的对象和常量）
@@ -231,6 +231,10 @@
 	* [第27讲 | Java常见的垃圾收集器有哪些？](https://time.geekbang.org/column/article/10513)
 	* [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
 	* [JVM 垃圾回收](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md)
+
+
+* 描述JVM中常见的垃圾回收器，如CMS，以及JVM调优思路（美团）*`TODO`*
+	* [一文了解JVM全部垃圾回收器，从Serial到ZGC](https://juejin.im/post/5bade237e51d450ea401fd71)
 
 
 * **浅拷贝 & 深拷贝（头条）**
@@ -303,6 +307,12 @@
 	* Thread.join() 把指定的线程加入到当前线程，可以将两个交替执行的线程合并为顺序执行的线程。比如在线程B中调用了线程A的join()方法，直到线程A执行完毕后，才会继续执行线程B
 	* [Java多线程中join方法的理解](https://uule.iteye.com/blog/1101994)
 	* [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html) 
+
+
+* Atomic 类的底层实现（美团）*`TODO`*
+
+
+* 描述 ThreadLocal *`TODO`*
 
 
 * **并发学习资源**
@@ -621,7 +631,7 @@
 
 ### 索引
 
-* **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（头条/腾讯）**
+* **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（头条/腾讯/美团）**
 	* 索引 --> 一种数据结构
 	* B+ 树做索引优势
 		* AVL, 红黑树等二叉树，查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远）
@@ -646,8 +656,11 @@
 	* [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
 
 	
-* 索引失效的可能原因及策略
+* MySQL索引不命中的可能原因及策略（美团）*`TODO`* 
+	* [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html)
 
+
+* MySQL联合索引命中情景分析（美团）
 
 ### SQL语句相关
 
