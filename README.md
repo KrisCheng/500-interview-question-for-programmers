@@ -91,7 +91,7 @@
 	* [Java持久化API Wiki](https://zh.wikipedia.org/wiki/Java%E6%8C%81%E4%B9%85%E5%8C%96API)
 
 
-* **什么是Spring注解，以及Spring中有哪些常用的注解（阿里）**
+* **什么是Spring注解，以及Spring中有哪些常用的注解，以及注解是如何实现的（阿里/头条）** *`TODO`*
 	* 注解 --> 减少配置文件内容
 	* [Java annotation Wiki](https://en.wikipedia.org/wiki/Java_annotation)
 	* [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解： 注解 --> 标签）
@@ -110,8 +110,9 @@
 * **什么是序列化（Serialization）和反序列化（小红书）**
 	* 序列化 --> 把对象转换为**字节序列**的过程称为对象的序列化
 	* 反序列化 --> 把字节序列恢复为对象的过程称为对象的反序列化
-	* [Java对象的序列化（Serialization）和反序列化详解](https://blog.csdn.net/yaomingyang/article/details/79321939)
-	* [Java 之 Serializable 序列化和反序列化的概念,作用的通俗易懂的解释](https://blog.csdn.net/qq_27093465/article/details/78544505)
+	* [Java 序列化](https://www.runoob.com/java/java-serialization.html)
+	* [Java对象的序列化（Serialization）和反序列化详解](https://blog.csdn.net/yaomingyang/article/details/79321939)（实例）
+	* [二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/)
 
 	
 * **Java中父类和子类初始化顺序（小红书）**
@@ -125,26 +126,28 @@
 
 
 * **什么是反射以及反射有什么具体应用**
-	* Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性。这种 **动态获取的信息以及动态调用对象的方法的功能** 称为Java语言的反射机制
+	* Java反射机制是在**运行状态中**，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性。这种 **动态获取的信息以及动态调用对象的方法的功能** 称为Java语言的反射机制
 	* 应用
 		* 框架设计的灵魂 --> 如：Spring 通过 XML 配置模式装载 Bean 的过程
 		* 使用JDBC连接数据库时使用 Class.forName() 通过反射加载数据库的驱动程序
-	* [什么是反射机制？反射机制的应用场景有哪些？](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/MostCommonJavaInterviewQuestions/%E7%AC%AC%E4%BA%8C%E5%91%A8(2018-8-13).md#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%9C%89%E5%93%AA%E4%BA%9B)
+	* [什么是反射机制？反射机制的应用场景有哪些？](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/MostCommonJavaInterviewQuestions/%E7%AC%AC%E4%BA%8C%E5%91%A8(2018-8-13).md#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%9C%89%E5%93%AA%E4%BA%9B)（基本介绍）
+	* [Java基础之—反射（非常重要）](https://blog.csdn.net/sinat_38259539/article/details/71799078)（反射实例 *`TODO`*）
 
 	
 * **Java提供了哪些IO方式（拼多多）** *`TODO`*
-	* 同步 / 异步 && 阻塞 / 非阻塞
+	* 同步 / 异步 --> 关注的是消息通信机制（区别最大在于异步的话调用者不需要等待处理结果）
+	* 阻塞 / 非阻塞 --> 关注的是程序在等待调用结果（消息，返回值）时的状态
 	* BIO / NIO
 	* 使用场景
 	* [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473)
-	* [BIO,NIO,AIO 总结](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/BIO-NIO-AIO.md)
-	* [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)
-	* [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)
-	* [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 IO Docs）
+	* [BIO,NIO,AIO 总结](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/BIO-NIO-AIO.md)（基本概念+实例 *`TODO`*）
+	* [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)（思想+实例 *`TODO`*）
+	* [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)（思想+实例 *`TODO`*）
+	* [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 IO Docs *`TODO`*）
 
 
-* **描述类加载过程（阿里）** *`TODO`*
-	* 加载（Loading） --> 链接（Linking） --> 初始化（initialization）
+* **描述Java类加载过程（阿里）** *`TODO`*
+	* 加载（Loading） --> 链接（Linking） --> 初始化（Initialization）
 	* 加载
 		* 将字节码数据从不同的数据源读取到 JVM 中，并映射为 JVM 认可的数据结构（Class对象）
 	* 链接
@@ -154,9 +157,10 @@
 	* 初始化
 	* 双亲委派模型
 		* 当类加载器试图加载某个类型时，除非父加载器找不到相应类型，否则尽量将这个任务代理给当前加载器的父加载器去做，目的是避免重复加载Java类型
-	* [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)
-	* [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)
-	* 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章
+	* [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B.md)（概念）
+	* [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介+各步骤实例）
+	* [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs *`TODO`*）
+	* 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制（没怎么看懂ORZ...）
 
 
 ### 集合框架
@@ -165,11 +169,11 @@
 	* HashMap通过hashcode对其内容进行快速查找，而 TreeMap 中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap（HashMap中元素的排列顺序是不固定的）
 	* HashMap 允许使用 null 值和 null 键，而 TreeMap 不可以
 	* 实现
-		* HashMap --> HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体；如果追加节点后，链表数量 >= 8，则转化为红黑树
+		* HashMap --> HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体 / 如果追加节点后，链表数量 >= 8，则转化为红黑树
 		* TreeMap --> 红黑树
 	* HashMap 非线程安全 & TreeMap 非线程安全
-	* [HashMap和TreeMap区别详解以及底层实现](https://blog.csdn.net/xlgen157387/article/details/47907721)
-	* [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？](https://time.geekbang.org/column/article/8053)
+	* [HashMap和TreeMap区别详解以及底层实现](https://blog.csdn.net/xlgen157387/article/details/47907721)（概念+比较）
+	* [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？](https://time.geekbang.org/column/article/8053)(概念+源码分析)
 
 	
 * **描述 HashMap 的底层实现（远景智能）**
@@ -179,13 +183,14 @@
 	* 源码
 		* get()
 		* put() 
+		* resize()
 		* capacity --> buckets的数目 / load factor (负载因子) --> buckets填满程度的最大比例
 	* [HashMap 简介](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md)
 	* [使用HashMap，如果key是自定义的类，就必须重写hashcode()和equals()](https://blog.csdn.net/tuolaji8/article/details/48417031)
-	* [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html)
+	* [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html)（源码分析 *`TODO`*）
 
 
-* **ConcurrentHashMap 实现原理（星环科技）**
+* **ConcurrentHashMap 实现原理（星环科技/头条）** *`TODO`*
 	* JDK1.7 --> 分段锁（Segment）+ HashEntry
 	* JDK1.8 --> CAS + synchronized
 	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)
@@ -195,7 +200,7 @@
 * **HashSet 如何判断重复元素（小红书）**
 	* 首先会调用 Object 的 hashCode 方法判 hashCode 是否已经存在，如不存在则直接插入元素
 	* 如果已存在则调用 Object 对象的 equals 方法判断是否返回true， 如果为true则说明元素已经存在，如为false则插入元素
-	* Java对象的 eqauls 方法和 hashCode 方法是这样规定的：
+	* Java对象的 eqauls 方法和 hashCode 方法规定
 		* 1. 相等（相同）的对象必须具有相等的哈希码（或者散列码）
 		* 2. 如果两个对象的hashCode相同，它们并不一定相同
 	* [HashSet重复元素判断](https://itfafa.iteye.com/blog/1698690) 
@@ -217,6 +222,7 @@
 		* 运行时常量池（Run-Time Constant Pool） --> 属于方法区的一部分，存放各种常量信息
 	* [第25讲 | 谈谈JVM内存区域的划分，哪些区域可能发生OutOfMemoryError?](https://time.geekbang.org/column/article/10192)
 	* [Java 内存区域详解](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F.md)
+	* [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html#jvms-2.5)（官方 Docs *`TODO`* ）
 
 
 * **描述Java的GC过程（DaoCloud/美团）**
@@ -228,18 +234,18 @@
 		* 复制算法（Copying） --> 将内存分为大小相同的两块，每次使用其中的一块。每次将活着的对象复制到 to 区域，拷贝过程中将对象顺序放置，避免内存碎片化
 		* 标记-整理算法（Mark-Compact） --> 类似于标记-清除，但为了避免内存碎片化，**在清理过程中移动对象，以确保移动后的对象占用连续的内存空间**
 		* 分代收集算法 --> 根据对象存活周期的不同将内存分为几块(eg: 新生代/老生代)
-	* [第27讲 | Java常见的垃圾收集器有哪些？](https://time.geekbang.org/column/article/10513)
 	* [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
 	* [JVM 垃圾回收](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md)
 
 
 * 描述JVM中常见的垃圾回收器，如CMS，以及JVM调优思路（美团）*`TODO`*
 	* [一文了解JVM全部垃圾回收器，从Serial到ZGC](https://juejin.im/post/5bade237e51d450ea401fd71)
+	* [第27讲 | Java常见的垃圾收集器有哪些？](https://time.geekbang.org/column/article/10513)
 
 
 * **浅拷贝 & 深拷贝（头条）**
-	* 浅拷贝 --> 对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，没有真实的创建一个新的对象
-	* 深拷贝 --> 对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容
+	* 浅拷贝 --> 对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，**没有真实的创建一个新的对象**
+	* 深拷贝 --> 对基本数据类型进行值传递，对引用数据类型，**创建一个新的对象**，并复制其内容
 	* [细说 Java 的深拷贝和浅拷贝](https://segmentfault.com/a/1190000010648514) 
 	* [8.6: Pass by Value vs. Pass by Reference - Processing Tutorial](https://www.youtube.com/watch?v=hNR6fsksEu8)
 	
@@ -255,7 +261,10 @@
 
 * **描述Java下的并发编程（阿里）**
 	* 线程的生命周期（新建 / 就绪 / 运行 / 阻塞 / 死亡）
-	* 创建线程的方法（Runnable接口 / 继承Thread / 通过 Callable 和 Future 创建线程）
+	* 创建线程的方法
+		* Runnable接口
+		* 继承Thread
+		* 通过 Callable 和 Future 创建线程
 	* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html)
 
 		
@@ -312,7 +321,7 @@
 * Atomic 类的底层实现（美团）*`TODO`*
 
 
-* 描述 ThreadLocal *`TODO`*
+* 描述 ThreadLocal 类 *`TODO`*
 
 
 * **并发学习资源**
@@ -335,7 +344,7 @@
 	* [Lambda 表达式有何用处？如何使用？](https://www.zhihu.com/question/20125256)
 
 
-* **Python如何实现真正的多线程（阿里/腾讯）** 
+* **Python如何实现真正的多线程（阿里/腾讯）**  *`TODO`*
 	* [Python 多线程](https://www.runoob.com/python/python-multithreading.html) 
 
 
@@ -413,7 +422,7 @@
 	* [用户态和内核态的区别](https://blog.csdn.net/youngyoungla/article/details/53106671)
 
 
-* select 和 epoll 的区别
+* **select 和 epoll 的区别** *`TODO`* 
 	* [select和epoll区别](https://www.jianshu.com/p/430141f95ddb)
 
 	
@@ -433,19 +442,19 @@
 	* [海量数据处理 - 10亿个数中找出最大的10000个数（top K问题）](https://blog.csdn.net/zyq522376829/article/details/47686867) 
 
 
+* **从文本中找出TOP K 的高频词汇**
+	* [大数据面试题——如何从大量数据中找出高频词](https://blog.csdn.net/kingyuan666/article/details/84502198) 
+
+
 * **如何找到一个无序数组的中位数**
 	* 快排 or 堆排思想
 	* [找出一个无序数组的中位数](https://blog.csdn.net/oneday_789/article/details/76681764) 
 
 
-* **如何给一个很大的无序数组去重（腾讯）**
+* **如何给一个很大的无序数组去重（腾讯）** *`TODO`* 
 	* 哈希分流 + 去重
 	* 排序 + 扫描一遍去重
 	* [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
-
-
-* **从文本中找出TOP K 的高频词汇**
-	* [大数据面试题——如何从大量数据中找出高频词](https://blog.csdn.net/kingyuan666/article/details/84502198) 
 
 
 * **Java自带的 sort() 方法是如何实现的（阿里）**
@@ -512,7 +521,7 @@
 
 ### 链表/数组/栈/队列
 
-* **反转链表（小红书/腾讯）**
+* **反转链表（小红书/腾讯/头条）**
 	* [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) 
 
 	
@@ -524,7 +533,7 @@
 	
 ### 字符串
 
-* **如何找出一个字符串中的最大不重复子串（蜻蜓FM）**
+* **如何找出一个字符串中的最大不重复子串（蜻蜓FM/美团）**
 	* 暴力求解 --> 逐个遍历，找最长子串（设置一个 allUnique 函数）/ O(n^3)
 	* 滑动窗口 --> 滑动窗口直到最后一个元素，每当碰到重复左指针往后走，否则右指针往后走，同时比较 / O(n)
 	* [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-by-leetcod/)
@@ -554,10 +563,18 @@
 
 	
 * **1到10000有多少个数字7（头条，说思路即可）**
-	* [腾讯面试题-0到9999这1万个数中有多少个数字7](https://www.imooc.com/article/16642)（就是个思维题 Orz...） 
+	* [腾讯面试题-0到9999这1万个数中有多少个数字7](https://www.imooc.com/article/16642)（就是个思维题 ORZ...） 
 
 
 * 实现一个二叉搜索树的迭代器，包括 next() 和 hasNext() 方法（PayPal） *`TODO`* 
+
+
+* 给定精度，写一个函数求根号2的具体值（拼多多/头条） *`TODO`* 
+
+
+* **给定一个乱序数组[0,100]，替换其中一个数，找出这个数（头条）**
+	* 根据下标，拿当前数字进行替换，使得下标和对应数字一致，直至得到第一个重复的数
+	* [数组中重复的数字](https://www.nowcoder.com/practice/623a5ac0ea5b4e5f95552655361ae0a8?tpId=13&tqId=11203&tPage=3&rp=3&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 
 
 ### 笔试真题快照
@@ -617,9 +634,9 @@
 
 
 * **delete、 drop、truncate 的区别（PayPal）**
-	* drop 直接删掉表（不再需要一张表的时候，用drop）；
-	* truncate 删除的是表中的数据，再插入数据时自增长的数据id又重新从1开始（保留表而删除所有数据的时候用truncate，实际是删除原来的表并重建一张新表）；
-	* delete 删除表中数据，可以在后面添加where字句（想删除部分数据行时候，用delete，并且带上where子句）。 
+	* drop 直接删掉表（不再需要一张表的时候，用drop）
+	* truncate 删除的是表中的数据，再插入数据时自增长的数据id又重新从1开始（保留表而删除所有数据的时候用truncate，实际是删除原来的表并重建一张新表）
+	* delete 删除表中数据，可以在后面添加where字句（想删除部分数据行时候，用delete，并且带上where子句）
 	* [SQL truncate 、delete与drop区别](https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html)
 
 	  
@@ -652,7 +669,7 @@
 	* [聚集索引 百度百科](https://baike.baidu.com/item/%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95)
 
 
-* **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）**
+* **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）** *`TODO`* 
 	* [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
 
 	
@@ -660,7 +677,8 @@
 	* [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html)
 
 
-* MySQL联合索引命中情景分析（美团）
+* MySQL联合索引命中情景分析（美团）*`TODO`* 
+
 
 ### SQL语句相关
 
@@ -672,7 +690,7 @@
 	* [查询A、B表中，A表中B表没有的数据](https://blog.csdn.net/long636/article/details/51733273)（三种方法）
 
 
-* SQL优化策略
+* SQL优化策略 *`TODO`* 
 	* [这大概是最全的sql优化方案了](https://zhuanlan.zhihu.com/p/48385127) 
 
 	 
@@ -726,7 +744,7 @@
 	* [常见面试题整理--计算机网络篇（每位开发者必备）](https://zhuanlan.zhihu.com/p/24001696)
 
 
-* **TIME_WAIT状态产生（腾讯）**
+* **TIME_WAIT状态产生（腾讯）** *`TODO`* 
 	* [理解TIME_WAIT，彻底弄清解决TCP: time wait bucket table overflow](https://blog.51cto.com/benpaozhe/1767612)
 
 
@@ -846,6 +864,12 @@
 	* A `wait()` only makes sense when there is also a `notify()`, so it's always about communication between threads, and that needs synchronization to work correctly
 	* [阿里巴巴面试题： 为什么wait()和notify()需要搭配synchonized关键字使用](https://blog.csdn.net/lengxiao1993/article/details/52296220) 
 	* [Why must wait() always be in synchronized block](https://stackoverflow.com/questions/2779484/why-must-wait-always-be-in-synchronized-block)
+
+
+* 设计一个方案，传入一个类型（如 圆形，矩形，三角形等），求对应的周长和面积，用设计模式更好（头条）*`TODO`* 
+
+
+* 设计一个表结构，用于记录高考之后学生的成绩，以及写一个查询得到某个城市的理科前十名（头条）*`TODO`* 
 
 
 ## 消息队列
