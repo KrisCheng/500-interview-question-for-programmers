@@ -132,6 +132,7 @@
 		* 使用JDBC连接数据库时使用 Class.forName() 通过反射加载数据库的驱动程序
 	* [什么是反射机制？反射机制的应用场景有哪些？](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/MostCommonJavaInterviewQuestions/%E7%AC%AC%E4%BA%8C%E5%91%A8(2018-8-13).md#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%9C%89%E5%93%AA%E4%BA%9B)（基本介绍）
 	* [Java基础之—反射（非常重要）](https://blog.csdn.net/sinat_38259539/article/details/71799078)（反射实例 *`TODO`*）
+	* [What is the difference between “Class.forName()” and “Class.forName().newInstance()”?](https://stackoverflow.com/questions/2092659/what-is-the-difference-between-class-forname-and-class-forname-newinstanc)（Class.forName(String) returns the Class object associated with the class or interface with the given string name && newInstance() creates a new instance of the class）
 
 	
 * **Java提供了哪些IO方式（拼多多）** *`TODO`*
@@ -158,7 +159,7 @@
 	* 双亲委派模型
 		* 当类加载器试图加载某个类型时，除非父加载器找不到相应类型，否则尽量将这个任务代理给当前加载器的父加载器去做，目的是避免重复加载Java类型
 	* [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B.md)（概念）
-	* [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介+各步骤实例）
+	* [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
 	* [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs *`TODO`*）
 	* 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制（没怎么看懂ORZ...）
 
@@ -190,7 +191,7 @@
 	* [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html)（源码分析 *`TODO`*）
 
 
-* **ConcurrentHashMap 实现原理（星环科技/头条）** *`TODO`*
+* **ConcurrentHashMap 实现原理（星环科技/头条/阿里）** *`TODO`*
 	* JDK1.7 --> 分段锁（Segment）+ HashEntry
 	* JDK1.8 --> CAS + synchronized
 	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)
@@ -212,7 +213,7 @@
 * **描述Java内存模型（阿里/美团）**
 	* JVM内存区域划分
 		* 程序计数器（PC, Program Counter Register） --> 它的作用可以看做是当前线程所执行的字节码的行号指示器
-		* 虚拟机栈（Virtual Machine Stack） --> 保存一个个栈帧（Stack Frame），对应着一次次的Java **方法调用**
+		* 虚拟机栈（Virtual Machine Stack） --> 保存一个个**栈帧（Stack Frame）**，对应着一次次的Java **方法调用**
 		* 本地方法栈（Native Method Stack） --> 和虚拟机栈类似，区别为虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈为虚拟机使用到的Native方法服务
 		
 			⬆️（线程私有）--- （线程共享） ⬇️
@@ -243,6 +244,9 @@
 	* [第27讲 | Java常见的垃圾收集器有哪些？](https://time.geekbang.org/column/article/10513)
 
 
+* Java对象在内存中是如何存储的（阿里）*`TODO`*
+
+
 * **浅拷贝 & 深拷贝（头条）**
 	* 浅拷贝 --> 对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，**没有真实的创建一个新的对象**
 	* 深拷贝 --> 对基本数据类型进行值传递，对引用数据类型，**创建一个新的对象**，并复制其内容
@@ -260,6 +264,7 @@
 ### Java并发编程 *`TODO`*
 
 * **描述Java下的并发编程（阿里）**
+	* Java中实现并发编程的手段 --> 多线程
 	* 线程的生命周期（新建 / 就绪 / 运行 / 阻塞 / 死亡）
 	* 创建线程的方法
 		* Runnable接口
@@ -318,10 +323,10 @@
 	* [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html) 
 
 
-* Atomic 类的底层实现（美团）*`TODO`*
+* 描述 Atomic 类的底层实现（美团）*`TODO`*
 
 
-* 描述 ThreadLocal 类 *`TODO`*
+* 描述 ThreadLocal 类 （美团）*`TODO`*
 
 
 * **并发学习资源**
@@ -551,7 +556,7 @@
 	* [背包问题 Wiki](https://zh.wikipedia.org/wiki/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98) 
 
 
-### 其他算法
+### 其他算法题
 
 * **买卖股票的最佳时机（野村证券/头条）**
 	* [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 
@@ -566,10 +571,14 @@
 	* [腾讯面试题-0到9999这1万个数中有多少个数字7](https://www.imooc.com/article/16642)（就是个思维题 ORZ...） 
 
 
-* 实现一个二叉搜索树的迭代器，包括 next() 和 hasNext() 方法（PayPal） *`TODO`* 
+* **实现一个二叉搜索树的迭代器，包括 next() 和 hasNext() 方法（PayPal）**
+	* [173. 二叉搜索树迭代器](https://leetcode-cn.com/problems/binary-search-tree-iterator/solution/)
 
 
-* 给定精度，写一个函数求根号2的具体值（拼多多/头条） *`TODO`* 
+* **给定精度（如小数点后10位），写一个函数求根号2的具体值（拼多多/头条）**
+	* 牛顿法
+	* [如何通俗易懂地讲解牛顿迭代法求开方？数值分析？](https://www.zhihu.com/question/20690553)
+	* [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/submissions/)
 
 
 * **给定一个乱序数组[0,100]，替换其中一个数，找出这个数（头条）**
@@ -850,10 +859,14 @@
 
 
 * **设计一个方案，提供不同算法调用接口（参数即为需要调用的方法名）（设计模式实际应用）（PayPal）**
-	* 这题感觉非常开放，我当时答了用 适配器模式，似乎面试官并不是特别满意
-	* 适配器模式 应该是可以的
-	* 工厂模式(定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。) 应该也可以 --> 传入方法参数，实例化具体对象
+	* 这题感觉非常开放，我当时答了用 适配器模式，似乎面试官并不是特别满意，感觉 适配器模式 属于结构型模式，主要用于解决兼容性问题，实际此题还是以如何创建为主，用 工厂模式 为宜
+	* 工厂模式 (定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行) --> 传入方法参数，实例化具体对象
 	* [两道设计模式的面试题](https://www.cnblogs.com/Binhua-Liu/archive/2010/12/23/1914935.html)
+	* [工厂模式](https://www.runoob.com/design-pattern/factory-pattern.html)
+
+
+* **设计一个方案，传入一个类型（如 圆形，矩形，三角形等），求对应的周长和面积，用设计模式更好（头条）**
+	* 工厂模式，传入Shape 和一个用于保存参数的Map（或者别的存储方式？）
 	* [工厂模式](https://www.runoob.com/design-pattern/factory-pattern.html)
 
 
@@ -864,9 +877,6 @@
 	* A `wait()` only makes sense when there is also a `notify()`, so it's always about communication between threads, and that needs synchronization to work correctly
 	* [阿里巴巴面试题： 为什么wait()和notify()需要搭配synchonized关键字使用](https://blog.csdn.net/lengxiao1993/article/details/52296220) 
 	* [Why must wait() always be in synchronized block](https://stackoverflow.com/questions/2779484/why-must-wait-always-be-in-synchronized-block)
-
-
-* 设计一个方案，传入一个类型（如 圆形，矩形，三角形等），求对应的周长和面积，用设计模式更好（头条）*`TODO`* 
 
 
 * 设计一个表结构，用于记录高考之后学生的成绩，以及写一个查询得到某个城市的理科前十名（头条）*`TODO`* 
