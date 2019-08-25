@@ -40,7 +40,7 @@
 		* 创建Bean
 			* 实例化 Bean 对象
 			* 设置属性
-			* 减产 Aware 相关接口并注入依赖（具体包括 BeanNameAware、BeanFactoryAware 和 ApplicationContextAware，分别注入Bean ID， Bean Factory 或 ApplicationContext）
+			* 检查 Aware 相关接口并注入依赖（具体包括 BeanNameAware、BeanFactoryAware 和 ApplicationContextAware，分别注入Bean ID， Bean Factory 或 ApplicationContext）
 			* 调用 BeanPostProcessor 的前置初始化方法 postProcessBeforeInitialization
 			* 如果实现了 InitializingBean 接口，则会调用 afterPropertiesSet 方法
 			* 调用 Bean 自身定义的 init 方法
@@ -150,15 +150,17 @@
 * **描述Java类加载过程（阿里）** *`TODO`*
 	* 加载（Loading） --> 链接（Linking） --> 初始化（Initialization）
 	* 加载
-		* 将字节码数据从不同的数据源读取到 JVM 中，并映射为 JVM 认可的数据结构（Class对象）
+		* 将字节码数据从不同的数据源读取到 JVM 中，并映射为 JVM 认可的数据结构（Class对象），**用户可以自定义类加载器，实现类加载过程**
 	* 链接
 		* 验证（Verification）
 		* 准备（Preparation）
+			* 正式为类变量分配内存并设置类变量初始值的阶段
 		* 解析（Resolution）
+			* 虚拟机将常量池内的符号引用替换为直接引用的过程
 	* 初始化
 	* 双亲委派模型
-		* 当类加载器试图加载某个类型时，除非父加载器找不到相应类型，否则尽量将这个任务代理给当前加载器的父加载器去做，目的是避免重复加载Java类型
-	* [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B.md)（概念）
+		* 当类加载器试图加载某个类型时，除非父加载器找不到相应类型，否则尽量将这个任务代理给当前加载器的父加载器去做，目的是**避免重复加载Java类型**
+	* [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B.md)（概念解释）
 	* [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
 	* [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs *`TODO`*）
 	* 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制（没怎么看懂ORZ...）
@@ -471,15 +473,16 @@
 	* 稳定排序 --> 冒泡排序、插入排序、归并排序
 	* 不稳定排序 --> 快速排序、希尔排序、选择排序、堆排序
 	* 常见问法
-		* 手写快排/堆排
+		* 手写快排 / 堆排
 		* 快排复杂度分析（最好/最坏/平均） / 建堆的复杂度分析 O(N)
-		* 归并排序的Top-Down & Bottom-up
+		* 归并排序的 Top-Down & Bottom-up
 	* [7种经典排序算法及实现](http://pengcheng.tech/2019/03/04/%e7%bb%8f%e5%85%b8%e6%8e%92%e5%ba%8f%e7%ae%97%e6%b3%95%e5%8f%8a%e5%ae%9e%e7%8e%b0%e6%8c%87%e5%8d%97/)
 	* [排序算法稳定性](https://baike.baidu.com/item/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%A8%B3%E5%AE%9A%E6%80%A7)
 	* [排序算法可视化](https://visualgo.net/en/sorting)
 	* [快排 Wiki](https://zh.wikipedia.org/zh/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F)
 	* [堆排 Wiki](https://zh.wikipedia.org/wiki/%E5%A0%86%E6%8E%92%E5%BA%8F)（*`TODO`* 堆排的实现）
 	* [归并排序 Wiki](https://zh.wikipedia.org/wiki/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F)（*`TODO`* 递归版本和循环版本的实现）
+	* [148. 排序链表](https://leetcode-cn.com/problems/sort-list/)(*`TODO`*)
 
 
 * **数组中的逆序对**
@@ -517,8 +520,15 @@
  
 
 * **红黑树描述及其复杂度分析（插入/查找）（腾讯/阿里）** *`TODO`*
-	* 查找、插入、删除 -- logn
+	* 查找、插入、删除 -- O(logN)
 	* [红黑树 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91) 
+
+
+* **二叉树的最近公共祖先**
+	* 递归左右子树
+	* 如果某一边返回null，表示这边两个节点都不存在，可以抛弃
+	* [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/submissions/)
+	* [Lowest Common Ancestor Binary Tree](https://www.youtube.com/watch?v=13m9ZCB8gjw)（详细举例，推荐）
 
 
 * 如何将一棵非平衡二叉树转化成平衡二叉树（HyperS） *`TODO`* 
@@ -882,7 +892,7 @@
 * 设计一个表结构，用于记录高考之后学生的成绩，以及写一个查询得到某个城市的理科前十名（头条）*`TODO`* 
 
 
-## 消息队列
+## 工具类
 
 * kafka *`TODO`*
 	* 基于发布-订阅模式(publish-subscribe)
@@ -901,10 +911,13 @@
 			* Start Application (eg: WordCount)
 			* Producer & Consumer
 		* [Kafka Streams](https://kafka.apache.org/23/documentation/streams/)
-	* [Introduction](http://kafka.apache.org/intro)
-	* [kafka解决了什么问题?](https://www.zhihu.com/question/53331259)
-	* [《Apache Kafka实战》](https://book.douban.com/subject/30221096/)
-* [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
+		* [Introduction](http://kafka.apache.org/intro)
+		* [kafka解决了什么问题?](https://www.zhihu.com/question/53331259)
+		* [《Apache Kafka实战》](https://book.douban.com/subject/30221096/)
+		* [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
+
+
+* redis *`TODO`*
 
 
 ## 其他
@@ -923,3 +936,6 @@
 
 
 * 描述 git 中的 cherry-pick 指令（小红书）*`TODO`* 
+
+
+* 描述微服务架构（携程） *`TODO`*
