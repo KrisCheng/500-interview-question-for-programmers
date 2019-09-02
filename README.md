@@ -98,7 +98,7 @@
 	* [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
 
 
-### Java语言相关
+### Java语法相关
 	
 * **字符串相关问题**
 	* StringBuffer --> 线程安全 （使用 synchronized 关键字实现）
@@ -166,6 +166,9 @@
 	* 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制（没怎么看懂ORZ...）
 
 
+* 描述Java 1.8的 lambda 表达式，以及使用 lambda 表达式的场景（星环）*`TODO`*
+
+
 ### 集合框架
 		
 * **HashMap 和 TreeMap 的区别（PayPal）**
@@ -187,13 +190,13 @@
 		* get()
 		* put() 
 		* resize()
-		* capacity --> buckets的数目 / load factor (负载因子) --> buckets填满程度的最大比例
+		* capacity --> buckets的数目 / load factor (负载因子) --> buckets填满程度的最大比例 (*这两个参数有什么用？* 星环)
 	* [HashMap 简介](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md)
 	* [使用HashMap，如果key是自定义的类，就必须重写hashcode()和equals()](https://blog.csdn.net/tuolaji8/article/details/48417031)
 	* [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html)（源码分析 *`TODO`*）
 
 
-* **ConcurrentHashMap 实现原理（星环科技/头条/阿里）** *`TODO`*
+* **ConcurrentHashMap 实现原理（星环/头条/阿里）** *`TODO`*
 	* JDK1.7 --> 分段锁（Segment）+ HashEntry
 	* JDK1.8 --> CAS + synchronized
 	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)
@@ -262,7 +265,7 @@
 	* 如果参数是引用类型，传递的是该参量所引用的对象在堆中地址值的拷贝
 	* [什么是值传递和引用传递？](https://www.zhihu.com/question/31203609/answer/50992895) 
 	
-	
+
 ### Java并发编程 *`TODO`*
 
 * **描述Java下的并发编程（阿里）**
@@ -274,7 +277,7 @@
 		* 通过 Callable 和 Future 创建线程
 	* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html)
 
-		
+
 * **什么是线程安全**
 	* 指某个函数、函数库在多线程环境中被调用时，能够正确地处理多个线程之间的共享变量，使程序功能正确完成
 	* a class is thread safe when it continues to behave correctly when accessed from multiple threads
@@ -295,16 +298,18 @@
 	* [2. volatile关键字](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/Multithread/JavaConcurrencyAdvancedCommonInterviewQuestions.md#2-volatile%E5%85%B3%E9%94%AE%E5%AD%97)
 
 	
-* **Java中如何使用线程池（阿里）**
+* **Java中如何使用线程池，以及线程池有哪些重要的参数（阿里）**
+	* 生产者 - 消费者 模式的一种实现
 	* 线程池的好处
 		* 降低资源消耗 / 提高响应速度 / 提高线程的可管理性
-	* 创使用方法
+	* 使用方法
 		* ThreadPoolExecutor类
 			* 线程池中的每一个线程被封装成一个 Worker 对象，ThreadPool 维护的其实就是一组 Worker 对象
 			* 一些主要参数
 				* corePoolSize --> 核心线程数
 				* maximumPoolSize --> 最大能创建的线程数（可以理解为当任务量突然过大时的一种补救措施）
 				* workQueue --> 工作队列，为 BlockingQueue，用于存储等待执行的任务
+	* [22 | Executor与线程池：如何创建正确的线程池？](https://time.geekbang.org/column/article/90771)（基本介绍和主要参数）
 	* [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)（ThreadPoolExecutor 源码和关键类分析）
 	* [Java并发编程：线程池的使用](https://www.cnblogs.com/dolphin0520/p/3932921.html)（ThreadPoolExecutor 源码 和 基本用法）
 	* [第21讲 | Java并发类库提供的线程池有哪几种？ 分别有什么特点？](https://time.geekbang.org/column/article/9712)（介绍 Executor 框架和从设计思想角度介绍ThreadPoolExecutor类）
@@ -314,6 +319,7 @@
 	* 乐观锁适用于**多读**的应用类型，这样可以提高吞吐量 / 悲观锁适合于**多写**
 	* 乐观锁常见实现 --> 版本号机制 / CAS 算法
 		* CAS 算法概念 / 缺点
+			* 自旋 --> 循环尝试
 			* ABA 问题
 	* [何谓悲观锁与乐观锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87%E4%B9%8B%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81.md)
 	* [Compare-and-swap Wiki](https://en.wikipedia.org/wiki/Compare-and-swap)
@@ -329,6 +335,9 @@
 
 
 * 描述 ThreadLocal 类 （美团）*`TODO`*
+
+
+* 描述AQS（AbstractQueuedSynchronizer）的作用（原问法是，ReentrantLock里提供了一个很好的工具，你知道这个工具是什么嘛）（星环）*`TODO`*
 
 
 * **并发学习资源**
@@ -592,8 +601,13 @@
 
 
 * **给定一个乱序数组[0,100]，替换其中一个数，找出这个数（头条）**
-	* 根据下标，拿当前数字进行替换，使得下标和对应数字一致，直至得到第一个重复的数
+	* 可修改数组版本 --> 根据下标，替换当前数字，直至下标和对应数字相等（nums[0] == 0, nums[1] == 1），遍历，直至得到第一个重复的数(nums[i] == nums[nums[i]])
+	* 不可修改数组版本 --> 排序 / 集合 / 双指针（找到两个指针交点（`slow = nums[slow]; fast = nums[nums[fast]];`），然后一个从零开始，直至又到交点） *`TODO`*
 	* [数组中重复的数字](https://www.nowcoder.com/practice/623a5ac0ea5b4e5f95552655361ae0a8?tpId=13&tqId=11203&tPage=3&rp=3&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+	* [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/)（不可修改数组版本，感觉不是很直观）
+
+
+* 顺时针打印矩阵（星环）*`TODO`*
 
 
 ### 笔试真题快照
@@ -667,7 +681,7 @@
 
 ### 索引
 
-* **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（头条/腾讯/美团）**
+* **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（头条/腾讯/美团/星环）**
 	* 索引 --> 一种数据结构
 	* B+ 树做索引优势
 		* AVL, 红黑树等二叉树，查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远）
@@ -826,11 +840,11 @@
 	* [第14讲 | 谈谈你知道的设计模式？](https://time.geekbang.org/column/article/8624)
 
 	 
-* **实现一个线程安全的单例模式**
+* **实现一个线程安全的单例模式（星环）**
 	* 懒汉模式 --> Lazy初始化
 	* 饿汉模式 --> 在方法调用前，实例就已经创建好了
 	* 全部 sychronized 锁住 --> 可以保证线程安全，但销效率低
-	* “双重检查锁” 机制版本 （面试用这个）
+	* “双重检查锁” 机制版本 （面试用这个，注意 `getInstance()` 方法需要 `static` 关键字修饰）
 		* volatile 来保证其线程间的可见性，禁止指令重排序，保证返回的是初始化**完全**的对象
 		* 同步代码块中使用二次检查，以保证其不被重复实例化
 	* 枚举enum和静态代码块的特性相似，在使用枚举时，构造方法会被自动调用，利用这一特性也可以实现单例（面试可稍微提及）
@@ -849,6 +863,8 @@
 
 * **一个任务序列执行顺序如 A --> B1,B2,B3 --> C，如何保证该任务执行先后顺序的准确性（拼多多）**
 	* 使用 CountDownLatch --> 可以让线程等待其它线程完成一组操作后才能执行，否则就一直等待
+	* FutureTask 也是一种方案 --> 获得异步任务的执行结果
+	* [23 | Future：如何用多线程实现最优的“烧水泡茶”程序？](https://time.geekbang.org/column/article/91292)
 	* [CountDownLatch详解](https://www.jianshu.com/p/128476015902)
 
 
@@ -880,16 +896,23 @@
 	* [工厂模式](https://www.runoob.com/design-pattern/factory-pattern.html)
 
 
-* 结合项目，权限管理是如何设计的（星环科技） *`TODO`* 
+* （项目相关）权限管理是如何设计的（星环） *`TODO`* 
 
 
-* **谈一下synchronized 和 wait() 搭配使用的场景（星环科技）**
+* **谈一下synchronized 和 wait() 搭配使用的场景（星环）**
 	* A `wait()` only makes sense when there is also a `notify()`, so it's always about communication between threads, and that needs synchronization to work correctly
 	* [阿里巴巴面试题： 为什么wait()和notify()需要搭配synchonized关键字使用](https://blog.csdn.net/lengxiao1993/article/details/52296220) 
 	* [Why must wait() always be in synchronized block](https://stackoverflow.com/questions/2779484/why-must-wait-always-be-in-synchronized-block)
 
 
 * 设计一个表结构，用于记录高考之后学生的成绩，以及写一个查询得到某个城市的理科前十名（头条）*`TODO`* 
+
+
+* （项目相关）查询引擎的Provider这种设计用到了什么模式（星环）*`TODO`*
+	* Template Pattern
+
+	
+* 已知某个类的路径，如何在代码中实例化这个类（反射）（星环）*`TODO`*
 
 
 ## 工具类
@@ -917,7 +940,11 @@
 		* [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
 
 
+* Elasticsearch *`TODO`*
+
+
 * redis *`TODO`*
+
 
 
 ## 其他
