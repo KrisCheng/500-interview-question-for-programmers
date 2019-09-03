@@ -2,7 +2,7 @@
 
 ## 概述
 
-本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正。
+本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（大部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正（可以提 Issues，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
 
 希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结，可配合同目录下 KnowledgeStructure 同步使用，供所有正在找工作的小伙伴们参考（欢迎 `Star`，500是一个目标数，切莫抬杠）。
 
@@ -25,8 +25,7 @@
 	* 好处
 		* 让你脱离对依赖对象的维护，只需要随用随取，不需要关心依赖对象的任何过程
 		* 可以有效地改善模块之间的紧耦合问题
-	* 源码实现 
-		* *`TODO`*
+	* 源码实现（星环）*`TODO`*
 	* [IoC-spring 的灵魂(带你轻松理解IOC思想及bean对象的生成过程)](https://juejin.im/post/593386ca2f301e00584f8036)（基本概念）
 	* [【第二章】 IoC 之 2.1 IoC基础 ——跟我学Spring3](https://jinnianshilongnian.iteye.com/blog/1413846)（IoC思想详解）
 	* [Spring IoC有什么好处呢？](https://www.zhihu.com/question/23277575/answer/169698662)（汽车的例子有助于理解IoC）
@@ -117,10 +116,10 @@
 	
 * **Java中父类和子类初始化顺序（小红书）**
 	* 优先级排序
-		* 1. 父类中静态成员变量和静态代码块
-		* 2. 子类中静态成员变量和静态代码块
-		* 3. 父类中普通成员变量和代码块，父类的构造函数
-		* 4. 子类中普通成员变量和代码块，子类的构造函数
+		* 1. 父类中静态成员变量 **和** 静态代码块
+		* 2. 子类中静态成员变量 **和** 静态代码块
+		* 3. 父类中普通成员变量 **和** 代码块，父类的构造函数
+		* 4. 子类中普通成员变量 **和** 代码块，子类的构造函数
 		* (其中“和”字两端的按照代码先后顺序执行)
 	* [java中父类和子类初始化顺序](https://blog.csdn.net/yuxin6866/article/details/53107578) 
 
@@ -166,7 +165,9 @@
 	* 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制（没怎么看懂ORZ...）
 
 
-* 描述Java 1.8的 lambda 表达式，以及使用 lambda 表达式的场景（星环）*`TODO`*
+* 描述 Java 1.8 的新特性（星环）*`TODO`*
+	* lambda 表达式，以及使用 lambda 表达式的场景
+	* Stream
 
 
 ### 集合框架
@@ -194,6 +195,7 @@
 	* [HashMap 简介](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md)
 	* [使用HashMap，如果key是自定义的类，就必须重写hashcode()和equals()](https://blog.csdn.net/tuolaji8/article/details/48417031)
 	* [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html)（源码分析 *`TODO`*）
+	* [老生常谈，HashMap的死循环](https://juejin.im/post/5a66a08d5188253dc3321da0)（非线程安全带来的问题 cpu100% *`TODO`*）
 
 
 * **ConcurrentHashMap 实现原理（星环/头条/阿里）** *`TODO`*
@@ -289,6 +291,9 @@
 	* 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
 	* [Java线程同步：synchronized锁住的是代码还是对象](https://blog.csdn.net/xiao__gui/article/details/8188833) 
 	* [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799)
+
+
+* 描述synchronized的底层实现（爱奇艺） *`TODO`*
 
 
 * **volatile关键字（阿里）**
@@ -908,11 +913,16 @@
 * 设计一个表结构，用于记录高考之后学生的成绩，以及写一个查询得到某个城市的理科前十名（头条）*`TODO`* 
 
 
-* （项目相关）查询引擎的Provider这种设计用到了什么模式（星环）*`TODO`*
-	* Template Pattern
+* **（项目相关）查询引擎的AbstractProvider这种设计用到了什么模式（星环）**
+	* 模板模式（Template Pattern）
+	* 提取通用方法，便于维护
+	* 封装不变部分，扩展可变部分
+	* [模板模式](runoob.com/design-pattern/template-pattern.html)
 
 	
-* 已知某个类的路径，如何在代码中实例化这个类（反射）（星环）*`TODO`*
+* **已知某个类的路径，如何在代码中实例化这个类（星环）**
+	* 获取Class对象 + newInstance() 实例化
+	* [根据指定类名创建实例（Java的反射机制）](https://blog.csdn.net/u010729348/article/details/16819693)
 
 
 ## 工具类
