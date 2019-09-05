@@ -171,7 +171,31 @@
 
 
 ### 集合框架
-		
+	
+* **描述 HashMap 的底层实现（远景智能）**
+	* 解决哈希冲突
+		* JDK < 1.8 --> 数组+链表
+		* JDK >= 1.8 --> 数组+链表+红黑树，链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间
+	* 源码
+		* get()
+		* **put()（1.8）** *`TODO`*
+		* resize()
+		* capacity /load factor (负载因子)(**这两个参数具体是什么，有什么用？** 星环)
+			* buckets填满程度的最大比例
+	* [HashMap 简介](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md)（基本全面介绍，面试前可看）
+	* [使用HashMap，如果key是自定义的类，就必须重写hashcode()和equals()](https://blog.csdn.net/tuolaji8/article/details/48417031)
+	* [Java源码分析：关于 HashMap 1.8 的重大更新](https://blog.csdn.net/carson_ho/article/details/79373134)（1.7 vs 1.8 详细比较）
+
+
+* **ConcurrentHashMap 实现原理，或者说它是怎么保证线程安全的（星环/头条/阿里）** *`TODO`*
+	* HashMap `resize()` 在多线程环境下可能形成环形链表，从而导致死循环
+	* JDK1.7 --> 分段锁（ Segment 对象，继承自 ReentrantLock ）+ HashEntry
+	* JDK1.8 --> CAS + synchronized
+	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)（较为全面的分析*`TODO`*）
+	* [深入浅出ConcurrentHashMap1.8](https://www.jianshu.com/p/c0642afe03e0)（1.8版本的详细解释）
+	* [老生常谈，HashMap的死循环](https://juejin.im/post/5a66a08d5188253dc3321da0)（具体分析 非线程安全带来的无限循环占用问题CPU100% 问题）
+
+
 * **HashMap 和 TreeMap 的区别（PayPal）**
 	* HashMap通过hashcode对其内容进行快速查找，而 TreeMap 中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap（HashMap中元素的排列顺序是不固定的）
 	* HashMap 允许使用 null 值和 null 键，而 TreeMap 不可以
@@ -181,28 +205,6 @@
 	* HashMap 非线程安全 & TreeMap 非线程安全
 	* [HashMap和TreeMap区别详解以及底层实现](https://blog.csdn.net/xlgen157387/article/details/47907721)（概念+比较）
 	* [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？](https://time.geekbang.org/column/article/8053)(概念+源码分析)
-
-	
-* **描述 HashMap 的底层实现（远景智能）**
-	* 解决哈希冲突
-		* JDK < 1.8 --> 数组和链表
-		* JDK >= 1.8 --> 链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间
-	* 源码
-		* get()
-		* put() 
-		* resize()
-		* capacity --> buckets的数目 / load factor (负载因子) --> buckets填满程度的最大比例 (*这两个参数有什么用？* 星环)
-	* [HashMap 简介](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md)
-	* [使用HashMap，如果key是自定义的类，就必须重写hashcode()和equals()](https://blog.csdn.net/tuolaji8/article/details/48417031)
-	* [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html)（源码分析 *`TODO`*）
-	* [老生常谈，HashMap的死循环](https://juejin.im/post/5a66a08d5188253dc3321da0)（非线程安全带来的问题 cpu100% *`TODO`*）
-
-
-* **ConcurrentHashMap 实现原理（星环/头条/阿里）** *`TODO`*
-	* JDK1.7 --> 分段锁（Segment）+ HashEntry
-	* JDK1.8 --> CAS + synchronized
-	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)
-	* [深入浅出ConcurrentHashMap1.8](https://www.jianshu.com/p/c0642afe03e0)
 
 	
 * **HashSet 如何判断重复元素（小红书）**
@@ -573,6 +575,14 @@
 	* 是对一个确定的初始字符串进行操作，得到一个结果后通过需要换回来
 	* [字符串的排列](https://www.nowcoder.com/practice/fe6b651b66ae47d7acce78ffdd9a96c7?tpId=13&tqId=11180&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) 
 
+
+* **至少有K个重复字符的最长子串** *`TODO`*
+	* 个人总结
+		* 分治法，递归求解
+		* 用一个map计数，一个set存储不应该包含的字母（即 count < k）
+		* 双指针遍历字符串，一旦找到需要剔除的字符，判断该字符左右两边满足条件的最长返回子串
+	* [395. 至少有K个重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-with-at-least-k-repeating-characters/solution/) 
+	* [解法](https://www.cnblogs.com/lightwindy/p/9554435.html)（*`TODO`* 没有特别理解）
 
 ### 动态规划
 
