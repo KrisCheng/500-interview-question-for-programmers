@@ -140,9 +140,9 @@
 	* BIO / NIO
 	* 使用场景
 	* [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473)
-	* [BIO,NIO,AIO 总结](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/BIO-NIO-AIO.md)（基本概念+实例 *`TODO`*）
-	* [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)（思想+实例 *`TODO`*）
-	* [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)（思想+实例 *`TODO`*）
+	* [BIO,NIO,AIO 总结](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/BIO-NIO-AIO.md)（基本概念 + 实例 *`TODO`*）
+	* [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)（思想 + 实例 *`TODO`*）
+	* [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)（思想 + 实例 *`TODO`*）
 	* [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 IO Docs *`TODO`*）
 
 
@@ -162,13 +162,19 @@
 	* [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B.md)（概念解释）
 	* [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
 	* [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs *`TODO`*）
-	* 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制（没怎么看懂ORZ...）
+	* 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制（没怎么看懂ORZ...*`TODO`*）
 
 
-* 描述 Java 1.8 的新特性（星环）*`TODO`*
+* 描述 Java8 的新特性（星环）*`TODO`*
 	* lambda 表达式，以及使用 lambda 表达式的场景
 	* Stream
 
+
+* Java 关键字整理
+	* static
+		* the keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type
+		* 在没有创建任何对象的前提下，仅仅通过类本身来调用static方法。这实际上正是static方法的主要用途
+		* [A Guide to the Static Keyword in Java](https://www.baeldung.com/java-static)
 
 ### 集合框架
 	
@@ -295,7 +301,7 @@
 	* [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799)
 
 
-* 描述synchronized的底层实现（爱奇艺） *`TODO`*
+* 描述 synchronized 的底层实现（爱奇艺） *`TODO`*
 
 
 * **volatile关键字（阿里）**
@@ -584,10 +590,16 @@
 	* [395. 至少有K个重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-with-at-least-k-repeating-characters/solution/) 
 	* [解法](https://www.cnblogs.com/lightwindy/p/9554435.html)（*`TODO`* 没有特别理解）
 
+
 ### 动态规划
 
 * **描述背包问题（HyperS）**
 	* [背包问题 Wiki](https://zh.wikipedia.org/wiki/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98) 
+
+
+* **零钱兑换**
+	* 自底向上更好理解
+	* [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/solution/)
 
 
 ### 其他算法题
@@ -859,10 +871,10 @@
 	* 懒汉模式 --> Lazy初始化
 	* 饿汉模式 --> 在方法调用前，实例就已经创建好了
 	* 全部 sychronized 锁住 --> 可以保证线程安全，但销效率低
-	* “双重检查锁” 机制版本 （面试用这个，注意 `getInstance()` 方法需要 `static` 关键字修饰）
+	* “双重检查锁” 机制版本 （面试用，注意 `getInstance()` 方法 和对应 instance 实例 都需要 `static` 关键字修饰）
 		* volatile 来保证其线程间的可见性，禁止指令重排序，保证返回的是初始化**完全**的对象
 		* 同步代码块中使用二次检查，以保证其不被重复实例化
-	* 枚举enum和静态代码块的特性相似，在使用枚举时，构造方法会被自动调用，利用这一特性也可以实现单例（面试可稍微提及）
+	* 枚举enum和静态代码块的特性相似，在使用枚举时，构造方法会被自动调用，利用这一特性也可以实现单例（面试也可稍微提及）
 	* [高并发下线程安全的单例模式（最全最经典）](https://blog.csdn.net/cselmu9/article/details/51366946) （单例的N种实现）
 	* [单例模式](https://www.runoob.com/design-pattern/singleton-pattern.html)（详尽介绍）
 	* [Why is volatile used in double checked locking](https://stackoverflow.com/questions/7855700/why-is-volatile-used-in-double-checked-locking)
@@ -935,7 +947,7 @@
 	* [根据指定类名创建实例（Java的反射机制）](https://blog.csdn.net/u010729348/article/details/16819693)
 
 
-## 工具类
+## 工具篇
 
 * kafka *`TODO`*
 	* 基于发布-订阅模式(publish-subscribe)
@@ -961,10 +973,11 @@
 
 
 * Elasticsearch *`TODO`*
+	* ES的索引是怎么实现的
+		*  
 
 
 * redis *`TODO`*
-
 
 
 ## 其他
