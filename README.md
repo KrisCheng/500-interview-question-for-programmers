@@ -16,6 +16,7 @@
 			* 把原本的高层建筑依赖底层建筑“倒置”过来，变成底层建筑依赖高层建筑。高层建筑决定需要什么，底层去实现这样的需求，但是高层并不用管底层是怎么实现的。这样就不会出现前面的“牵一发动全身”的情况
 		* 将原本在程序中手动创建对象的控制权，交由Spring框架来管理
 		* 反转 --> 由 **IoC容器** 来帮忙创建及注入依赖对象（Spring 提供 BeanFactory 和 ApplicationContext 两种容器）
+			* BeanFactory 和 ApplicationContext 的区别（依图）*`TODO`*
 		* 实现 --> 依赖注入（相对 IoC 而言，“依赖注入” 明确描述了 “被注入对象依赖IoC容器配置依赖对象”）
 	* 依赖注入，就是 **把底层类作为参数传入上层类，实现上层类对下层类的“控制”**
 		* 谁依赖于谁：当然是应用程序依赖于IoC容器
@@ -31,6 +32,7 @@
 	* [Spring IoC有什么好处呢？](https://www.zhihu.com/question/23277575/answer/169698662)（汽车的例子有助于理解IoC）
 	* [Inversion of Control Containers and the Dependency Injection pattern](https://martinfowler.com/articles/injection.html)（Martin文章 *`TODO`*）
 	* [Spring IOC 容器源码分析](https://javadoop.com/post/spring-ioc)（源码阅读 *`TODO`*）
+	* [What is difference between BeanFactory and ApplicationContext in Spring framework](https://javarevisited.blogspot.com/2012/11/difference-between-beanfactory-vs-applicationcontext-spring-framework.html) *`TODO`*
 
 
 * **什么是Bean以及描述Bean的生命周期（美团）**
@@ -170,7 +172,7 @@
 	* Stream
 
 
-* Java 关键字整理
+* Java 关键字整理 *`TODO`*
 	* static
 		* the keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type
 		* 在没有创建任何对象的前提下，仅仅通过类本身来调用static方法。这实际上正是static方法的主要用途
@@ -202,8 +204,8 @@
 	* [老生常谈，HashMap的死循环](https://juejin.im/post/5a66a08d5188253dc3321da0)（具体分析 非线程安全带来的无限循环占用问题CPU100% 问题）
 
 
-* **HashMap 和 TreeMap 的区别（PayPal）**
-	* HashMap通过hashcode对其内容进行快速查找，而 TreeMap 中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap（HashMap中元素的排列顺序是不固定的）
+* **HashMap 和 TreeMap 的区别和应用场景（PayPal/依图）**
+	* HashMap 通过 hashcode 对其内容进行快速查找，而 TreeMap 中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用 TreeMap（HashMap中元素的排列顺序是不固定的）
 	* HashMap 允许使用 null 值和 null 键，而 TreeMap 不可以
 	* 实现
 		* HashMap --> HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体 / 如果追加节点后，链表数量 >= 8，则转化为红黑树
@@ -282,26 +284,30 @@
 	* Java中实现并发编程的手段 --> 多线程
 	* 线程的生命周期（新建 / 就绪 / 运行 / 阻塞 / 死亡）
 	* 创建线程的方法
-		* Runnable接口
-		* 继承Thread
+		* Runnable 接口
+		* 继承 Thread
 		* 通过 Callable 和 Future 创建线程
 	* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html)
 
 
 * **什么是线程安全**
-	* 指某个函数、函数库在多线程环境中被调用时，能够正确地处理多个线程之间的共享变量，使程序功能正确完成
 	* a class is thread safe when it continues to behave correctly when accessed from multiple threads
+	* 指某个函数、函数库在多线程环境中被调用时，能够正确地处理多个线程之间的共享变量，使程序功能正确完成
+	* 可见性 / 原子性 / 有序性
 	* [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
 	
 	
-* **synchronized 和 ReentrantLock**
+* **synchronized 和 ReentrantLock 比较**
 	* synchronized 锁住的是括号里的对象，而不是代码
+	* 描述 synchronized 的底层实现（爱奇艺） *`TODO`*
+		* 
+		* []()
 	* 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
+	* ReentrantLock 源码阅读 *`TODO`*
+		* 描述 AQS（AbstractQueuedSynchronizer）的作用（原问法是，ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？）（星环）
+		* 
 	* [Java线程同步：synchronized锁住的是代码还是对象](https://blog.csdn.net/xiao__gui/article/details/8188833) 
 	* [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799)
-
-
-* 描述 synchronized 的底层实现（爱奇艺） *`TODO`*
 
 
 * **volatile关键字（阿里）**
@@ -348,9 +354,6 @@
 
 
 * 描述 ThreadLocal 类 （美团）*`TODO`*
-
-
-* 描述AQS（AbstractQueuedSynchronizer）的作用（原问法是，ReentrantLock里提供了一个很好的工具，你知道这个工具是什么嘛）（星环）*`TODO`*
 
 
 * **并发学习资源**
@@ -409,7 +412,7 @@
 	* [线程同步的几种方式（转）](https://www.cnblogs.com/lebronjames/archive/2010/08/11/1797702.html)
 
 	
-* **进程间通信的方式**	
+* **进程间通信的方式（依图）**
 	* 进程间通信 --> 在不同进程之间传播或交换信息
 		* 管道（数据只能单向流动）
 		* 系统IPC（InterProcess Communication）(包括消息队列, 信号量, 共享存储)
@@ -469,6 +472,11 @@
 	* 询问资源 --> 内存 / 核数 / 单机or多机，MapReduce思想
 	* [最小的K个数](https://www.nowcoder.com/practice/6a296eb82cf844ca8539b57c23e6e9bf?tpId=13&tqId=11182&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 	* [海量数据处理 - 10亿个数中找出最大的10000个数（top K问题）](https://blog.csdn.net/zyq522376829/article/details/47686867) 
+
+
+* **求两个排序数组的中位数（依图）**
+	* O(log(m+n))
+	* [4. 寻找两个有序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
 
 
 * **从文本中找出TOP K 的高频词汇**
@@ -632,6 +640,10 @@
 	* 不可修改数组版本 --> 排序 / 集合 / 双指针（找到两个指针交点（`slow = nums[slow]; fast = nums[nums[fast]];`），然后一个从零开始，直至又到交点） *`TODO`*
 	* [数组中重复的数字](https://www.nowcoder.com/practice/623a5ac0ea5b4e5f95552655361ae0a8?tpId=13&tqId=11203&tPage=3&rp=3&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 	* [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/)（不可修改数组版本，感觉不是很直观）
+
+
+* **岛屿数量（爱奇艺/依图）**
+	* [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) 
 
 
 * 顺时针打印矩阵（星环）*`TODO`*
@@ -886,6 +898,9 @@
 	* [MVC，MVP 和 MVVM 的图示](http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html) 
 
 
+* 响应式编程（依图） *`TODO`*
+
+
 ## 场景题
 
 * **一个任务序列执行顺序如 A --> B1,B2,B3 --> C，如何保证该任务执行先后顺序的准确性（拼多多）**
@@ -973,11 +988,17 @@
 
 
 * Elasticsearch *`TODO`*
-	* ES的索引是怎么实现的
-		*  
+	* ES的索引是怎么实现的（爱奇艺）
+	* []()
 
 
 * redis *`TODO`*
+
+
+* swagger（依图） *`TODO`*
+
+
+* netty *`TODO`*
 
 
 ## 其他
