@@ -474,8 +474,9 @@
 	* [海量数据处理 - 10亿个数中找出最大的10000个数（top K问题）](https://blog.csdn.net/zyq522376829/article/details/47686867) 
 
 
-* **求两个排序数组的中位数（依图）**
+* **求两个排序数组的中位数（依图）** *`TODO`* 
 	* O(log(m+n))
+	* 注意边界条件
 	* [4. 寻找两个有序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
 
 
