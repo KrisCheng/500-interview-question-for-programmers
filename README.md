@@ -16,7 +16,9 @@
 			* 把原本的高层建筑依赖底层建筑“倒置”过来，变成底层建筑依赖高层建筑。高层建筑决定需要什么，底层去实现这样的需求，但是高层并不用管底层是怎么实现的。这样就不会出现前面的“牵一发动全身”的情况
 		* 将原本在程序中手动创建对象的控制权，交由Spring框架来管理
 		* 反转 --> 由 **IoC容器** 来帮忙创建及注入依赖对象（Spring 提供 BeanFactory 和 ApplicationContext 两种容器）
-			* BeanFactory 和 ApplicationContext 的区别（依图）*`TODO`*
+			* BeanFactory 和 ApplicationContext 的区别（依图）
+				* BeanFactory 为含有 bean 集合的工厂类
+				* ApplicationContext 接口是由 BeanFactory 接口派生出来的，所以提供了 BeanFactory 的所有功能
 		* 实现 --> 依赖注入（相对 IoC 而言，“依赖注入” 明确描述了 “被注入对象依赖IoC容器配置依赖对象”）
 	* 依赖注入，就是 **把底层类作为参数传入上层类，实现上层类对下层类的“控制”**
 		* 谁依赖于谁：当然是应用程序依赖于IoC容器
@@ -92,7 +94,7 @@
 	* [Java持久化API Wiki](https://zh.wikipedia.org/wiki/Java%E6%8C%81%E4%B9%85%E5%8C%96API)
 
 
-* **什么是Spring注解，以及Spring中有哪些常用的注解，以及注解是如何实现的（阿里/头条）** *`TODO`*
+* **什么是Spring注解，Spring中有哪些常用的注解，以及注解自身是如何实现的（阿里/头条）** *`TODO`*
 	* 注解 --> 减少配置文件内容
 	* [Java annotation Wiki](https://en.wikipedia.org/wiki/Java_annotation)
 	* [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解： 注解 --> 标签）
@@ -104,7 +106,7 @@
 * **字符串相关问题**
 	* StringBuffer --> 线程安全 （使用 synchronized 关键字实现）
 	* StringBuilder --> 非线程安全
-	* 底层实现均为可修改数组（char, JDK 9 以后是byte数组）
+	* 底层实现均为**可修改数组**（char, JDK 9 以后是byte数组）
 	* [第5讲 | String、StringBuffer、StringBuilder有什么区别？](https://time.geekbang.org/column/article/7349)
 
 
@@ -241,6 +243,10 @@
 	* [第25讲 | 谈谈JVM内存区域的划分，哪些区域可能发生OutOfMemoryError?](https://time.geekbang.org/column/article/10192)
 	* [Java 内存区域详解](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F.md)
 	* [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html#jvms-2.5)（官方 Docs *`TODO`* ）
+
+
+* Java中什么时候会发生OOM（华为）
+	* [Java内存溢出(OOM)异常完全指南](https://www.jianshu.com/p/2fdee831ed03)
 
 
 * **描述Java的GC过程（DaoCloud/美团）**
@@ -507,6 +513,9 @@
 		* 手写快排 / 堆排
 		* 快排复杂度分析（最好/最坏/平均） / 建堆的复杂度分析 O(N)
 		* 归并排序的 Top-Down & Bottom-up
+		* 冒泡排序的优化策略（华为）
+			* 设置flag位，未交换即提前结束
+			* 记住最后一次交换发生的位置lastExchange
 	* [7种经典排序算法及实现](http://pengcheng.tech/2019/03/04/%e7%bb%8f%e5%85%b8%e6%8e%92%e5%ba%8f%e7%ae%97%e6%b3%95%e5%8f%8a%e5%ae%9e%e7%8e%b0%e6%8c%87%e5%8d%97/)
 	* [排序算法稳定性](https://baike.baidu.com/item/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%A8%B3%E5%AE%9A%E6%80%A7)
 	* [排序算法可视化](https://visualgo.net/en/sorting)
@@ -514,6 +523,7 @@
 	* [堆排 Wiki](https://zh.wikipedia.org/wiki/%E5%A0%86%E6%8E%92%E5%BA%8F)（*`TODO`* 堆排的实现）
 	* [归并排序 Wiki](https://zh.wikipedia.org/wiki/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F)（*`TODO`* 递归版本和循环版本的实现）
 	* [148. 排序链表](https://leetcode-cn.com/problems/sort-list/)(*`TODO`*)
+	* [冒泡排序算法及其两种优化](https://blog.csdn.net/yanxiaolx/article/details/51622286)
 
 
 * **数组中的逆序对**
@@ -647,7 +657,16 @@
 	* [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) 
 
 
-* 顺时针打印矩阵（星环）*`TODO`*
+* **顺时针打印矩阵（星环）**
+	* 寻找遍历次数规律，暴利求解
+	* [54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/solution/luo-xuan-ju-zhen-by-leetcode/) 
+	* [顺时针打印矩阵](https://www.nowcoder.com/practice/9b4c81a02cd34f76be2659fa0d54342a?tpId=13&tqId=11172&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+
+* **单词接龙** *`TODO`*
+	* 广度优先 --> 队列 + 暴力搜索（遍历过的删除）
+	* [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/solution/dan-ci-jie-long-by-leetcode/)
+	* [花花酱 LeetCode 127. Word Ladder - 刷题找工作 EP71](https://www.youtube.com/watch?v=vWPCm69MSfs)
 
 
 ### 笔试真题快照
@@ -961,6 +980,9 @@
 * **已知某个类的路径，如何在代码中实例化这个类（星环）**
 	* 获取Class对象 + newInstance() 实例化
 	* [根据指定类名创建实例（Java的反射机制）](https://blog.csdn.net/u010729348/article/details/16819693)
+
+
+* 如何保证代码测试的覆盖率（开放题）（华为）
 
 
 ## 工具篇
