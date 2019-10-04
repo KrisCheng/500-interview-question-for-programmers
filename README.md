@@ -180,6 +180,7 @@
 		* 在没有创建任何对象的前提下，仅仅通过类本身来调用static方法。这实际上正是static方法的主要用途
 		* [A Guide to the Static Keyword in Java](https://www.baeldung.com/java-static)
 
+
 ### 集合框架
 	
 * **描述 HashMap 的底层实现（远景智能）**
@@ -621,6 +622,18 @@
 	* [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/solution/)
 
 
+### 图
+
+* **课程表问题** *`TODO`*
+	* DFS
+	* [207. 课程表](https://leetcode-cn.com/problems/course-schedule/)
+	* [210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/)
+
+
+* **岛屿数量（爱奇艺/依图）**
+	* [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) 
+
+
 ### 其他算法题
 
 * **买卖股票的最佳时机（野村证券/头条）**
@@ -651,10 +664,6 @@
 	* 不可修改数组版本 --> 排序 / 集合 / 双指针（找到两个指针交点（`slow = nums[slow]; fast = nums[nums[fast]];`），然后一个从零开始，直至又到交点） *`TODO`*
 	* [数组中重复的数字](https://www.nowcoder.com/practice/623a5ac0ea5b4e5f95552655361ae0a8?tpId=13&tqId=11203&tPage=3&rp=3&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 	* [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/)（不可修改数组版本，感觉不是很直观）
-
-
-* **岛屿数量（爱奇艺/依图）**
-	* [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) 
 
 
 * **顺时针打印矩阵（星环）**
@@ -1012,7 +1021,6 @@
 
 * Elasticsearch *`TODO`*
 	* ES的索引是怎么实现的（爱奇艺）
-	* []()
 
 
 * redis *`TODO`*
@@ -1021,7 +1029,7 @@
 * swagger（依图） *`TODO`*
 
 
-* netty *`TODO`*
+* Netty *`TODO`*
 
 
 ## 其他
