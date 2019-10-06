@@ -678,6 +678,13 @@
 	* [花花酱 LeetCode 127. Word Ladder - 刷题找工作 EP71](https://www.youtube.com/watch?v=vWPCm69MSfs)
 
 
+* **分数到小数**
+	* 总结除法规律，按自然运算思考即可
+	* 当余数出现循环，对应的商也会循环
+	* 将除法过程代码化
+	* [166. 分数到小数](https://leetcode-cn.com/problems/fraction-to-recurring-decimal/solution/fen-shu-dao-xiao-shu-by-leetcode/)
+
+
 ### 笔试真题快照
 
 * **拼多多学霸批服务端 0728**
