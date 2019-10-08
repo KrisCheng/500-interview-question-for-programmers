@@ -2,7 +2,7 @@
 
 ## 概述
 
-本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（大部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正（可以提 Issues，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
+本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（大部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* || *`URGE`* (优先级高的TODO) 为还没来得及弄 Orz...），欢迎指正（可以提 Issues，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
 
 希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结，可配合同目录下 KnowledgeStructure 同步使用，供所有正在找工作的小伙伴们参考（欢迎 `Star`，500是一个目标数，切莫抬杠）。
 
@@ -307,8 +307,6 @@
 * **synchronized 和 ReentrantLock 比较**
 	* synchronized 锁住的是括号里的对象，而不是代码
 	* 描述 synchronized 的底层实现（爱奇艺） *`TODO`*
-		* 
-		* []()
 	* 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
 	* ReentrantLock 源码阅读 *`TODO`*
 		* 描述 AQS（AbstractQueuedSynchronizer）的作用（原问法是，ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？）（星环）
@@ -471,39 +469,33 @@
 
 * **（TopK 问题）给定一个无符号，包含10亿个数的数组，如何取出前100大个数（头条/腾讯）**
 	* 答题思路
-		* 全局排序 O(nlogn)
+		* 询问资源 --> 内存 / 核数 / 单机or多机，MapReduce思想
+		* 全局排序 O(nlogn) （数据量较小时可行）
 		* 冒泡（k个）O(kn)
-		* 堆排 O(nlogk)
+		* 快排划分 O(n), 每次递归处理一侧的数据，理论上可以理解为每次折半，缺点 --> 内存不够的问题，因为需要一次读入所有数据 
+		* 堆排 O(nlogk)，经典方法，单机处理海量数据，如果k较小，趋近于 O(n)
 			* 建立一个容量为k的大/小顶堆
 			* n个元素逐一比较，O(logk) 完成删除和插入操作
-	* 询问资源 --> 内存 / 核数 / 单机or多机，MapReduce思想
-	* [最小的K个数](https://www.nowcoder.com/practice/6a296eb82cf844ca8539b57c23e6e9bf?tpId=13&tqId=11182&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
-	* [海量数据处理 - 10亿个数中找出最大的10000个数（top K问题）](https://blog.csdn.net/zyq522376829/article/details/47686867) 
+	* [算法必学：经典的 Top K 问题](https://juejin.im/entry/5c565fb7f265da2d84105958)（思路篇）
+	* [海量数据处理 - 10亿个数中找出最大的10000个数（top K问题）](https://blog.csdn.net/zyq522376829/article/details/47686867) （基本的场景分析）
+	* [最小的K个数](https://www.nowcoder.com/practice/6a296eb82cf844ca8539b57c23e6e9bf?tpId=13&tqId=11182&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)（代码实现，改进版本的快排即可，堆排也行）
 
 
-* **求两个排序数组的中位数（依图）** *`TODO`* 
-	* O(log(m+n))
-	* 注意边界条件
-	* [4. 寻找两个有序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
-
-
-* **从文本中找出TOP K 的高频词汇**
+* **从文本中找出TOP K 的高频词汇/如何找到一个无序数组的中位数**
+	* 如上述同思路
 	* [大数据面试题——如何从大量数据中找出高频词](https://blog.csdn.net/kingyuan666/article/details/84502198) 
+	* [找出一个无序数组的中位数](https://blog.csdn.net/oneday_789/article/details/76681764) （代码实现，思路一致）
 
 
-* **如何找到一个无序数组的中位数**
-	* 快排 or 堆排思想
-	* [找出一个无序数组的中位数](https://blog.csdn.net/oneday_789/article/details/76681764) 
+* **如何给一个很大的无序数组去重（腾讯）**
+	* 排序 + 遍历一遍
+	* [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)（有序数组去重）
 
-
-* **如何给一个很大的无序数组去重（腾讯）** *`TODO`* 
-	* 哈希分流 + 去重
-	* 排序 + 扫描一遍去重
-	* [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
-
-
-* **Java自带的 sort() 方法是如何实现的（阿里）**
+	
+* **Java自带的 sort() 方法是如何实现的（阿里）** *`TODO`*
+	* Array.sort() / Collections.sort()
 	* DualPivotQuicksort（双轴快速排序）
+	* [Arrays.sort和Collections.sort实现原理解析](https://blog.csdn.net/u011410529/article/details/56668545)
 	* [Collections.sort()和Arrays.sort()排序算法选择](https://blog.csdn.net/TimHeath/article/details/68930482)
 
 
@@ -512,27 +504,39 @@
 	* 不稳定排序 --> 快速排序、希尔排序、选择排序、堆排序
 	* 常见问法
 		* 手写快排 / 堆排
-		* 快排复杂度分析（最好/最坏/平均） / 建堆的复杂度分析 O(N)
-		* 归并排序的 Top-Down & Bottom-up
+		* 快排复杂度分析（最好/最坏/平均）
+		* 建堆的复杂度分析 O(n)
+		* 归并排序的 Top-Down & Bottom-up 策略
 		* 冒泡排序的优化策略（华为）
-			* 设置flag位，未交换即提前结束
-			* 记住最后一次交换发生的位置lastExchange
+			* 设置flag位，未交换即已排序，提前结束
+			* 记住最后一次交换发生的位置lastExchange，下次内层循环到此终止即可
 	* [7种经典排序算法及实现](http://pengcheng.tech/2019/03/04/%e7%bb%8f%e5%85%b8%e6%8e%92%e5%ba%8f%e7%ae%97%e6%b3%95%e5%8f%8a%e5%ae%9e%e7%8e%b0%e6%8c%87%e5%8d%97/)
 	* [排序算法稳定性](https://baike.baidu.com/item/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%A8%B3%E5%AE%9A%E6%80%A7)
 	* [排序算法可视化](https://visualgo.net/en/sorting)
 	* [快排 Wiki](https://zh.wikipedia.org/zh/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F)
 	* [堆排 Wiki](https://zh.wikipedia.org/wiki/%E5%A0%86%E6%8E%92%E5%BA%8F)（*`TODO`* 堆排的实现）
 	* [归并排序 Wiki](https://zh.wikipedia.org/wiki/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F)（*`TODO`* 递归版本和循环版本的实现）
-	* [148. 排序链表](https://leetcode-cn.com/problems/sort-list/)(*`TODO`*)
 	* [冒泡排序算法及其两种优化](https://blog.csdn.net/yanxiaolx/article/details/51622286)
 
 
-* **数组中的逆序对**
+* **链表排序** *`URGE`*
+	* 常数级空间复杂度
+	* 归并排序
+	* [148. 排序链表](https://leetcode-cn.com/problems/sort-list/)
+
+
+* **数组中的逆序对** *`URGE`*
 	* 归并排序 && 递归的应用
 	* 引入中间数组临时存放排序数据
 	* [数组中的逆序对](https://www.nowcoder.com/practice/96bd6684e04a44eb80e6a68efc0ec6c5?tpId=13&tqId=11188&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) 
 
 
+* **求两个排序数组的中位数（依图）** *`URGE`*
+	* O(log(m+n))
+	* 注意边界条件
+	* [4. 寻找两个有序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
+
+	
 ### 树
 
 * **二叉树的遍历**
@@ -544,11 +548,11 @@
 	* [二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)
 
 	
-* **根据前&中序遍历结果重建二叉树**
+* **根据前&中序遍历结果重建二叉树** *`URGE`*
 	* [重建二叉树](https://www.nowcoder.com/practice/8a19cbe657394eeaac2f6ea9b0f6fcf6?tpId=13&tqId=11157&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 
 	 
-* **非递归实现求二叉树的深度（小红书）**
+* **非递归实现求二叉树的深度（小红书）** 
 	* 引入一个队列，逐层遍历
 	* [二叉树的深度（递归和非递归）---java实现](https://blog.csdn.net/snow_7/article/details/51818580)
 
@@ -557,22 +561,30 @@
 	* [257. 二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths/) 
 
 
-* **将二叉搜索树转化成一个排序的双向链表**
+* **将二叉搜索树转化成一个排序的双向链表** *`URGE`*
 	* [二叉搜索树与双向链表](https://www.nowcoder.com/practice/947f6eb80d944a84850b0538bf0ec3a5?tpId=13&tqId=11179&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
- 
-
-* **红黑树描述及其复杂度分析（插入/查找）（腾讯/阿里）** *`TODO`*
-	* 查找、插入、删除 -- O(logN)
-	* [红黑树 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91) 
 
 
-* **二叉树的最近公共祖先**
+* **二叉树的最近公共祖先** *`URGE`*
 	* 递归左右子树
 	* 如果某一边返回null，表示这边两个节点都不存在，可以抛弃
 	* [236. 二叉树的最近公共祖先](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/submissions/)
 	* [Lowest Common Ancestor Binary Tree](https://www.youtube.com/watch?v=13m9ZCB8gjw)（详细举例，推荐）
 
 
+* **二叉树的下一个节点** *`URGE`*
+	* [二叉树的下一个结点](https://www.nowcoder.com/practice/9023a0c988684a53960365b889ceaf5e?tpId=13&tqId=11210&rp=3&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) 
+
+
+* **重建二叉树** *`URGE`*
+	* [重建二叉树](https://www.nowcoder.com/practice/8a19cbe657394eeaac2f6ea9b0f6fcf6?tpId=13&tqId=11157&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+
+* **红黑树描述及其复杂度分析（插入/查找）（腾讯/阿里）** *`TODO`*
+	* 查找、插入、删除 -- O(logN)
+	* [红黑树 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91) 
+
+	
 * 如何将一棵非平衡二叉树转化成平衡二叉树（HyperS） *`TODO`* 
 
 
@@ -587,6 +599,10 @@
 	* 断链，拆分成两个链表（清楚断链的操作是什么）
 	* [复杂链表的复制](https://www.nowcoder.com/practice/f836b2c43afc4b35ad6adc41ec941dba?tpId=13&tqId=11178&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) 
 
+
+* **约瑟夫环问题** *`URGE`*
+	* [孩子们的游戏(圆圈中最后剩下的数)](https://www.nowcoder.com/practice/f78a359491e64a50bce2d89cff857eb6?tpId=13&tqId=11199&rp=3&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) 
+	
 	
 ### 字符串
 
@@ -596,13 +612,13 @@
 	* [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-by-leetcod/)
 
 
-* **字符串的排列**
+* **字符串的排列** *`URGE`*
 	* 理解递归结构的构造过程（固定一个字符，继续处理剩余字符）
 	* 是对一个确定的初始字符串进行操作，得到一个结果后通过需要换回来
 	* [字符串的排列](https://www.nowcoder.com/practice/fe6b651b66ae47d7acce78ffdd9a96c7?tpId=13&tqId=11180&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) 
 
 
-* **至少有K个重复字符的最长子串** *`TODO`*
+* **至少有K个重复字符的最长子串** *`URGE`*
 	* 个人总结
 		* 分治法，递归求解
 		* 用一个map计数，一个set存储不应该包含的字母（即 count < k）
@@ -617,14 +633,22 @@
 	* [背包问题 Wiki](https://zh.wikipedia.org/wiki/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98) 
 
 
-* **零钱兑换**
+* **零钱兑换** *`URGE`*
 	* 自底向上更好理解
 	* [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/solution/)
 
 
+* **鸡蛋掉落** *`URGE`*
+	* [887. 鸡蛋掉落](https://leetcode-cn.com/problems/super-egg-drop/) 
+
+
+* **滑动窗口最大值** *`URGE`*
+	* [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)
+
+
 ### 图
 
-* **课程表问题** *`TODO`*
+* **课程表问题** *`URGE`*
 	* DFS
 	* [207. 课程表](https://leetcode-cn.com/problems/course-schedule/)
 	* [210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/)
@@ -634,7 +658,17 @@
 	* [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) 
 
 
-### 其他算法题
+### 回溯
+
+* **单词拆分** *`URGE`*
+	* [140. 单词拆分 II](https://leetcode-cn.com/problems/word-break-ii/)
+
+
+* **分割回文串** *`URGE`*
+	* [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) 
+
+
+### 其他类型
 
 * **买卖股票的最佳时机（野村证券/头条）**
 	* [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 
@@ -646,24 +680,33 @@
 
 	
 * **1到10000有多少个数字7（头条，说思路即可）**
+	* 4000
 	* [腾讯面试题-0到9999这1万个数中有多少个数字7](https://www.imooc.com/article/16642)（就是个思维题 ORZ...） 
 
 
-* **实现一个二叉搜索树的迭代器，包括 next() 和 hasNext() 方法（PayPal）**
+* **整数中1出现的次数（从1到n整数中1出现的次数）** *`URGE`*
+	* [整数中1出现的次数（从1到n整数中1出现的次数）](https://www.nowcoder.com/practice/bd7f978302044eee894445e244c7eee6?tpId=13&tqId=11184&tPage=2&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+
+* **实现一个二叉搜索树的迭代器，包括 next() 和 hasNext() 方法（PayPal）** *`URGE`*
 	* [173. 二叉搜索树迭代器](https://leetcode-cn.com/problems/binary-search-tree-iterator/solution/)
 
 
-* **给定精度（如小数点后10位），写一个函数求根号2的具体值（拼多多/头条）**
+* **给定精度（如小数点后10位），写一个函数求根号2的具体值（拼多多/头条）** *`URGE`*
 	* 牛顿法
 	* [如何通俗易懂地讲解牛顿迭代法求开方？数值分析？](https://www.zhihu.com/question/20690553)
 	* [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/submissions/)
 
 
-* **给定一个乱序数组[0,100]，替换其中一个数，找出这个数（头条）**
+* **给定一个乱序数组[0,100]，替换其中一个数，找出这个数（头条）** *`URGE`*
 	* 可修改数组版本 --> 根据下标，替换当前数字，直至下标和对应数字相等（nums[0] == 0, nums[1] == 1），遍历，直至得到第一个重复的数(nums[i] == nums[nums[i]])
-	* 不可修改数组版本 --> 排序 / 集合 / 双指针（找到两个指针交点（`slow = nums[slow]; fast = nums[nums[fast]];`），然后一个从零开始，直至又到交点） *`TODO`*
+	* 不可修改数组版本 --> 排序 / 集合 / 双指针（找到两个指针交点（`slow = nums[slow]; fast = nums[nums[fast]];`），然后一个从零开始，直至又到交点）
 	* [数组中重复的数字](https://www.nowcoder.com/practice/623a5ac0ea5b4e5f95552655361ae0a8?tpId=13&tqId=11203&tPage=3&rp=3&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 	* [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/)（不可修改数组版本，感觉不是很直观）
+
+
+* **数组中只出现一次的数字** *`URGE`*
+	* [数组中只出现一次的数字](https://www.nowcoder.com/practice/e02fdb54d7524710a7d664d082bb7811?tpId=13&tqId=11193&rp=2&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 
 
 * **顺时针打印矩阵（星环）**
@@ -672,7 +715,7 @@
 	* [顺时针打印矩阵](https://www.nowcoder.com/practice/9b4c81a02cd34f76be2659fa0d54342a?tpId=13&tqId=11172&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 
 
-* **单词接龙** *`TODO`*
+* **单词接龙** *`URGE`*
 	* 广度优先 --> 队列 + 暴力搜索（遍历过的删除）
 	* [127. 单词接龙](https://leetcode-cn.com/problems/word-ladder/solution/dan-ci-jie-long-by-leetcode/)
 	* [花花酱 LeetCode 127. Word Ladder - 刷题找工作 EP71](https://www.youtube.com/watch?v=vWPCm69MSfs)
