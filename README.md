@@ -2,7 +2,7 @@
 
 ## 概述
 
-本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（大部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* || *`URGE`* (优先级高的TODO) 为还没来得及弄 Orz...），欢迎指正（可以提 Issues，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
+本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（大部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* || *`URGE`* (优先级高的TODO算法) || *`NEED`* (优先级高的TODO知识点) 为还没来得及弄 Orz...），欢迎指正（可以提 Issues，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
 
 希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结，可配合同目录下 KnowledgeStructure 同步使用，供所有正在找工作的小伙伴们参考（欢迎 `Star`，500是一个目标数，切莫抬杠）。
 
@@ -28,7 +28,7 @@
 	* 好处
 		* 让你脱离对依赖对象的维护，只需要随用随取，不需要关心依赖对象的任何过程
 		* 可以有效地改善模块之间的紧耦合问题
-	* 源码实现（星环）*`TODO`*
+	* 源码阅读（星环）*`NEED`*
 	* [IoC-spring 的灵魂(带你轻松理解IOC思想及bean对象的生成过程)](https://juejin.im/post/593386ca2f301e00584f8036)（基本概念）
 	* [【第二章】 IoC 之 2.1 IoC基础 ——跟我学Spring3](https://jinnianshilongnian.iteye.com/blog/1413846)（IoC思想详解）
 	* [Spring IoC有什么好处呢？](https://www.zhihu.com/question/23277575/answer/169698662)（汽车的例子有助于理解IoC）
@@ -67,7 +67,7 @@
 		* 织入(weaving) --> 把切面应用到目标函数的过程
 	* 好处
 		* 显示地声明在何处如何应用该行为，有效减少代码冗余，让类更加关注自身主要功能
-	* Spring AOP 具体实现（源码级别） *`TODO`*
+	* Spring AOP 具体实现（源码级别）*`NEED`*
 		* Java JDK 动态代理 （默认）
 		* CGLIB 动态代理
 	* [关于 Spring AOP (AspectJ) 你该知晓的一切](https://blog.csdn.net/javazejian/article/details/56267036)（AOP入门 + 应用场景 + Spring中的基本实现）
@@ -94,7 +94,7 @@
 	* [Java持久化API Wiki](https://zh.wikipedia.org/wiki/Java%E6%8C%81%E4%B9%85%E5%8C%96API)
 
 
-* **什么是Spring注解，Spring中有哪些常用的注解，以及注解自身是如何实现的（阿里/头条）** *`TODO`*
+* **什么是Spring注解，Spring中有哪些常用的注解，以及注解自身是如何实现的（阿里/头条）** *`NEED`*
 	* 注解 --> 减少配置文件内容
 	* [Java annotation Wiki](https://en.wikipedia.org/wiki/Java_annotation)
 	* [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解： 注解 --> 标签）
@@ -138,7 +138,7 @@
 	* [What is the difference between “Class.forName()” and “Class.forName().newInstance()”?](https://stackoverflow.com/questions/2092659/what-is-the-difference-between-class-forname-and-class-forname-newinstanc)（Class.forName(String) returns the Class object associated with the class or interface with the given string name && newInstance() creates a new instance of the class）
 
 	
-* **Java提供了哪些IO方式（拼多多）** *`TODO`*
+* **Java提供了哪些IO方式（拼多多）** *`NEED`*
 	* 同步 / 异步 --> 关注的是消息通信机制（区别最大在于异步的话调用者不需要等待处理结果）
 	* 阻塞 / 非阻塞 --> 关注的是程序在等待调用结果（消息，返回值）时的状态
 	* BIO / NIO
@@ -150,7 +150,7 @@
 	* [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 IO Docs *`TODO`*）
 
 
-* **描述Java类加载过程（阿里）** *`TODO`*
+* **描述Java类加载过程（阿里）** *`NEED`*
 	* 加载（Loading） --> 链接（Linking） --> 初始化（Initialization）
 	* 加载
 		* 将字节码数据从不同的数据源读取到 JVM 中，并映射为 JVM 认可的数据结构（Class对象），**用户可以自定义类加载器，实现类加载过程**
@@ -198,7 +198,7 @@
 	* [Java源码分析：关于 HashMap 1.8 的重大更新](https://blog.csdn.net/carson_ho/article/details/79373134)（1.7 vs 1.8 详细比较）
 
 
-* **ConcurrentHashMap 实现原理，或者说它是怎么保证线程安全的（星环/头条/阿里）** *`TODO`*
+* **ConcurrentHashMap 实现原理，或者说它是怎么保证线程安全的（星环/头条/阿里）** *`NEED`*
 	* HashMap `resize()` 在多线程环境下可能形成环形链表，从而导致死循环
 	* JDK1.7 --> 分段锁（ Segment 对象，继承自 ReentrantLock ）+ HashEntry
 	* JDK1.8 --> CAS + synchronized
@@ -230,7 +230,7 @@
 
 ### Java内存模型
 	
-* **描述Java内存模型（阿里/美团）**
+* **描述Java内存模型（阿里/美团）***`NEED`*
 	* JVM内存区域划分
 		* 程序计数器（PC, Program Counter Register） --> 它的作用可以看做是当前线程所执行的字节码的行号指示器
 		* 虚拟机栈（Virtual Machine Stack） --> 保存一个个**栈帧（Stack Frame）**，对应着一次次的Java **方法调用**
@@ -250,7 +250,7 @@
 	* [Java内存溢出(OOM)异常完全指南](https://www.jianshu.com/p/2fdee831ed03)
 
 
-* **描述Java的GC过程（DaoCloud/美团）**
+* **描述Java的GC过程（DaoCloud/美团）***`NEED`*
 	* 对象存活判断
 		* 引用计数（Python 的 GC），无法解决对象相互循环引用的问题，Java中没有使用（Python GC有应用）
 		* 可达性分析（GC Roots --> 虚拟机栈和本地方法栈中正在引用的对象、静态属性引用的对象和常量）
@@ -263,7 +263,7 @@
 	* [JVM 垃圾回收](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md)
 
 
-* 描述JVM中常见的垃圾回收器，如CMS，以及JVM调优思路（美团）*`TODO`*
+* 描述JVM中常见的垃圾回收器，如CMS，以及JVM调优思路（美团）*`NEED`*
 	* [一文了解JVM全部垃圾回收器，从Serial到ZGC](https://juejin.im/post/5bade237e51d450ea401fd71)
 	* [第27讲 | Java常见的垃圾收集器有哪些？](https://time.geekbang.org/column/article/10513)
 
@@ -285,7 +285,7 @@
 	* [什么是值传递和引用传递？](https://www.zhihu.com/question/31203609/answer/50992895) 
 	
 
-### Java并发编程 *`TODO`*
+### Java并发编程 *`NEED`*
 
 * **描述Java下的并发编程（阿里）**
 	* Java中实现并发编程的手段 --> 多线程
@@ -319,7 +319,7 @@
 	* 保证变量的可见性（指示 JVM，这个变量是不稳定的，每次使用它都到主存中进行读取） & 防止指令重排序
 	* 只能用于变量
 	* 对一个 volatile 变量的写操作， Happens-Before 后续对这个 volatile 变量的读操作
-	* [2. volatile关键字](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/Multithread/JavaConcurrencyAdvancedCommonInterviewQuestions.md#2-volatile%E5%85%B3%E9%94%AE%E5%AD%97)
+	* [2.volatile关键字](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/Multithread/JavaConcurrencyAdvancedCommonInterviewQuestions.md#2-volatile%E5%85%B3%E9%94%AE%E5%AD%97)
 
 	
 * **Java中如何使用线程池，以及线程池有哪些重要的参数（阿里）**
