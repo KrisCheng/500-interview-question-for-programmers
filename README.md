@@ -519,15 +519,18 @@
 	* [冒泡排序算法及其两种优化](https://blog.csdn.net/yanxiaolx/article/details/51622286)
 
 
-* **链表排序** *`URGE`*
-	* 常数级空间复杂度
-	* 归并排序
+* **链表排序** *`TODO`*（知道思路，完整的写不出来）
+	* 需要常数级空间复杂度 --> 归并排序的应用（Bottom Up）
+	* 1. 找到中点，断开链表（快慢两个指针）
+	* 2. 交替双指针合并
 	* [148. 排序链表](https://leetcode-cn.com/problems/sort-list/)
+	* [花花酱 LeetCode 148. Sort List](https://zxi.mytechroad.com/blog/list/leetcode-148-sort-list/)
 
 
-* **数组中的逆序对** *`URGE`*
+* **数组中的逆序对** *`TODO`* （知道思路，完整的写不出来）
 	* 归并排序 && 递归的应用
-	* 引入中间数组临时存放排序数据
+	* 引入辅助数组临时存放排序好的数据
+	* 归并时指向两个指针末尾，逐次向前并统计
 	* [数组中的逆序对](https://www.nowcoder.com/practice/96bd6684e04a44eb80e6a68efc0ec6c5?tpId=13&tqId=11188&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) 
 
 
