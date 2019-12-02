@@ -1,5 +1,7 @@
 # 500-interview-question-for-programmers
 
+> 20191202 update 因本人秋招结束，本项目暂时不再频繁更新。
+
 ## 概述
 
 本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（大部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* || *`URGE`* (优先级高的TODO算法) || *`NEED`* (优先级高的TODO知识点) 为还没来得及弄 Orz...），欢迎指正（可以提 Issues，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
@@ -537,7 +539,7 @@
 * **求两个排序数组的中位数（依图）** *`URGE`*
 	* O(log(m+n))
 	* 注意边界条件
-	* [4. 寻找两个有序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
+	* [4.寻找两个有序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
 
 	
 ### 树
@@ -1103,4 +1105,4 @@
 * 描述 git 中的 cherry-pick 指令（小红书）*`TODO`* 
 
 
-* 描述微服务架构（携程） *`TODO`*
+* 描述微服务架构（携程） *`TODO`*f
