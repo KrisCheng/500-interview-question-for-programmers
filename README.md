@@ -1,6 +1,6 @@
 # 500-interview-question-for-programmers
 
-> 20191202 update 因本人秋招结束，本项目暂时不再频繁更新。
+> 20191202 update 因本人秋招结束，本项目暂时不再频繁更新，但之后还会基于个人学习进行维护。
 
 ## 概述
 
@@ -56,8 +56,7 @@
 	* [Spring Bean是什么？](https://www.awaimai.com/2596.html)
 	* [第37讲 | 谈谈Spring Bean的生命周期和作用域？](https://time.geekbang.org/column/article/12472)
 
-	
-* **描述Spring的AOP（小红书）**
+* **描述Spring的AOP（小红书）** 
 	* AOP的理念
 		* 将分散在各个业务逻辑代码中 相同的代码 通过 **横向切割** 的方式抽取到一个独立的模块中（模块化）
 		* 将相同逻辑的重复代码横向抽取出来，使用动态代理技术将这些重复代码**织入**到目标对象方法中，实现和原来一样的功能
@@ -104,7 +103,7 @@
 
 
 ### Java语法相关
-	
+
 * **字符串相关问题**
 	* StringBuffer --> 线程安全 （使用 synchronized 关键字实现）
 	* StringBuilder --> 非线程安全
@@ -119,7 +118,6 @@
 	* [Java对象的序列化（Serialization）和反序列化详解](https://blog.csdn.net/yaomingyang/article/details/79321939)（实例）
 	* [二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/)
 
-	
 * **Java中父类和子类初始化顺序（小红书）**
 	* 优先级排序
 		* 1. 父类中静态成员变量 **和** 静态代码块
@@ -139,7 +137,6 @@
 	* [Java基础之—反射（非常重要）](https://blog.csdn.net/sinat_38259539/article/details/71799078)（反射实例 *`TODO`*）
 	* [What is the difference between “Class.forName()” and “Class.forName().newInstance()”?](https://stackoverflow.com/questions/2092659/what-is-the-difference-between-class-forname-and-class-forname-newinstanc)（Class.forName(String) returns the Class object associated with the class or interface with the given string name && newInstance() creates a new instance of the class）
 
-	
 * **Java提供了哪些IO方式（拼多多）** *`NEED`*
 	* 同步 / 异步 --> 关注的是消息通信机制（区别最大在于异步的话调用者不需要等待处理结果）
 	* 阻塞 / 非阻塞 --> 关注的是程序在等待调用结果（消息，返回值）时的状态
@@ -184,7 +181,7 @@
 
 
 ### 集合框架
-	
+
 * **描述 HashMap 的底层实现（远景智能）**
 	* 解决哈希冲突
 		* JDK < 1.8 --> 数组+链表
@@ -219,7 +216,6 @@
 	* [HashMap和TreeMap区别详解以及底层实现](https://blog.csdn.net/xlgen157387/article/details/47907721)（概念+比较）
 	* [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？](https://time.geekbang.org/column/article/8053)(概念+源码分析)
 
-	
 * **HashSet 如何判断重复元素（小红书）**
 	* 首先会调用 Object 的 hashCode 方法判 hashCode 是否已经存在，如不存在则直接插入元素
 	* 如果已存在则调用 Object 对象的 equals 方法判断是否返回true， 如果为true则说明元素已经存在，如为false则插入元素
@@ -231,9 +227,10 @@
 
 
 ### Java内存模型
-	
+
 * **描述Java内存模型（阿里/美团）***`NEED`*
-	* JVM内存区域划分
+	
+	* JVM内存区域划分 
 		* 程序计数器（PC, Program Counter Register） --> 它的作用可以看做是当前线程所执行的字节码的行号指示器
 		* 虚拟机栈（Virtual Machine Stack） --> 保存一个个**栈帧（Stack Frame）**，对应着一次次的Java **方法调用**
 		* 本地方法栈（Native Method Stack） --> 和虚拟机栈类似，区别为虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈为虚拟机使用到的Native方法服务
@@ -279,7 +276,6 @@
 	* [细说 Java 的深拷贝和浅拷贝](https://segmentfault.com/a/1190000010648514) 
 	* [8.6: Pass by Value vs. Pass by Reference - Processing Tutorial](https://www.youtube.com/watch?v=hNR6fsksEu8)
 	
-
 * **值传递 & 引用传递**
 	* Java中方法参数传递方式是按**值传递**
 	* 如果参数是基本类型，传递的是基本类型的字面量值的拷贝
@@ -305,7 +301,6 @@
 	* 可见性 / 原子性 / 有序性
 	* [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
 	
-	
 * **synchronized 和 ReentrantLock 比较**
 	* synchronized 锁住的是括号里的对象，而不是代码
 	* 描述 synchronized 的底层实现（爱奇艺） *`TODO`*
@@ -323,7 +318,6 @@
 	* 对一个 volatile 变量的写操作， Happens-Before 后续对这个 volatile 变量的读操作
 	* [2.volatile关键字](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/Multithread/JavaConcurrencyAdvancedCommonInterviewQuestions.md#2-volatile%E5%85%B3%E9%94%AE%E5%AD%97)
 
-	
 * **Java中如何使用线程池，以及线程池有哪些重要的参数（阿里）**
 	* 生产者 - 消费者 模式的一种实现
 	* 线程池的好处
@@ -418,7 +412,6 @@
 * **线程同步的方式**
 	* [线程同步的几种方式（转）](https://www.cnblogs.com/lebronjames/archive/2010/08/11/1797702.html)
 
-	
 * **进程间通信的方式（依图）**
 	* 进程间通信 --> 在不同进程之间传播或交换信息
 		* 管道（数据只能单向流动）
@@ -436,7 +429,6 @@
 		* 操作系统
 	* [计算机是如何启动的？](http://www.ruanyifeng.com/blog/2013/02/booting.html) 
 	
-
 * **用一门编程语言（如Java）实现一个死锁（PayPal）**
 	* 死锁产生的条件
 		* 禁止抢占 no preemption --> 系统资源不能被强制从一个进程中退出
@@ -493,7 +485,6 @@
 	* 排序 + 遍历一遍
 	* [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)（有序数组去重）
 
-	
 * **Java自带的 sort() 方法是如何实现的（阿里）** *`TODO`*
 	* Array.sort() / Collections.sort()
 	* DualPivotQuicksort（双轴快速排序）
@@ -552,11 +543,9 @@
 	* [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
 	* [二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)
 
-	
 * **根据前&中序遍历结果重建二叉树** *`URGE`*
 	* [重建二叉树](https://www.nowcoder.com/practice/8a19cbe657394eeaac2f6ea9b0f6fcf6?tpId=13&tqId=11157&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
 
-	 
 * **非递归实现求二叉树的深度（小红书）** 
 	* 引入一个队列，逐层遍历
 	* [二叉树的深度（递归和非递归）---java实现](https://blog.csdn.net/snow_7/article/details/51818580)
@@ -589,7 +578,6 @@
 	* 查找、插入、删除 -- O(logN)
 	* [红黑树 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91) 
 
-	
 * 如何将一棵非平衡二叉树转化成平衡二叉树（HyperS） *`TODO`* 
 
 
@@ -598,7 +586,6 @@
 * **反转链表（小红书/腾讯/头条）**
 	* [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) 
 
-	
 * **复杂链表的复制**
 	* 连接一个重复链表
 	* 断链，拆分成两个链表（清楚断链的操作是什么）
@@ -683,7 +670,6 @@
 	* 尾递归就是把当前的运算结果（或路径）放在参数里传给下层函数，深层函数所面对的不是越来越简单的问题，而是越来越复杂的问题，因为参数里带有前面若干步的运算路径。
 	* [递归与尾递归总结](https://www.cnblogs.com/Anker/archive/2013/03/04/2943498.html) 
 
-	
 * **1到10000有多少个数字7（头条，说思路即可）**
 	* 4000
 	* [腾讯面试题-0到9999这1万个数中有多少个数字7](https://www.imooc.com/article/16642)（就是个思维题 ORZ...） 
@@ -795,7 +781,6 @@
 	* delete 删除表中数据，可以在后面添加where字句（想删除部分数据行时候，用delete，并且带上where子句）
 	* [SQL truncate 、delete与drop区别](https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html)
 
-	  
 * **第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题（阿里）**
 	* 区分快照 & 冗余
 	* [数据库设计冗余字段问题？](https://www.zhihu.com/question/50662784)
@@ -828,7 +813,6 @@
 * **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）** *`TODO`* 
 	* [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
 
-	
 * MySQL索引不命中的可能原因及策略（美团）*`TODO`* 
 	* [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html)
 
@@ -841,7 +825,6 @@
 * **各种join操作的区别（left, right, inner join）**
 	* [mysql join操作](https://www.cnblogs.com/ggjucheng/archive/2012/11/06/2757972.html)
 
-	
 * **找出在表A中但不在表B中的记录（根据某一个共同的column）（PayPal）**
 	* [查询A、B表中，A表中B表没有的数据](https://blog.csdn.net/long636/article/details/51733273)（三种方法）
 
@@ -859,7 +842,6 @@
 	* [OSI七层模型详解](https://blog.csdn.net/yaopeng_2005/article/details/7064869)
 	* [干货：计算机网络知识总结.md](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/%E5%B9%B2%E8%B4%A7%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93.md#%E4%B8%80%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%BF%B0)（逐层术语解释）
 
-	
 * **描述三次握手四次挥手以及原因（阿里/腾讯）**
 	* 三次握手
 		* 发送端 --> SYN
@@ -891,7 +873,6 @@
 * **网络间的进程如何表示（腾讯）** *`TODO`* 
 	* [网络中进程之间如何通信](https://blog.csdn.net/bajiudongfeng/article/details/51568874) 
 
-	
 * **TCP和UDP的特点和区别（腾讯）**
 	* TCP --> 面向连接 / UDP --> 无连接（发送数据前不需要建立连接）
 	* TCP 提供可靠的服务（数据传输）/ UDP 无法保证
@@ -962,7 +943,6 @@
 	* 创建型 / 结构型 / 行为型
 	* [第14讲 | 谈谈你知道的设计模式？](https://time.geekbang.org/column/article/8624)
 
-	 
 * **实现一个线程安全的单例模式（星环）**
 	* 懒汉模式 --> Lazy初始化
 	* 饿汉模式 --> 在方法调用前，实例就已经创建好了
@@ -1040,7 +1020,6 @@
 	* 封装不变部分，扩展可变部分
 	* [模板模式](runoob.com/design-pattern/template-pattern.html)
 
-	
 * **已知某个类的路径，如何在代码中实例化这个类（星环）**
 	* 获取Class对象 + newInstance() 实例化
 	* [根据指定类名创建实例（Java的反射机制）](https://blog.csdn.net/u010729348/article/details/16819693)
@@ -1095,7 +1074,7 @@
 	* 一个干净的，没有merge commit的线性历史树 --> git rebase
 	* 保留完整的历史记录，并且想要避免重写commit history的风险 --> git merge
 	* [git rebase 和 git merge 的区别](https://www.jianshu.com/p/f23f72251abc) 
- 
+
 
 * **git fetch 和 git pull 有什么区别（PayPal）**
 	* pull = fetch + merge
@@ -1105,4 +1084,4 @@
 * 描述 git 中的 cherry-pick 指令（小红书）*`TODO`* 
 
 
-* 描述微服务架构（携程） *`TODO`*f
+* 描述微服务架构（携程） *`TODO`*
