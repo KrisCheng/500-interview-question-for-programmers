@@ -4,7 +4,7 @@
 
 本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（大部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正（可以提 Issues，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
 
-希望以此来保持个人知识体系的扎实性，所以就不是什么基础大全，面试突击，更多是个人对某些问题的总结，作为个人专业的konwledge base，供所有正在找工作的小伙伴们参考（欢迎 `Star`，500是一个目标数，切莫抬杠）。
+希望以此来保持个人知识体系的扎实性，不是什么基础大全，面试突击，更多是个人对某些问题的总结，以此作为个人专业的Konwledge Base，同时可供所有正在找工作的小伙伴们参考（欢迎 `Star`，500是一个目标数，切莫抬杠）。
 
 ## Java
 
@@ -458,7 +458,7 @@
 ## 算法和设计
 
 
-* 详见 [科学刷题指北]([https://github.com/KrisCheng/Senior-SDE-Schedule/blob/master/blogs/%E7%A7%91%E5%AD%A6%E5%88%B7%E9%A2%98%E6%8C%87%E5%8C%97.md](https://github.com/KrisCheng/Senior-SDE-Schedule/blob/master/blogs/科学刷题指北.md)).
+* 详见 [科学刷题指北](https://github.com/KrisCheng/Senior-SDE-Schedule/blob/master/blogs/科学刷题指北.md).
 
 
 
@@ -646,7 +646,7 @@
 * 杀死所有Java进程
 	* `ps -ef | grep java | grep -v grep | awk '{print $2}' | xargs kill -9`
 	* [Linux 杀掉所有Java进程](https://blog.csdn.net/u011517841/article/details/79781830) 
-	  
+	
 
 
 ## 工具篇
