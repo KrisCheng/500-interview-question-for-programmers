@@ -2,9 +2,9 @@
 
 ## 概述
 
-本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（大部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正（可以提 Issues，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
+本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（大部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正（可以提 *`Issues`*，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
 
-希望以此来保持个人知识体系的扎实性，不是什么基础大全，面试突击，更多是个人对某些问题的总结，以此作为个人专业的Konwledge Base，同时可供所有正在找工作的小伙伴们参考（欢迎 `Star`，500是一个目标数，切莫抬杠）。
+希望以此来保持个人知识体系的扎实性，不是什么基础大全，面试突击，更多是个人对某些问题的总结，以此作为个人专业的*`Konwledge Base`* ，同时可供所有正在找工作的小伙伴们参考（欢迎 `Star`，500是一个目标数，切莫抬杠）。
 
 ## 算法和设计
 
@@ -13,99 +13,8 @@
 
 ## Java
 
-### Spring 相关
 
-* **描述Spring的IoC**
-	* IoC是一种思想，并非一个具体技术
-		* 基于 **依赖倒置原则（Dependency Inversion Principle）**
-			* 把原本的高层建筑依赖底层建筑“倒置”过来，变成底层建筑依赖高层建筑。高层建筑决定需要什么，底层去实现这样的需求，但是高层并不用管底层是怎么实现的。这样就不会出现前面的“牵一发动全身”的情况
-		* 将原本在程序中手动创建对象的控制权，交由Spring框架来管理
-		* 反转 --> 由 **IoC容器** 来帮忙创建及注入依赖对象（Spring 提供 BeanFactory 和 ApplicationContext 两种容器）
-			* BeanFactory 和 ApplicationContext 的区别（依图）
-				* BeanFactory 为含有 bean 集合的工厂类
-				* ApplicationContext 接口是由 BeanFactory 接口派生出来的，所以提供了 BeanFactory 的所有功能
-		* 实现 --> 依赖注入（相对 IoC 而言，“依赖注入” 明确描述了 “被注入对象依赖IoC容器配置依赖对象”）
-	* 依赖注入，就是 **把底层类作为参数传入上层类，实现上层类对下层类的“控制”**
-		* 谁依赖于谁：当然是应用程序依赖于IoC容器
-		* 为什么需要依赖：应用程序需要IoC容器来提供对象需要的外部资源
-		* 谁注入谁：很明显是IoC容器注入应用程序某个对象，应用程序依赖的对象
-		* 注入了什么：就是注入某个对象所需要的外部资源（包括对象、资源、常量数据）
-	* 好处
-		* 让你脱离对依赖对象的维护，只需要随用随取，不需要关心依赖对象的任何过程
-		* 可以有效地改善模块之间的紧耦合问题
-	* 源码阅读（星环）*`TODO`*
-	* [IoC-spring 的灵魂(带你轻松理解IOC思想及bean对象的生成过程)](https://juejin.im/post/593386ca2f301e00584f8036)（基本概念）
-	* [【第二章】 IoC 之 2.1 IoC基础 ——跟我学Spring3](https://jinnianshilongnian.iteye.com/blog/1413846)（IoC思想详解）
-	* [Spring IoC有什么好处呢？](https://www.zhihu.com/question/23277575/answer/169698662)（汽车的例子有助于理解IoC）
-	* [Inversion of Control Containers and the Dependency Injection pattern](https://martinfowler.com/articles/injection.html)（Martin文章 *`TODO`*）
-	* [Spring IOC 容器源码分析](https://javadoop.com/post/spring-ioc)（源码阅读 *`TODO`*）
-	* [What is difference between BeanFactory and ApplicationContext in Spring framework](https://javarevisited.blogspot.com/2012/11/difference-between-beanfactory-vs-applicationcontext-spring-framework.html) *`TODO`*
-
-
-* **什么是Bean以及描述Bean的生命周期（美团）**
-	* 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为Bean。一个Bean是一个由Spring IoC容器实例化、组装和管理的对象
-	* 生命周期
-		* 创建Bean
-			* 实例化 Bean 对象
-			* 设置属性
-			* 检查 Aware 相关接口并注入依赖（具体包括 BeanNameAware、BeanFactoryAware 和 ApplicationContextAware，分别注入Bean ID， Bean Factory 或 ApplicationContext）
-			* 调用 BeanPostProcessor 的前置初始化方法 postProcessBeforeInitialization
-			* 如果实现了 InitializingBean 接口，则会调用 afterPropertiesSet 方法
-			* 调用 Bean 自身定义的 init 方法
-			* 调用 BeanPostProcessor 的后置初始化方法 postProcessAfterInitialization
-			* 创建过程完毕
-		* 销毁
-			* Spring Bean 的销毁过程会依次调用 DisposableBean 的 destroy 方法和 Bean 自身定制的 destroy 方法
-	* [Spring Bean是什么？](https://www.awaimai.com/2596.html)
-	* [第37讲 | 谈谈Spring Bean的生命周期和作用域？](https://time.geekbang.org/column/article/12472)
-
-* **描述Spring的AOP（小红书）** 
-	* AOP的理念
-		* 将分散在各个业务逻辑代码中 相同的代码 通过 **横向切割** 的方式抽取到一个独立的模块中（模块化）
-		* 将相同逻辑的重复代码横向抽取出来，使用动态代理技术将这些重复代码**织入**到目标对象方法中，实现和原来一样的功能
-	* 基本概念
-		* 通知（advice） --> 切面的工作被称为通知，定义了切面是什么以及何时被使用
-		* 连接点（join point） --> 应用执行过程中能够插入切面的一个点，可以是方法调用时，抛出异常时等等
-		* 切点（pointcut） --> 需要应用切面的方法（具体定位的连接点）
-		* 切面（aspect） --> 切面是 通知 和 切点 的结合，共同定义：是什么，在何时和何处完成其功能
-		* 织入(weaving) --> 把切面应用到目标函数的过程
-	* 好处
-		* 显示地声明在何处如何应用该行为，有效减少代码冗余，让类更加关注自身主要功能
-	* Spring AOP 具体实现（源码级别）*`TODO`*
-		* Java JDK 动态代理 （默认）
-		* CGLIB 动态代理
-	* [关于 Spring AOP (AspectJ) 你该知晓的一切](https://blog.csdn.net/javazejian/article/details/56267036)（AOP入门 + 应用场景 + Spring中的基本实现）
-	* [《Spring设计思想》AOP设计基本原理](https://blog.csdn.net/luanlouis/article/details/51095702)（从程序运行角度解释AOP的工作原理）
-	* 《Spring实战（第四版）》第四章
-	* [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)（可在面试前看的纯干货）
-	* [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) （Spring AOP的完整实现过程 *`TODO`*）
-
-
-* **简述Spring Boot框架**
-	* 核心
-		* 自动配置
-		* 起步依赖
-	* 从本质上来说，Spring Boot就是Spring，它做了那些没有它你自己也会去做的Spring Bean配置
-	* 《Spring Boot实战》前三章
-
-
-* **描述一个Spring Boot项目的启动过程（阿里）**
-	* @SpringBootApplication --> 复合注解（@SpringBootConfiguration / @EnableAutoConfiguration / @ComponentScan）
-	* [SpringBoot 应用程序启动过程探秘](https://juejin.im/post/5b8f05a5f265da43296c6102)
-
-
-* **什么是JPA**
-	* [Java持久化API Wiki](https://zh.wikipedia.org/wiki/Java%E6%8C%81%E4%B9%85%E5%8C%96API)
-
-
-* **什么是Spring注解，Spring中有哪些常用的注解，以及注解自身是如何实现的（阿里/头条）** *`TODO`*
-	* 注解 --> 减少配置文件内容
-	* [Java annotation Wiki](https://en.wikipedia.org/wiki/Java_annotation)
-	* [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解： 注解 --> 标签）
-	* [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
-
-
-### Java语法相关
+### 基本语法
 
 * **字符串相关问题**
 	* StringBuffer --> 线程安全 （使用 synchronized 关键字实现）
@@ -127,7 +36,7 @@
 		* 2. 子类中静态成员变量 **和** 静态代码块
 		* 3. 父类中普通成员变量 **和** 代码块，父类的构造函数
 		* 4. 子类中普通成员变量 **和** 代码块，子类的构造函数
-		* (其中“和”字两端的按照代码先后顺序执行)
+		* (其中 “和” 字两端按照代码先后顺序执行)
 	* [java中父类和子类初始化顺序](https://blog.csdn.net/yuxin6866/article/details/53107578) 
 
 
@@ -177,7 +86,7 @@
 
 
 * Java 关键字整理 *`TODO`*
-	* static
+	* ***static***
 		* the keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type
 		* 在没有创建任何对象的前提下，仅仅通过类本身来调用static方法。这实际上正是static方法的主要用途
 		* [A Guide to the Static Keyword in Java](https://www.baeldung.com/java-static)
@@ -548,33 +457,26 @@
 	 
 ## 计算机网络
 
-* **介绍 OSI 七层模型**
-	* 应用层（应用层 --> 表示层 --> 会话层） --> 传输层 --> 网络层 --> 数据链路层 --> 物理层 (7层)
-	* 应用层 --> 传输层 --> 网络层 --> 数据链路层 --> 物理层 （5层）
-	* 并非标准，一个概念性框架
-	* [OSI七层模型详解](https://blog.csdn.net/yaopeng_2005/article/details/7064869)
-	* [干货：计算机网络知识总结.md](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/%E5%B9%B2%E8%B4%A7%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93.md#%E4%B8%80%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%BF%B0)（逐层术语解释）
-
-* **描述三次握手四次挥手以及原因（阿里/腾讯）**
+* **描述三次握手四次挥手以及原因（阿里/腾讯）** 
 	* 三次握手
 		* 发送端 --> SYN
 		* 接收端 --> [SYN/ACK]
 		* 发送端 --> ACK
-		* SYN 是 TCP/IP 建立连接时使用的握手信号
-		* 需要三次握手原因：双方确认自己与对方的发送与接收是正常的
+		* SYN（Synchronize Sequence Number） 是 TCP/IP 建立连接时使用的握手信号，置1表示有效
+		* 需要三次握手原因：信息对等 && 防止超时（源自《码出高效》第一章）
 		* 接收端回传SYN --> 告诉发送端我接收到的信息确实就是你所发送的信号
 	* 四次挥手
-		* 发送端 --> FIN (客户端进入FIN-WAIT-1（终止等待1）状态) 
-		* 接收端 --> ACK (客户端收到服务器的确认请求后，此时，客户端就进入FIN-WAIT-2（终止等待2）状态) 
-		* 接收端 --> FIN 
-		* 发送端 --> ACK
+		* 发送端 --> FIN (发送端进入 FIN-WAIT-1 （终止等待1）状态) 
+		* 接收端 --> ACK (发送端收到接收端的确认请求后，进入 FIN-WAIT-2 （终止等待2）状态) 
+		* 接收端 --> FIN（接收端进入半关闭状态 CLOST_WAIT）
+		* 发送端 --> ACK（发送后，发送端进入 TIME-WAIT 状态）
 	* [TCP的三次握手与四次挥手（详解+动图）](https://blog.csdn.net/qzcsu/article/details/72861891)
 
 
 * **三次握手中SYN/ACK包的具体内容（腾讯）**
-	* SYN - 同步序列，用于建立连接过程
-	* FIN - Finish标志，用于释放连接
-	* ACK - 确认接收到的数据，确认序号标志
+	* SYN --> 同步序列，用于建立连接过程
+	* FIN --> Finish标志，用于释放连接
+	* ACK --> 确认接收到的数据，确认序号标志
 	* [TCP三次握手中SYN，ACK，Seq三者的关系](https://blog.csdn.net/u014507230/article/details/45310847)
 	* [Understanding TCP Sequence and Acknowledgment Numbers](https://packetlife.net/blog/2010/jun/7/understanding-tcp-sequence-acknowledgment-numbers/)
 
@@ -632,9 +534,16 @@
 * **描述SSO的原理（拼多多）** *`TODO`*
 	* [CAS实现单点登录SSO执行原理探究(终于明白了)](https://blog.csdn.net/javaloveiphone/article/details/52439613)
 	* [How does single sign-on work?](https://www.onelogin.com/learn/how-single-sign-on-works) *`TODO`*
+* **介绍 OSI 七层模型**
+  * 应用层（应用层 --> 表示层 --> 会话层） --> 传输层 --> 网络层 --> 数据链路层 --> 物理层 (7层)
+  * 应用层 --> 传输层 --> 网络层 --> 数据链路层 --> 物理层 （5层）
+  * 并非标准，一个概念性框架
+  * [OSI七层模型详解](https://blog.csdn.net/yaopeng_2005/article/details/7064869)
+  * [干货：计算机网络知识总结.md](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/%E5%B9%B2%E8%B4%A7%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93.md#%E4%B8%80%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%BF%B0)（逐层术语解释）
 
 
 * 描述Session的实现原理（或者如何设计一个Session）（拼多多）*`TODO`*
+  
 
 
 ## Linux相关
@@ -646,45 +555,135 @@
 * 杀死所有Java进程
 	* `ps -ef | grep java | grep -v grep | awk '{print $2}' | xargs kill -9`
 	* [Linux 杀掉所有Java进程](https://blog.csdn.net/u011517841/article/details/79781830) 
-	
 
 
-## 工具篇
-
-* kafka *`TODO`*
-	* 基于发布-订阅模式(publish-subscribe)
-	* 术语
-		* topic
-			* A topic is a category or feed name to which records are published
-		* partition
-			* Each partition is an ordered, immutable sequence of records that is continually appended to a structured commit log
-			* offset
-	* 特征
-		* stronger ordering guarantees ("exclusive consumer")
-	* kafka Stream
-		* QuickStart
-			* ZooKeeper server
-			* Kafka server
-			* Start Application (eg: WordCount)
-			* Producer & Consumer
-		* [Kafka Streams](https://kafka.apache.org/23/documentation/streams/)
-		* [Introduction](http://kafka.apache.org/intro)
-		* [kafka解决了什么问题?](https://www.zhihu.com/question/53331259)
-		* [《Apache Kafka实战》](https://book.douban.com/subject/30221096/)
-		* [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
 
 
-* Elasticsearch *`TODO`*
-	* ES的索引是怎么实现的（爱奇艺）
+## 框架篇
+
+### Spring
+
+* **描述Spring的IoC**
+  * IoC是一种思想，并非一个具体技术
+    * 基于 **依赖倒置原则（Dependency Inversion Principle）**
+      * 把原本的高层建筑依赖底层建筑“倒置”过来，变成底层建筑依赖高层建筑。高层建筑决定需要什么，底层去实现这样的需求，但是高层并不用管底层是怎么实现的。这样就不会出现前面的“牵一发动全身”的情况
+    * 将原本在程序中手动创建对象的控制权，交由Spring框架来管理
+    * 反转 --> 由 **IoC容器** 来帮忙创建及注入依赖对象（Spring 提供 BeanFactory 和 ApplicationContext 两种容器）
+      * BeanFactory 和 ApplicationContext 的区别（依图）
+        * BeanFactory 为含有 bean 集合的工厂类
+        * ApplicationContext 接口是由 BeanFactory 接口派生出来的，所以提供了 BeanFactory 的所有功能
+    * 实现 --> 依赖注入（相对 IoC 而言，“依赖注入” 明确描述了 “被注入对象依赖IoC容器配置依赖对象”）
+  * 依赖注入，就是 **把底层类作为参数传入上层类，实现上层类对下层类的“控制”**
+    * 谁依赖于谁：当然是应用程序依赖于IoC容器
+    * 为什么需要依赖：应用程序需要IoC容器来提供对象需要的外部资源
+    * 谁注入谁：很明显是IoC容器注入应用程序某个对象，应用程序依赖的对象
+    * 注入了什么：就是注入某个对象所需要的外部资源（包括对象、资源、常量数据）
+  * 好处
+    * 让你脱离对依赖对象的维护，只需要随用随取，不需要关心依赖对象的任何过程
+    * 可以有效地改善模块之间的紧耦合问题
+  * 源码阅读（星环）*`TODO`* 
+  * [IoC-spring 的灵魂(带你轻松理解IOC思想及bean对象的生成过程)](https://juejin.im/post/593386ca2f301e00584f8036)（基本概念）
+  * [【第二章】 IoC 之 2.1 IoC基础 ——跟我学Spring3](https://jinnianshilongnian.iteye.com/blog/1413846)（IoC思想详解）
+  * [Spring IoC有什么好处呢？](https://www.zhihu.com/question/23277575/answer/169698662)（汽车的例子有助于理解IoC）
+  * [Inversion of Control Containers and the Dependency Injection pattern](https://martinfowler.com/articles/injection.html)（Martin文章 *`TODO`*）
+  * [Spring IOC 容器源码分析](https://javadoop.com/post/spring-ioc)（源码阅读 *`TODO`*）
+  * [What is difference between BeanFactory and ApplicationContext in Spring framework](https://javarevisited.blogspot.com/2012/11/difference-between-beanfactory-vs-applicationcontext-spring-framework.html) *`TODO`*
 
 
-* redis *`TODO`*
+* **什么是Bean以及描述Bean的生命周期（美团）**
+  * 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为Bean。一个Bean是一个由Spring IoC容器实例化、组装和管理的对象
+  * 生命周期
+    * 创建Bean
+      * 实例化 Bean 对象
+      * 设置属性
+      * 检查 Aware 相关接口并注入依赖（具体包括 BeanNameAware、BeanFactoryAware 和 ApplicationContextAware，分别注入Bean ID， Bean Factory 或 ApplicationContext）
+      * 调用 BeanPostProcessor 的前置初始化方法 postProcessBeforeInitialization
+      * 如果实现了 InitializingBean 接口，则会调用 afterPropertiesSet 方法
+      * 调用 Bean 自身定义的 init 方法
+      * 调用 BeanPostProcessor 的后置初始化方法 postProcessAfterInitialization
+      * 创建过程完毕
+    * 销毁
+      * Spring Bean 的销毁过程会依次调用 DisposableBean 的 destroy 方法和 Bean 自身定制的 destroy 方法
+  * [Spring Bean是什么？](https://www.awaimai.com/2596.html)
+  * [第37讲 | 谈谈Spring Bean的生命周期和作用域？](https://time.geekbang.org/column/article/12472)
+
+* **描述Spring的AOP（小红书）** 
+  * AOP的理念
+    * 将分散在各个业务逻辑代码中 相同的代码 通过 **横向切割** 的方式抽取到一个独立的模块中（模块化）
+    * 将相同逻辑的重复代码横向抽取出来，使用动态代理技术将这些重复代码**织入**到目标对象方法中，实现和原来一样的功能
+  * 基本概念
+    * 通知（advice） --> 切面的工作被称为通知，定义了切面是什么以及何时被使用
+    * 连接点（join point） --> 应用执行过程中能够插入切面的一个点，可以是方法调用时，抛出异常时等等
+    * 切点（pointcut） --> 需要应用切面的方法（具体定位的连接点）
+    * 切面（aspect） --> 切面是 通知 和 切点 的结合，共同定义：是什么，在何时和何处完成其功能
+    * 织入(weaving) --> 把切面应用到目标函数的过程
+  * 好处
+    * 显示地声明在何处如何应用该行为，有效减少代码冗余，让类更加关注自身主要功能
+  * Spring AOP 具体实现（源码级别）*`TODO`*
+    * Java JDK 动态代理 （默认）
+    * CGLIB 动态代理
+  * [关于 Spring AOP (AspectJ) 你该知晓的一切](https://blog.csdn.net/javazejian/article/details/56267036)（AOP入门 + 应用场景 + Spring中的基本实现）
+  * [《Spring设计思想》AOP设计基本原理](https://blog.csdn.net/luanlouis/article/details/51095702)（从程序运行角度解释AOP的工作原理）
+  * 《Spring实战（第四版）》第四章
+  * [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)（可在面试前看的纯干货）
+  * [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) （Spring AOP的完整实现过程 *`TODO`*）
 
 
-* swagger（依图） *`TODO`*
+* **简述Spring Boot框架**
+  * 核心
+    * 自动配置
+    * 起步依赖
+  * 从本质上来说，Spring Boot就是Spring，它做了那些没有它你自己也会去做的Spring Bean配置
+  * 《Spring Boot实战》前三章
 
 
-* Netty *`TODO`*
+* **描述一个Spring Boot项目的启动过程（阿里）**
+  * @SpringBootApplication --> 复合注解（@SpringBootConfiguration / @EnableAutoConfiguration / @ComponentScan）
+  * [SpringBoot 应用程序启动过程探秘](https://juejin.im/post/5b8f05a5f265da43296c6102)
+
+
+* **什么是JPA**
+  * [Java持久化API Wiki](https://zh.wikipedia.org/wiki/Java%E6%8C%81%E4%B9%85%E5%8C%96API)
+
+
+* **什么是Spring注解，Spring中有哪些常用的注解，以及注解自身是如何实现的（阿里/头条）** *`TODO`*
+  * 注解 --> 减少配置文件内容
+  * [Java annotation Wiki](https://en.wikipedia.org/wiki/Java_annotation)
+  * [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解： 注解 --> 标签）
+  * [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
+
+kafka *`TODO`*
+
+* 基于发布-订阅模式(publish-subscribe)
+* 术语
+	* topic
+		* A topic is a category or feed name to which records are published
+	* partition
+		* Each partition is an ordered, immutable sequence of records that is continually appended to a structured commit log
+		* offset
+* 特征
+	* stronger ordering guarantees ("exclusive consumer")
+* kafka Stream
+	* QuickStart
+		* ZooKeeper server
+		* Kafka server
+		* Start Application (eg: WordCount)
+		* Producer & Consumer
+	* [Kafka Streams](https://kafka.apache.org/23/documentation/streams/)
+	* [Introduction](http://kafka.apache.org/intro)
+	* [kafka解决了什么问题?](https://www.zhihu.com/question/53331259)
+	* [《Apache Kafka实战》](https://book.douban.com/subject/30221096/)
+	* [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
+
+Elasticsearch *`TODO`*
+
+* ES的索引是怎么实现的（爱奇艺）
+
+redis *`TODO`*
+
+swagger（依图） *`TODO`*
+
+Netty *`TODO`*
 
 
 ## 其他
