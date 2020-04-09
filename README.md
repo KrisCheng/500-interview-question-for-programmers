@@ -2,9 +2,9 @@
 
 ## 概述
 
-本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（大部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正（可以提 *`Issues`*，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
+本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（大部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正（可以提 `Issues`，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
 
-希望以此来保持个人知识体系的扎实性，不是什么基础大全，面试突击，更多是个人对某些问题的总结，以此作为个人专业的 *`Konwledge Base`* ，同时可供所有正在找工作的小伙伴们参考（欢迎 `Star`，500是一个目标数，切莫抬杠）。
+希望以此来保持个人知识体系的扎实性，不是什么基础大全，面试突击，更多是个人对某些问题的总结，以此作为个人专业的 `Knowledge Base` ，同时可供所有正在找工作的小伙伴们参考（欢迎 `Star`，500是一个目标数，切莫抬杠）。
 
 ## 算法和设计
 
@@ -13,8 +13,7 @@
 
 ## Java
 
-
-### 基本语法
+### 基础
 
 * **字符串相关问题**
 	* StringBuffer --> 线程安全 （使用 synchronized 关键字实现）
@@ -61,35 +60,18 @@
 	* [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 IO Docs *`TODO`*）
 
 
-* **描述Java类加载过程（阿里）** *`TODO`*
-	* 加载（Loading） --> 链接（Linking） --> 初始化（Initialization）
-	* 加载
-		* 将字节码数据从不同的数据源读取到 JVM 中，并映射为 JVM 认可的数据结构（Class对象），**用户可以自定义类加载器，实现类加载过程**
-	* 链接
-		* 验证（Verification）
-		* 准备（Preparation）
-			* 正式为类变量分配内存并设置类变量初始值的阶段
-		* 解析（Resolution）
-			* 虚拟机将常量池内的符号引用替换为直接引用的过程
-	* 初始化
-	* 双亲委派模型
-		* 当类加载器试图加载某个类型时，除非父加载器找不到相应类型，否则尽量将这个任务代理给当前加载器的父加载器去做，目的是**避免重复加载Java类型**
-	* [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B.md)（概念解释）
-	* [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
-	* [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs *`TODO`*）
-	* 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制（没怎么看懂ORZ... *`TODO`*）
-
-
-* 描述 Java8 的新特性（星环）*`TODO`*
+* **描述 Java8 的新特性（星环）*`TODO`*** 
 	* lambda 表达式，以及使用 lambda 表达式的场景
 	* Stream
 
 
-* Java 关键字整理 *`TODO`*
+* **关键字整理** 
 	* ***static***
 		* the keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type
-		* 在没有创建任何对象的前提下，仅仅通过类本身来调用static方法。这实际上正是static方法的主要用途
+		* 在没有创建任何对象的前提下，仅仅通过类本身来调用 static 方法。这实际上正是 static 方法的主要用途
 		* [A Guide to the Static Keyword in Java](https://www.baeldung.com/java-static)
+
+
 
 
 ### 集合框架
@@ -138,13 +120,34 @@
 	* [Java提高篇——equals()与hashCode()方法详解](https://www.cnblogs.com/Qian123/p/5703507.html)
 
 
+
 ### Java内存模型
+
+* **描述 Java 中的类加载过程（阿里）** *`TODO`*
+  * 加载（Loading） --> 链接（Linking） --> 初始化（Initializing）
+  * 加载
+    * 将字节码数据从不同的数据源读取到 JVM 中，并映射为 JVM 认可的数据结构（Class对象），**用户可以自定义类加载器，实现类加载过程**
+  * 链接
+    * 验证（Verification）
+    * 准备（Preparation）
+      * 正式为类变量分配内存并设置类变量初始值的阶段
+    * 解析（Resolution）
+      * 虚拟机将常量池内的符号引用替换为直接引用的过程
+  * 初始化
+  * 双亲委派模型（Parents Delegation Model，宜译作“溯源委派加载模型（[《码出高效》](https://book.douban.com/subject/30333948/)  P119）”）
+    * 当类加载器试图加载某个类型时，除非父加载器找不到相应类型，否则尽量将这个任务代理给当前加载器的父加载器去做，目的是**避免重复加载Java类型**
+  * 如何自定义类加载器
+    * [JVM——自定义类加载器](https://blog.csdn.net/SEU_Calvin/article/details/52315125) 
+  * [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B.md)（基本概念解释）
+  * [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
+  * [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs *`TODO`* ）
+  * 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制（没怎么看懂ORZ...）*`TODO`* 
 
 * **描述Java内存模型（阿里/美团）**`TODO`
 	
 	* JVM内存区域划分 
 		* 程序计数器（PC, Program Counter Register） --> 它的作用可以看做是当前线程所执行的字节码的行号指示器
-		* 虚拟机栈（Virtual Machine Stack） --> 保存一个个**栈帧（Stack Frame）**，对应着一次次的Java **方法调用**
+		* 虚拟机栈（Virtual Machine Stack） --> 保存一个个**栈帧（Stack Frame）**，对应着一次次的 Java **方法调用**
 		* 本地方法栈（Native Method Stack） --> 和虚拟机栈类似，区别为虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈为虚拟机使用到的Native方法服务
 		
 			⬆️（线程私有）--- （线程共享） ⬇️
@@ -157,11 +160,7 @@
 	* [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html#jvms-2.5)（官方 Docs *`TODO`* ）
 
 
-* Java中什么时候会发生OOM（华为）
-	* [Java内存溢出(OOM)异常完全指南](https://www.jianshu.com/p/2fdee831ed03)
-
-
-* **描述Java的GC过程（DaoCloud/美团）**`TODO`
+* **描述Java的GC过程（DaoCloud/美团） ** *`TODO`* 
 	* 对象存活判断
 		* 引用计数（Python 的 GC），无法解决对象相互循环引用的问题，Java中没有使用（Python GC有应用）
 		* 可达性分析（GC Roots --> 虚拟机栈和本地方法栈中正在引用的对象、静态属性引用的对象和常量）
@@ -174,12 +173,15 @@
 	* [JVM 垃圾回收](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md)
 
 
-* 描述JVM中常见的垃圾回收器，如CMS，以及JVM调优思路（美团）*`TODO`*
+* **描述JVM中常见的垃圾回收器，如CMS，以及JVM调优思路（美团）** *`TODO`* 
 	* [一文了解JVM全部垃圾回收器，从Serial到ZGC](https://juejin.im/post/5bade237e51d450ea401fd71)
 	* [第27讲 | Java常见的垃圾收集器有哪些？](https://time.geekbang.org/column/article/10513)
+	* [《码出高效》](https://book.douban.com/subject/30333948/)  P134~P138
 
 
-* Java对象在内存中是如何存储的（阿里）*`TODO`*
+* **Java对象在内存中是如何存储的（阿里）** *`TODO`*
+* **Java中什么时候会发生OOM（华为）** 
+  * [Java内存溢出(OOM)异常完全指南](https://www.jianshu.com/p/2fdee831ed03) 
 
 
 * **浅拷贝 & 深拷贝（头条）**
@@ -194,6 +196,8 @@
 	* 如果参数是引用类型，传递的是该参量所引用的对象在堆中地址值的拷贝
 	* [什么是值传递和引用传递？](https://www.zhihu.com/question/31203609/answer/50992895) 
 	
+
+
 
 ### Java并发编程 *`TODO`*
 
@@ -276,6 +280,8 @@
 	* [Java并发编程实战](https://time.geekbang.org/column/intro/159)(极客时间课程)
 
 
+
+
 ## Python
 
 * **用map/reduce实现数组求和（PayPal）**
@@ -304,6 +310,8 @@
 
 * **描述Python的迭代器和生成器（DaoCloud）** *`TODO`* 
 	* [Python3 迭代器与生成器](https://www.runoob.com/python3/python3-iterator-generator.html)
+
+
 
 
 ## 操作系统
@@ -409,6 +417,8 @@
 	* [如何解释关系数据库的第一第二第三范式？](https://www.zhihu.com/question/24696366) 
 
 
+
+
 ### 索引
 
 * **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（头条/腾讯/美团/星环）**
@@ -440,6 +450,8 @@
 
 
 * MySQL联合索引命中情景分析（美团）*`TODO`* 
+
+
 
 
 ### SQL语句相关
@@ -652,7 +664,9 @@
   * [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解： 注解 --> 标签）
   * [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
 
-kafka *`TODO`*
+
+
+### kafka *`TODO`*
 
 * 基于发布-订阅模式(publish-subscribe)
 * 术语
@@ -675,15 +689,25 @@ kafka *`TODO`*
 	* [《Apache Kafka实战》](https://book.douban.com/subject/30221096/)
 	* [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
 
-Elasticsearch *`TODO`*
+
+
+### Elasticsearch *`TODO`*
 
 * ES的索引是怎么实现的（爱奇艺）
 
-redis *`TODO`*
 
-swagger（依图） *`TODO`*
 
-Netty *`TODO`*
+### redis *`TODO`*
+
+
+
+### swagger（依图） *`TODO`*
+
+
+
+### Netty *`TODO`*
+
+
 
 
 ## 其他
