@@ -2,9 +2,9 @@
 
 ## 概述
 
-本代码仓用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（大部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正（可以提 `Issues`，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
+本 `Repository` 用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（大部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正（可以提 `Issues`，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
 
-希望以此来保持个人知识体系的扎实性，不是什么基础大全，面试突击，更多是个人对某些问题的总结，以此作为个人专业的 `Knowledge Base` ，同时可供所有正在找工作的小伙伴们参考（欢迎 `Star`，500是一个目标数，切莫抬杠）。
+希望以此来保持个人知识体系的扎实性，非基础大全，非面试突击，重点是个人对某些问题的总结，基于此形成个人专业的 `Knowledge Base` ，同时可供所有正在找工作的小伙伴们参考，如果觉得有帮助，请 `Star`。
 
 ## 算法和设计
 
@@ -111,9 +111,9 @@
 	* [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？](https://time.geekbang.org/column/article/8053)(概念+源码分析)
 
 * **HashSet 如何判断重复元素（小红书）**
-	* 首先会调用 Object 的 hashCode 方法判 hashCode 是否已经存在，如不存在则直接插入元素
-	* 如果已存在则调用 Object 对象的 equals 方法判断是否返回true， 如果为true则说明元素已经存在，如为false则插入元素
-	* Java对象的 eqauls 方法和 hashCode 方法规定
+	* 首先会调用 Object 的 `hashCode()` 方法判 hashCode 是否已经存在，如不存在则直接插入元素
+	* 如果已存在则调用 Object 对象的 `equals()` 方法判断是否返回true， 如果为true则说明元素已经存在，如为false则插入元素
+	* Java对象的 `equals()` 方法和 `hashCode()`  方法规定
 		* 1. 相等（相同）的对象必须具有相等的哈希码（或者散列码）
 		* 2. 如果两个对象的hashCode相同，它们并不一定相同
 	* [HashSet重复元素判断](https://itfafa.iteye.com/blog/1698690) 
@@ -160,7 +160,7 @@
 	* [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html#jvms-2.5)（官方 Docs *`TODO`* ）
 
 
-* **描述Java的GC过程（DaoCloud/美团） ** *`TODO`* 
+* **描述Java的GC过程（DaoCloud/美团） **  *`TODO`* 
 	* 对象存活判断
 		* 引用计数（Python 的 GC），无法解决对象相互循环引用的问题，Java中没有使用（Python GC有应用）
 		* 可达性分析（GC Roots --> 虚拟机栈和本地方法栈中正在引用的对象、静态属性引用的对象和常量）
@@ -701,7 +701,7 @@
 
 
 
-### swagger（依图） *`TODO`*
+### swagger *`TODO`*
 
 
 
