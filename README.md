@@ -2,9 +2,11 @@
 
 ## 概述
 
-本 `Repository` 用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我真实碰到过且思考过（大部分附具体面试公司），一律采用问答形式，答案也只是我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正（可以提 `Issues`，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
+本 `Repository` 用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我**真实碰到过且思考过**（大部分附具体面试公司），一律采用问答形式，答案为我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正（可以提 `Issues`，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
 
-希望以此来保持个人知识体系的扎实性，非基础大全，非面试突击，重点是个人对某些问题的总结，基于此形成个人专业的 `Knowledge Base` ，同时可供所有正在找工作的小伙伴们参考，如果觉得有帮助，请 `Star`。
+希望以此来保持个人知识体系的扎实性，非一般性基础大全，面试突击宝典，侧重点是个人对某些问题的总结，并基于此形成个人专业的 `Knowledge Base` （提供配套思维导图）。
+
+供所有正在找工作的小伙伴们参考，如果觉得有帮助，请 `Star` ，善用 `Ctrl` + `F` :)。
 
 ## 算法和设计
 
@@ -208,7 +210,7 @@
 		* Runnable 接口
 		* 继承 Thread
 		* 通过 Callable 和 Future 创建线程
-	* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html)
+	* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html) 
 
 
 * **什么是线程安全**
@@ -222,17 +224,16 @@
 	* 描述 synchronized 的底层实现（爱奇艺） *`TODO`*
 	* 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
 	* ReentrantLock 源码阅读 *`TODO`*
-		* 描述 AQS（AbstractQueuedSynchronizer）的作用（原问法是，ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？）（星环）
-		* 
+		* 描述 AQS（AbstractQueuedSynchronizer）的作用（原题为 ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？）（星环）
 	* [Java线程同步：synchronized锁住的是代码还是对象](https://blog.csdn.net/xiao__gui/article/details/8188833) 
 	* [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799)
 
 
-* **volatile关键字（阿里）**
+* **介绍 volatile 关键字（阿里）**
 	* 保证变量的可见性（指示 JVM，这个变量是不稳定的，每次使用它都到主存中进行读取） & 防止指令重排序
 	* 只能用于变量
 	* 对一个 volatile 变量的写操作， Happens-Before 后续对这个 volatile 变量的读操作
-	* [2.volatile关键字](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/Multithread/JavaConcurrencyAdvancedCommonInterviewQuestions.md#2-volatile%E5%85%B3%E9%94%AE%E5%AD%97)
+	* [2.volatile关键字](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/Multithread/JavaConcurrencyAdvancedCommonInterviewQuestions.md#2-volatile%E5%85%B3%E9%94%AE%E5%AD%97) 
 
 * **Java中如何使用线程池，以及线程池有哪些重要的参数（阿里）**
 	* 生产者 - 消费者 模式的一种实现
@@ -245,6 +246,7 @@
 				* corePoolSize --> 核心线程数
 				* maximumPoolSize --> 最大能创建的线程数（可以理解为当任务量突然过大时的一种补救措施）
 				* workQueue --> 工作队列，为 BlockingQueue，用于存储等待执行的任务
+	* [《码出高效》](https://book.douban.com/subject/30333948/)  7.4.2（线程池源码详解，关键方法逐行解释）
 	* [22 | Executor与线程池：如何创建正确的线程池？](https://time.geekbang.org/column/article/90771)（基本介绍和主要参数）
 	* [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)（ThreadPoolExecutor 源码和关键类分析）
 	* [Java并发编程：线程池的使用](https://www.cnblogs.com/dolphin0520/p/3932921.html)（ThreadPoolExecutor 源码 和 基本用法）
@@ -267,17 +269,20 @@
 	* [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html) 
 
 
-* 描述 Atomic 类的底层实现（美团）*`TODO`*
+* **描述 Atomic 类的底层实现（美团）** *`TODO`*
 
 
-* 描述 ThreadLocal 类 （美团）*`TODO`*
+* **描述 ThreadLocal 类 （美团）** *`TODO`*
+
+  * "它通常用于同一个线程内，跨类、跨方法传递数据"
+  * [《码出高效》](https://book.douban.com/subject/30333948/)  7.5
 
 
-* **并发学习资源**
-	* [面向面试的Java并发基础整理](http://pengcheng.tech/2019/03/24/%e9%9d%a2%e5%90%91%e9%9d%a2%e8%af%95%e7%9a%84java%e5%b9%b6%e5%8f%91%e5%9f%ba%e7%a1%80%e6%95%b4%e7%90%86/) （个人初步总结，发现还是应付不了面试Orz...）
-	* [Java并发编程学习路线](https://zhuanlan.zhihu.com/p/25577863)（学习思路篇）
-	* [Java Concurrency in Practice](https://book.douban.com/subject/1888733/)（*`TODO`* 请直接抛弃中文版，翻译极其垃圾，但原版对初学者不是很友好，不是很好懂）
-	* [Java并发编程实战](https://time.geekbang.org/column/intro/159)(极客时间课程)
+* **Java并发学习资源** 
+  * [Java并发编程学习路线](https://zhuanlan.zhihu.com/p/25577863)（学习思路篇）
+  * [Java Concurrency in Practice](https://book.douban.com/subject/1888733/)（*`TODO`*）
+  * [Java并发编程实战](https://time.geekbang.org/column/intro/159) （极客时间课程）
+  * [《码出高效》](https://book.douban.com/subject/30333948/)  7（几个并发工具类源码阅读）
 
 
 
@@ -475,7 +480,7 @@
 		* 接收端 --> [SYN/ACK]
 		* 发送端 --> ACK
 		* SYN（Synchronize Sequence Number） 是 TCP/IP 建立连接时使用的握手信号，置1表示有效
-		* 需要三次握手原因：信息对等 && 防止超时（源自《码出高效》第一章）
+		* 需要三次握手原因：信息对等 && 防止超时（[《码出高效》](https://book.douban.com/subject/30333948/)  第一章）
 		* 接收端回传SYN --> 告诉发送端我接收到的信息确实就是你所发送的信号
 	* 四次挥手
 		* 发送端 --> FIN (发送端进入 FIN-WAIT-1 （终止等待1）状态) 
