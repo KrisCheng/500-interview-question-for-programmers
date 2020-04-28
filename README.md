@@ -162,22 +162,25 @@
 		* 堆（Heap） --> 所有线程共享的内存区域，几乎所有的 **对象实例** 都在这里分配内存
 		* 方法区（Method Area） --> 所有线程共享的一块内存区域，用于存储所谓的元（Meta）数据，如类结构信息，以及对应的运行时常量池、字段、方法代码等
 		* 运行时常量池（Run-Time Constant Pool） --> 属于方法区的一部分，存放各种常量信息
+		
 	* [第25讲 | 谈谈JVM内存区域的划分，哪些区域可能发生OutOfMemoryError?](https://time.geekbang.org/column/article/10192)
+	
 	* [Java 内存区域详解](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F.md)
+	
 	* [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html#jvms-2.5)（官方 Docs *`TODO`* ）
+	
+* **描述Java的GC过程（DaoCloud/美团） **
 
-
-* **描述Java的GC过程（DaoCloud/美团） **   *`TODO`* 
-	* 对象存活判断
-		* 引用计数（Python 的 GC），无法解决对象相互循环引用的问题，Java中没有使用（Python GC有应用）
-		* 可达性分析（GC Roots --> 虚拟机栈和本地方法栈中正在引用的对象、静态属性引用的对象和常量）
-	* 垃圾收集算法
-		* 标记-清除算法（Mark-Sweep） --> 内存碎片化问题
-		* 复制算法（Copying） --> 将内存分为大小相同的两块，每次使用其中的一块。每次将活着的对象复制到 to 区域，拷贝过程中将对象顺序放置，避免内存碎片化
-		* 标记-整理算法（Mark-Compact） --> 类似于标记-清除，但为了避免内存碎片化，**在清理过程中移动对象，以确保移动后的对象占用连续的内存空间**
-		* 分代收集算法 --> 根据对象存活周期的不同将内存分为几块(eg: 新生代/老生代)
-	* [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
-	* [JVM 垃圾回收](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md)
+  * 对象存活判断
+    * 引用计数（Python 的 GC），无法解决对象相互循环引用的问题，Java中没有使用（Python GC有应用）
+    * 可达性分析（GC Roots --> 虚拟机栈和本地方法栈中正在引用的对象、静态属性引用的对象和常量）
+  * 垃圾收集算法
+    * 标记-清除算法（Mark-Sweep） --> 内存碎片化问题
+    * 复制算法（Copying） --> 将内存分为大小相同的两块，每次使用其中的一块。每次将活着的对象复制到 to 区域，拷贝过程中将对象顺序放置，避免内存碎片化
+    * 标记-整理算法（Mark-Compact） --> 类似于标记-清除，但为了避免内存碎片化，**在清理过程中移动对象，以确保移动后的对象占用连续的内存空间**
+    * 分代收集算法 --> 根据对象存活周期的不同将内存分为几块(eg: 新生代/老生代)
+  * [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
+  * [JVM 垃圾回收](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md) 
 
 
 * **描述JVM中常见的垃圾回收器，如CMS，以及JVM调优思路（美团）** *`TODO`* 
