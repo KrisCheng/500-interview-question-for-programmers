@@ -169,7 +169,7 @@
 	
 	* [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html#jvms-2.5)（官方 Docs *`TODO`* ）
 	
-* **描述Java的GC过程（DaoCloud/美团） **
+* **描述GC**
 
   * 对象存活判断
     * 引用计数（Python 的 GC），无法解决对象相互循环引用的问题，Java中没有使用（Python GC有应用）
