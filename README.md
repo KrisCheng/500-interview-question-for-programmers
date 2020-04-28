@@ -72,13 +72,18 @@
 		* the keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type
 		* 在没有创建任何对象的前提下，仅仅通过类本身来调用 static 方法。这实际上正是 static 方法的主要用途
 		* [A Guide to the Static Keyword in Java](https://www.baeldung.com/java-static)
+	* ***final*** 
+	* ***finally***
+	  * try-catch-finally 中包含 return 的情况分析（字节跳动）
+	    * "finally块中的内容会先于try中的return语句执行，如果finall语句块中也有return语句的话，那么直接从finally中返回了"
+	  * “不要在 finally 代码块中使用 return 语句”（ [《码出高效》](https://book.douban.com/subject/30333948/)  5.2）
 
 
 
 
 ### 集合框架
 
-* **描述 HashMap 的底层实现（远景智能）**
+* **描述 HashMap 的底层实现（远景智能/字节跳动）**
 	* 解决哈希冲突
 		* JDK < 1.8 --> 数组+链表
 		* JDK >= 1.8 --> 数组+链表+红黑树，链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间
@@ -86,14 +91,14 @@
 		* get()
 		* **put()（1.8）** *`TODO`*
 		* resize()
-		* capacity /load factor (负载因子)(**这两个参数具体是什么，有什么用？** 星环)
-			* buckets填满程度的最大比例
+		* capacity /load factor (负载因子)（**这两个参数具体是什么，有什么用？不同设置有什么差异（星环/字节跳动）** ）
+			* buckets 填满程度的最大比例
 	* [HashMap 简介](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md)（基本全面介绍，面试前可看）
 	* [使用HashMap，如果key是自定义的类，就必须重写hashcode()和equals()](https://blog.csdn.net/tuolaji8/article/details/48417031)
 	* [Java源码分析：关于 HashMap 1.8 的重大更新](https://blog.csdn.net/carson_ho/article/details/79373134)（1.7 vs 1.8 详细比较）
 
 
-* **ConcurrentHashMap 实现原理，或者说它是怎么保证线程安全的（星环/头条/阿里）** *`TODO`*
+* **ConcurrentHashMap 实现原理，或者说它是怎么保证线程安全的（星环/字节跳动/阿里）** *`TODO`*
 	* HashMap `resize()` 在多线程环境下可能形成环形链表，从而导致死循环
 	* JDK1.7 --> 分段锁（ Segment 对象，继承自 ReentrantLock ）+ HashEntry
 	* JDK1.8 --> CAS + synchronized
@@ -113,13 +118,13 @@
 	* [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？](https://time.geekbang.org/column/article/8053)(概念+源码分析)
 
 * **HashSet 如何判断重复元素（小红书）**
-	* 首先会调用 Object 的 `hashCode()` 方法判 hashCode 是否已经存在，如不存在则直接插入元素
-	* 如果已存在则调用 Object 对象的 `equals()` 方法判断是否返回true， 如果为true则说明元素已经存在，如为false则插入元素
-	* Java对象的 `equals()` 方法和 `hashCode()`  方法规定
-		* 1. 相等（相同）的对象必须具有相等的哈希码（或者散列码）
-		* 2. 如果两个对象的hashCode相同，它们并不一定相同
-	* [HashSet重复元素判断](https://itfafa.iteye.com/blog/1698690) 
-	* [Java提高篇——equals()与hashCode()方法详解](https://www.cnblogs.com/Qian123/p/5703507.html)
+  * 首先会调用 Object 的 `hashCode()` 方法判 hashCode 是否已经存在，如不存在则直接插入元素
+  * 如果已存在则调用 Object 对象的 `equals()` 方法判断是否返回true， 如果为true则说明元素已经存在，如为false则插入元素
+  * Java对象的 `equals()` 方法和 `hashCode()`  方法规定，
+    * 相等（相同）的对象必须具有相等的哈希码（或者散列码）
+    * 如果两个对象的hashCode相同，它们并不一定相同
+  * [HashSet重复元素判断](https://itfafa.iteye.com/blog/1698690) 
+  * [Java提高篇——equals()与hashCode()方法详解](https://www.cnblogs.com/Qian123/p/5703507.html)
 
 
 
@@ -162,7 +167,7 @@
 	* [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html#jvms-2.5)（官方 Docs *`TODO`* ）
 
 
-* **描述Java的GC过程（DaoCloud/美团） **  *`TODO`* 
+* **描述Java的GC过程（DaoCloud/美团） **   *`TODO`* 
 	* 对象存活判断
 		* 引用计数（Python 的 GC），无法解决对象相互循环引用的问题，Java中没有使用（Python GC有应用）
 		* 可达性分析（GC Roots --> 虚拟机栈和本地方法栈中正在引用的对象、静态属性引用的对象和常量）
@@ -186,7 +191,7 @@
   * [Java内存溢出(OOM)异常完全指南](https://www.jianshu.com/p/2fdee831ed03) 
 
 
-* **浅拷贝 & 深拷贝（头条）**
+* **浅拷贝 & 深拷贝（字节跳动）**
 	* 浅拷贝 --> 对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，**没有真实的创建一个新的对象**
 	* 深拷贝 --> 对基本数据类型进行值传递，对引用数据类型，**创建一个新的对象**，并复制其内容
 	* [细说 Java 的深拷贝和浅拷贝](https://segmentfault.com/a/1190000010648514) 
@@ -276,6 +281,9 @@
 
   * "它通常用于同一个线程内，跨类、跨方法传递数据"
   * [《码出高效》](https://book.douban.com/subject/30333948/)  7.5
+* **start() 和 run() 方法的区别（字节跳动）** 
+
+  * [Difference between Thread.start() and Thread.run() in Java](https://www.geeksforgeeks.org/difference-between-thread-start-and-thread-run-in-java/) 
 
 
 * **Java并发学习资源** 
@@ -295,7 +303,7 @@
 	* [map/reduce](https://www.liaoxuefeng.com/wiki/1016959663602400/1017329367486080)
 
 
-* **实现一个lambda表达式（头条）**
+* **实现一个lambda表达式（字节跳动）**
 	* 匿名函数，个人理解为一种语法糖
 	* [Lambda 表达式有何用处？如何使用？](https://www.zhihu.com/question/20125256)
 
@@ -321,7 +329,7 @@
 
 ## 操作系统
 
-* **进程/线程的概念和区别（头条）**
+* **进程/线程的概念和区别（字节跳动）**
 	* 进程 --> 计算机中已运行的程序，具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位
 	* 线程 --> 操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程中的实际运作单位
 	* 关系
@@ -334,8 +342,8 @@
 	* [进程 Wiki](https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B)
 
 
-* **线程同步的方式**
-	* [线程同步的几种方式（转）](https://www.cnblogs.com/lebronjames/archive/2010/08/11/1797702.html)
+* **线程同步（通信）的方式（字节跳动）** 
+	* [Inter-thread Communication in Java](https://www.geeksforgeeks.org/inter-thread-communication-java/) 
 
 * **进程间通信的方式（依图）**
 	* 进程间通信 --> 在不同进程之间传播或交换信息
@@ -346,7 +354,7 @@
 	* [进程间8种通信方式详解](https://blog.csdn.net/violet_echo_0908/article/details/51201278) 
 
 
-* **描述操作系统的启动过程（头条）**
+* **描述操作系统的启动过程（字节跳动）**
 	* 步骤 
 		* BIOS（Basic Input / Output System）
 		* 主引导记录（Master boot record）
@@ -426,7 +434,7 @@
 
 ### 索引
 
-* **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（头条/腾讯/美团/星环）**
+* **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（字节跳动/腾讯/美团/星环）**
 	* 索引 --> 一种数据结构
 	* B+ 树做索引优势
 		* AVL, 红黑树等二叉树，查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远）
@@ -531,7 +539,7 @@
  	* [DNS递归查询和迭代查询的区别](https://blog.csdn.net/wuchuanpingstone/article/details/6720723)
 
 
-* **HTTP 与 HTTPS 的区别** 
+* **HTTP 与 HTTPS 的区别（字节跳动）** 
 	* HTTP协议以明文方式发送内容，不提供任何方式的数据加密
 	* HTTPS其实就是建构在SSL（Secure Sockets Layer） / TLS之上的 HTTP协议
 	* HTTPS密文传输 / HTTP 明文传输
@@ -539,7 +547,7 @@
 	* [详细解析 HTTP 与 HTTPS 的区别](https://juejin.im/entry/58d7635e5c497d0057fae036) 
 
 
-* **描述HTTPS的加密过程 / 对称加密&非对称加密在HTTPS加密过程中如何实践（头条/阿里）** *`TODO`* 
+* **描述HTTPS的加密过程 / 对称加密&非对称加密在HTTPS加密过程中如何实践（字节跳动/阿里）** *`TODO`* 
 	* [HTTPS加密过程和TLS证书验证](https://juejin.im/post/5a4f4884518825732b19a3ce)
 	* [HTTPS中的TLS](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/HTTPS%E4%B8%AD%E7%9A%84TLS.md)（密码学角度）
 
@@ -663,7 +671,7 @@
   * [Java持久化API Wiki](https://zh.wikipedia.org/wiki/Java%E6%8C%81%E4%B9%85%E5%8C%96API)
 
 
-* **什么是Spring注解，Spring中有哪些常用的注解，以及注解自身是如何实现的（阿里/头条）** *`TODO`*
+* **什么是Spring注解，Spring中有哪些常用的注解，以及注解自身是如何实现的（阿里/字节跳动）** *`TODO`*
   * 注解 --> 减少配置文件内容
   * [Java annotation Wiki](https://en.wikipedia.org/wiki/Java_annotation)
   * [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解： 注解 --> 标签）
@@ -730,7 +738,7 @@
 	* [详解git fetch与git pull的区别](https://blog.csdn.net/riddle1981/article/details/74938111)
 
 
-* 描述 git 中的 cherry-pick 指令（小红书）*`TODO`* 
+* **描述 git 中的 cherry-pick 指令（小红书）**  *`TODO`* 
 
 
-* 描述微服务架构（携程） *`TODO`*
+* **描述微服务架构（携程）**  *`TODO`*
