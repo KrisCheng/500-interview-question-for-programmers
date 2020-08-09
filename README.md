@@ -11,7 +11,15 @@
 ## 算法和设计
 
 
-* 详见 [科学刷题指北](https://github.com/KrisCheng/Senior-SDE-Schedule/blob/master/blogs/科学刷题指北.md).
+* 详见 [科学刷题指北](科学刷题指北.md).
+
+## Android
+
+### 组件
+
+#### AIDL
+
+
 
 ## Java
 
@@ -128,7 +136,7 @@
 
 
 
-### Java内存模型
+### Java内存模型 / JVM
 
 * **描述 Java 中的类加载过程（阿里）** *`TODO`*
   * 加载（Loading） --> 链接（Linking） --> 初始化（Initializing）
@@ -745,3 +753,4 @@
 
 
 * **描述微服务架构（携程）**  *`TODO`*
+
