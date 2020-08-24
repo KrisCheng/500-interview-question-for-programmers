@@ -4,7 +4,7 @@
 
 本 `Repository` 用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我**真实碰到过且思考过**（大部分附具体面试公司），一律采用问答形式，答案为我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正（可以提 `Issues`，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
 
-侧重点是个人对某些问题的总结，并基于此形成个人专业的 `Knowledge Base` （提供配套思维导图），希望以此来保持个人知识体系的扎实性。
+侧重点是个人对某些问题的总结，并基于此形成个人专业的 `Knowledge Base` （提供配套思维导图，但已很久不更新Orz），希望以此来保持个人知识体系的扎实性。
 
 供所有正在找工作的小伙伴们参考，如果觉得有帮助，请 `Star` ，善用 `Ctrl` + `F` :)。
 
@@ -12,14 +12,6 @@
 
 
 * 详见 [科学刷题指北](科学刷题指北.md).
-
-## Android
-
-### 组件
-
-#### AIDL
-
-
 
 ## Java
 
@@ -136,7 +128,7 @@
 
 
 
-### Java内存模型 / JVM
+### JVM相关
 
 * **描述 Java 中的类加载过程（阿里）** *`TODO`*
   * 加载（Loading） --> 链接（Linking） --> 初始化（Initializing）
@@ -592,7 +584,15 @@
 	* `ps -ef | grep java | grep -v grep | awk '{print $2}' | xargs kill -9`
 	* [Linux 杀掉所有Java进程](https://blog.csdn.net/u011517841/article/details/79781830) 
 
+## Android
 
+### App生命周期
+
+### 组件
+
+### AIDL
+
+### 回调
 
 
 ## 框架篇
