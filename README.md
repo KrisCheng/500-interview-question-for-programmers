@@ -120,7 +120,7 @@
 * **HashSet 如何判断重复元素（小红书）**
   * 首先会调用 Object 的 `hashCode()` 方法判 hashCode 是否已经存在，如不存在则直接插入元素
   * 如果已存在则调用 Object 对象的 `equals()` 方法判断是否返回true， 如果为true则说明元素已经存在，如为false则插入元素
-  * Java对象的 `equals()` 方法和 `hashCode()`  方法规定，
+  * Java对象的 `equals()` 方法和 `hashCode()`  方法规定：
     * 相等（相同）的对象必须具有相等的哈希码（或者散列码）
     * 如果两个对象的hashCode相同，它们并不一定相同
   * [HashSet重复元素判断](https://itfafa.iteye.com/blog/1698690) 
@@ -510,7 +510,7 @@
 
 
 * **用Socket描述TCP的三次握手（腾讯）** *`TODO`* 
-	* [Socket过程详细解释（包括三次握手建立连接，四次握手断开连接）](https://blog.csdn.net/u013782203/article/details/51767763)（C++实现，未看）
+	* [Socket过程详细解释（包括三次握手建立连接，四次握手断开连接）](https://blog.csdn.net/u013782203/article/details/51767763)（C++实现， *`TODO`* ）
 
 
 * **网络间的进程如何表示（腾讯）** *`TODO`* 
