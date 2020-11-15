@@ -2,7 +2,7 @@
 
 ## 概述
 
-本 `Repository` 用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我**真实碰到过且思考过**（大部分附具体面试公司），一律采用问答形式，答案为我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄 Orz...），欢迎指正（可以提 `Issues`，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
+本 `Repository` 用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我**真实碰到过且思考过**（大部分附具体面试公司），一律采用问答形式，答案为我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄或自己也没搞懂 Orz...），欢迎指正（可以提 `Issues`，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
 
 侧重点是个人对某些问题的总结，并基于此形成个人专业的 `Knowledge Base` （提供配套思维导图，但已很久不更新Orz），希望以此来保持个人知识体系的扎实性。
 
@@ -553,6 +553,7 @@
 * **描述HTTPS的加密过程 / 对称加密&非对称加密在HTTPS加密过程中如何实践（字节跳动/阿里）** *`TODO`* 
 	* [HTTPS加密过程和TLS证书验证](https://juejin.im/post/5a4f4884518825732b19a3ce)
 	* [HTTPS中的TLS](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/HTTPS%E4%B8%AD%E7%9A%84TLS.md)（密码学角度）
+	* [How does HTTPS work? What's a CA? What's a self-signed Certificate?](https://www.youtube.com/watch?v=T4Df5_cojAs) （HTTPS工作流程举例，可以再看 *`TODO`* ）
 
 
 * **HTTP代理如何实现（阿里）** *`TODO`* 
@@ -570,7 +571,14 @@
   * [干货：计算机网络知识总结.md](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/%E5%B9%B2%E8%B4%A7%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93.md#%E4%B8%80%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%BF%B0)（逐层术语解释）
 
 
-* 描述Session的实现原理（或者如何设计一个Session）（拼多多）*`TODO`*
+* **描述Session的实现原理（或者如何设计一个Session）（拼多多）** *`TODO`*
+
+* **如何保证token不被劫持和篡改（大概意思，项目相关）（微软）**   `TODO`
+
+
+  * Challenge Value，加盐值（防止彩虹表攻击）
+  * 采用HTTPS
+
   
 
 
@@ -586,11 +594,13 @@
 
 ## Android
 
+### 关键类
+
 ### App生命周期
 
 ### 主要组件
 
-### AIDL
+### AIDL通讯
 
 ### 回调机制
 
