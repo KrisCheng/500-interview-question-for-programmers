@@ -25,7 +25,7 @@
 
 
 * **什么是序列化（Serialization）和反序列化（小红书）**
-	* 序列化 --> 把对象转换为**字节序列**的过程称为对象的序列化
+	* 序列化 --> 把**对象**转换为**字节序列**的过程称为对象的序列化
 	* 反序列化 --> 把字节序列恢复为对象的过程称为对象的反序列化
 	* [Java 序列化](https://www.runoob.com/java/java-serialization.html)
 	* [Java对象的序列化（Serialization）和反序列化详解](https://blog.csdn.net/yaomingyang/article/details/79321939)（实例）
@@ -41,7 +41,7 @@
 	* [java中父类和子类初始化顺序](https://blog.csdn.net/yuxin6866/article/details/53107578) 
 
 
-* **什么是反射以及反射有什么具体应用**
+* **什么是反射 && 反射的具体应用**
 	* Java反射机制是在**运行状态中**，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性。这种 **动态获取的信息以及动态调用对象的方法的功能** 称为Java语言的反射机制
 	* 应用
 		* 框架设计的灵魂 --> 如：Spring 通过 XML 配置模式装载 Bean 的过程
@@ -54,7 +54,7 @@
 	* 同步 / 异步 --> 关注的是消息通信机制（区别最大在于异步的话调用者不需要等待处理结果）
 	* 阻塞 / 非阻塞 --> 关注的是程序在等待调用结果（消息，返回值）时的状态
 	* BIO / NIO
-	* 使用场景
+	* 实战 *`TODO`* 
 	* [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473)
 	* [BIO,NIO,AIO 总结](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/BIO-NIO-AIO.md)（基本概念 + 实例 *`TODO`*）
 	* [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)（思想 + 实例 *`TODO`*）
@@ -75,7 +75,7 @@
 	* ***final*** 
 	* ***finally***
 	  * try-catch-finally 中包含 return 的情况分析（字节跳动）
-	    * "finally块中的内容会先于try中的return语句执行，如果finall语句块中也有return语句的话，那么直接从finally中返回了"
+	    * "finally块中的内容会先于try中的return语句执行，如果finally语句块中也有return语句的话，那么直接从finally中返回了"
 	  * “不要在 finally 代码块中使用 return 语句”（ [《码出高效》](https://book.douban.com/subject/30333948/)  5.2）
 
 
@@ -87,11 +87,11 @@
 	* 解决哈希冲突
 		* JDK < 1.8 --> 数组+链表
 		* JDK >= 1.8 --> 数组+链表+红黑树，链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间
-	* 源码
+	* 源码阅读  *`TODO`*
 		* get()
 		* **put()（1.8）** *`TODO`*
 		* resize()
-		* capacity /load factor (负载因子)（**这两个参数具体是什么，有什么用？不同设置有什么差异（星环/字节跳动）** ）
+		* capacity / load factor (负载因子)（**这两个参数具体是什么，有什么用？不同设置有什么差异（星环/字节跳动）** ）
 			* buckets 填满程度的最大比例
 	* [HashMap 简介](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md)（基本全面介绍，面试前可看）
 	* [使用HashMap，如果key是自定义的类，就必须重写hashcode()和equals()](https://blog.csdn.net/tuolaji8/article/details/48417031)
@@ -110,7 +110,7 @@
 * **HashMap 和 TreeMap 的区别和应用场景（PayPal/依图）**
 	* HashMap 通过 hashcode 对其内容进行快速查找，而 TreeMap 中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用 TreeMap（HashMap中元素的排列顺序是不固定的）
 	* HashMap 允许使用 null 值和 null 键，而 TreeMap 不可以
-	* 实现
+	* 源码实现
 		* HashMap --> HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体 / 如果追加节点后，链表数量 >= 8，则转化为红黑树
 		* TreeMap --> 红黑树
 	* HashMap 非线程安全 & TreeMap 非线程安全
@@ -124,7 +124,7 @@
     * 相等（相同）的对象必须具有相等的哈希码（或者散列码）
     * 如果两个对象的hashCode相同，它们并不一定相同
   * [HashSet重复元素判断](https://itfafa.iteye.com/blog/1698690) 
-  * [Java提高篇——equals()与hashCode()方法详解](https://www.cnblogs.com/Qian123/p/5703507.html)
+  * [Java提高篇——equals()与hashCode()方法详解](https://www.cnblogs.com/Qian123/p/5703507.html) 
 
 
 
@@ -141,8 +141,8 @@
     * 解析（Resolution）
       * 虚拟机将常量池内的符号引用替换为直接引用的过程
   * 初始化
-  * 双亲委派模型（Parents Delegation Model，宜译作“溯源委派加载模型（[《码出高效》](https://book.douban.com/subject/30333948/)  P119）”）
-    * 当类加载器试图加载某个类型时，除非父加载器找不到相应类型，否则尽量将这个任务代理给当前加载器的父加载器去做，目的是**避免重复加载Java类型**
+  * 双亲委派模型（Parents Delegation Model，宜译作“溯源委派加载模型”（[《码出高效》](https://book.douban.com/subject/30333948/)  P119））
+    * 当类加载器试图加载某个类型时，除非父加载器找不到相应类型，否则尽量将这个任务代理给当前加载器的父加载器去做，目的是 **避免重复加载Java类型**
   * 如何自定义类加载器
     * [JVM——自定义类加载器](https://blog.csdn.net/SEU_Calvin/article/details/52315125) 
   * [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B.md)（基本概念解释）
@@ -178,7 +178,7 @@
     * 标记-清除算法（Mark-Sweep） --> 内存碎片化问题
     * 复制算法（Copying） --> 将内存分为大小相同的两块，每次使用其中的一块。每次将活着的对象复制到 to 区域，拷贝过程中将对象顺序放置，避免内存碎片化
     * 标记-整理算法（Mark-Compact） --> 类似于标记-清除，但为了避免内存碎片化，**在清理过程中移动对象，以确保移动后的对象占用连续的内存空间**
-    * 分代收集算法 --> 根据对象存活周期的不同将内存分为几块(eg: 新生代/老生代)
+    * 分代收集算法 --> 根据对象存活周期的不同将内存分为几块 （eg: 新生代/老生代）
   * [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
   * [JVM 垃圾回收](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md) 
 
@@ -192,20 +192,6 @@
 * **Java对象在内存中是如何存储的（阿里）** *`TODO`*
 * **Java中什么时候会发生OOM（华为）** 
   * [Java内存溢出(OOM)异常完全指南](https://www.jianshu.com/p/2fdee831ed03) 
-
-
-* **浅拷贝 & 深拷贝（字节跳动）**
-	* 浅拷贝 --> 对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，**没有真实的创建一个新的对象**
-	* 深拷贝 --> 对基本数据类型进行值传递，对引用数据类型，**创建一个新的对象**，并复制其内容
-	* [细说 Java 的深拷贝和浅拷贝](https://segmentfault.com/a/1190000010648514) 
-	* [8.6: Pass by Value vs. Pass by Reference - Processing Tutorial](https://www.youtube.com/watch?v=hNR6fsksEu8)
-	
-* **值传递 & 引用传递**
-	* Java中方法参数传递方式是按**值传递**
-	* 如果参数是基本类型，传递的是基本类型的字面量值的拷贝
-	* 如果参数是引用类型，传递的是该参量所引用的对象在堆中地址值的拷贝
-	* [什么是值传递和引用传递？](https://www.zhihu.com/question/31203609/answer/50992895) 
-	
 
 
 
@@ -345,13 +331,13 @@
 	* [进程 Wiki](https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B)
 
 
-* **线程同步（通信）的方式（字节跳动）** 
+* **线程同步（通信）的方式（字节跳动）**   *`TODO`* 
 	* [Inter-thread Communication in Java](https://www.geeksforgeeks.org/inter-thread-communication-java/) 
 
-* **进程间通信的方式（依图）**
+* **进程间通信的方式（依图）** 
 	* 进程间通信 --> 在不同进程之间传播或交换信息
 		* 管道（数据只能单向流动）
-		* 系统IPC（InterProcess Communication）(包括消息队列, 信号量, 共享存储)
+		* 系统IPC（InterProcess Communication）（包括消息队列，信号量，共享存储）
 		* Socket（可用于不同机器间的进程通信）
 	* [进程间的几种通信方式](https://blog.csdn.net/yufaw/article/details/7409596)
 	* [进程间8种通信方式详解](https://blog.csdn.net/violet_echo_0908/article/details/51201278) 
@@ -602,7 +588,7 @@
 
 ### AIDL通讯
 
-### 回调机制
+### 回调
 
 
 ## 框架篇
@@ -746,6 +732,16 @@
 
 ## 其他
 
+* **浅拷贝 & 深拷贝（字节跳动）**
+	* 浅拷贝 --> 对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，**没有真实的创建一个新的对象**
+	* 深拷贝 --> 对基本数据类型进行值传递，对引用数据类型，**创建一个新的对象**，并复制其内容
+	* [细说 Java 的深拷贝和浅拷贝](https://segmentfault.com/a/1190000010648514) 
+	* [8.6: Pass by Value vs. Pass by Reference - Processing Tutorial](https://www.youtube.com/watch?v=hNR6fsksEu8)
+* **值传递 & 引用传递**
+  * Java中方法参数传递方式是按**值传递**
+  * 如果参数是基本类型，传递的是基本类型的字面量值的拷贝
+  * 如果参数是引用类型，传递的是该参量所引用的对象在堆中地址值的拷贝
+  * [什么是值传递和引用传递？](https://www.zhihu.com/question/31203609/answer/50992895) 
 * **git rebase 和 git merge 有什么区别（小红书/野村证券/PayPal）**
 	* 同：都是用于从一个分支获取并且合并到当前分支
 	* 异：rebase --> 会合并之前的commit历史（带有破坏性的修改 commit 历史的命令）
