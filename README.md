@@ -89,12 +89,16 @@
 		* JDK >= 1.8 --> 数组+链表+红黑树，链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间
 	* 源码阅读  *`TODO`*
 		* get()
-		* **put()（1.8）** *`TODO`*
+		* put()
 		* resize()
 		* capacity / load factor (负载因子)（**这两个参数具体是什么，有什么用？不同设置有什么差异（星环/字节跳动）** ）
-			* buckets 填满程度的最大比例
-	* [HashMap 简介](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/HashMap.md)（基本全面介绍，面试前可看）
-	* [使用HashMap，如果key是自定义的类，就必须重写hashcode()和equals()](https://blog.csdn.net/tuolaji8/article/details/48417031)
+			* “the initial capacity is simply the capacity at the time the hash table is created”（bucket数目）
+			* ”The load factor is a measure of how full the hash table is allowed to get before its capacity is automatically increased“（bucket填满程度的最大比例）
+			* “When the number of entries in the hash table exceeds the product of the load factor and the current capacity, the hash table is rehashed (that is, internal data structures are rebuilt) so that the hash table has approximately twice the number of buckets”
+			* “如果内存空间很多而又对时间效率要求很高，可以降低负载因子Load factor的值；相反，如果内存空间紧张而对时间效率要求不高，可以增加负载因子loadFactor的值，这个值可以大于1”
+	*  [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html) （主要参考）
+	* [Java HashMap工作原理及实现](https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/) （初级一点的参考）
+	* [Class HashMap<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html) （Java 8 Docs）
 	* [Java源码分析：关于 HashMap 1.8 的重大更新](https://blog.csdn.net/carson_ho/article/details/79373134)（1.7 vs 1.8 详细比较）
 
 
@@ -104,7 +108,7 @@
 	* JDK1.8 --> CAS + synchronized
 	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)（较为全面的分析  *`TODO`*）
 	* [深入浅出ConcurrentHashMap1.8](https://www.jianshu.com/p/c0642afe03e0)（1.8版本的详细解释）
-	* [老生常谈，HashMap的死循环](https://juejin.im/post/5a66a08d5188253dc3321da0)（具体分析 非线程安全带来的无限循环占用问题CPU100% 问题）
+	* [老生常谈，HashMap的死循环](https://juejin.im/post/5a66a08d5188253dc3321da0)（具体分析 非线程安全带来的无限循环占用 CPU100% 问题）
 
 
 * **HashMap 和 TreeMap 的区别和应用场景（PayPal/依图）**
@@ -130,7 +134,8 @@
 
 ### JVM相关
 
-* **描述 Java 中的类加载过程（阿里）** *`TODO`*
+* **描述 Java 中的类加载过程（阿里/星环）** *`TODO`*
+  
   * 加载（Loading） --> 链接（Linking） --> 初始化（Initializing）
   * 加载
     * 将字节码数据从不同的数据源读取到 JVM 中，并映射为 JVM 认可的数据结构（Class对象），**用户可以自定义类加载器，实现类加载过程**
@@ -148,7 +153,9 @@
   * [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B.md)（基本概念解释）
   * [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
   * [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs *`TODO`* ）
-  * 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制（没怎么看懂ORZ...）*`TODO`* 
+* 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制（没怎么看懂ORZ...）*`TODO`* 
+  
+* **描述 Java 中的类加载机制（星环）** *`TODO`*
 
 * **描述Java内存模型（阿里/美团）**`TODO`
 	
@@ -192,6 +199,7 @@
 * **Java对象在内存中是如何存储的（阿里）** *`TODO`*
 * **Java中什么时候会发生OOM（华为）** 
   * [Java内存溢出(OOM)异常完全指南](https://www.jianshu.com/p/2fdee831ed03) 
+* **NoClassDefFoundError和ClassNotFoundException的场景和解决办法（星环）**
 
 
 
@@ -266,7 +274,7 @@
 * **描述 Atomic 类的底层实现（美团）** *`TODO`*
 
 
-* **描述 ThreadLocal 类 （美团）** *`TODO`*
+* **描述 ThreadLocal 的实现（美团），什么情况会发生OOM（星环） ** *`TODO`*
 
   * "它通常用于同一个线程内，跨类、跨方法传递数据"
   * [《码出高效》](https://book.douban.com/subject/30333948/)  7.5
