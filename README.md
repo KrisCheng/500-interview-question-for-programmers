@@ -62,7 +62,7 @@
 	* [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 IO Docs *`TODO`*）
 
 
-* **描述 Java8 的新特性（星环）*`TODO`*** 
+* **描述 Java8 的新特性（星环）**  *`TODO`*
 	* lambda 表达式，以及使用 lambda 表达式的场景
 	* Stream
 
