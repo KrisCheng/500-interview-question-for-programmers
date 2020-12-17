@@ -53,7 +53,7 @@
 * **Java提供了哪些IO方式（拼多多）** *`TODO`*
 	* 同步 / 异步 --> 关注的是消息通信机制（区别最大在于异步的话调用者不需要等待处理结果）
 	* 阻塞 / 非阻塞 --> 关注的是程序在等待调用结果（消息，返回值）时的状态
-	* BIO / NIO
+	* BIO / NIO（描述，网易）
 	* 实战 *`TODO`* 
 	* [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473)
 	* [BIO,NIO,AIO 总结](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/BIO-NIO-AIO.md)（基本概念 + 实例 *`TODO`*）
@@ -147,7 +147,7 @@
     * 解析（Resolution）
       * 虚拟机将常量池内的符号引用替换为直接引用的过程
   * 初始化（Initializing）
-    * “初始化阶段就是执行类构造器 <clinit>() 方法的过程。 （《深入理解Java虚拟机》第三版 P277）
+    * 初始化阶段就是执行类构造器 <clinit>() 方法的过程。 （《深入理解Java虚拟机》第三版 P277）
   * 双亲委派模型（Parents Delegation Model，宜译作“溯源委派加载模型”（[《码出高效》](https://book.douban.com/subject/30333948/) P119））
     * 如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载都是如此，因此所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请求时，子加载器才会尝试自己去完成加载
     * 好处 --> Java中的类随着它的加载器一起具备了一种带有优先级的层次关系，避免类的重复加载
@@ -169,7 +169,7 @@
 
   * Java虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这个过程被称作虚拟机的类加载机制（《深入理解Java虚拟机》第三版 P262）
 
-* **描述Java内存模型（阿里/美团）**  *`TODO`* 
+* **描述Java内存模型（阿里/美团/网易）**  *`TODO`* 
 	
 	* JVM内存区域划分 
 		* 程序计数器（PC, Program Counter Register） --> 它的作用可以看做是当前线程所执行的字节码的行号指示器
@@ -219,7 +219,9 @@
 
 * **描述Java下的并发编程（阿里）**
 	* Java中实现并发编程的手段 --> 多线程
-	* 线程的生命周期（新建 / 就绪 / 运行 / 阻塞 / 死亡）
+	* 线程的生命周期（新建 / 就绪 / 运行 / 阻塞 / 死亡）（网易）
+	  * 线程阻塞和等待的区别（网易）
+	  * [Difference between WAIT and BLOCKED thread states](https://stackoverflow.com/questions/15680422/difference-between-wait-and-blocked-thread-states) 
 	* 创建线程的方法
 		* Runnable 接口
 		* 继承 Thread
@@ -238,14 +240,14 @@
 	* 描述 synchronized 的底层实现（爱奇艺） *`TODO`*
 	* 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
 	* ReentrantLock 源码阅读 *`TODO`*
-		* 描述 AQS（AbstractQueuedSynchronizer）的作用（原题为 ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？）（星环）
+		* 描述 AQS（AbstractQueuedSynchronizer）的作用（网易）（原题为 ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？）（星环）
 	* [Java线程同步：synchronized锁住的是代码还是对象](https://blog.csdn.net/xiao__gui/article/details/8188833) 
 	* [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799)
 
 
-* **介绍 volatile 关键字（阿里）**
-	* 保证变量的可见性（指示 JVM，这个变量是不稳定的，每次使用它都到主存中进行读取） & 防止指令重排序
+* **介绍 volatile 关键字（阿里/网易）**
 	* 只能用于变量
+	* 保证变量的可见性（指示 JVM，这个变量是不稳定的，每次使用它都到主存中进行读取） & 防止指令重排序
 	* 对一个 volatile 变量的写操作， Happens-Before 后续对这个 volatile 变量的读操作
 	* [2.volatile关键字](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/Multithread/JavaConcurrencyAdvancedCommonInterviewQuestions.md#2-volatile%E5%85%B3%E9%94%AE%E5%AD%97) 
 
@@ -287,8 +289,8 @@
 
 
 * **描述ThreadLocal 的实现（美团），什么情况会发生OOM（星环）** *`TODO`*
-* "它通常用于同一个线程内，跨类、跨方法传递数据"
-  * 
+
+  * "它通常用于同一个线程内，跨类、跨方法传递数据"
   * [《码出高效》](https://book.douban.com/subject/30333948/)  7.5
 * **start() 和 run() 方法的区别（字节跳动）** 
 
@@ -400,13 +402,11 @@
 
 
 
-
-
 ## 数据库
 
 ### 数据库理论
 
-* **描述事务隔离的级别（野村证券/远景智能）**
+* **描述事务的隔离级别（野村证券/远景智能/网易）**
 	* Serializable（序列化） --> 可避免脏读，不可重复读，幻读
 	* Repeatable read（可重复读） --> 可避免脏读，不可重复读，但可能出现幻读 
 	* Read committed（已提交读） --> 可避免脏读，但是可能会造成不可重复读
@@ -438,12 +438,14 @@
 	* [数据库设计冗余字段问题？](https://www.zhihu.com/question/50662784)
 	* [如何解释关系数据库的第一第二第三范式？](https://www.zhihu.com/question/24696366) 
 
+* **讲一下MySQL常见的数据库引擎（网易）**
+
 
 
 
 ### 索引
 
-* **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（字节跳动/腾讯/美团/星环）**
+* **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（字节跳动/腾讯/美团/星环/网易）**
 	* 索引 --> 一种数据结构
 	* B+ 树做索引优势
 		* AVL, 红黑树等二叉树，查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远）
@@ -456,7 +458,7 @@
 	* [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
 
 
-* **聚集索引（Clustered Index）和非聚集索引的区别（拼多多）**
+* **聚集索引（Clustered Index）和非聚集索引的区别（拼多多/网易）**
 	* 聚集索引 --> 指数据库表行中数据的物理顺序与键值的逻辑（索引）顺序相同（正文内容本身就是一种按照一定规则排列的目录）
 	* 每个表只能有一个聚集索引，因为目录只能按照一种方法进行排序
 	* [聚合索引(clustered index) / 非聚合索引(nonclustered index)](https://blog.csdn.net/ak913/article/details/8026743)
@@ -480,9 +482,10 @@
 
 * **各种join操作的区别（left, right, inner join）**
 	* [mysql join操作](https://www.cnblogs.com/ggjucheng/archive/2012/11/06/2757972.html)
-
 * **找出在表A中但不在表B中的记录（根据某一个共同的column）（PayPal）**
 	* [查询A、B表中，A表中B表没有的数据](https://blog.csdn.net/long636/article/details/51733273)（三种方法）
+* **having 和 where 用法上的区别（网易）**
+  * [What is the difference between HAVING and WHERE in SQL?](https://stackoverflow.com/questions/287474/what-is-the-difference-between-having-and-where-in-sql) 
 
 
 * SQL优化策略 *`TODO`* 
@@ -597,18 +600,10 @@
 * 杀死所有Java进程
 	* `ps -ef | grep java | grep -v grep | awk '{print $2}' | xargs kill -9`
 	* [Linux 杀掉所有Java进程](https://blog.csdn.net/u011517841/article/details/79781830) 
+* 干掉占用某端口的服务（网易）
+  * [linux杀死占用某端口的所有进程](https://blog.csdn.net/lissdy/article/details/70256032)
 
-## Android
 
-### 关键类
-
-### App生命周期
-
-### 主要组件
-
-### AIDL通讯
-
-### 回调
 
 
 ## 框架篇
@@ -642,7 +637,7 @@
   * [What is difference between BeanFactory and ApplicationContext in Spring framework](https://javarevisited.blogspot.com/2012/11/difference-between-beanfactory-vs-applicationcontext-spring-framework.html) *`TODO`*
 
 
-* **什么是Bean以及描述Bean的生命周期（美团）**
+* **什么是Bean以及描述Bean的生命周期（美团/网易）**
   * 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为Bean。一个Bean是一个由Spring IoC容器实例化、组装和管理的对象
   * 生命周期
     * 创建Bean
@@ -746,6 +741,20 @@
 
 
 ### Netty *`TODO`*
+
+
+
+## Android
+
+### 关键类
+
+### App生命周期
+
+### 主要组件
+
+### AIDL通讯
+
+### 回调
 
 
 
