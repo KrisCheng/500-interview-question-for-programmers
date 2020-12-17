@@ -151,11 +151,14 @@
   * 双亲委派模型（Parents Delegation Model，宜译作“溯源委派加载模型”（[《码出高效》](https://book.douban.com/subject/30333948/) P119））
     * 如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载都是如此，因此所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请求时，子加载器才会尝试自己去完成加载
     * 好处 --> Java中的类随着它的加载器一起具备了一种带有优先级的层次关系，避免类的重复加载
-    * 实现 --> 1.检查请求加载的类型是否已经被加载过，没有则调用父加载器的 loadClass() 方法；2.若父加载器为空则默认使用启动类加载器作为附加载器；3.加入父类加载器加载失败，抛出ClassNotFoundException，才调用自己的 findClass() 方法尝试进行加载
+    * 实现 
+      * 1.检查请求加载的类型是否已经被加载过，没有则调用父加载器的 loadClass() 方法；
+      * 2.若父加载器为空则默认使用启动类加载器作为附加载器；
+      * 3.加入父类加载器加载失败，抛出ClassNotFoundException，才调用自己的 findClass() 方法尝试进行加载
   * [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/类加载过程.md)（基本概念解释）
 
   * [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
-  * [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs TODO ）
+  * [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs *`TODO`*  ）
   * 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制（没怎么看懂ORZ...）
 
 * **如何自定义类加载器** 
@@ -166,7 +169,7 @@
 
   * Java虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这个过程被称作虚拟机的类加载机制（《深入理解Java虚拟机》第三版 P262）
 
-* **描述Java内存模型（阿里/美团）**`TODO`
+* **描述Java内存模型（阿里/美团）**  *`TODO`* 
 	
 	* JVM内存区域划分 
 		* 程序计数器（PC, Program Counter Register） --> 它的作用可以看做是当前线程所执行的字节码的行号指示器
@@ -285,6 +288,7 @@
 
 * **描述ThreadLocal 的实现（美团），什么情况会发生OOM（星环）** *`TODO`*
 * "它通常用于同一个线程内，跨类、跨方法传递数据"
+  * 
   * [《码出高效》](https://book.douban.com/subject/30333948/)  7.5
 * **start() 和 run() 方法的区别（字节跳动）** 
 
