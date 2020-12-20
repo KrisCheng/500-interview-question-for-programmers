@@ -27,9 +27,9 @@
 * **什么是序列化（Serialization）和反序列化（小红书）**
 	* 序列化 --> 把**对象**转换为**字节序列**的过程称为对象的序列化
 	* 反序列化 --> 把字节序列恢复为对象的过程称为对象的反序列化
-	* [Java 序列化](https://www.runoob.com/java/java-serialization.html)
+	* [Java 序列化](https://www.runoob.com/java/java-serialization.html)（介绍）
 	* [Java对象的序列化（Serialization）和反序列化详解](https://blog.csdn.net/yaomingyang/article/details/79321939)（实例）
-	* [二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/)
+	* [二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/) 
 
 * **Java中父类和子类初始化顺序（小红书）**
 	* 优先级排序
@@ -46,20 +46,18 @@
 	* 应用
 		* 框架设计的灵魂 --> 如：Spring 通过 XML 配置模式装载 Bean 的过程
 		* 使用JDBC连接数据库时使用 Class.forName() 通过反射加载数据库的驱动程序
-	* [什么是反射机制？反射机制的应用场景有哪些？](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/MostCommonJavaInterviewQuestions/%E7%AC%AC%E4%BA%8C%E5%91%A8(2018-8-13).md#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%9C%89%E5%93%AA%E4%BA%9B)（基本介绍）
 	* [Java基础之—反射（非常重要）](https://blog.csdn.net/sinat_38259539/article/details/71799078)（反射实例 *`TODO`*）
 	* [What is the difference between “Class.forName()” and “Class.forName().newInstance()”?](https://stackoverflow.com/questions/2092659/what-is-the-difference-between-class-forname-and-class-forname-newinstanc)（Class.forName(String) returns the Class object associated with the class or interface with the given string name && newInstance() creates a new instance of the class）
-
+	
 * **Java提供了哪些IO方式（拼多多）** *`TODO`*
 	* 同步 / 异步 --> 关注的是消息通信机制（区别最大在于异步的话调用者不需要等待处理结果）
 	* 阻塞 / 非阻塞 --> 关注的是程序在等待调用结果（消息，返回值）时的状态
-	* BIO / NIO（描述，网易）
-	* 实战 *`TODO`* 
-	* [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473)
-	* [BIO,NIO,AIO 总结](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/BIO-NIO-AIO.md)（基本概念 + 实例 *`TODO`*）
-	* [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)（思想 + 实例 *`TODO`*）
+	* BIO / NIO（概念描述，网易）
+	* [Java NIO Tutorial](http://tutorials.jenkov.com/java-nio/index.html) （教程  *`TODO`* ）
+	* [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473) 
 	* [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)（思想 + 实例 *`TODO`*）
 	* [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 IO Docs *`TODO`*）
+	* [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)（技术blog + 实例 *`TODO`*）
 
 
 * **描述 Java8 的新特性（星环）**  *`TODO`*
@@ -67,7 +65,7 @@
 	* Stream
 
 
-* **关键字整理** 
+* **关键字** 
 	* ***static***
 		* the keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type
 		* 在没有创建任何对象的前提下，仅仅通过类本身来调用 static 方法。这实际上正是 static 方法的主要用途
@@ -88,16 +86,14 @@
 		* JDK < 1.8 --> 数组+链表
 		* JDK >= 1.8 --> 数组+链表+红黑树，链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间
 	* 源码阅读  *`TODO`*
-		* get()
-		* put()
-		* resize()
+		* get() / put() / resize()
 		* capacity / load factor (负载因子)（**这两个参数具体是什么，有什么用？不同设置有什么差异（星环/字节跳动）** ）
 			* “the initial capacity is simply the capacity at the time the hash table is created”（bucket数目）
 			* ”The load factor is a measure of how full the hash table is allowed to get before its capacity is automatically increased“（bucket填满程度的最大比例）
 			* “When the number of entries in the hash table exceeds the product of the load factor and the current capacity, the hash table is rehashed (that is, internal data structures are rebuilt) so that the hash table has approximately twice the number of buckets”
-			* “如果内存空间很多而又对时间效率要求很高，可以降低负载因子Load factor的值；相反，如果内存空间紧张而对时间效率要求不高，可以增加负载因子loadFactor的值，这个值可以大于1”
+			* “如果内存空间很多而又对时间效率要求很高，可以降低负载因子load factor的值；相反，如果内存空间紧张而对时间效率要求不高，可以增加负载因子loadFactor的值，这个值可以大于1”
+	*  [Java HashMap工作原理及实现](https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/) （初级参考）
 	*  [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html) （主要参考）
-	* [Java HashMap工作原理及实现](https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/) （初级一点的参考）
 	* [Class HashMap<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html) （Java 8 Docs）
 	* [Java源码分析：关于 HashMap 1.8 的重大更新](https://blog.csdn.net/carson_ho/article/details/79373134)（1.7 vs 1.8 详细比较）
 
@@ -105,21 +101,21 @@
 * **ConcurrentHashMap 实现原理，或者说它是怎么保证线程安全的（星环/字节跳动/阿里）** *`TODO`*
 	* HashMap `resize()` 在多线程环境下可能形成环形链表，从而导致死循环
 	* JDK1.7 --> 分段锁（ Segment 对象，继承自 ReentrantLock ）+ HashEntry
-	* JDK1.8 --> CAS + synchronized
+	* JDK1.8 --> CAS + synchronized 保证并发安全性
 	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)（较为全面的分析  *`TODO`*）
 	* [深入浅出ConcurrentHashMap1.8](https://www.jianshu.com/p/c0642afe03e0)（1.8版本的详细解释）
 	* [老生常谈，HashMap的死循环](https://juejin.im/post/5a66a08d5188253dc3321da0)（具体分析 非线程安全带来的无限循环占用 CPU100% 问题）
 
 
 * **HashMap 和 TreeMap 的区别和应用场景（PayPal/依图）**
-	* HashMap 通过 hashcode 对其内容进行快速查找，而 TreeMap 中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用 TreeMap（HashMap中元素的排列顺序是不固定的）
+	* HashMap 通过 hashcode 对其内容进行快速查找，而 TreeMap 中所有的元素都保持着某种固定的顺序，需要得到一个有序的结果你就应该使用 TreeMap，HashMap中元素的排列顺序是不固定的
 	* HashMap 允许使用 null 值和 null 键，而 TreeMap 不可以
 	* 源码实现
 		* HashMap --> HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体 / 如果追加节点后，链表数量 >= 8，则转化为红黑树
 		* TreeMap --> 红黑树
-	* HashMap 非线程安全 & TreeMap 非线程安全
+	* HashMap 非线程安全 && TreeMap 非线程安全
 	* [HashMap和TreeMap区别详解以及底层实现](https://blog.csdn.net/xlgen157387/article/details/47907721)（概念+比较）
-	* [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？](https://time.geekbang.org/column/article/8053)(概念+源码分析)
+	* [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？ ](https://time.geekbang.org/column/article/8053) （概念+源码分析） 
 
 * **HashSet 如何判断重复元素（小红书）**
   * 首先会调用 Object 的 `hashCode()` 方法判 hashCode 是否已经存在，如不存在则直接插入元素
@@ -145,9 +141,9 @@
     * 准备（Preparation）
       * 正式为类变量分配内存并设置类变量初始值的阶段
     * 解析（Resolution）
-      * 虚拟机将常量池内的符号引用替换为直接引用的过程
+      * 虚拟机将常量池内的符号引用替换为直接引用的过程（直接引用是可以直接指向目标的指针、相对偏移量或者是一个能间接定位到目标的句柄）
   * 初始化（Initializing）
-    * 初始化阶段就是执行类构造器 <clinit>() 方法的过程。 （《深入理解Java虚拟机》第三版 P277）
+    * 真正执行类中定义的 Java 程序代码(字节码)，初始化阶段就是执行类构造器  <clinit>() 方法（Javac编译器的自动生成物）的过程。 （《深入理解Java虚拟机》第三版 P277）
   * 双亲委派模型（Parents Delegation Model，宜译作“溯源委派加载模型”（[《码出高效》](https://book.douban.com/subject/30333948/) P119））
     * 如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载都是如此，因此所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请求时，子加载器才会尝试自己去完成加载
     * 好处 --> Java中的类随着它的加载器一起具备了一种带有优先级的层次关系，避免类的重复加载
@@ -155,11 +151,11 @@
       * 1.检查请求加载的类型是否已经被加载过，没有则调用父加载器的 loadClass() 方法；
       * 2.若父加载器为空则默认使用启动类加载器作为附加载器；
       * 3.加入父类加载器加载失败，抛出ClassNotFoundException，才调用自己的 findClass() 方法尝试进行加载
-  * [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/类加载过程.md)（基本概念解释）
+  * [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/类加载过程.md)（基本过程解释）
 
   * [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
-  * [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs *`TODO`*  ）
-  * 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制（没怎么看懂ORZ...）
+  * [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs *`TODO`* ）
+  * 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制
 
 * **如何自定义类加载器** 
 
@@ -178,7 +174,7 @@
 		
 			⬆️（线程私有）--- （线程共享） ⬇️
 		
-		* 堆（Heap） --> 所有线程共享的内存区域，几乎所有的 **对象实例** 都在这里分配内存
+		* 堆（Heap） --> 虚拟机管理的内存中最大的一块，所有线程共享的内存区域，几乎所有的 **对象实例** 都在这里分配内存
 		* 方法区（Method Area） --> 所有线程共享的一块内存区域，用于存储所谓的元（Meta）数据，如类结构信息，以及对应的运行时常量池、字段、方法代码等
 		* 运行时常量池（Run-Time Constant Pool） --> 属于方法区的一部分，存放各种常量信息
 		
@@ -186,7 +182,7 @@
 	
 	* [Java 内存区域详解](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F.md)
 	
-	* [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html#jvms-2.5)（官方 Docs *`TODO`* ）
+	* [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html)（官方 Docs *`TODO`* ）
 	
 * **描述GC**
 
@@ -198,6 +194,7 @@
     * 复制算法（Copying） --> 将内存分为大小相同的两块，每次使用其中的一块。每次将活着的对象复制到 to 区域，拷贝过程中将对象顺序放置，避免内存碎片化
     * 标记-整理算法（Mark-Compact） --> 类似于标记-清除，但为了避免内存碎片化，**在清理过程中移动对象，以确保移动后的对象占用连续的内存空间**
     * 分代收集算法 --> 根据对象存活周期的不同将内存分为几块 （eg: 新生代/老生代）
+  * 《深入理解Java虚拟机》第三版 第3章
   * [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
   * [JVM 垃圾回收](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md) 
 
@@ -208,8 +205,10 @@
 	* [《码出高效》](https://book.douban.com/subject/30333948/)  P134~P138
 
 
-* **Java对象在内存中是如何存储的（阿里）** *`TODO`*
 * **Java中什么时候会发生OOM（华为）** 
+  
+  * 除了程序计数器，虚拟机内存的其他几个运行时区域都哟与发生OOM异常的可能
+  * 《深入理解Java虚拟机》第三版 2.4
   * [Java内存溢出(OOM)异常完全指南](https://www.jianshu.com/p/2fdee831ed03) 
 * **NoClassDefFoundError和ClassNotFoundException的场景和解决办法（星环）**
 
@@ -226,13 +225,12 @@
 		* Runnable 接口
 		* 继承 Thread
 		* 通过 Callable 和 Future 创建线程
-	* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html) 
+	* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html) （生命周期）
 
 
 * **什么是线程安全**
 	* a class is thread safe when it continues to behave correctly when accessed from multiple threads
 	* 指某个函数、函数库在多线程环境中被调用时，能够正确地处理多个线程之间的共享变量，使程序功能正确完成
-	* 可见性 / 原子性 / 有序性
 	* [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
 	
 * **synchronized 和 ReentrantLock 比较**
@@ -240,16 +238,16 @@
 	* 描述 synchronized 的底层实现（爱奇艺） *`TODO`*
 	* 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
 	* ReentrantLock 源码阅读 *`TODO`*
-		* 描述 AQS（AbstractQueuedSynchronizer）的作用（网易）（原题为 ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？）（星环）
+		* 描述 AQS（AbstractQueuedSynchronizer）的作用（网易）（另一个问法为 ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？（星环））
 	* [Java线程同步：synchronized锁住的是代码还是对象](https://blog.csdn.net/xiao__gui/article/details/8188833) 
-	* [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799)
+	* [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799) 
 
 
 * **介绍 volatile 关键字（阿里/网易）**
-	* 只能用于变量
-	* 保证变量的可见性（指示 JVM，这个变量是不稳定的，每次使用它都到主存中进行读取） & 防止指令重排序
+	* 只能用于变量（is used to mark a Java variable as "being stored in main memory"）
+	* 保证变量的可见性（指示 JVM，这个变量是不稳定的，每次使用它都到主存中进行读取） && 防止指令重排序
 	* 对一个 volatile 变量的写操作， Happens-Before 后续对这个 volatile 变量的读操作
-	* [2.volatile关键字](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/Multithread/JavaConcurrencyAdvancedCommonInterviewQuestions.md#2-volatile%E5%85%B3%E9%94%AE%E5%AD%97) 
+	* [Java Volatile Keyword](http://tutorials.jenkov.com/java-concurrency/volatile.html) 
 
 * **Java中如何使用线程池，以及线程池有哪些重要的参数（阿里）**
 	* 生产者 - 消费者 模式的一种实现
@@ -266,7 +264,7 @@
 	* [22 | Executor与线程池：如何创建正确的线程池？](https://time.geekbang.org/column/article/90771)（基本介绍和主要参数）
 	* [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)（ThreadPoolExecutor 源码和关键类分析）
 	* [Java并发编程：线程池的使用](https://www.cnblogs.com/dolphin0520/p/3932921.html)（ThreadPoolExecutor 源码 和 基本用法）
-	* [第21讲 | Java并发类库提供的线程池有哪几种？ 分别有什么特点？](https://time.geekbang.org/column/article/9712)（介绍 Executor 框架和从设计思想角度介绍ThreadPoolExecutor类）
+	* [第21讲 | Java并发类库提供的线程池有哪几种？ 分别有什么特点？](https://time.geekbang.org/column/article/9712)（介绍 Executor 框架和从设计角度介绍ThreadPoolExecutor类）
 
 
 * **乐观锁与悲观锁的概念，常见实现（阿里）**
@@ -275,14 +273,13 @@
 		* CAS 算法概念 / 缺点
 			* 自旋 --> 循环尝试
 			* ABA 问题
-	* [何谓悲观锁与乐观锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87%E4%B9%8B%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81.md)
-	* [Compare-and-swap Wiki](https://en.wikipedia.org/wiki/Compare-and-swap)
+	* [何谓悲观锁与乐观锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87%E4%B9%8B%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81.md) （基本介绍）
 
 
 * **join() 方法有什么用**
 	* Thread.join() 把指定的线程加入到当前线程，可以将两个交替执行的线程合并为顺序执行的线程。比如在线程B中调用了线程A的join()方法，直到线程A执行完毕后，才会继续执行线程B
 	* [Java多线程中join方法的理解](https://uule.iteye.com/blog/1101994)
-	* [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html) 
+	* [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html)  
 
 
 * **描述 Atomic 类的底层实现（美团）** *`TODO`*
@@ -291,6 +288,7 @@
 * **描述ThreadLocal 的实现（美团），什么情况会发生OOM（星环）** *`TODO`*
 
   * "它通常用于同一个线程内，跨类、跨方法传递数据"
+  * [Java ThreadLocal](http://tutorials.jenkov.com/java-concurrency/threadlocal.html) 
   * [《码出高效》](https://book.douban.com/subject/30333948/)  7.5
 * **start() 和 run() 方法的区别（字节跳动）** 
 
@@ -321,6 +319,8 @@
 
 * **Python如何实现真正的多线程（阿里/腾讯）**  *`TODO`*
 	* [Python 多线程](https://www.runoob.com/python/python-multithreading.html) 
+* **描述Python的迭代器和生成器（DaoCloud）** *`TODO`* 
+  * [Python3 迭代器与生成器](https://www.runoob.com/python3/python3-iterator-generator.html)
 
 
 * 给一段Python代码，有哪些优化思路和策略（阿里）*`TODO`* 
@@ -330,10 +330,6 @@
 
 
 * Python爬虫中存在环引用该如何处理（阿里）*`TODO`* 
-
-
-* **描述Python的迭代器和生成器（DaoCloud）** *`TODO`* 
-	* [Python3 迭代器与生成器](https://www.runoob.com/python3/python3-iterator-generator.html)
 
 
 
@@ -347,14 +343,14 @@
 		* 进程和线程都是一个时间段的描述，是CPU工作时间段的描述，不过是颗粒大小不同
 		* 一个程序至少有一个进程,一个进程至少有一个线程
 	* [腾讯面试题04.进程和线程的区别？](https://blog.csdn.net/mxsgoden/article/details/8821936)
-	* [进程与线程的一个简单解释](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html)
 	* [线程和进程的区别是什么？](https://www.zhihu.com/question/25532384)
-	* [线程 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B)
-	* [进程 Wiki](https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B)
+	* [线程 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B) / [进程 Wiki](https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B)
+	* [进程与线程的一个简单解释](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html) （科普）
 
 
 * **线程同步（通信）的方式（字节跳动）**   *`TODO`* 
-	* [Inter-thread Communication in Java](https://www.geeksforgeeks.org/inter-thread-communication-java/) 
+  * [Inter-thread communication in Java](https://www.javatpoint.com/inter-thread-communication-example)
+  * [JAVA线程间通信的几种方式](https://blog.csdn.net/u011514810/article/details/77131296) （实例）
 
 * **进程间通信的方式（依图）** 
 	* 进程间通信 --> 在不同进程之间传播或交换信息
@@ -379,7 +375,7 @@
 		* 持有和等待 hold and wait --> 一个进程可以在等待时持有系统资源
 		* 互斥 mutual exclusion --> 只有一个进程能持有一个资源
 		* 循环等待 circular waiting --> 一系列进程互相持有其他进程所需要的资源
-	* [死锁 Wiki](https://zh.wikipedia.org/wiki/%E6%AD%BB%E9%94%81)
+	* [死锁 Wiki](https://zh.wikipedia.org/wiki/%E6%AD%BB%E9%94%81) 
 	* [第18讲 | 什么情况下Java程序会产生死锁？如何定位、修复？](https://time.geekbang.org/column/article/9266)（死锁代码实例）
 	* [JAVA实现的一个简单的死锁（附解释）](https://blog.csdn.net/zll793027848/article/details/8670546) 
 
@@ -414,9 +410,9 @@
 	* 脏读 --> 当一个事务允许读取另外一个事务修改但未提交的数据时，就可能发生脏读
 	* 不可重复度 --> 在一次事务中，当一行数据获取两遍得到不同的结果表示发生了“不可重复读”
 	* 幻读 --> 在事务执行过程中，当两个完全相同的查询语句执行得到不同的结果集。这种现象称为幻读
+	* [MySQL 事务隔离级别和锁](https://developer.ibm.com/zh/technologies/databases/articles/os-mysql-transaction-isolation-levels-and-locks/) 
 	* [ACID Wiki](https://zh.wikipedia.org/wiki/ACID)
-	* [事务隔离 Wiki](https://zh.wikipedia.org/wiki/%E4%BA%8B%E5%8B%99%E9%9A%94%E9%9B%A2)
-	* [数据库事务隔离级别-- 脏读、幻读、不可重复读（清晰解释）](https://blog.csdn.net/jiesa/article/details/51317164)
+	* [事务隔离 Wiki](https://zh.wikipedia.org/wiki/%E4%BA%8B%E5%8B%99%E9%9A%94%E9%9B%A2) 
 
 
 * **MySQL是如何实现隔离级别的（如可重复读的实现原理）（拼多多）** *`TODO`*
@@ -439,8 +435,8 @@
 	* [如何解释关系数据库的第一第二第三范式？](https://www.zhihu.com/question/24696366) 
 
 * **讲一下MySQL常见的数据库引擎（网易）**
-
-
+  * [Mysql四种常见数据库引擎](https://yq.aliyun.com/articles/636314) 
+    
 
 
 ### 索引
@@ -448,8 +444,8 @@
 * **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（字节跳动/腾讯/美团/星环/网易）**
 	* 索引 --> 一种数据结构
 	* B+ 树做索引优势
-		* AVL, 红黑树等二叉树，查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远）
-		* B树
+		* 较AVL, 红黑树等二叉树，查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远）
+		* 较B树
 			* 由于B+树的内部节点只存放键，不存放值，因此，一次读取，可以在内存页中获取更多的键，有利于更快地缩小查找范围
 			* B+树天然具备排序功能 --> B+树所有的叶子节点数据构成了一个**有序链表**，在查询大小区间的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高
 			* B+树查询效率更稳定 --> B+所有关键字数据地址都存在叶子节点上，所以每次查找的次数都相同，所以查询速度要比B树更稳定
@@ -468,7 +464,7 @@
 
 * **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）** *`TODO`* 
 	* [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
-
+* **一个本来很快的SQL突然效率变慢，如何排查原因（蚂蚁）**
 * MySQL索引不命中的可能原因及策略（美团）*`TODO`* 
 	* [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html)
 
@@ -547,8 +543,8 @@
 	* 浏览器解析并渲染页面
 	* 连接结束
 	* [从输入URL到页面加载发生了什么](https://segmentfault.com/a/1190000006879700)（依次逐步解释）
- 	* [在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？](https://www.zhihu.com/question/34873227)（更具体的解释）
- 	* [DNS递归查询和迭代查询的区别](https://blog.csdn.net/wuchuanpingstone/article/details/6720723)
+	 	* [在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？](https://www.zhihu.com/question/34873227)（更具体的解释）
+	 	* [DNS递归查询和迭代查询的区别](https://blog.csdn.net/wuchuanpingstone/article/details/6720723)
 
 
 * **HTTP 与 HTTPS 的区别（字节跳动）** 
@@ -585,8 +581,8 @@
 * **如何保证token不被劫持和篡改（大概意思，项目相关）（微软）**   `TODO`
 
 
-  * Challenge Value，加盐值（防止彩虹表攻击）
-  * 采用HTTPS
+    * Challenge Value，加盐值（防止彩虹表攻击）
+    * 采用HTTPS
 
   
 
@@ -628,7 +624,7 @@
   * 好处
     * 让你脱离对依赖对象的维护，只需要随用随取，不需要关心依赖对象的任何过程
     * 可以有效地改善模块之间的紧耦合问题
-  * 源码阅读（星环）*`TODO`* 
+  * 源码阅读问题（星环）*`TODO`* 
   * [IoC-spring 的灵魂(带你轻松理解IOC思想及bean对象的生成过程)](https://juejin.im/post/593386ca2f301e00584f8036)（基本概念）
   * [【第二章】 IoC 之 2.1 IoC基础 ——跟我学Spring3](https://jinnianshilongnian.iteye.com/blog/1413846)（IoC思想详解）
   * [Spring IoC有什么好处呢？](https://www.zhihu.com/question/23277575/answer/169698662)（汽车的例子有助于理解IoC）
