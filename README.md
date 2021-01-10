@@ -92,7 +92,7 @@
 			* ”The load factor is a measure of how full the hash table is allowed to get before its capacity is automatically increased“（bucket填满程度的最大比例）
 			* “When the number of entries in the hash table exceeds the product of the load factor and the current capacity, the hash table is rehashed (that is, internal data structures are rebuilt) so that the hash table has approximately twice the number of buckets”
 			* “如果内存空间很多而又对时间效率要求很高，可以降低负载因子load factor的值；相反，如果内存空间紧张而对时间效率要求不高，可以增加负载因子loadFactor的值，这个值可以大于1”
-	*  [Java HashMap工作原理及实现](https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/) （初级参考）
+	*  [Java HashMap工作原理及实现](https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/) （基本参考）
 	*  [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html) （主要参考）
 	* [Class HashMap<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html) （Java 8 Docs）
 	* [Java源码分析：关于 HashMap 1.8 的重大更新](https://blog.csdn.net/carson_ho/article/details/79373134)（1.7 vs 1.8 详细比较）
@@ -102,7 +102,7 @@
 	* HashMap `resize()` 在多线程环境下可能形成环形链表，从而导致死循环
 	* JDK1.7 --> 分段锁（ Segment 对象，继承自 ReentrantLock ）+ HashEntry
 	* JDK1.8 --> CAS + synchronized 保证并发安全性
-	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)（较为全面的分析  *`TODO`*）
+	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)（面试大全  *`TODO`*）
 	* [深入浅出ConcurrentHashMap1.8](https://www.jianshu.com/p/c0642afe03e0)（1.8版本的详细解释）
 	* [老生常谈，HashMap的死循环](https://juejin.im/post/5a66a08d5188253dc3321da0)（具体分析 非线程安全带来的无限循环占用 CPU100% 问题）
 
@@ -290,9 +290,6 @@
   * "它通常用于同一个线程内，跨类、跨方法传递数据"
   * [Java ThreadLocal](http://tutorials.jenkov.com/java-concurrency/threadlocal.html) 
   * [《码出高效》](https://book.douban.com/subject/30333948/)  7.5
-* **start() 和 run() 方法的区别（字节跳动）** 
-
-  * [Difference between Thread.start() and Thread.run() in Java](https://www.geeksforgeeks.org/difference-between-thread-start-and-thread-run-in-java/) 
 
 
 * **Java并发学习资源** 
@@ -336,22 +333,25 @@
 
 ## 操作系统
 
-* **进程/线程的概念和区别（字节跳动）**
-	* 进程 --> 计算机中已运行的程序，具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位
-	* 线程 --> 操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程中的实际运作单位
-	* 关系
-		* 进程和线程都是一个时间段的描述，是CPU工作时间段的描述，不过是颗粒大小不同
-		* 一个程序至少有一个进程,一个进程至少有一个线程
-	* [腾讯面试题04.进程和线程的区别？](https://blog.csdn.net/mxsgoden/article/details/8821936)
-	* [线程和进程的区别是什么？](https://www.zhihu.com/question/25532384)
-	* [线程 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B) / [进程 Wiki](https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B)
-	* [进程与线程的一个简单解释](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html) （科普）
+* **进程/线程的概念和区别（字节跳动/拼多多）** 
+  * 进程 --> 计算机中运行中的程序，具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位
+  * 线程 --> 操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程中的实际运作单位
+  * 进程和线程都是一个CPU工作时间段的描述，不过是颗粒大小不同。一个程序至少有一个进程，一个进程至少有一个线程
+  * 类比 --> 进程=火车，线程=车厢
+  * [腾讯面试题04.进程和线程的区别？](https://blog.csdn.net/mxsgoden/article/details/8821936) 
+  * [线程和进程的区别是什么？](https://www.zhihu.com/question/25532384) 
+  * [线程 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B) / [进程 Wiki](https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B)
+  * [进程与线程的一个简单解释](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html) （科普，类比：进程 -- 车间 / 线程 -- 车间里的工人）
 
 
 * **线程同步（通信）的方式（字节跳动）**   *`TODO`* 
-  * [Inter-thread communication in Java](https://www.javatpoint.com/inter-thread-communication-example)
-  * [JAVA线程间通信的几种方式](https://blog.csdn.net/u011514810/article/details/77131296) （实例）
-
+  
+  * 同步 -- 协同步调，按预定的先后次序进行运行
+* wait() -- It tells the calling thread to give up the lock and go to sleep until some other thread enters the same monitor and calls notify().（线程自动释放其占有的对象锁，并等待notify）
+  * notify() -- It wakes up one single thread that called wait() on the same object. It should be noted that calling notify() does not actually give up a lock on a resource.（唤醒一个正在wait当前对象锁的线程，并让它拿到对象锁）
+  * notifyAll() -- It wakes up all the threads that called wait() on the same object.（唤醒所有正在wait当前对象锁的线程）
+  * [Inter-thread communication in Java](https://www.javatpoint.com/inter-thread-communication-example) 
+  * [JAVA线程间通信的几种方式](https://blog.csdn.net/u011514810/article/details/77131296) （一个实例）
 * **进程间通信的方式（依图）** 
 	* 进程间通信 --> 在不同进程之间传播或交换信息
 		* 管道（数据只能单向流动）
@@ -359,6 +359,11 @@
 		* Socket（可用于不同机器间的进程通信）
 	* [进程间的几种通信方式](https://blog.csdn.net/yufaw/article/details/7409596)
 	* [进程间8种通信方式详解](https://blog.csdn.net/violet_echo_0908/article/details/51201278) 
+* **Java中start() 和 run() 方法的区别（字节跳动）** 
+
+  * start() -- Creates a new thread and the run() method is executed on the newly created thread. (Can’t be invoked more than one time otherwise throws *java.lang.IllegalStateException*)
+  * run() -- No new thread is created and the run() method is executed on the calling thread itself. (Multiple invocation is possible)
+  * [Difference between Thread.start() and Thread.run() in Java](https://www.geeksforgeeks.org/difference-between-thread-start-and-thread-run-in-java/) 
 
 
 * **描述操作系统的启动过程（字节跳动）**
@@ -444,7 +449,7 @@
 * **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（字节跳动/腾讯/美团/星环/网易）**
 	* 索引 --> 一种数据结构
 	* B+ 树做索引优势
-		* 较AVL, 红黑树等二叉树，查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远）
+		* 相较AVL, 红黑树等二叉树，这些查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远）
 		* 较B树
 			* 由于B+树的内部节点只存放键，不存放值，因此，一次读取，可以在内存页中获取更多的键，有利于更快地缩小查找范围
 			* B+树天然具备排序功能 --> B+树所有的叶子节点数据构成了一个**有序链表**，在查询大小区间的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高
@@ -465,11 +470,11 @@
 * **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）** *`TODO`* 
 	* [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
 * **一个本来很快的SQL突然效率变慢，如何排查原因（蚂蚁）**
-* MySQL索引不命中的可能原因及策略（美团）*`TODO`* 
+* **MySQL索引不命中的可能原因及策略（美团）**  *`TODO`* 
 	* [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html)
 
 
-* MySQL联合索引命中情景分析（美团）*`TODO`* 
+* **MySQL联合索引命中情景分析（美团） ** *`TODO`* 
 
 
 
@@ -484,9 +489,10 @@
   * [What is the difference between HAVING and WHERE in SQL?](https://stackoverflow.com/questions/287474/what-is-the-difference-between-having-and-where-in-sql) 
 
 
-* SQL优化策略 *`TODO`* 
-	* [这大概是最全的sql优化方案了](https://zhuanlan.zhihu.com/p/48385127) 
-
+* **SQL优化策略**  *`TODO`* 
+	
+* [这大概是最全的sql优化方案了](https://zhuanlan.zhihu.com/p/48385127) 
+	
 	 
 ## 计算机网络
 
@@ -548,17 +554,19 @@
 
 
 * **HTTP 与 HTTPS 的区别（字节跳动）** 
-	* HTTP协议以明文方式发送内容，不提供任何方式的数据加密
-	* HTTPS其实就是建构在SSL（Secure Sockets Layer） / TLS之上的 HTTP协议
-	* HTTPS密文传输 / HTTP 明文传输
-	* HTTPS协议需要到CA申请证书
-	* [详细解析 HTTP 与 HTTPS 的区别](https://juejin.im/entry/58d7635e5c497d0057fae036) 
+
+  * HTTP协议以明文方式发送内容，不提供任何方式的数据加密
+  * HTTPS其实就是建构在SSL（Secure Sockets Layer） / TLS之上的 HTTP协议
+  * HTTPS密文传输 / HTTP 明文传输
+  * HTTPS协议需要到CA申请证书
+  * [详细解析 HTTP 与 HTTPS 的区别](https://juejin.im/entry/58d7635e5c497d0057fae036) 
 
 
 * **描述HTTPS的加密过程 / 对称加密&非对称加密在HTTPS加密过程中如何实践（字节跳动/阿里）** *`TODO`* 
-	* [HTTPS加密过程和TLS证书验证](https://juejin.im/post/5a4f4884518825732b19a3ce)
-	* [HTTPS中的TLS](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/HTTPS%E4%B8%AD%E7%9A%84TLS.md)（密码学角度）
-	* [How does HTTPS work? What's a CA? What's a self-signed Certificate?](https://www.youtube.com/watch?v=T4Df5_cojAs) （HTTPS工作流程举例，可以再看 *`TODO`* ）
+
+  * [HTTPS加密过程和TLS证书验证](https://juejin.im/post/5a4f4884518825732b19a3ce)
+  * [HTTPS中的TLS](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/HTTPS%E4%B8%AD%E7%9A%84TLS.md)（密码学角度）
+  * [How does HTTPS work? What's a CA? What's a self-signed Certificate?](https://www.youtube.com/watch?v=T4Df5_cojAs) （HTTPS工作流程举例，需要时再看 *`TODO`* ）
 
 
 * **HTTP代理如何实现（阿里）** *`TODO`* 
@@ -581,10 +589,9 @@
 * **如何保证token不被劫持和篡改（大概意思，项目相关）（微软）**   `TODO`
 
 
-    * Challenge Value，加盐值（防止彩虹表攻击）
-    * 采用HTTPS
+  * Challenge Value，加盐值（防止彩虹表攻击）
+  * 采用HTTPS
 
-  
 
 
 ## Linux相关
@@ -751,6 +758,12 @@
 ### AIDL通讯
 
 ### 回调
+
+
+
+## 前端
+
+### 	Vue
 
 
 
