@@ -49,7 +49,7 @@
 	* [Java基础之—反射（非常重要）](https://blog.csdn.net/sinat_38259539/article/details/71799078)（反射实例 *`TODO`*）
 	* [What is the difference between “Class.forName()” and “Class.forName().newInstance()”?](https://stackoverflow.com/questions/2092659/what-is-the-difference-between-class-forname-and-class-forname-newinstanc)（Class.forName(String) returns the Class object associated with the class or interface with the given string name && newInstance() creates a new instance of the class）
 	
-* **Java提供了哪些IO方式（拼多多）** *`TODO`*
+* **Java提供了哪些IO方式（拼多多/字节跳动）** *`TODO`*
 	* 同步 / 异步 --> 关注的是消息通信机制（区别最大在于异步的话调用者不需要等待处理结果）
 	* 阻塞 / 非阻塞 --> 关注的是程序在等待调用结果（消息，返回值）时的状态
 	* BIO / NIO（概念描述，网易）
@@ -249,7 +249,7 @@
 	* 对一个 volatile 变量的写操作， Happens-Before 后续对这个 volatile 变量的读操作
 	* [Java Volatile Keyword](http://tutorials.jenkov.com/java-concurrency/volatile.html) 
 
-* **Java中如何使用线程池，以及线程池有哪些重要的参数（阿里） / 线程池有哪些类型（百度）**
+* **Java中如何使用线程池，以及线程池有哪些重要的参数（阿里/字节跳动） / 线程池有哪些类型（百度）**
 	* 生产者 - 消费者 模式的一种实现
 	* 线程池的好处
 		* 降低资源消耗 / 提高响应速度 / 提高线程的可管理性
@@ -260,6 +260,7 @@
 				* corePoolSize --> 核心线程数
 				* maximumPoolSize --> 最大能创建的线程数（可以理解为当任务量突然过大时的一种补救措施）
 				* workQueue --> 工作队列，为 BlockingQueue，用于存储等待执行的任务
+	* IO密集型和计算密集型任务如何配置线程池参数（字节跳动）
 	* [《码出高效》](https://book.douban.com/subject/30333948/)  7.4.2（线程池源码详解，关键方法逐行解释）
 	* [22 | Executor与线程池：如何创建正确的线程池？](https://time.geekbang.org/column/article/90771)（基本介绍和主要参数）
 	* [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)（ThreadPoolExecutor 源码和关键类分析）
@@ -290,6 +291,7 @@
   * "它通常用于同一个线程内，跨类、跨方法传递数据"
   * [Java ThreadLocal](http://tutorials.jenkov.com/java-concurrency/threadlocal.html) 
   * [《码出高效》](https://book.douban.com/subject/30333948/)  7.5
+* **synchronized和Lock的比较（使用/性能/效率），以及为什么会有这种差别（字节跳动）**
 
 
 * **Java并发学习资源** 
@@ -364,6 +366,7 @@
   * start() -- Creates a new thread and the run() method is executed on the newly created thread. (Can’t be invoked more than one time otherwise throws *java.lang.IllegalStateException*)
   * run() -- No new thread is created and the run() method is executed on the calling thread itself. (Multiple invocation is possible)
   * [Difference between Thread.start() and Thread.run() in Java](https://www.geeksforgeeks.org/difference-between-thread-start-and-thread-run-in-java/) 
+* **sleep()和wait()的区别，应用场景（字节跳动）** 
 
 
 * **描述操作系统的启动过程（字节跳动）**
@@ -398,7 +401,7 @@
 	* [用户态和内核态的区别](https://blog.csdn.net/youngyoungla/article/details/53106671)
 
 
-* **select 和 epoll 的区别** *`TODO`* 
+* **select 和 epoll 的区别（字节跳动）** *`TODO`* 
 	* [select和epoll区别](https://www.jianshu.com/p/430141f95ddb)
 
 
@@ -420,7 +423,7 @@
 	* [事务隔离 Wiki](https://zh.wikipedia.org/wiki/%E4%BA%8B%E5%8B%99%E9%9A%94%E9%9B%A2) 
 
 
-* **MySQL是如何实现隔离级别的（如可重复读的实现原理）（拼多多）** *`TODO`*
+* **MySQL如何实现隔离级别的（如可重复读的实现原理）（拼多多/字节跳动）** *`TODO`*
 	* MySQL Inno DB 默认隔离级别 --> 可重复读
 	* MVCC（多版本并发控制）（Inno DB引擎实现）
 	* [InnoDB---可重复读隔离级别的底层实现原理](https://blog.csdn.net/huanghanqian/article/details/79517480)
