@@ -53,6 +53,7 @@
 	* 同步 / 异步 --> 关注的是消息通信机制（区别最大在于异步的话调用者不需要等待处理结果）
 	* 阻塞 / 非阻塞 --> 关注的是程序在等待调用结果（消息，返回值）时的状态
 	* BIO / NIO（概念描述，网易）
+	* 描述Spring中的IO方式（字节跳动）
 	* [Java NIO Tutorial](http://tutorials.jenkov.com/java-nio/index.html) （教程  *`TODO`* ）
 	* [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473) 
 	* [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)（思想 + 实例 *`TODO`*）
@@ -233,7 +234,7 @@
 	* 指某个函数、函数库在多线程环境中被调用时，能够正确地处理多个线程之间的共享变量，使程序功能正确完成
 	* [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
 	
-* **synchronized 和 ReentrantLock 比较**
+* **synchronized 和 ReentrantLock（Lock） 比较（字节跳动）**
 	* synchronized 锁住的是括号里的对象，而不是代码
 	* 描述 synchronized 的底层实现（爱奇艺） *`TODO`*
 	* 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
@@ -322,13 +323,13 @@
   * [Python3 迭代器与生成器](https://www.runoob.com/python3/python3-iterator-generator.html)
 
 
-* 给一段Python代码，有哪些优化思路和策略（阿里）*`TODO`* 
+* **给一段Python代码，有哪些优化思路和策略（阿里）**   *`TODO`* 
 
 
-* 如何写一个程序计算一段Python代码的耗时（腾讯）*`TODO`* 
+* **如何写一个程序计算一段Python代码的耗时（腾讯） ** *`TODO`* 
 
 
-* Python爬虫中存在环引用该如何处理（阿里）*`TODO`* 
+* **Python爬虫中存在环引用该如何处理（阿里）** *`TODO`* 
 
 
 
@@ -414,10 +415,10 @@
 	* Serializable（序列化） --> 可避免脏读，不可重复读，幻读
 	* Repeatable read（可重复读） --> 可避免脏读，不可重复读，但可能出现幻读 
 	* Read committed（已提交读） --> 可避免脏读，但是可能会造成不可重复读
-	* Read uncommitted（未提交读） --> 级别最低，什么都避免不了
-	* 脏读 --> 当一个事务允许读取另外一个事务修改但未提交的数据时，就可能发生脏读
-	* 不可重复度 --> 在一次事务中，当一行数据获取两遍得到不同的结果表示发生了“不可重复读”
-	* 幻读 --> 在事务执行过程中，当两个完全相同的查询语句执行得到不同的结果集。这种现象称为幻读
+	* Read uncommitted（未提交读） --> 级别最低，什么都避免不了（事务可以看到其他事务“尚未提交”的修改）
+	* 脏读 --> 当一个事务允许读取另外一个事务修改但未提交的数据时，就可能发生 脏读
+	* 不可重复度 --> 在一次事务中，当一行数据获取两遍得到不同的结果表示发生了 不可重复读
+	* 幻读 --> 在事务执行过程中，当两个完全相同的查询语句执行得到不同的结果集。这种现象称为 幻读
 	* [MySQL 事务隔离级别和锁](https://developer.ibm.com/zh/technologies/databases/articles/os-mysql-transaction-isolation-levels-and-locks/) 
 	* [ACID Wiki](https://zh.wikipedia.org/wiki/ACID)
 	* [事务隔离 Wiki](https://zh.wikipedia.org/wiki/%E4%BA%8B%E5%8B%99%E9%9A%94%E9%9B%A2) 
@@ -451,20 +452,22 @@
 
 * **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（字节跳动/腾讯/美团/星环/网易）**
 	* 索引 --> 一种数据结构
-	* B+ 树做索引优势
+	* B+ 树做索引的优势
 		* 相较AVL, 红黑树等二叉树，这些查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远）
-		* 较B树
-			* 由于B+树的内部节点只存放键，不存放值，因此，一次读取，可以在内存页中获取更多的键，有利于更快地缩小查找范围
-			* B+树天然具备排序功能 --> B+树所有的叶子节点数据构成了一个**有序链表**，在查询大小区间的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高
-			* B+树查询效率更稳定 --> B+所有关键字数据地址都存在叶子节点上，所以每次查找的次数都相同，所以查询速度要比B树更稳定
+		* 较B树（字节跳动）
+			* 相较于B树B+每个**非叶子**节点存储的关键字数更多，树的层级更少所以查询数据更快（层级更少）
+			* B+所有关键字数据地址都存在**叶子**节点上，所以每次查找的次数都相同所以查询速度要比B树更稳定（更稳定）
+			* B+树所有的**叶子**节点数据构成了一个有序链表，在查询大小区间的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高（天然具有排序）
+			* B+树遍历整棵树只需要遍历所有的**叶子**节点即可，，而不需要像B树一样需要对每一层进行遍历，这有利于数据库做全表扫描
 	* [数据库索引到底是什么，是怎样工作的？](https://blog.csdn.net/weiliangliang111/article/details/51333169)
 	* [一步步分析为什么B+树适合作为索引的结构](https://blog.csdn.net/weixin_30531261/article/details/79312676)
 	* [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
 
 
-* **聚集索引（Clustered Index）和非聚集索引的区别（拼多多/网易）**
-	* 聚集索引 --> 指数据库表行中数据的物理顺序与键值的逻辑（索引）顺序相同（正文内容本身就是一种按照一定规则排列的目录）
+* **聚集索引（Clustered Index）和非聚集索引的区别（拼多多/网易/字节跳动）**
+	* 聚集索引 --> 指数据库表行中数据的物理顺序与键值的逻辑（索引）顺序相同
 	* 每个表只能有一个聚集索引，因为目录只能按照一种方法进行排序
+	* [聚集索引与非聚集索引的总结](https://www.imooc.com/article/22915) 
 	* [聚合索引(clustered index) / 非聚合索引(nonclustered index)](https://blog.csdn.net/ak913/article/details/8026743)
 	* [快速理解聚集索引和非聚集索引](https://blog.csdn.net/zc474235918/article/details/50580639)
 	* [聚集索引 百度百科](https://baike.baidu.com/item/%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95)
@@ -478,8 +481,7 @@
 
 
 * **MySQL联合索引命中情景分析（美团） ** *`TODO`* 
-
-
+* **InnoDB的索引结构（字节跳动）** 
 
 
 ### SQL语句相关
@@ -496,10 +498,12 @@
 	
 * [这大概是最全的sql优化方案了](https://zhuanlan.zhihu.com/p/48385127) 
 	
-	 
+* **慢查询的优化思路（字节跳动）** 
+
+   
 ## 计算机网络
 
-* **描述三次握手四次挥手以及原因（阿里/腾讯）** 
+* **描述三次握手四次挥手以及原因，每个包具体传递什么信息（阿里/腾讯/字节跳动）** 
 	* 三次握手
 		* 发送端 --> SYN
 		* 接收端 --> [SYN/ACK]
@@ -517,7 +521,7 @@
 
 * **三次握手中SYN/ACK包的具体内容（腾讯）**
 	* SYN --> 同步序列，用于建立连接过程
-	* FIN --> Finish标志，用于释放连接
+	* FIN --> Finish标志，用于释放连接，表示该报文段的发送方已经结束向对方发送数据
 	* ACK --> 确认接收到的数据，确认序号标志
 	* [TCP三次握手中SYN，ACK，Seq三者的关系](https://blog.csdn.net/u014507230/article/details/45310847)
 	* [Understanding TCP Sequence and Acknowledgment Numbers](https://packetlife.net/blog/2010/jun/7/understanding-tcp-sequence-acknowledgment-numbers/)
@@ -556,7 +560,7 @@
 	 	* [DNS递归查询和迭代查询的区别](https://blog.csdn.net/wuchuanpingstone/article/details/6720723)
 
 
-* **HTTP 与 HTTPS 的区别（字节跳动）** 
+* **HTTP 与 HTTPS 的区别（字节跳动）**  *`TODO`* 
 
   * HTTP协议以明文方式发送内容，不提供任何方式的数据加密
   * HTTPS其实就是建构在SSL（Secure Sockets Layer） / TLS之上的 HTTP协议
@@ -579,6 +583,9 @@
 * **描述SSO的原理（拼多多）** *`TODO`*
 	* [CAS实现单点登录SSO执行原理探究(终于明白了)](https://blog.csdn.net/javaloveiphone/article/details/52439613)
 	* [How does single sign-on work?](https://www.onelogin.com/learn/how-single-sign-on-works) *`TODO`*
+* **网络拥塞的解决方案（字节跳动）** 
+
+  * [网络拥塞成因与处理](https://blog.csdn.net/oZhuZhiYuan/article/details/52167246) 
 * **介绍 OSI 七层模型**
   * 应用层（应用层 --> 表示层 --> 会话层） --> 传输层 --> 网络层 --> 数据链路层 --> 物理层 (7层)
   * 应用层 --> 传输层 --> 网络层 --> 数据链路层 --> 物理层 （5层）
@@ -675,6 +682,8 @@
   * Spring AOP 具体实现（源码级别）*`TODO`*
     * Java JDK 动态代理 （默认）
     * CGLIB 动态代理
+  * 爱奇艺项目中AOP的实现（切面设计）（eBay）
+    * @Before，判断模板有效性等
   * [关于 Spring AOP (AspectJ) 你该知晓的一切](https://blog.csdn.net/javazejian/article/details/56267036)（AOP入门 + 应用场景 + Spring中的基本实现）
   * [《Spring设计思想》AOP设计基本原理](https://blog.csdn.net/luanlouis/article/details/51095702)（从程序运行角度解释AOP的工作原理）
   * 《Spring实战（第四版）》第四章
