@@ -152,6 +152,7 @@
       * 1.检查请求加载的类型是否已经被加载过，没有则调用父加载器的 loadClass() 方法；
       * 2.若父加载器为空则默认使用启动类加载器作为附加载器；
       * 3.加入父类加载器加载失败，抛出ClassNotFoundException，才调用自己的 findClass() 方法尝试进行加载
+    * 为什么要用双亲委派模型呢（阿里）
   * [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/类加载过程.md)（基本过程解释）
 
   * [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
@@ -601,12 +602,15 @@
 
   * Challenge Value，加盐值（防止彩虹表攻击）
   * 采用HTTPS
+* **业界有哪些网络认证的方法（基于设备认证项目问的）（阿里）** 
 
 
 
 ## Linux相关
 
-### 常见Linux指令 *`TODO`* 
+* **cpu load 和 cpu utilization的区别（阿里）**
+
+### Linux指令 *`TODO`* 
 
 * top，load 指令，free 中 cached和buffers的区别（阿里）
 * 找出某目录下文件中带电子邮箱的文件（爱奇艺）
