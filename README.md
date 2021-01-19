@@ -298,9 +298,7 @@
   * "它通常用于同一个线程内，跨类、跨方法传递数据"
   * [Java ThreadLocal](http://tutorials.jenkov.com/java-concurrency/threadlocal.html) 
   * [《码出高效》](https://book.douban.com/subject/30333948/)  7.5
-* **synchronized和Lock的比较（使用/性能/效率），以及为什么会有这种差别（字节跳动）**
-
-  * 
+* **synchronized和Lock的比较（使用/性能/效率），以及为什么会有这种差别（字节跳动）** 
 
 
 * **Java并发学习资源** 
@@ -411,8 +409,10 @@
 	* [系统调用 Wiki](https://zh.wikipedia.org/wiki/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8)
 	* [Linux系统调用详解（实现机制分析）--linux内核剖析（六）](https://blog.csdn.net/gatieme/article/details/50779184)
 	* [用户态和内核态的区别](https://blog.csdn.net/youngyoungla/article/details/53106671) 
+* **kill掉一个进程（从指令输入开始），操作系统做了什么事情（字节跳动）**
 
-
+  * PCB
+* **分页&&分段存储（字节跳动）** 
 
 ## 数据库
 
@@ -452,7 +452,6 @@
 
 * **讲一下MySQL常见的数据库引擎（网易）**
   * [Mysql四种常见数据库引擎](https://yq.aliyun.com/articles/636314) 
-    
 
 
 ### 索引
@@ -568,6 +567,7 @@
 	 	* [DNS递归查询和迭代查询的区别](https://blog.csdn.net/wuchuanpingstone/article/details/6720723)
 
 
+* **DNS的过程（字节跳动）** 
 * **HTTP 与 HTTPS 的区别（字节跳动）**  *`TODO`* 
 
   * HTTP协议以明文方式发送内容，不提供任何方式的数据加密
