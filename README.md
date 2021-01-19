@@ -49,7 +49,7 @@
 	* [Java基础之—反射（非常重要）](https://blog.csdn.net/sinat_38259539/article/details/71799078)（反射实例 *`TODO`*）
 	* [What is the difference between “Class.forName()” and “Class.forName().newInstance()”?](https://stackoverflow.com/questions/2092659/what-is-the-difference-between-class-forname-and-class-forname-newinstanc)（Class.forName(String) returns the Class object associated with the class or interface with the given string name && newInstance() creates a new instance of the class）
 	
-* **Java提供了哪些IO方式（拼多多/字节跳动）** *`TODO`*
+* **Java提供了哪些IO方式（或者描述IO）（拼多多/字节跳动）** *`TODO`*
 	* 同步 / 异步 --> 关注的是消息通信机制（区别最大在于异步的话调用者不需要等待处理结果）
 	* 阻塞 / 非阻塞 --> 关注的是程序在等待调用结果（消息，返回值）时的状态
 	* BIO / NIO（概念描述，网易）
@@ -59,6 +59,8 @@
 	* [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)（思想 + 实例 *`TODO`*）
 	* [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 IO Docs *`TODO`*）
 	* [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)（技术blog + 实例 *`TODO`*）
+	* select 和 epoll 的区别（字节跳动） *`TODO`* 
+	  * [select和epoll区别](https://www.jianshu.com/p/430141f95ddb)
 
 
 * **描述 Java8 的新特性（星环）**  *`TODO`*
@@ -196,6 +198,7 @@
     * 复制算法（Copying） --> 将内存分为大小相同的两块，每次使用其中的一块。每次将活着的对象复制到 to 区域，拷贝过程中将对象顺序放置，避免内存碎片化
     * 标记-整理算法（Mark-Compact） --> 类似于标记-清除，但为了避免内存碎片化，**在清理过程中移动对象，以确保移动后的对象占用连续的内存空间**
     * 分代收集算法 --> 根据对象存活周期的不同将内存分为几块 （eg: 新生代/老生代）
+  * 频繁的 Full GC 怎么排查（阿里）
   * 《深入理解Java虚拟机》第三版 第3章
   * [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
   * [JVM 垃圾回收](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md) 
@@ -222,6 +225,7 @@
 	* Java中实现并发编程的手段 --> 多线程
 	* 线程的生命周期（新建 / 就绪 / 运行 / 阻塞 / 死亡）（网易）
 	  * 线程阻塞和等待的区别（网易）
+	  * [啃碎并发（二）：Java线程的生命周期](https://juejin.cn/post/6844903558433734669) 
 	  * [Difference between WAIT and BLOCKED thread states](https://stackoverflow.com/questions/15680422/difference-between-wait-and-blocked-thread-states) 
 	* 创建线程的方法
 		* Runnable 接口
@@ -263,6 +267,7 @@
 				* maximumPoolSize --> 最大能创建的线程数（可以理解为当任务量突然过大时的一种补救措施）
 				* workQueue --> 工作队列，为 BlockingQueue，用于存储等待执行的任务
 	* IO密集型和计算密集型任务如何配置线程池参数（字节跳动）
+	  * [Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html) 
 	* [《码出高效》](https://book.douban.com/subject/30333948/)  7.4.2（线程池源码详解，关键方法逐行解释）
 	* [22 | Executor与线程池：如何创建正确的线程池？](https://time.geekbang.org/column/article/90771)（基本介绍和主要参数）
 	* [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)（ThreadPoolExecutor 源码和关键类分析）
@@ -294,6 +299,8 @@
   * [Java ThreadLocal](http://tutorials.jenkov.com/java-concurrency/threadlocal.html) 
   * [《码出高效》](https://book.douban.com/subject/30333948/)  7.5
 * **synchronized和Lock的比较（使用/性能/效率），以及为什么会有这种差别（字节跳动）**
+
+  * 
 
 
 * **Java并发学习资源** 
@@ -327,7 +334,7 @@
 * **给一段Python代码，有哪些优化思路和策略（阿里）**   *`TODO`* 
 
 
-* **如何写一个程序计算一段Python代码的耗时（腾讯） ** *`TODO`* 
+* **如何写一个程序计算一段Python代码的耗时（腾讯） **  *`TODO`* 
 
 
 * **Python爬虫中存在环引用该如何处理（阿里）** *`TODO`* 
@@ -351,9 +358,10 @@
 * **线程同步（通信）的方式（字节跳动）**   *`TODO`* 
   
   * 同步 -- 协同步调，按预定的先后次序进行运行
-* wait() -- It tells the calling thread to give up the lock and go to sleep until some other thread enters the same monitor and calls notify().（线程自动释放其占有的对象锁，并等待notify）
-  * notify() -- It wakes up one single thread that called wait() on the same object. It should be noted that calling notify() does not actually give up a lock on a resource.（唤醒一个正在wait当前对象锁的线程，并让它拿到对象锁）
-  * notifyAll() -- It wakes up all the threads that called wait() on the same object.（唤醒所有正在wait当前对象锁的线程）
+
+    * wait() -- It tells the calling thread to give up the lock and go to sleep until some other thread enters the same monitor and calls notify().（线程自动释放其占有的对象锁，并等待notify）
+    * notify() -- It wakes up one single thread that called wait() on the same object. It should be noted that calling notify() does not actually give up a lock on a resource.（唤醒一个正在wait当前对象锁的线程，并让它拿到对象锁）
+    * notifyAll() -- It wakes up all the threads that called wait() on the same object.（唤醒所有正在wait当前对象锁的线程）
   * [Inter-thread communication in Java](https://www.javatpoint.com/inter-thread-communication-example) 
   * [JAVA线程间通信的几种方式](https://blog.csdn.net/u011514810/article/details/77131296) （一个实例）
 * **进程间通信的方式（依图）** 
@@ -369,6 +377,8 @@
   * run() -- No new thread is created and the run() method is executed on the calling thread itself. (Multiple invocation is possible)
   * [Difference between Thread.start() and Thread.run() in Java](https://www.geeksforgeeks.org/difference-between-thread-start-and-thread-run-in-java/) 
 * **sleep()和wait()的区别，应用场景（字节跳动）** 
+
+  * [Difference between Wait and Sleep, Yield in Java](https://javarevisited.blogspot.com/2011/12/difference-between-wait-sleep-yield.html#axzz6jzKp3QZM) 
 
 
 * **描述操作系统的启动过程（字节跳动）**
@@ -400,11 +410,7 @@
 	* linux内核中设置了一组用于实现系统功能的子程序，称为系统调用。系统调用和普通库函数调用非常相似，只是系统调用由操作系统核心提供，运行于**内核态**，而普通的函数调用由函数库或用户自己提供，运行于**用户态**
 	* [系统调用 Wiki](https://zh.wikipedia.org/wiki/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8)
 	* [Linux系统调用详解（实现机制分析）--linux内核剖析（六）](https://blog.csdn.net/gatieme/article/details/50779184)
-	* [用户态和内核态的区别](https://blog.csdn.net/youngyoungla/article/details/53106671)
-
-
-* **select 和 epoll 的区别（字节跳动）** *`TODO`* 
-	* [select和epoll区别](https://www.jianshu.com/p/430141f95ddb)
+	* [用户态和内核态的区别](https://blog.csdn.net/youngyoungla/article/details/53106671) 
 
 
 
@@ -458,30 +464,30 @@
 		* 较B树（字节跳动）
 			* 相较于B树B+每个**非叶子**节点存储的关键字数更多，树的层级更少所以查询数据更快（层级更少）
 			* B+所有关键字数据地址都存在**叶子**节点上，所以每次查找的次数都相同所以查询速度要比B树更稳定（更稳定）
-			* B+树所有的**叶子**节点数据构成了一个有序链表，在查询大小区间的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高（天然具有排序）
-			* B+树遍历整棵树只需要遍历所有的**叶子**节点即可，，而不需要像B树一样需要对每一层进行遍历，这有利于数据库做全表扫描
-	* [数据库索引到底是什么，是怎样工作的？](https://blog.csdn.net/weiliangliang111/article/details/51333169)
+			* B+树所有的**叶子**节点数据构成了一个有序链表，在查询大小区间（范围查询）的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高（天然具有排序）
+			* B+树遍历整棵树只需要遍历所有的**叶子**节点即可，而不需要像B树一样需要对每一层进行遍历，这有利于数据库做全表扫描
+	* [数据库索引到底是什么，是怎样工作的？](https://blog.csdn.net/weiliangliang111/article/details/51333169) 
 	* [一步步分析为什么B+树适合作为索引的结构](https://blog.csdn.net/weixin_30531261/article/details/79312676)
 	* [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
 
 
-* **聚集索引（Clustered Index）和非聚集索引的区别（拼多多/网易/字节跳动）**
+* **聚集索引（Clustered Index）和非聚集索引的区别（拼多多/网易/字节跳动/Wish）**
 	* 聚集索引 --> 指数据库表行中数据的物理顺序与键值的逻辑（索引）顺序相同
 	* 每个表只能有一个聚集索引，因为目录只能按照一种方法进行排序
 	* [聚集索引与非聚集索引的总结](https://www.imooc.com/article/22915) 
 	* [聚合索引(clustered index) / 非聚合索引(nonclustered index)](https://blog.csdn.net/ak913/article/details/8026743)
 	* [快速理解聚集索引和非聚集索引](https://blog.csdn.net/zc474235918/article/details/50580639)
-	* [聚集索引 百度百科](https://baike.baidu.com/item/%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95)
+	* [聚集索引 百度百科](https://baike.baidu.com/item/%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95) 
 
 
 * **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）** *`TODO`* 
 	* [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
-* **一个本来很快的SQL突然效率变慢，如何排查原因（蚂蚁）**
+* **一个本来很快的SQL突然效率变慢，如何排查原因（阿里）**
 * **MySQL索引不命中的可能原因及策略（美团）**  *`TODO`* 
 	* [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html)
 
 
-* **MySQL联合索引命中情景分析（美团） ** *`TODO`* 
+* **MySQL联合索引命中情景分析（美团）  **  *`TODO`* 
 * **InnoDB的索引结构（字节跳动）** 
 
 
@@ -518,6 +524,7 @@
 		* 接收端 --> FIN（接收端进入半关闭状态 CLOST_WAIT）
 		* 发送端 --> ACK（发送后，发送端进入 TIME-WAIT 状态）
 	* [TCP的三次握手与四次挥手（详解+动图）](https://blog.csdn.net/qzcsu/article/details/72861891)
+	* [“三次握手，四次挥手”你真的懂吗？](https://zhuanlan.zhihu.com/p/53374516) 
 
 
 * **三次握手中SYN/ACK包的具体内容（腾讯）**
