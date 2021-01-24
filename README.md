@@ -84,6 +84,7 @@
 
 ### 集合框架
 
+* **ArrayList和LinkedList的区别（源码级别）（字节跳动）** 
 * **描述 HashMap 的底层实现（远景智能/字节跳动/百度）**
 	* 解决哈希冲突
 		* JDK < 1.8 --> 数组+链表
@@ -482,17 +483,17 @@
 * **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）** *`TODO`* 
 	* [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
 * **一个本来很快的SQL突然效率变慢，如何排查原因（阿里）**
-* **MySQL索引不命中的可能原因及策略（美团）**  *`TODO`* 
-	* [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html)
+* **MySQL索引不命中（索引失效）的可能原因及策略（美团/腾讯）**  *`TODO`* 
+	* [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html) 
+* **MySQL联合索引命中情景分析（美团） **
 
 
-* **MySQL联合索引命中情景分析（美团）  **  *`TODO`* 
 * **InnoDB的索引结构（字节跳动）** 
 
 
 ### SQL语句相关
 
-* **各种join操作的区别（left, right, inner join）**
+* **各种join操作的区别（left, right, inner join）** 
 	* [mysql join操作](https://www.cnblogs.com/ggjucheng/archive/2012/11/06/2757972.html)
 * **找出在表A中但不在表B中的记录（根据某一个共同的column）（PayPal）**
 	* [查询A、B表中，A表中B表没有的数据](https://blog.csdn.net/long636/article/details/51733273)（三种方法）
@@ -577,7 +578,8 @@
   * [详细解析 HTTP 与 HTTPS 的区别](https://juejin.im/entry/58d7635e5c497d0057fae036) 
 
 
-* **描述HTTPS的加密过程 / 对称加密&非对称加密在HTTPS加密过程中如何实践（字节跳动/阿里）** *`TODO`* 
+* **描述HTTPS的加密过程（字节跳动）** 
+* **对称加密&非对称加密在HTTPS加密过程中如何实践（字节跳动/阿里）** *`TODO`* 
 
   * [HTTPS加密过程和TLS证书验证](https://juejin.im/post/5a4f4884518825732b19a3ce)
   * [HTTPS中的TLS](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/HTTPS%E4%B8%AD%E7%9A%84TLS.md)（密码学角度）
@@ -626,6 +628,7 @@
 	* [Linux 杀掉所有Java进程](https://blog.csdn.net/u011517841/article/details/79781830) 
 * 干掉占用某端口的服务（网易）
   * [linux杀死占用某端口的所有进程](https://blog.csdn.net/lissdy/article/details/70256032)
+* 打印一个文本中出现次数前十的数据（腾讯）
 
 
 
