@@ -310,8 +310,15 @@
 
 
 
-
 ## Python
+
+### 基础
+
+* 
+
+### Pythonic
+
+* 
 
 * **用map/reduce实现数组求和（PayPal）**
 	* map --> 将传入函数依次作用于序列中的每个元素，并把结果作为新的Iterator返回;
@@ -633,7 +640,7 @@
 
 
 
-## 框架篇
+## 框架&工具篇
 
 ### Spring
 
@@ -728,7 +735,7 @@
   * [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解： 注解 --> 标签）
   * [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
 
-
+### Vue 
 
 ### kafka *`TODO`*
 
@@ -784,12 +791,6 @@
 ### AIDL通讯
 
 ### 回调
-
-
-
-## 前端
-
-### 	Vue
 
 
 
