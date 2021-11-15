@@ -13,6 +13,8 @@
 
 * 详见 [科学刷题指北](科学刷题指北.md).
 
+
+
 ## Java
 
 ### 基础
@@ -325,6 +327,8 @@
 
 * **Python爬虫中存在环引用该如何处理（阿里）** *`TODO`* 
 
+
+
 ### Pythonic
 
 
@@ -338,6 +342,16 @@
   * [map/reduce](https://www.liaoxuefeng.com/wiki/1016959663602400/1017329367486080)
 * **描述Python的迭代器和生成器（DaoCloud）** *`TODO`* 
   * [Python3 迭代器与生成器](https://www.runoob.com/python3/python3-iterator-generator.html) 
+
+
+
+### Async IO
+
+* [python_asyncio_learning](https://github.com/KrisCheng/python_asyncio_learning)
+
+
+
+### Package Management
 
 
 
@@ -416,6 +430,8 @@
   * PCB
 * **分页&&分段存储（字节跳动）** 
 
+
+
 ## 数据库
 
 ### 数据库理论
@@ -456,6 +472,8 @@
   * [Mysql四种常见数据库引擎](https://yq.aliyun.com/articles/636314) 
 
 
+
+
 ### 索引
 
 * **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（字节跳动/腾讯/美团/星环/网易）**
@@ -492,6 +510,8 @@
 * **InnoDB的索引结构（字节跳动）** 
 
 
+
+
 ### SQL语句相关
 
 * **各种join操作的区别（left, right, inner join）** 
@@ -509,6 +529,11 @@
 * **慢查询的优化思路（字节跳动）** 
 
    
+
+### MongoDB
+
+
+
 ## 计算机网络
 
 * **描述三次握手四次挥手以及原因，每个包具体传递什么信息（阿里/腾讯/字节跳动）** 
@@ -610,17 +635,15 @@
 * **如何保证token不被劫持和篡改（大概意思，项目相关）（微软）**   `TODO`
 
 
-  * Challenge Value，加盐值（防止彩虹表攻击）
-  * 采用HTTPS
-* **业界有哪些网络认证的方法（基于设备认证项目问的）（阿里）** 
+    * Challenge Value，加盐值（防止彩虹表攻击）
+    * 采用HTTPS
+* **业界有哪些网络认证的方法（基于设备认证项目提问）（阿里）** 
 
 
 
 ## Linux相关
 
-* **cpu load 和 cpu utilization的区别（阿里）**
-
-### Linux指令 *`TODO`* 
+* cpu load 和 cpu utilization的区别（阿里）
 
 * top，load 指令，free 中 cached和buffers的区别（阿里）
 * 找出某目录下文件中带电子邮箱的文件（爱奇艺）
@@ -729,7 +752,11 @@
   * [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解： 注解 --> 标签）
   * [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
 
-### Vue 
+
+
+### Vue.js
+
+
 
 ### kafka *`TODO`*
 
