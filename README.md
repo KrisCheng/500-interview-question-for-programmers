@@ -2,9 +2,7 @@
 
 ## 概述
 
-本 `Repository` 用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我**真实碰到过且思考过**（大部分附具体面试公司），一律采用问答形式，答案为我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄或自己也没搞懂 Orz...），欢迎指正（可以提 `Issues`，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
-
-侧重点是个人对某些问题的总结，并基于此形成个人专业的 `Knowledge Base` （提供配套思维导图），`materials`目录为个人的一些总结，希望以此来保持个人知识体系的扎实性。
+本 `Repository` 用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我**真实碰到过且思考过**（大部分附具体面试公司），答案为我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄或自己也没搞懂 Orz...），欢迎指正（可以提 `Issues`，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
 
 供所有正在找工作的小伙伴们参考，如果觉得有帮助，请 `Star` ，善用 `Ctrl` + `F` :)。
 
@@ -50,19 +48,6 @@
 		* 使用JDBC连接数据库时使用 Class.forName() 通过反射加载数据库的驱动程序
 	* [Java基础之—反射（非常重要）](https://blog.csdn.net/sinat_38259539/article/details/71799078)（反射实例 *`TODO`*）
 	* [What is the difference between “Class.forName()” and “Class.forName().newInstance()”?](https://stackoverflow.com/questions/2092659/what-is-the-difference-between-class-forname-and-class-forname-newinstanc)（Class.forName(String) returns the Class object associated with the class or interface with the given string name && newInstance() creates a new instance of the class）
-	
-* **Java提供了哪些IO方式（或者描述IO）（拼多多/字节跳动）** *`TODO`*
-	* 同步 / 异步 --> 关注的是消息通信机制（区别最大在于异步的话调用者不需要等待处理结果）
-	* 阻塞 / 非阻塞 --> 关注的是程序在等待调用结果（消息，返回值）时的状态
-	* BIO / NIO（概念描述，网易）
-	* 描述Spring中的IO方式（字节跳动）
-	* [Java NIO Tutorial](http://tutorials.jenkov.com/java-nio/index.html) （教程  *`TODO`* ）
-	* [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473) 
-	* [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)（思想 + 实例 *`TODO`*）
-	* [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 IO Docs *`TODO`*）
-	* [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)（技术blog + 实例 *`TODO`*）
-	* select 和 epoll 的区别（字节跳动） *`TODO`* 
-	  * [select和epoll区别](https://www.jianshu.com/p/430141f95ddb)
 
 
 * **描述 Java8 的新特性（星环）**  *`TODO`*
@@ -80,6 +65,33 @@
 	  * try-catch-finally 中包含 return 的情况分析（字节跳动）
 	    * "finally块中的内容会先于try中的return语句执行，如果finally语句块中也有return语句的话，那么直接从finally中返回了"
 	  * “不要在 finally 代码块中使用 return 语句”（ [《码出高效》](https://book.douban.com/subject/30333948/)  5.2）
+
+
+
+### IO相关
+
+* **Java提供了哪些IO方式（或者描述IO）（拼多多/字节跳动）** *`TODO`*
+
+  * 同步 / 异步 --> 关注的是消息通信机制（区别最大在于异步的话调用者不需要等待处理结果）
+
+  * 阻塞 / 非阻塞 --> 关注的是程序在等待调用结果（消息，返回值）时的状态
+
+  * BIO / NIO（概念描述，网易）
+
+  * 描述Spring中的IO方式（字节跳动）
+
+  * [Java NIO Tutorial](http://tutorials.jenkov.com/java-nio/index.html) （教程  *`TODO`* ）
+
+  * [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473) 
+
+  * [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)（思想 + 实例 *`TODO`*）
+
+  * [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 IO Docs *`TODO`*）
+
+  * [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)（技术blog + 实例 *`TODO`*）
+
+  * select 和 epoll 的区别（字节跳动） *`TODO`* 
+    * [select和epoll区别](https://www.jianshu.com/p/430141f95ddb)
 
 
 
@@ -164,34 +176,34 @@
   * [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs *`TODO`* ）
   * 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制
 
-* **如何自定义类加载器** 
-
-  * [JVM——自定义类加载器](https://blog.csdn.net/SEU_Calvin/article/details/52315125) 
-
 * **描述 Java 中的类加载机制（星环）**
 
   * Java虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这个过程被称作虚拟机的类加载机制（《深入理解Java虚拟机》第三版 P262）
 
 * **描述Java内存模型（阿里/美团/网易）**  *`TODO`* 
-	
-	* JVM内存区域划分 
-		* 程序计数器（PC, Program Counter Register） --> 它的作用可以看做是当前线程所执行的字节码的行号指示器
-		* 虚拟机栈（Virtual Machine Stack） --> 保存一个个**栈帧（Stack Frame）**，对应着一次次的 Java **方法调用**
-		* 本地方法栈（Native Method Stack） --> 和虚拟机栈类似，区别为虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈为虚拟机使用到的Native方法服务
-		
-			⬆️（线程私有）--- （线程共享） ⬇️
-		
-		* 堆（Heap） --> 虚拟机管理的内存中最大的一块，所有线程共享的内存区域，几乎所有的 **对象实例** 都在这里分配内存
-		* 方法区（Method Area） --> 所有线程共享的一块内存区域，用于存储所谓的元（Meta）数据，如类结构信息，以及对应的运行时常量池、字段、方法代码等
-		* 运行时常量池（Run-Time Constant Pool） --> 属于方法区的一部分，存放各种常量信息
-		
-	* [第25讲 | 谈谈JVM内存区域的划分，哪些区域可能发生OutOfMemoryError?](https://time.geekbang.org/column/article/10192)
-	
-	* [Java 内存区域详解](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F.md)
-	
-	* [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html)（官方 Docs *`TODO`* ）
-	
-* **描述GC**
+
+  * JVM内存区域划分 
+  	* 程序计数器（PC, Program Counter Register） --> 它的作用可以看做是当前线程所执行的字节码的行号指示器
+  	* 虚拟机栈（Virtual Machine Stack） --> 保存一个个**栈帧（Stack Frame）**，对应着一次次的 Java **方法调用**
+  	* 本地方法栈（Native Method Stack） --> 和虚拟机栈类似，区别为虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈为虚拟机使用到的Native方法服务
+  	
+  		⬆️（线程私有）--- （线程共享） ⬇️
+  	
+  	* 堆（Heap） --> 虚拟机管理的内存中最大的一块，所有线程共享的内存区域，几乎所有的 **对象实例** 都在这里分配内存
+  	* 方法区（Method Area） --> 所有线程共享的一块内存区域，用于存储所谓的元（Meta）数据，如类结构信息，以及对应的运行时常量池、字段、方法代码等
+  	* 运行时常量池（Run-Time Constant Pool） --> 属于方法区的一部分，存放各种常量信息
+  	
+  * [第25讲 | 谈谈JVM内存区域的划分，哪些区域可能发生OutOfMemoryError?](https://time.geekbang.org/column/article/10192)
+
+  * [Java 内存区域详解](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F.md)
+
+  * [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html)（官方 Docs *`TODO`* ）
+
+* **如何自定义类加载器** 
+
+  * [JVM——自定义类加载器](https://blog.csdn.net/SEU_Calvin/article/details/52315125) 
+
+* **描述GC（百度）**
 
   * 对象存活判断
     * 引用计数（Python 的 GC），无法解决对象相互循环引用的问题，Java中没有使用（Python GC有应用）
@@ -222,7 +234,7 @@
 
 
 
-### Java并发编程 *`TODO`*
+### Java并发编程
 
 * **描述Java下的并发编程（阿里）**
 	* Java中实现并发编程的手段 --> 多线程
@@ -237,19 +249,14 @@
 	* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html) （生命周期）
 
 
-* **什么是线程安全**
-	* a class is thread safe when it continues to behave correctly when accessed from multiple threads
-	* 指某个函数、函数库在多线程环境中被调用时，能够正确地处理多个线程之间的共享变量，使程序功能正确完成
-	* [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8)
-	
 * **synchronized 和 ReentrantLock（Lock） 比较（字节跳动）**
-	* synchronized 锁住的是括号里的对象，而不是代码
-	* 描述 synchronized 的底层实现（爱奇艺） *`TODO`*
-	* 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
-	* ReentrantLock 源码阅读 *`TODO`*
-		* 描述 AQS（AbstractQueuedSynchronizer）的作用（网易）（另一个问法为 ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？（星环））
-	* [Java线程同步：synchronized锁住的是代码还是对象](https://blog.csdn.net/xiao__gui/article/details/8188833) 
-	* [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799) 
+  * synchronized 锁住的是括号里的对象，而不是代码
+  * 描述 synchronized 的底层实现（爱奇艺） *`TODO`*
+  * 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
+  * ReentrantLock 源码阅读 *`TODO`*
+  	* 描述 AQS（AbstractQueuedSynchronizer）的作用（网易）（另一个问法为 ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？（星环））
+  * [Java线程同步：synchronized锁住的是代码还是对象](https://blog.csdn.net/xiao__gui/article/details/8188833) 
+  * [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799) 
 
 
 * **介绍 volatile 关键字（阿里/网易）**
@@ -287,12 +294,6 @@
 	* [何谓悲观锁与乐观锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87%E4%B9%8B%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81.md) （基本介绍）
 
 
-* **join() 方法有什么用**
-	* Thread.join() 把指定的线程加入到当前线程，可以将两个交替执行的线程合并为顺序执行的线程。比如在线程B中调用了线程A的join()方法，直到线程A执行完毕后，才会继续执行线程B
-	* [Java多线程中join方法的理解](https://uule.iteye.com/blog/1101994)
-	* [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html)  
-
-
 * **描述 Atomic 类的底层实现（美团）** *`TODO`*
 
 
@@ -302,6 +303,14 @@
   * [Java ThreadLocal](http://tutorials.jenkov.com/java-concurrency/threadlocal.html) 
   * [《码出高效》](https://book.douban.com/subject/30333948/)  7.5
 * **synchronized和Lock的比较（使用/性能/效率），以及为什么会有这种差别（字节跳动）** 
+* **什么是线程安全**
+  * a class is thread safe when it continues to behave correctly when accessed from multiple threads
+  * 指某个函数、函数库在多线程环境中被调用时，能够正确地处理多个线程之间的共享变量，使程序功能正确完成
+  * [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8) 
+* **join() 方法有什么用**
+  * Thread.join() 把指定的线程加入到当前线程，可以将两个交替执行的线程合并为顺序执行的线程。比如在线程B中调用了线程A的join()方法，直到线程A执行完毕后，才会继续执行线程B
+  * [Java多线程中join方法的理解](https://uule.iteye.com/blog/1101994)
+  * [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html)  
 
 
 * **Java并发学习资源** 
@@ -346,10 +355,13 @@
 ### Async IO
 
 * [python_asyncio_learning](https://github.com/KrisCheng/python_asyncio_learning)
+* TBD
 
 
 
 ### Package Management
+
+* TBD
 
 
 
@@ -412,6 +424,11 @@
 	* [JAVA实现的一个简单的死锁（附解释）](https://blog.csdn.net/zll793027848/article/details/8670546) 
 
 
+* **kill掉一个进程（从指令输入开始），操作系统做了什么事情（字节跳动）**
+	* TBD
+* **分页&&分段存储（字节跳动）** 
+
+  * TBD
 * **如何判断内存泄漏（腾讯）**
 	* 因为长生命周期持有它的引用而导致不能被回收，这就是Java中内存泄漏的发生场景
 	* [Java内存泄漏分析和解决](https://www.jianshu.com/p/54b5da7c6816)
@@ -423,10 +440,6 @@
 	* [系统调用 Wiki](https://zh.wikipedia.org/wiki/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8)
 	* [Linux系统调用详解（实现机制分析）--linux内核剖析（六）](https://blog.csdn.net/gatieme/article/details/50779184)
 	* [用户态和内核态的区别](https://blog.csdn.net/youngyoungla/article/details/53106671) 
-* **kill掉一个进程（从指令输入开始），操作系统做了什么事情（字节跳动）**
-
-  * PCB
-* **分页&&分段存储（字节跳动）** 
 
 
 
@@ -447,27 +460,15 @@
 	* [事务隔离 Wiki](https://zh.wikipedia.org/wiki/%E4%BA%8B%E5%8B%99%E9%9A%94%E9%9B%A2) 
 
 
-* **MySQL如何实现隔离级别的（如可重复读的实现原理）（拼多多/字节跳动）** *`TODO`*
-	* MySQL Inno DB 默认隔离级别 --> 可重复读
-	* MVCC（多版本并发控制）（Inno DB引擎实现）
-	* [InnoDB---可重复读隔离级别的底层实现原理](https://blog.csdn.net/huanghanqian/article/details/79517480)
-	* [MySQL事务隔离级别的实现原理](https://www.cnblogs.com/cjsblog/p/8365921.html)
-	* [轻松理解MYSQL MVCC 实现机制](https://blog.csdn.net/whoamiyang/article/details/51901888)
-
-
 * **delete、 drop、truncate 的区别（PayPal）**
 	* drop 直接删掉表（不再需要一张表的时候，用drop）
 	* truncate 删除的是表中的数据，再插入数据时自增长的数据id又重新从1开始（保留表而删除所有数据的时候用truncate，实际是删除原来的表并重建一张新表）
 	* delete 删除表中数据，可以在后面添加where字句（想删除部分数据行时候，用delete，并且带上where子句）
 	* [SQL truncate 、delete与drop区别](https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html)
-
 * **第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题（阿里）**
 	* 区分快照 & 冗余
 	* [数据库设计冗余字段问题？](https://www.zhihu.com/question/50662784)
 	* [如何解释关系数据库的第一第二第三范式？](https://www.zhihu.com/question/24696366) 
-
-* **讲一下MySQL常见的数据库引擎（网易）**
-  * [Mysql四种常见数据库引擎](https://yq.aliyun.com/articles/636314) 
 
 
 
@@ -498,37 +499,61 @@
 
 
 * **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）** *`TODO`* 
-	* [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
+  * [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
 * **一个本来很快的SQL突然效率变慢，如何排查原因（阿里）**
-* **MySQL索引不命中（索引失效）的可能原因及策略（美团/腾讯）**  *`TODO`* 
-	* [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html) 
-* **MySQL联合索引命中情景分析（美团） **
 
+  * TBD
 
-* **InnoDB的索引结构（字节跳动）** 
+* **慢查询的优化思路（字节跳动）** 
 
 
 
 
-### SQL语句相关
+### SQL语句
 
 * **各种join操作的区别（left, right, inner join）** 
-	* [mysql join操作](https://www.cnblogs.com/ggjucheng/archive/2012/11/06/2757972.html)
+  * [mysql join操作](https://www.cnblogs.com/ggjucheng/archive/2012/11/06/2757972.html)
 * **找出在表A中但不在表B中的记录（根据某一个共同的column）（PayPal）**
-	* [查询A、B表中，A表中B表没有的数据](https://blog.csdn.net/long636/article/details/51733273)（三种方法）
+  * [查询A、B表中，A表中B表没有的数据](https://blog.csdn.net/long636/article/details/51733273)（三种方法）
 * **having 和 where 用法上的区别（网易）**
   * [What is the difference between HAVING and WHERE in SQL?](https://stackoverflow.com/questions/287474/what-is-the-difference-between-having-and-where-in-sql) 
 
 
 * **SQL优化策略**  *`TODO`* 
 	
-* [这大概是最全的sql优化方案了](https://zhuanlan.zhihu.com/p/48385127) 
+	* [这大概是最全的sql优化方案了](https://zhuanlan.zhihu.com/p/48385127) 
 	
-* **慢查询的优化思路（字节跳动）** 
 
-   
+
+
+### MySQL
+
+* **MySQL索引不命中（索引失效）的可能原因及策略（美团/腾讯）**  *`TODO`* 
+  * [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html) 
+  * TBD
+* **MySQL联合索引命中情景分析（美团） **
+
+  * TBD
+
+
+* **InnoDB的索引结构（字节跳动）** 
+
+  * TBD
+
+* **讲一下MySQL常见的数据库引擎（网易）**
+  * [Mysql四种常见数据库引擎](https://yq.aliyun.com/articles/636314) 
+* **MySQL如何实现隔离级别的（如可重复读的实现原理）（拼多多/字节跳动）** *`TODO`*
+  * MySQL Inno DB 默认隔离级别 --> 可重复读
+  * MVCC（多版本并发控制）（Inno DB引擎实现）
+  * [InnoDB---可重复读隔离级别的底层实现原理](https://blog.csdn.net/huanghanqian/article/details/79517480)
+  * [MySQL事务隔离级别的实现原理](https://www.cnblogs.com/cjsblog/p/8365921.html)
+  * [轻松理解MYSQL MVCC 实现机制](https://blog.csdn.net/whoamiyang/article/details/51901888)
+
+
 
 ### MongoDB
+
+* TBD
 
 
 
@@ -615,11 +640,16 @@
 
 
 * **描述SSO的原理（拼多多）** *`TODO`*
-	* [CAS实现单点登录SSO执行原理探究(终于明白了)](https://blog.csdn.net/javaloveiphone/article/details/52439613)
-	* [How does single sign-on work?](https://www.onelogin.com/learn/how-single-sign-on-works) *`TODO`*
+  * [CAS实现单点登录SSO执行原理探究(终于明白了)](https://blog.csdn.net/javaloveiphone/article/details/52439613)
+  * [How does single sign-on work?](https://www.onelogin.com/learn/how-single-sign-on-works) *`TODO`*
 * **网络拥塞的解决方案（字节跳动）** 
 
   * [网络拥塞成因与处理](https://blog.csdn.net/oZhuZhiYuan/article/details/52167246) 
+* **描述Session的实现原理（或者如何设计一个Session）（拼多多）** *`TODO`*
+* **如何保证token不被劫持和篡改（大概意思，项目相关）（微软）**   `TODO`
+
+* **业界有哪些网络认证的方法（基于设备认证项目提问）（阿里）** 
+
 * **介绍 OSI 七层模型**
   * 应用层（应用层 --> 表示层 --> 会话层） --> 传输层 --> 网络层 --> 数据链路层 --> 物理层 (7层)
   * 应用层 --> 传输层 --> 网络层 --> 数据链路层 --> 物理层 （5层）
@@ -628,18 +658,8 @@
   * [干货：计算机网络知识总结.md](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/%E5%B9%B2%E8%B4%A7%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93.md#%E4%B8%80%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%BF%B0)（逐层术语解释）
 
 
-* **描述Session的实现原理（或者如何设计一个Session）（拼多多）** *`TODO`*
 
-* **如何保证token不被劫持和篡改（大概意思，项目相关）（微软）**   `TODO`
-
-
-    * Challenge Value，加盐值（防止彩虹表攻击）
-    * 采用HTTPS
-* **业界有哪些网络认证的方法（基于设备认证项目提问）（阿里）** 
-
-
-
-## Linux相关
+## Linux指令
 
 * cpu load 和 cpu utilization的区别（阿里）
 
@@ -655,10 +675,48 @@
 
 
 
-## 框架&工具篇
+## 框架&中间件
 
-### Spring
+### Spring & SpringBoot
 
+* **什么是Bean以及描述Bean的生命周期（美团/网易）**
+  * 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为Bean。一个Bean是一个由Spring IoC容器实例化、组装和管理的对象
+  * 生命周期
+    * 创建Bean
+      * 实例化 Bean 对象
+      * 设置属性
+      * 检查 Aware 相关接口并注入依赖（具体包括 BeanNameAware、BeanFactoryAware 和 ApplicationContextAware，分别注入Bean ID， Bean Factory 或 ApplicationContext）
+      * 调用 BeanPostProcessor 的前置初始化方法 postProcessBeforeInitialization
+      * 如果实现了 InitializingBean 接口，则会调用 afterPropertiesSet 方法
+      * 调用 Bean 自身定义的 init 方法
+      * 调用 BeanPostProcessor 的后置初始化方法 postProcessAfterInitialization
+      * 创建过程完毕
+    * 销毁
+      * Spring Bean 的销毁过程会依次调用 DisposableBean 的 destroy 方法和 Bean 自身定制的 destroy 方法
+  * [Spring Bean是什么？](https://www.awaimai.com/2596.html)
+  * [第37讲 | 谈谈Spring Bean的生命周期和作用域？](https://time.geekbang.org/column/article/12472)
+* **描述Spring的AOP（小红书）** 
+  * AOP的理念
+    * 将分散在各个业务逻辑代码中 相同的代码 通过 **横向切割** 的方式抽取到一个独立的模块中（模块化）
+    * 将相同逻辑的重复代码横向抽取出来，使用动态代理技术将这些重复代码**织入**到目标对象方法中，实现和原来一样的功能
+  * 基本概念
+    * 通知（advice） --> 切面的工作被称为通知，定义了切面是什么以及何时被使用
+    * 连接点（join point） --> 应用执行过程中能够插入切面的一个点，可以是方法调用时，抛出异常时等等
+    * 切点（pointcut） --> 需要应用切面的方法（具体定位的连接点）
+    * 切面（aspect） --> 切面是 通知 和 切点 的结合，共同定义：是什么，在何时和何处完成其功能
+    * 织入(weaving) --> 把切面应用到目标函数的过程
+  * 好处
+    * 显示地声明在何处如何应用该行为，有效减少代码冗余，让类更加关注自身主要功能
+  * Spring AOP 具体实现（源码级别）*`TODO`*
+    * Java JDK 动态代理 （默认）
+    * CGLIB 动态代理
+  * 爱奇艺项目中AOP的实现（切面设计）（eBay）
+    * @Before，判断模板有效性等
+  * [关于 Spring AOP (AspectJ) 你该知晓的一切](https://blog.csdn.net/javazejian/article/details/56267036)（AOP入门 + 应用场景 + Spring中的基本实现）
+  * [《Spring设计思想》AOP设计基本原理](https://blog.csdn.net/luanlouis/article/details/51095702)（从程序运行角度解释AOP的工作原理）
+  * 《Spring实战（第四版）》第四章
+  * [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)（可在面试前看的纯干货）
+  * [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) （Spring AOP的完整实现过程 *`TODO`*）
 * **描述Spring的IoC**
   * IoC是一种思想，并非一个具体技术
     * 基于 **依赖倒置原则（Dependency Inversion Principle）**
@@ -686,47 +744,18 @@
   * [What is difference between BeanFactory and ApplicationContext in Spring framework](https://javarevisited.blogspot.com/2012/11/difference-between-beanfactory-vs-applicationcontext-spring-framework.html) *`TODO`*
 
 
-* **什么是Bean以及描述Bean的生命周期（美团/网易）**
-  * 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为Bean。一个Bean是一个由Spring IoC容器实例化、组装和管理的对象
-  * 生命周期
-    * 创建Bean
-      * 实例化 Bean 对象
-      * 设置属性
-      * 检查 Aware 相关接口并注入依赖（具体包括 BeanNameAware、BeanFactoryAware 和 ApplicationContextAware，分别注入Bean ID， Bean Factory 或 ApplicationContext）
-      * 调用 BeanPostProcessor 的前置初始化方法 postProcessBeforeInitialization
-      * 如果实现了 InitializingBean 接口，则会调用 afterPropertiesSet 方法
-      * 调用 Bean 自身定义的 init 方法
-      * 调用 BeanPostProcessor 的后置初始化方法 postProcessAfterInitialization
-      * 创建过程完毕
-    * 销毁
-      * Spring Bean 的销毁过程会依次调用 DisposableBean 的 destroy 方法和 Bean 自身定制的 destroy 方法
-  * [Spring Bean是什么？](https://www.awaimai.com/2596.html)
-  * [第37讲 | 谈谈Spring Bean的生命周期和作用域？](https://time.geekbang.org/column/article/12472)
-
-* **描述Spring的AOP（小红书）** 
-  * AOP的理念
-    * 将分散在各个业务逻辑代码中 相同的代码 通过 **横向切割** 的方式抽取到一个独立的模块中（模块化）
-    * 将相同逻辑的重复代码横向抽取出来，使用动态代理技术将这些重复代码**织入**到目标对象方法中，实现和原来一样的功能
-  * 基本概念
-    * 通知（advice） --> 切面的工作被称为通知，定义了切面是什么以及何时被使用
-    * 连接点（join point） --> 应用执行过程中能够插入切面的一个点，可以是方法调用时，抛出异常时等等
-    * 切点（pointcut） --> 需要应用切面的方法（具体定位的连接点）
-    * 切面（aspect） --> 切面是 通知 和 切点 的结合，共同定义：是什么，在何时和何处完成其功能
-    * 织入(weaving) --> 把切面应用到目标函数的过程
-  * 好处
-    * 显示地声明在何处如何应用该行为，有效减少代码冗余，让类更加关注自身主要功能
-  * Spring AOP 具体实现（源码级别）*`TODO`*
-    * Java JDK 动态代理 （默认）
-    * CGLIB 动态代理
-  * 爱奇艺项目中AOP的实现（切面设计）（eBay）
-    * @Before，判断模板有效性等
-  * [关于 Spring AOP (AspectJ) 你该知晓的一切](https://blog.csdn.net/javazejian/article/details/56267036)（AOP入门 + 应用场景 + Spring中的基本实现）
-  * [《Spring设计思想》AOP设计基本原理](https://blog.csdn.net/luanlouis/article/details/51095702)（从程序运行角度解释AOP的工作原理）
-  * 《Spring实战（第四版）》第四章
-  * [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)（可在面试前看的纯干货）
-  * [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) （Spring AOP的完整实现过程 *`TODO`*）
+* **描述一个Spring Boot项目的启动过程（阿里）**
+  * @SpringBootApplication --> 复合注解（@SpringBootConfiguration / @EnableAutoConfiguration / @ComponentScan）
+  * [SpringBoot 应用程序启动过程探秘](https://juejin.im/post/5b8f05a5f265da43296c6102)
 
 
+* **什么是Spring注解，Spring中有哪些常用的注解，以及注解自身是如何实现的（阿里/字节跳动）** *`TODO`*
+  * 注解 --> 减少配置文件内容
+  * [Java annotation Wiki](https://en.wikipedia.org/wiki/Java_annotation)
+  * [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解： 注解 --> 标签）
+  * [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
+* **什么是JPA**
+  * [Java持久化API Wiki](https://zh.wikipedia.org/wiki/Java%E6%8C%81%E4%B9%85%E5%8C%96API)
 * **简述Spring Boot框架**
   * 核心
     * 自动配置
@@ -735,67 +764,62 @@
   * 《Spring Boot实战》前三章
 
 
-* **描述一个Spring Boot项目的启动过程（阿里）**
-  * @SpringBootApplication --> 复合注解（@SpringBootConfiguration / @EnableAutoConfiguration / @ComponentScan）
-  * [SpringBoot 应用程序启动过程探秘](https://juejin.im/post/5b8f05a5f265da43296c6102)
 
+### Elasticsearch 
 
-* **什么是JPA**
-  * [Java持久化API Wiki](https://zh.wikipedia.org/wiki/Java%E6%8C%81%E4%B9%85%E5%8C%96API)
-
-
-* **什么是Spring注解，Spring中有哪些常用的注解，以及注解自身是如何实现的（阿里/字节跳动）** *`TODO`*
-  * 注解 --> 减少配置文件内容
-  * [Java annotation Wiki](https://en.wikipedia.org/wiki/Java_annotation)
-  * [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解： 注解 --> 标签）
-  * [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
+* ES的索引是怎么实现的（爱奇艺）
+* TBD
 
 
 
-### Vue.js
+### Redis 
+
+* TBD
 
 
 
-### kafka *`TODO`*
+### Kafka
 
 * 基于发布-订阅模式(publish-subscribe)
 * 术语
-	* topic
-		* A topic is a category or feed name to which records are published
-	* partition
-		* Each partition is an ordered, immutable sequence of records that is continually appended to a structured commit log
-		* offset
+  * topic
+    * A topic is a category or feed name to which records are published
+  * partition
+    * Each partition is an ordered, immutable sequence of records that is continually appended to a structured commit log
+    * offset
 * 特征
-	* stronger ordering guarantees ("exclusive consumer")
+  * stronger ordering guarantees ("exclusive consumer")
 * kafka Stream
-	* QuickStart
-		* ZooKeeper server
-		* Kafka server
-		* Start Application (eg: WordCount)
-		* Producer & Consumer
-	* [Kafka Streams](https://kafka.apache.org/23/documentation/streams/)
-	* [Introduction](http://kafka.apache.org/intro)
-	* [kafka解决了什么问题?](https://www.zhihu.com/question/53331259)
-	* [《Apache Kafka实战》](https://book.douban.com/subject/30221096/)
-	* [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
+  * QuickStart
+    * ZooKeeper server
+    * Kafka server
+    * Start Application (eg: WordCount)
+    * Producer & Consumer
+  * [Kafka Streams](https://kafka.apache.org/23/documentation/streams/)
+  * [Introduction](http://kafka.apache.org/intro)
+  * [kafka解决了什么问题?](https://www.zhihu.com/question/53331259)
+  * [《Apache Kafka实战》](https://book.douban.com/subject/30221096/)
+  * [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
 
 
 
-### Elasticsearch *`TODO`*
+### Netty
 
-* ES的索引是怎么实现的（爱奇艺）
-
-
-
-### redis *`TODO`*
+* TBD
 
 
 
-### swagger *`TODO`*
+## Microservice
+
+TBD
 
 
 
-### Netty *`TODO`*
+## Frontend
+
+### Vue.js
+
+TBD
 
 
 
@@ -810,6 +834,8 @@
 ### AIDL通讯
 
 ### 回调
+
+TBD
 
 
 
@@ -836,11 +862,5 @@
 
 * **git fetch 和 git pull 有什么区别（PayPal）**
 	* pull = fetch + merge
-	* [详解git fetch与git pull的区别](https://blog.csdn.net/riddle1981/article/details/74938111)
-
-
-* **描述 git 中的 cherry-pick 指令（小红书）**  *`TODO`* 
-
-
-* **描述微服务架构（携程）**  *`TODO`*
+	* [详解git fetch与git pull的区别](https://blog.csdn.net/riddle1981/article/details/74938111) 
 
