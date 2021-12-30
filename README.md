@@ -169,7 +169,7 @@
       * 1.检查请求加载的类型是否已经被加载过，没有则调用父加载器的 loadClass() 方法；
       * 2.若父加载器为空则默认使用启动类加载器作为附加载器；
       * 3.加入父类加载器加载失败，抛出ClassNotFoundException，才调用自己的 findClass() 方法尝试进行加载
-    * 为什么要用双亲委派模型呢（阿里）
+    * 为什么要用双亲委派模型（阿里）*`TODO`* 
   * [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/类加载过程.md)（基本过程解释）
 
   * [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
@@ -503,9 +503,10 @@
 * **一个本来很快的SQL突然效率变慢，如何排查原因（阿里）**
 
   * TBD
-
 * **慢查询的优化思路（字节跳动）** 
+* **给定常用SQL语句，如何建立索引（Shopee）**
 
+  * 有A,B,C三个字段，常用SQL 语句为 `SELECT A,B,C where B=80 AND C > 200`, `SELECT A,B,C where A=50 AND B=80 AND C = 200`，如何建立索引
 
 
 
@@ -774,7 +775,7 @@
 
 ### Redis 
 
-* TBD
+* **缓存一致性问题怎么解决（Shopee）** 
 
 
 
