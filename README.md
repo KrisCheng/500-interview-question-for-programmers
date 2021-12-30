@@ -292,6 +292,7 @@
 			* 自旋 --> 循环尝试
 			* ABA 问题
 	* [何谓悲观锁与乐观锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87%E4%B9%8B%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81.md) （基本介绍）
+	* MySQL中如何使用和实现悲观锁和乐观锁（Shopee）
 
 
 * **描述 Atomic 类的底层实现（美团）** *`TODO`*
