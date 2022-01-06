@@ -203,7 +203,7 @@
 
   * [JVM——自定义类加载器](https://blog.csdn.net/SEU_Calvin/article/details/52315125) 
 
-* **描述GC（百度）**
+* **GC（百度/美团/soul）**
 
   * 对象存活判断
     * 引用计数（Python 的 GC），无法解决对象相互循环引用的问题，Java中没有使用（Python GC有应用）
@@ -436,11 +436,12 @@
 
 
 * **什么是系统调用（爱奇艺）**
-	* 指运行在用户空间的程序向操作系统内核请求需要更高权限运行的服务
-	* linux内核中设置了一组用于实现系统功能的子程序，称为系统调用。系统调用和普通库函数调用非常相似，只是系统调用由操作系统核心提供，运行于**内核态**，而普通的函数调用由函数库或用户自己提供，运行于**用户态**
-	* [系统调用 Wiki](https://zh.wikipedia.org/wiki/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8)
-	* [Linux系统调用详解（实现机制分析）--linux内核剖析（六）](https://blog.csdn.net/gatieme/article/details/50779184)
-	* [用户态和内核态的区别](https://blog.csdn.net/youngyoungla/article/details/53106671) 
+  * 指运行在用户空间的程序向操作系统内核请求需要更高权限运行的服务
+  * linux内核中设置了一组用于实现系统功能的子程序，称为系统调用。系统调用和普通库函数调用非常相似，只是系统调用由操作系统核心提供，运行于**内核态**，而普通的函数调用由函数库或用户自己提供，运行于**用户态**
+  * [系统调用 Wiki](https://zh.wikipedia.org/wiki/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8)
+  * [Linux系统调用详解（实现机制分析）--linux内核剖析（六）](https://blog.csdn.net/gatieme/article/details/50779184)
+  * [用户态和内核态的区别](https://blog.csdn.net/youngyoungla/article/details/53106671) 
+* **CPU使用突然升高如何排查（soul）**
 
 
 
@@ -770,7 +771,7 @@
 ### Elasticsearch 
 
 * ES的索引是怎么实现的（爱奇艺）
-* TBD
+* 项目中ES是如何使用的（soul）
 
 
 
