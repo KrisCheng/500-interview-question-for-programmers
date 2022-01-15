@@ -91,7 +91,7 @@
   * [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)（技术blog + 实例 *`TODO`*）
 
   * select 和 epoll 的区别（字节跳动） *`TODO`* 
-    * [select和epoll区别](https://www.jianshu.com/p/430141f95ddb)
+  * [select和epoll区别](https://www.jianshu.com/p/430141f95ddb) 
 
 
 
@@ -441,7 +441,7 @@
   * [系统调用 Wiki](https://zh.wikipedia.org/wiki/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8)
   * [Linux系统调用详解（实现机制分析）--linux内核剖析（六）](https://blog.csdn.net/gatieme/article/details/50779184)
   * [用户态和内核态的区别](https://blog.csdn.net/youngyoungla/article/details/53106671) 
-* **CPU使用突然升高如何排查（soul）**
+* **CPU使用率突然升高如何排查（soul）** 
 
 
 
@@ -491,7 +491,7 @@
 	* [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
 
 
-* **聚集索引（Clustered Index）和非聚集索引的区别（拼多多/网易/字节跳动/Wish）**
+* **聚集索引（Clustered Index）和非聚集索引的区别（拼多多/网易/字节跳动/Wish/携程）**
 	* 聚集索引 --> 指数据库表行中数据的物理顺序与键值的逻辑（索引）顺序相同
 	* 每个表只能有一个聚集索引，因为目录只能按照一种方法进行排序
 	* [聚集索引与非聚集索引的总结](https://www.imooc.com/article/22915) 
