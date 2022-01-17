@@ -101,17 +101,18 @@
 * **ArrayList和LinkedList的区别（源码级别）（字节跳动）** 
 * **描述 HashMap 的底层实现（远景智能/字节跳动/百度）**
 	* 解决哈希冲突
-		* JDK < 1.8 --> 数组+链表
-		* JDK >= 1.8 --> 数组+链表+红黑树，链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间
+	  * JDK < 1.8 --> 数组+链表
+	  * JDK >= 1.8 --> 数组+链表+红黑树，链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间
 	* 源码阅读  *`TODO`*
-		* get() / put() / resize()
-		* capacity / load factor (负载因子)（**这两个参数具体是什么，有什么用？不同设置有什么差异（星环/字节跳动）** ）
-			* “the initial capacity is simply the capacity at the time the hash table is created”（bucket数目）
-			* ”The load factor is a measure of how full the hash table is allowed to get before its capacity is automatically increased“（bucket填满程度的最大比例）
-			* “When the number of entries in the hash table exceeds the product of the load factor and the current capacity, the hash table is rehashed (that is, internal data structures are rebuilt) so that the hash table has approximately twice the number of buckets”
-			* “如果内存空间很多而又对时间效率要求很高，可以降低负载因子load factor的值；相反，如果内存空间紧张而对时间效率要求不高，可以增加负载因子loadFactor的值，这个值可以大于1”
-	*  [Java HashMap工作原理及实现](https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/) （基本参考）
-	*  [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html) （主要参考）
+	  * get() / put() / resize()
+	  * capacity / load factor (负载因子)（**这两个参数具体是什么，有什么用？不同设置有什么差异（星环/字节跳动）** ）
+	    * “the initial capacity is simply the capacity at the time the hash table is created”（bucket数目）
+	    * ”The load factor is a measure of how full the hash table is allowed to get before its capacity is automatically increased“（bucket填满程度的最大比例）
+	    * “When the number of entries in the hash table exceeds the product of the load factor and the current capacity, the hash table is rehashed (that is, internal data structures are rebuilt) so that the hash table has approximately twice the number of buckets”
+	    * “如果内存空间很多而又对时间效率要求很高，可以降低负载因子load factor的值；相反，如果内存空间紧张而对时间效率要求不高，可以增加负载因子loadFactor的值，这个值可以大于1”
+	* HashMap为什么不是线程安全的
+	* [Java HashMap工作原理及实现](https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/) （基本参考）
+	* [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html) （主要参考）
 	* [Class HashMap<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html) （Java 8 Docs）
 	* [Java源码分析：关于 HashMap 1.8 的重大更新](https://blog.csdn.net/carson_ho/article/details/79373134)（1.7 vs 1.8 详细比较）
 
@@ -251,10 +252,10 @@
 
 * **synchronized 和 ReentrantLock（Lock） 比较（字节跳动）**
   * synchronized 锁住的是括号里的对象，而不是代码
-  * 描述 synchronized 的底层实现（爱奇艺） *`TODO`*
+  * synchronized 的底层实现（爱奇艺） *`TODO`*
   * 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
   * ReentrantLock 源码阅读 *`TODO`*
-  	* 描述 AQS（AbstractQueuedSynchronizer）的作用（网易）（另一个问法为 ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？（星环））
+  	* 描述 AQS（AbstractQueuedSynchronizer）的作用（网易）（原始问法为 “ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？”（星环））
   * [Java线程同步：synchronized锁住的是代码还是对象](https://blog.csdn.net/xiao__gui/article/details/8188833) 
   * [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799) 
 
@@ -295,11 +296,10 @@
 	* MySQL中如何使用和实现悲观锁和乐观锁（Shopee）
 
 
-* **描述 Atomic 类的底层实现（美团）** *`TODO`*
+* **描述 Atomic 类的底层实现（美团）** 
 
 
-* **描述ThreadLocal 的实现（美团），什么情况会发生OOM（星环）** *`TODO`*
-
+* **描述ThreadLocal 的实现（美团），什么情况ThreadLocal会发生OOM（星环）** *`TODO`*
   * "它通常用于同一个线程内，跨类、跨方法传递数据"
   * [Java ThreadLocal](http://tutorials.jenkov.com/java-concurrency/threadlocal.html) 
   * [《码出高效》](https://book.douban.com/subject/30333948/)  7.5
@@ -356,13 +356,10 @@
 ### Async IO
 
 * [python_asyncio_learning](https://github.com/KrisCheng/python_asyncio_learning)
-* TBD
 
 
 
 ### Package Management
-
-* TBD
 
 
 
@@ -426,10 +423,7 @@
 
 
 * **kill掉一个进程（从指令输入开始），操作系统做了什么事情（字节跳动）**
-	* TBD
 * **分页&&分段存储（字节跳动）** 
-
-  * TBD
 * **如何判断内存泄漏（腾讯）**
 	* 因为长生命周期持有它的引用而导致不能被回收，这就是Java中内存泄漏的发生场景
 	* [Java内存泄漏分析和解决](https://www.jianshu.com/p/54b5da7c6816)
@@ -503,8 +497,6 @@
 * **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）** *`TODO`* 
   * [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
 * **一个本来很快的SQL突然效率变慢，如何排查原因（阿里）**
-
-  * TBD
 * **慢查询的优化思路（字节跳动）** 
 * **给定常用SQL语句，如何建立索引（Shopee）**
 
@@ -533,16 +525,10 @@
 
 * **MySQL索引不命中（索引失效）的可能原因及策略（美团/腾讯）**  *`TODO`* 
   * [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html) 
-  * TBD
 * **MySQL联合索引命中情景分析（美团） **
-
-  * TBD
 
 
 * **InnoDB的索引结构（字节跳动）** 
-
-  * TBD
-
 * **讲一下MySQL常见的数据库引擎（网易）**
   * [Mysql四种常见数据库引擎](https://yq.aliyun.com/articles/636314) 
 * **MySQL如何实现隔离级别的（如可重复读的实现原理）（拼多多/字节跳动）** *`TODO`*
@@ -555,8 +541,6 @@
 
 
 ### MongoDB
-
-* TBD
 
 
 
@@ -808,21 +792,15 @@
 
 ### Netty
 
-* TBD
-
 
 
 ## Microservice
-
-TBD
 
 
 
 ## Frontend
 
 ### Vue.js
-
-TBD
 
 
 
@@ -837,8 +815,6 @@ TBD
 ### AIDL通讯
 
 ### 回调
-
-TBD
 
 
 
