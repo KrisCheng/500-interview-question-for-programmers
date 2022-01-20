@@ -475,7 +475,7 @@
 	* 索引 --> 一种数据结构
 	* B+ 树做索引的优势
 		* 相较AVL, 红黑树等二叉树，这些查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远）
-		* 较B树（字节跳动）
+		* 较 B树 的优势（字节跳动）
 			* 相较于B树B+每个**非叶子**节点存储的关键字数更多，树的层级更少所以查询数据更快（层级更少）
 			* B+所有关键字数据地址都存在**叶子**节点上，所以每次查找的次数都相同所以查询速度要比B树更稳定（更稳定）
 			* B+树所有的**叶子**节点数据构成了一个有序链表，在查询大小区间（范围查询）的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高（天然具有排序）
@@ -494,7 +494,7 @@
 	* [聚集索引 百度百科](https://baike.baidu.com/item/%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95) 
 
 
-* **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）** *`TODO`* 
+* **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）** 
   * [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
 * **一个本来很快的SQL突然效率变慢，如何排查原因（阿里）**
 * **慢查询的优化思路（字节跳动）** 
@@ -506,6 +506,10 @@
 
 ### SQL语句
 
+* **SQL优化策略** 
+  * [SQL优化2020最全干货总结---MySQL](https://developer.aliyun.com/article/779151)
+  * [这大概是最全的sql优化方案了](https://zhuanlan.zhihu.com/p/48385127) 		
+
 * **各种join操作的区别（left, right, inner join）** 
   * [mysql join操作](https://www.cnblogs.com/ggjucheng/archive/2012/11/06/2757972.html)
 * **找出在表A中但不在表B中的记录（根据某一个共同的column）（PayPal）**
@@ -514,24 +518,18 @@
   * [What is the difference between HAVING and WHERE in SQL?](https://stackoverflow.com/questions/287474/what-is-the-difference-between-having-and-where-in-sql) 
 
 
-* **SQL优化策略**  *`TODO`* 
-	
-	* [这大概是最全的sql优化方案了](https://zhuanlan.zhihu.com/p/48385127) 
-	
-
-
 
 ### MySQL
 
-* **MySQL索引不命中（索引失效）的可能原因及策略（美团/腾讯）**  *`TODO`* 
+* **MySQL索引不命中（索引失效）的可能原因及策略（美团/腾讯）**  
   * [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html) 
 * **MySQL联合索引命中情景分析（美团） **
 
 
 * **InnoDB的索引结构（字节跳动）** 
-* **讲一下MySQL常见的数据库引擎（网易）**
+* **MySQL常见的数据库引擎（网易）**
   * [Mysql四种常见数据库引擎](https://yq.aliyun.com/articles/636314) 
-* **MySQL如何实现隔离级别的（如可重复读的实现原理）（拼多多/字节跳动）** *`TODO`*
+* **MySQL如何实现隔离级别的（如可重复读的实现原理）（拼多多/字节跳动）** 
   * MySQL Inno DB 默认隔离级别 --> 可重复读
   * MVCC（多版本并发控制）（Inno DB引擎实现）
   * [InnoDB---可重复读隔离级别的底层实现原理](https://blog.csdn.net/huanghanqian/article/details/79517480)
