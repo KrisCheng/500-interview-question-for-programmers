@@ -2,9 +2,15 @@
 
 ## 概述
 
-本 `Repository` 用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我 **真实碰到过且思考过**（大部分附具体面试公司），答案为我个人的理解和整理，不一定正确，欢迎指正（可以提 `Issues`，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
+对我而言，这是个人整理平时工作和面试中碰到的一些实际问题的一份索引（持续更新）；对你而言，这可以作为一份可参考的面试手册。
 
-供所有正在找工作的小伙伴们参考，如果觉得有帮助，请 `Star` ，善用 `Ctrl` + `F` :)。
+优势是这里罗列的基本都是大公司的实际面试题或者个人工作中的系统性输出，对准备面试有一定参考价值；
+
+劣势是当前还不够深入，很多问题你可能需要再看原始的文档（如果是以 **系统性学习** 为目的，尽可能远离 百度，’XXX速成‘ 之类的东西）或者源码才能获得更深的理解（当然我也会尽量整理一些链接附上）。
+
+模块间排序一般无特定意义，每个模块开头一般会写一句话小结，模块内主要按面试频次冒泡排序。
+
+如果觉得有帮助，请 `Star` ，善用 `Ctrl` + `F` :)。
 
 **TAGS** 
 
@@ -23,103 +29,82 @@
 
 ### 基础问题
 
-* **字符串**
-	* StringBuffer --> 线程安全 （使用 synchronized 关键字实现）
-	* StringBuilder --> 非线程安全
-	* 底层实现均为**可修改数组**（char, JDK 9 以后是byte数组）
-	* [第5讲 | String、StringBuffer、StringBuilder有什么区别？](https://time.geekbang.org/column/article/7349)
+这部分是一些Java的基础问题，面试一般由可由这些点切入，由浅入深。
 
 
 * **序列化（Serialization）和反序列化（小红书）**
-	* 序列化 --> 把**对象**转换为**字节序列**的过程称为对象的序列化
-	* 反序列化 --> 把字节序列恢复为对象的过程称为对象的反序列化
-	* [Java 序列化](https://www.runoob.com/java/java-serialization.html)（介绍）
-	* [Java对象的序列化（Serialization）和反序列化详解](https://blog.csdn.net/yaomingyang/article/details/79321939)（实例）
-	* [二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/) 
 
+  * [Java 序列化](https://www.runoob.com/java/java-serialization.html)（基本介绍）
+  * [二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/) （一道经典算法题）
 * **Java中父类和子类初始化顺序（小红书）**
-	* 优先级排序
-		* 1. 父类中静态成员变量 **和** 静态代码块
-		* 2. 子类中静态成员变量 **和** 静态代码块
-		* 3. 父类中普通成员变量 **和** 代码块，父类的构造函数
-		* 4. 子类中普通成员变量 **和** 代码块，子类的构造函数
-		* (其中 “和” 字两端按照代码先后顺序执行)
-	* [java中父类和子类初始化顺序](https://blog.csdn.net/yuxin6866/article/details/53107578) 
+  * [java中父类和子类初始化顺序](https://blog.csdn.net/yuxin6866/article/details/53107578) 
 
 
+* **描述 Java8 的新特性（星环）**
+  * 开放题，如 lambda 表达式，Stream 编程 等
+  * [What's New in JDK 8](https://www.oracle.com/java/technologies/javase/8-whats-new.html)
+  * [Stream (Java Platform SE 8 ) - Oracle Help Center](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html) 
+
+
+* **关键字** 
+  * ***finally***
+    * try-catch-finally 中包含 return 的情况分析（字节跳动）
+      * [Multiple returns: Which one sets the final return value?](https://stackoverflow.com/questions/2309964/multiple-returns-which-one-sets-the-final-return-value)
+      * “不要在 finally 代码块中使用 return 语句”（ [《码出高效》](https://book.douban.com/subject/30333948/)  5.2）
+  * ***static***
+    * the keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type
+    * [A Guide to the Static Keyword in Java](https://www.baeldung.com/java-static)
+* **字符串**
+  * 常见问题如 StringBuffer，StringBuilder 差别，进而扩展到如线程安全等相关问题
+  * [第5讲 | String、StringBuffer、StringBuilder有什么区别？](https://time.geekbang.org/column/article/7349)
 * **什么是反射 && 反射的具体应用**
-	* Java反射机制是在**运行状态中**，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性。这种 **动态获取的信息以及动态调用对象的方法的功能** 称为Java语言的反射机制
-	* 应用
-		* 框架设计的灵魂 --> 如：Spring 通过 XML 配置模式装载 Bean 的过程
-		* 使用JDBC连接数据库时使用 Class.forName() 通过反射加载数据库的驱动程序
-	* [Java基础之—反射（非常重要）](https://blog.csdn.net/sinat_38259539/article/details/71799078)（反射实例 *`TODO`*）
-	* [What is the difference between “Class.forName()” and “Class.forName().newInstance()”?](https://stackoverflow.com/questions/2092659/what-is-the-difference-between-class-forname-and-class-forname-newinstanc)（Class.forName(String) returns the Class object associated with the class or interface with the given string name && newInstance() creates a new instance of the class）
-
-
-* **描述 Java8 的新特性（星环）**  *`TODO`*
-	* lambda 表达式，以及使用 lambda 表达式的场景
-	* Stream
-
-
-* **一些关键字** 
-	* ***static***
-		* the keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type
-		* 在没有创建任何对象的前提下，仅仅通过类本身来调用 static 方法。这实际上正是 static 方法的主要用途
-		* [A Guide to the Static Keyword in Java](https://www.baeldung.com/java-static)
-	* ***finally***
-	  * try-catch-finally 中包含 return 的情况分析（字节跳动）
-	    * "finally块中的内容会先于try中的return语句执行，如果finally语句块中也有return语句的话，那么直接从finally中返回了"
-	  * “不要在 finally 代码块中使用 return 语句”（ [《码出高效》](https://book.douban.com/subject/30333948/)  5.2）
+  * 本题可从概念，使用，应用场景等几个方面考察，由浅入深
+  * [详解面试中常考的 Java 反射机制](https://zhuanlan.zhihu.com/p/86293659) （参考1）
+  * [Guide to Java Reflection](https://www.baeldung.com/java-reflection) （参考2）
 
 
 
 ### IO相关
 
-* **Java提供了哪些IO方式（或者描述IO）（拼多多/字节跳动）** *`TODO`*
+这部分深挖可以问得很难，可从IO模型开始，到Java中的IO实现，甚至到框架的实现。
 
+* **Java提供了哪些IO方式（拼多多/字节跳动）** 
   * 同步 / 异步 --> 关注的是消息通信机制（区别最大在于异步的话调用者不需要等待处理结果）
-
   * 阻塞 / 非阻塞 --> 关注的是程序在等待调用结果（消息，返回值）时的状态
-
-  * BIO / NIO（概念描述，网易）
-
-  * 描述Spring中的IO方式（字节跳动）
-
+* **描述常见的IO模型（小红书）**
+* **描述BIO / NIO（网易）** 
+* **描述Spring中的IO方式（字节跳动）** *`TODO`* 
   * [Java NIO Tutorial](http://tutorials.jenkov.com/java-nio/index.html) （教程  *`TODO`* ）
-
   * [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473) 
-
   * [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)（思想 + 实例 *`TODO`*）
-
   * [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 IO Docs *`TODO`*）
-
   * [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)（技术blog + 实例 *`TODO`*）
-
-  * select 和 epoll 的区别（字节跳动） *`TODO`* 
+* **select 和 epoll 的区别（字节跳动）**  *`TODO`* 
   * [select和epoll区别](https://www.jianshu.com/p/430141f95ddb) 
-
 
 
 
 ### 集合框架
 
-* **ArrayList和LinkedList的区别（源码级别）（字节跳动）** 
+这部分是面试常见八股，可以作为你是否有过一些源码阅读的基础。
+
 * **描述 HashMap 的底层实现（远景智能/字节跳动/百度）**
-	* 解决哈希冲突
-	  * JDK < 1.8 --> 数组+链表
-	  * JDK >= 1.8 --> 数组+链表+红黑树，链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间
-	* 源码阅读  *`TODO`*
-	  * get() / put() / resize()
-	  * capacity / load factor (负载因子)（**这两个参数具体是什么，有什么用？不同设置有什么差异（星环/字节跳动）** ）
-	    * “the initial capacity is simply the capacity at the time the hash table is created”（bucket数目）
-	    * ”The load factor is a measure of how full the hash table is allowed to get before its capacity is automatically increased“（bucket填满程度的最大比例）
-	    * “When the number of entries in the hash table exceeds the product of the load factor and the current capacity, the hash table is rehashed (that is, internal data structures are rebuilt) so that the hash table has approximately twice the number of buckets”
-	    * “如果内存空间很多而又对时间效率要求很高，可以降低负载因子load factor的值；相反，如果内存空间紧张而对时间效率要求不高，可以增加负载因子loadFactor的值，这个值可以大于1”
-	* HashMap为什么不是线程安全的
-	* [Java HashMap工作原理及实现](https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/) （基本参考）
-	* [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html) （主要参考）
-	* [Class HashMap<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html) （Java 8 Docs）
-	* [Java源码分析：关于 HashMap 1.8 的重大更新](https://blog.csdn.net/carson_ho/article/details/79373134)（1.7 vs 1.8 详细比较）
+  * 解决哈希冲突
+    * JDK < 1.8 --> 数组+链表
+    * JDK >= 1.8 --> 数组+链表+红黑树，链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间
+  * 源码阅读  *`TODO`*
+    * get() / put() / resize()
+    * capacity / load factor (负载因子)（**这两个参数具体是什么，有什么用？不同设置有什么差异（星环/字节跳动）** ）
+      * “the initial capacity is simply the capacity at the time the hash table is created”（bucket数目）
+      * ”The load factor is a measure of how full the hash table is allowed to get before its capacity is automatically increased“（bucket填满程度的最大比例）
+      * “When the number of entries in the hash table exceeds the product of the load factor and the current capacity, the hash table is rehashed (that is, internal data structures are rebuilt) so that the hash table has approximately twice the number of buckets”
+      * “如果内存空间很多而又对时间效率要求很高，可以降低负载因子load factor的值；相反，如果内存空间紧张而对时间效率要求不高，可以增加负载因子loadFactor的值，这个值可以大于1”
+  * HashMap为什么不是线程安全的
+  * [Java HashMap工作原理及实现](https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/) （基本参考）
+  * [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html) （主要参考）
+  * [Class HashMap<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html) （Java 8 Docs）
+  * [Java源码分析：关于 HashMap 1.8 的重大更新](https://blog.csdn.net/carson_ho/article/details/79373134)（1.7 vs 1.8 详细比较）
+* **ArrayList和LinkedList的区别（源码级别）（字节跳动）** 
 
 
 * **ConcurrentHashMap 实现原理，或者说它是怎么保证线程安全的（星环/字节跳动/阿里）** *`TODO`*
@@ -153,6 +138,8 @@
 
 
 ### JVM相关
+
+面试常见八股，深入可以涉及到JVM调优，OOM等相关内容。
 
 * **描述 Java 中的类加载过程（阿里/星环）**
 
@@ -242,6 +229,8 @@
 
 ### Java并发编程
 
+面试常见，如果没有海量并发经验的话（像我ORZ），一般会从概念到源码，问到你答不上为止。
+
 * **描述Java下的并发编程（阿里）**
 	* Java中实现并发编程的手段 --> 多线程
 	* 线程的生命周期（新建 / 就绪 / 运行 / 阻塞 / 死亡）（网易）
@@ -329,11 +318,10 @@
 
 ## Python
 
-### 基础
+由于国内Python的Web开发岗位较少，所以碰到的Python的实际面试问题不多，这里只罗列基本的面试问题（由于我有过Python Web开发经验，其实知道Python也有很多能问的东西）。
 
 
-* **Python如何实现真正的多线程（阿里/腾讯）**  *`TODO`*
-  * [Python 多线程](https://www.runoob.com/python/python-multithreading.html) 
+* **Python里如何实现真正的多线程（阿里/腾讯）**  *`TODO`*
 * **给一段Python代码，有哪些优化思路和策略（阿里）**   *`TODO`* 
 
 
@@ -341,12 +329,7 @@
 * **如何写一个程序计算一段Python代码的耗时（腾讯） **  *`TODO`* 
 
 
-
-### Pythonic
-
-
 * **实现一个lambda表达式（字节跳动）**
-  * 匿名函数，个人理解为一种语法糖
   * [Lambda 表达式有何用处？如何使用？](https://www.zhihu.com/question/20125256)
 * **用map/reduce实现数组求和（PayPal）**
 
@@ -360,12 +343,16 @@
 
 ### Async IO
 
+这是个人Sharing的整理，夹带私货。
+
 * [python_asyncio_learning](https://github.com/KrisCheng/python_asyncio_learning)
 
 
 
 
 ## 操作系统
+
+计算机的基础，八股重地，可以问得很深入（尤其字节跳动等非语言倾向公司）。
 
 * **进程/线程的概念和区别（字节跳动/拼多多）** 
   * 进程 --> 计算机中运行中的程序，具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位
@@ -469,8 +456,9 @@
 
 
 
-
 ### 索引
+
+面试常见八股（我真的怀疑有多少面试官实际有做过大规模的索引性能测试）。
 
 * **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（字节跳动/腾讯/美团/星环/网易）**
 	* 索引 --> 一种数据结构
@@ -507,6 +495,8 @@
 
 ### SQL语句
 
+一些基本的SQL问题，有时也会碰到给定基本需求的写SQL题。
+
 * **SQL优化策略** 
   * [SQL优化2020最全干货总结---MySQL](https://developer.aliyun.com/article/779151)
   * [这大概是最全的sql优化方案了](https://zhuanlan.zhihu.com/p/48385127) 		
@@ -521,6 +511,8 @@
 
 
 ### MySQL
+
+国内互联网公司一般会从SQL问题过渡到MySQL问题（技术栈还是太单一了啊）。
 
 * **MySQL索引不命中（索引失效）的可能原因及策略（美团/腾讯）**  
   * [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html) 
@@ -541,25 +533,29 @@
 
 ### MongoDB
 
+个人工作项目使用，但由于国内不太常用，没怎么碰到过实际面试题。
+
 
 
 ## 计算机网络
 
+八股重地，但其实可以问得非常深入，这是Web的基础。
+
 * **描述三次握手四次挥手以及原因，每个包具体传递什么信息（阿里/腾讯/字节跳动）** 
-	* 三次握手
-		* 发送端 --> SYN
-		* 接收端 --> [SYN/ACK]
-		* 发送端 --> ACK
-		* SYN（Synchronize Sequence Number） 是 TCP/IP 建立连接时使用的握手信号，置1表示有效
-		* 需要三次握手原因：信息对等 && 防止超时（[《码出高效》](https://book.douban.com/subject/30333948/)  第一章）
-		* 接收端回传SYN --> 告诉发送端我接收到的信息确实就是你所发送的信号
-	* 四次挥手
-		* 发送端 --> FIN (发送端进入 FIN-WAIT-1 （终止等待1）状态) 
-		* 接收端 --> ACK (发送端收到接收端的确认请求后，进入 FIN-WAIT-2 （终止等待2）状态) 
-		* 接收端 --> FIN（接收端进入半关闭状态 CLOST_WAIT）
-		* 发送端 --> ACK（发送后，发送端进入 TIME-WAIT 状态）
-	* [TCP的三次握手与四次挥手（详解+动图）](https://blog.csdn.net/qzcsu/article/details/72861891)
-	* [“三次握手，四次挥手”你真的懂吗？](https://zhuanlan.zhihu.com/p/53374516) 
+  * 三次握手
+  	* 发送端 --> SYN
+  	* 接收端 --> [SYN/ACK]
+  	* 发送端 --> ACK
+  	* SYN（Synchronize Sequence Number） 是 TCP/IP 建立连接时使用的握手信号，置1表示有效
+  	* 需要三次握手原因：信息对等 && 防止超时（[《码出高效》](https://book.douban.com/subject/30333948/)  第一章）
+  	* 接收端回传SYN --> 告诉发送端我接收到的信息确实就是你所发送的信号
+  * 四次挥手
+  	* 发送端 --> FIN (发送端进入 FIN-WAIT-1 （终止等待1）状态) 
+  	* 接收端 --> ACK (发送端收到接收端的确认请求后，进入 FIN-WAIT-2 （终止等待2）状态) 
+  	* 接收端 --> FIN（接收端进入半关闭状态 CLOST_WAIT）
+  	* 发送端 --> ACK（发送后，发送端进入 TIME-WAIT 状态）
+  * [TCP的三次握手与四次挥手（详解+动图）](https://blog.csdn.net/qzcsu/article/details/72861891)
+  * [“三次握手，四次挥手”你真的懂吗？](https://zhuanlan.zhihu.com/p/53374516) 
 
 
 * **三次握手中SYN/ACK包的具体内容（腾讯）**
@@ -647,13 +643,14 @@
 
 ## Linux指令
 
-* cpu load 和 cpu utilization的区别（阿里）
+这部分可以平时工作做一些刻意练习，更多是个意识问题。
 
+* cpu load 和 cpu utilization的区别（阿里）
 * top，load 指令，free 中 cached和buffers的区别（阿里）
 * 找出某目录下文件中带电子邮箱的文件（爱奇艺）
 * 杀死所有Java进程
-	* `ps -ef | grep java | grep -v grep | awk '{print $2}' | xargs kill -9`
-	* [Linux 杀掉所有Java进程](https://blog.csdn.net/u011517841/article/details/79781830) 
+  * `ps -ef | grep java | grep -v grep | awk '{print $2}' | xargs kill -9`
+  * [Linux 杀掉所有Java进程](https://blog.csdn.net/u011517841/article/details/79781830) 
 * 干掉占用某端口的服务（网易）
   * [linux杀死占用某端口的所有进程](https://blog.csdn.net/lissdy/article/details/70256032)
 * 打印一个文本中出现次数前十的数据（腾讯）
@@ -661,7 +658,9 @@
 
 
 
-## 框架&中间件
+## 框架
+
+该部分罗列的都差不多是后端工程师的必修课了。
 
 ### Spring & SpringBoot
 
@@ -791,51 +790,41 @@
 
 ### Netty
 
-
-
-## Microservice
-
-
-
-## Frontend
-
-### Vue.js
+TBD
 
 
 
-## Android
+## Android && Frontend
 
-### 关键类
+个人有一些Android和 前端 的经验，但无奈没有深入了，这里简单提一嘴。
 
-### App生命周期
+对于前端，一般会有 打包过程，框架（Vue.js），JS语法（回调，异步）等问题。
 
-### 主要组件
-
-### AIDL通讯
-
-### 回调
+对于Android，会涉及 关键类，App生命周期，主要组件，AIDL通讯，回调 等内容。
 
 
 
 
 ## 其他
 
+本部分罗列一些计算机基本问题，一般都比较简单。
+
 * **浅拷贝 & 深拷贝（字节跳动）**
-	* 浅拷贝 --> 对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，**没有真实的创建一个新的对象**
-	* 深拷贝 --> 对基本数据类型进行值传递，对引用数据类型，**创建一个新的对象**，并复制其内容
-	* [细说 Java 的深拷贝和浅拷贝](https://segmentfault.com/a/1190000010648514) 
-	* [8.6: Pass by Value vs. Pass by Reference - Processing Tutorial](https://www.youtube.com/watch?v=hNR6fsksEu8)
+  * 浅拷贝 --> 对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，**没有真实的创建一个新的对象**
+  * 深拷贝 --> 对基本数据类型进行值传递，对引用数据类型，**创建一个新的对象**，并复制其内容
+  * [细说 Java 的深拷贝和浅拷贝](https://segmentfault.com/a/1190000010648514) 
+  * [8.6: Pass by Value vs. Pass by Reference - Processing Tutorial](https://www.youtube.com/watch?v=hNR6fsksEu8)
 * **值传递 & 引用传递**
   * Java中方法参数传递方式是按**值传递**
   * 如果参数是基本类型，传递的是基本类型的字面量值的拷贝
   * 如果参数是引用类型，传递的是该参量所引用的对象在堆中地址值的拷贝
   * [什么是值传递和引用传递？](https://www.zhihu.com/question/31203609/answer/50992895) 
 * **git rebase 和 git merge 有什么区别（小红书/野村证券/PayPal）**
-	* 同：都是用于从一个分支获取并且合并到当前分支
-	* 异：rebase --> 会合并之前的commit历史（带有破坏性的修改 commit 历史的命令）
-	* 一个干净的，没有merge commit的线性历史树 --> git rebase
-	* 保留完整的历史记录，并且想要避免重写commit history的风险 --> git merge
-	* [git rebase 和 git merge 的区别](https://www.jianshu.com/p/f23f72251abc) 
+  * 同：都是用于从一个分支获取并且合并到当前分支
+  * 异：rebase --> 会合并之前的commit历史（带有破坏性的修改 commit 历史的命令）
+  * 一个干净的，没有merge commit的线性历史树 --> git rebase
+  * 保留完整的历史记录，并且想要避免重写commit history的风险 --> git merge
+  * [git rebase 和 git merge 的区别](https://www.jianshu.com/p/f23f72251abc) 
 
 
 * **git fetch 和 git pull 有什么区别（PayPal）**
