@@ -2,29 +2,35 @@
 
 ## 概述
 
-本 `Repository` 用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我**真实碰到过且思考过**（大部分附具体面试公司），答案为我个人的理解和整理，不一定正确（标记 *`TODO`* 为还没来得及弄或自己也没搞懂 Orz...），欢迎指正（可以提 `Issues`，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
+本 `Repository` 用于记录个人平时面试和学习时碰到的一些有价值的问题，所有问题均为我 **真实碰到过且思考过**（大部分附具体面试公司），答案为我个人的理解和整理，不一定正确，欢迎指正（可以提 `Issues`，亦可邮件交流 [*kris.dacpc@gmail.com*](mailto:kris.dacpc@gmail.com)）。
 
 供所有正在找工作的小伙伴们参考，如果觉得有帮助，请 `Star` ，善用 `Ctrl` + `F` :)。
+
+**TAGS** 
+
+*`HARD`* --> 一般需要有实操经验才能答得比较好
+
+*`TODO`* --> 内容待进一步优化
 
 ## 算法和设计
 
 
-* 详见 [科学刷题指北](科学刷题指北.md).
+* 详见 [科学刷题指北](科学刷题指北.md)
 
 
 
 ## Java
 
-### 基础
+### 基础问题
 
-* **字符串相关问题**
+* **字符串**
 	* StringBuffer --> 线程安全 （使用 synchronized 关键字实现）
 	* StringBuilder --> 非线程安全
 	* 底层实现均为**可修改数组**（char, JDK 9 以后是byte数组）
 	* [第5讲 | String、StringBuffer、StringBuilder有什么区别？](https://time.geekbang.org/column/article/7349)
 
 
-* **什么是序列化（Serialization）和反序列化（小红书）**
+* **序列化（Serialization）和反序列化（小红书）**
 	* 序列化 --> 把**对象**转换为**字节序列**的过程称为对象的序列化
 	* 反序列化 --> 把字节序列恢复为对象的过程称为对象的反序列化
 	* [Java 序列化](https://www.runoob.com/java/java-serialization.html)（介绍）
@@ -55,12 +61,11 @@
 	* Stream
 
 
-* **关键字** 
+* **一些关键字** 
 	* ***static***
 		* the keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type
 		* 在没有创建任何对象的前提下，仅仅通过类本身来调用 static 方法。这实际上正是 static 方法的主要用途
 		* [A Guide to the Static Keyword in Java](https://www.baeldung.com/java-static)
-	* ***final*** 
 	* ***finally***
 	  * try-catch-finally 中包含 return 的情况分析（字节跳动）
 	    * "finally块中的内容会先于try中的return语句执行，如果finally语句块中也有return语句的话，那么直接从finally中返回了"
@@ -356,10 +361,6 @@
 ### Async IO
 
 * [python_asyncio_learning](https://github.com/KrisCheng/python_asyncio_learning)
-
-
-
-### Package Management
 
 
 
