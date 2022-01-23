@@ -29,7 +29,7 @@
 
 ### 基础问题
 
-这部分是一些Java的基础问题，面试一般由可由这些点切入，由浅入深。
+一些Java的基础问题，面试一般由可由这些点切入，由浅入深。
 
 
 * **序列化（Serialization）和反序列化（小红书）**
@@ -66,20 +66,19 @@
 
 ### IO相关
 
-这部分深挖可以问得很难，可从IO模型开始，到Java中的IO实现，甚至到框架的实现。
+这部分深挖可以问得很难，可从IO模型开始，到Java中的IO实现，甚至到框架的实现。*`TODO`* *`HARD`* 
 
-* **Java提供了哪些IO方式（拼多多/字节跳动）** 
-  * 同步 / 异步 --> 关注的是消息通信机制（区别最大在于异步的话调用者不需要等待处理结果）
-  * 阻塞 / 非阻塞 --> 关注的是程序在等待调用结果（消息，返回值）时的状态
-* **描述常见的IO模型（小红书）**
 * **描述BIO / NIO（网易）** 
-* **描述Spring中的IO方式（字节跳动）** *`TODO`* 
-  * [Java NIO Tutorial](http://tutorials.jenkov.com/java-nio/index.html) （教程  *`TODO`* ）
+  * [The difference between BIO and NIO, AIO](https://www.programmersought.com/article/10551850908/) （参考1）
   * [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473) 
-  * [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)（思想 + 实例 *`TODO`*）
-  * [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 IO Docs *`TODO`*）
-  * [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)（技术blog + 实例 *`TODO`*）
-* **select 和 epoll 的区别（字节跳动）**  *`TODO`* 
+* **描述常见的IO模型（小红书）**
+* **Java提供了哪些IO方式（拼多多/字节跳动）** 
+  * [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)（技术blog + 实例）
+  * [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)
+  * [Java NIO Tutorial](http://tutorials.jenkov.com/java-nio/index.html) （一份实操教程）
+  * [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 Docs）
+* **描述Spring中的IO方式（字节跳动）**
+* **select 和 epoll 的区别（字节跳动）**  
   * [select和epoll区别](https://www.jianshu.com/p/430141f95ddb) 
 
 
@@ -89,49 +88,29 @@
 这部分是面试常见八股，可以作为你是否有过一些源码阅读的基础。
 
 * **描述 HashMap 的底层实现（远景智能/字节跳动/百度）**
-  * 解决哈希冲突
-    * JDK < 1.8 --> 数组+链表
-    * JDK >= 1.8 --> 数组+链表+红黑树，链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间
-  * 源码阅读  *`TODO`*
-    * get() / put() / resize()
-    * capacity / load factor (负载因子)（**这两个参数具体是什么，有什么用？不同设置有什么差异（星环/字节跳动）** ）
-      * “the initial capacity is simply the capacity at the time the hash table is created”（bucket数目）
-      * ”The load factor is a measure of how full the hash table is allowed to get before its capacity is automatically increased“（bucket填满程度的最大比例）
-      * “When the number of entries in the hash table exceeds the product of the load factor and the current capacity, the hash table is rehashed (that is, internal data structures are rebuilt) so that the hash table has approximately twice the number of buckets”
-      * “如果内存空间很多而又对时间效率要求很高，可以降低负载因子load factor的值；相反，如果内存空间紧张而对时间效率要求不高，可以增加负载因子loadFactor的值，这个值可以大于1”
-  * HashMap为什么不是线程安全的
+  * 一般可以从基本方法，capacity / load factor 作用及配置，如何解决哈希冲突，为什么HashMap不是线程安全的等方面展开。
   * [Java HashMap工作原理及实现](https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/) （基本参考）
   * [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html) （主要参考）
   * [Class HashMap<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html) （Java 8 Docs）
   * [Java源码分析：关于 HashMap 1.8 的重大更新](https://blog.csdn.net/carson_ho/article/details/79373134)（1.7 vs 1.8 详细比较）
-* **ArrayList和LinkedList的区别（源码级别）（字节跳动）** 
 
 
-* **ConcurrentHashMap 实现原理，或者说它是怎么保证线程安全的（星环/字节跳动/阿里）** *`TODO`*
-	* HashMap `resize()` 在多线程环境下可能形成环形链表，从而导致死循环
-	* JDK1.7 --> 分段锁（ Segment 对象，继承自 ReentrantLock ）+ HashEntry
-	* JDK1.8 --> CAS + synchronized 保证并发安全性
-	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)（面试大全  *`TODO`*）
+* **ConcurrentHashMap 实现原理，或者说它是怎么保证线程安全的（星环/字节跳动/阿里）**
+	
+	* 一般是上一个提问的进阶提问。
+	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)
 	* [深入浅出ConcurrentHashMap1.8](https://www.jianshu.com/p/c0642afe03e0)（1.8版本的详细解释）
 	* [老生常谈，HashMap的死循环](https://juejin.im/post/5a66a08d5188253dc3321da0)（具体分析 非线程安全带来的无限循环占用 CPU100% 问题）
+	* [ConcurrentHashMap in Java](https://www.geeksforgeeks.org/concurrenthashmap-in-java/)
+	* [A Guide to ConcurrentMap](https://www.baeldung.com/java-concurrent-map)
+	
 
 
 * **HashMap 和 TreeMap 的区别和应用场景（PayPal/依图）**
-	* HashMap 通过 hashcode 对其内容进行快速查找，而 TreeMap 中所有的元素都保持着某种固定的顺序，需要得到一个有序的结果你就应该使用 TreeMap，HashMap中元素的排列顺序是不固定的
-	* HashMap 允许使用 null 值和 null 键，而 TreeMap 不可以
-	* 源码实现
-		* HashMap --> HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体 / 如果追加节点后，链表数量 >= 8，则转化为红黑树
-		* TreeMap --> 红黑树
-	* HashMap 非线程安全 && TreeMap 非线程安全
-	* [HashMap和TreeMap区别详解以及底层实现](https://blog.csdn.net/xlgen157387/article/details/47907721)（概念+比较）
-	* [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？ ](https://time.geekbang.org/column/article/8053) （概念+源码分析） 
-
+  * [HashMap和TreeMap区别详解以及底层实现](https://blog.csdn.net/xlgen157387/article/details/47907721)（概念+比较）
+  * [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？ ](https://time.geekbang.org/column/article/8053) （概念+源码分析） 
+* **ArrayList和LinkedList的区别（源码级别）（字节跳动）** 
 * **HashSet 如何判断重复元素（小红书）**
-  * 首先会调用 Object 的 `hashCode()` 方法判 hashCode 是否已经存在，如不存在则直接插入元素
-  * 如果已存在则调用 Object 对象的 `equals()` 方法判断是否返回true， 如果为true则说明元素已经存在，如为false则插入元素
-  * Java对象的 `equals()` 方法和 `hashCode()`  方法规定：
-    * 相等（相同）的对象必须具有相等的哈希码（或者散列码）
-    * 如果两个对象的hashCode相同，它们并不一定相同
   * [HashSet重复元素判断](https://itfafa.iteye.com/blog/1698690) 
   * [Java提高篇——equals()与hashCode()方法详解](https://www.cnblogs.com/Qian123/p/5703507.html) 
 
@@ -141,63 +120,60 @@
 
 面试常见八股，深入可以涉及到JVM调优，OOM等相关内容。
 
-* **描述 Java 中的类加载过程（阿里/星环）**
+* **描述Java的内存模型（阿里/美团/网易）** 
 
-  * 主要有 加载（Loading） --> 链接（Linking） --> 初始化（Initializing）三个步骤
-  * 加载
-    * 将字节码数据从不同的数据源读取到 JVM 中，并映射为 JVM 认可的数据结构（Class对象），用户可以自定义类加载器（用户参与），实现类加载过程
-  * 链接 --> 把原始的类定义信息平滑地转化到JVM运行的过程中，细分为：
-    * 验证（Verification）
-      * 确保Class文件的字节流中包含的信息符合JVM的全部约束要求，保证这些信息被当做代码后不会危害虚拟机自身的安全
-    * 准备（Preparation）
-      * 正式为类变量分配内存并设置类变量初始值的阶段
-    * 解析（Resolution）
-      * 虚拟机将常量池内的符号引用替换为直接引用的过程（直接引用是可以直接指向目标的指针、相对偏移量或者是一个能间接定位到目标的句柄）
-  * 初始化（Initializing）
-    * 真正执行类中定义的 Java 程序代码(字节码)，初始化阶段就是执行类构造器  <clinit>() 方法（Javac编译器的自动生成物）的过程。 （《深入理解Java虚拟机》第三版 P277）
-  * 双亲委派模型（Parents Delegation Model，宜译作“溯源委派加载模型”（[《码出高效》](https://book.douban.com/subject/30333948/) P119））
-    * 如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载都是如此，因此所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请求时，子加载器才会尝试自己去完成加载
-    * 好处 --> Java中的类随着它的加载器一起具备了一种带有优先级的层次关系，避免类的重复加载
-    * 实现 
-      * 1.检查请求加载的类型是否已经被加载过，没有则调用父加载器的 loadClass() 方法；
-      * 2.若父加载器为空则默认使用启动类加载器作为附加载器；
-      * 3.加入父类加载器加载失败，抛出ClassNotFoundException，才调用自己的 findClass() 方法尝试进行加载
-    * 为什么要用双亲委派模型（阿里）*`TODO`* 
-  * [类加载过程](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/类加载过程.md)（基本过程解释）
+  * 可回答JVM内存区域划分，我一般从线程私有和线程共享两个方面回答，水平一般的（自己也没怎么用过的）面试官听完一般也就没下文了。
 
-  * [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
-  * [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs *`TODO`* ）
-  * 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制
+  * * 程序计数器（PC, Program Counter Register） --> 它的作用可以看做是当前线程所执行的字节码的行号指示器
 
-* **描述 Java 中的类加载机制（星环）**
+    * 虚拟机栈（Virtual Machine Stack） --> 保存一个个**栈帧（Stack Frame）**，对应着一次次的 Java **方法调用** 
 
-  * Java虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这个过程被称作虚拟机的类加载机制（《深入理解Java虚拟机》第三版 P262）
+    * 本地方法栈（Native Method Stack） --> 和虚拟机栈类似，区别为虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈为虚拟机使用到的Native方法服务
 
-* **描述Java内存模型（阿里/美团/网易）**  *`TODO`* 
+       ⬆️（线程私有）--- （线程共享） ⬇️ 
 
-  * JVM内存区域划分 
-  	* 程序计数器（PC, Program Counter Register） --> 它的作用可以看做是当前线程所执行的字节码的行号指示器
-  	* 虚拟机栈（Virtual Machine Stack） --> 保存一个个**栈帧（Stack Frame）**，对应着一次次的 Java **方法调用**
-  	* 本地方法栈（Native Method Stack） --> 和虚拟机栈类似，区别为虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈为虚拟机使用到的Native方法服务
-  	
-  		⬆️（线程私有）--- （线程共享） ⬇️
-  	
-  	* 堆（Heap） --> 虚拟机管理的内存中最大的一块，所有线程共享的内存区域，几乎所有的 **对象实例** 都在这里分配内存
-  	* 方法区（Method Area） --> 所有线程共享的一块内存区域，用于存储所谓的元（Meta）数据，如类结构信息，以及对应的运行时常量池、字段、方法代码等
-  	* 运行时常量池（Run-Time Constant Pool） --> 属于方法区的一部分，存放各种常量信息
-  	
+    * 堆（Heap） --> 虚拟机管理的内存中最大的一块，所有线程共享的内存区域，几乎所有的 **对象实例** 都在这里分配内存
+
+    * 方法区（Method Area） --> 所有线程共享的一块内存区域，用于存储所谓的元（Meta）数据，如类结构信息，以及对应的运行时常量池、字段、方法代码等 
+    * 运行时常量池（Run-Time Constant Pool） --> 属于方法区的一部分，存放各种常量信息
+
   * [第25讲 | 谈谈JVM内存区域的划分，哪些区域可能发生OutOfMemoryError?](https://time.geekbang.org/column/article/10192)
 
-  * [Java 内存区域详解](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F.md)
+  * [Java内存模型（JMM）总结](https://zhuanlan.zhihu.com/p/29881777)
 
   * [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html)（官方 Docs *`TODO`* ）
 
-* **如何自定义类加载器** 
+* **描述 Java 中的类加载过程（阿里/星环）**
+  * 这部分可以答类加载的步骤，每个步骤的具体行为。简单总结，
+    * 加载（Loading） --> 链接（Linking） --> 初始化（Initializing）
+    * 加载
+      * 将字节码数据从不同的数据源读取到 JVM 中，并映射为 JVM 认可的数据结构（Class对象），用户可以自定义类加载器（用户参与），实现类加载过程
+    * 链接 --> 把原始的类定义信息平滑地转化到JVM运行的过程中，细分为：
+      * 验证（Verification）
+        * 确保Class文件的字节流中包含的信息符合JVM的全部约束要求，保证这些信息被当做代码后不会危害虚拟机自身的安全
+      * 准备（Preparation）
+        * 正式为类变量分配内存并设置类变量初始值的阶段
+      * 解析（Resolution）
+        * 虚拟机将常量池内的符号引用替换为直接引用的过程（直接引用是可以直接指向目标的指针、相对偏移量或者是一个能间接定位到目标的句柄）
+    * 初始化（Initializing）
+      * 真正执行类中定义的 Java 程序代码(字节码)，初始化阶段就是执行类构造器  <clinit>() 方法（Javac编译器的自动生成物）的过程。 （《深入理解Java虚拟机》第三版 P277）
 
-  * [JVM——自定义类加载器](https://blog.csdn.net/SEU_Calvin/article/details/52315125) 
+  * 一般会继续追问到Parents Delegation Model（宜译作“溯源委派加载模型”（[《码出高效》](https://book.douban.com/subject/30333948/) P119）
+    * 概念，好处，实现等
+    * 如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载都是如此，因此所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请求时，子加载器才会尝试自己去完成加载
+    * 好处 --> Java中的类随着它的加载器一起具备了一种带有优先级的层次关系，避免类的重复加载
+    * 实现
+    * 1. 检查请求加载的类型是否已经被加载过，没有则调用父加载器的 loadClass() 方法；
+      2. 若父加载器为空则默认使用启动类加载器作为附加载器；
+      3. 加入父类加载器加载失败，抛出ClassNotFoundException，才调用自己的 findClass() 方法尝试进行加载。
+    * 为什么要用双亲委派模型，有没有别的实现，或者Java为什么要这么设计（阿里）*`TODO`* 
 
-* **GC（百度/美团/soul）**
+  * [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
+  * [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs）
+  * 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制
 
+* **描述GC（百度/美团/soul）**
+  * 一般八股回答即可，真正有实战的面试官可能会继续追问调优策略。
   * 对象存活判断
     * 引用计数（Python 的 GC），无法解决对象相互循环引用的问题，Java中没有使用（Python GC有应用）
     * 可达性分析（GC Roots --> 虚拟机栈和本地方法栈中正在引用的对象、静态属性引用的对象和常量）
@@ -208,11 +184,18 @@
     * 分代收集算法 --> 根据对象存活周期的不同将内存分为几块 （eg: 新生代/老生代）
   * 频繁的 Full GC 怎么排查（阿里）
   * 《深入理解Java虚拟机》第三版 第3章
+  * [Garbage Collection in Java – What is GC and How it Works in the JVM](https://www.freecodecamp.org/news/garbage-collection-in-java-what-is-gc-and-how-it-works-in-the-jvm/)
+  * [Java Garbage Collection Basics](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html) (Oracle Guides)
   * [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
-  * [JVM 垃圾回收](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md) 
+  * [咱们从头到尾说一次 Java 垃圾回收](https://mp.weixin.qq.com/s/aA1eDYIUHuIfigTw2ffouw)
+
+* **描述 Java 中的类加载机制（星环）**
+  * Java虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这个过程被称作虚拟机的类加载机制（《深入理解Java虚拟机》第三版 P262）
+* **如何自定义类加载器** 
+  * [JVM——自定义类加载器](https://blog.csdn.net/SEU_Calvin/article/details/52315125) 
 
 
-* **描述JVM中常见的垃圾回收器，如CMS，以及JVM调优思路（美团）** *`TODO`* 
+* **描述JVM中常见的垃圾回收器，如CMS，以及JVM调优思路（美团）** 
 	* [一文了解JVM全部垃圾回收器，从Serial到ZGC](https://juejin.im/post/5bade237e51d450ea401fd71)
 	* [第27讲 | Java常见的垃圾收集器有哪些？](https://time.geekbang.org/column/article/10513)
 	* [《码出高效》](https://book.douban.com/subject/30333948/)  P134~P138
@@ -229,7 +212,7 @@
 
 ### Java并发编程
 
-面试常见，如果没有海量并发经验的话（像我ORZ），一般会从概念到源码，问到你答不上为止。
+面试常见，如果没有海量并发经验的话（像我Orz），一般会从概念到源码，问到你答不上为止。
 
 * **描述Java下的并发编程（阿里）**
 	* Java中实现并发编程的手段 --> 多线程
@@ -318,7 +301,7 @@
 
 ## Python
 
-由于国内Python的Web开发岗位较少，所以碰到的Python的实际面试问题不多，这里只罗列基本的面试问题（由于我有过Python Web开发经验，其实知道Python也有很多能问的东西）。
+由于国内Python的Web开发岗位较少，所以碰到的Python的实际面试问题不多，这里只罗列基本的面试问题（由于我有过Python Web开发经验，其实Python也有很多能问的东西）。
 
 
 * **Python里如何实现真正的多线程（阿里/腾讯）**  *`TODO`*
