@@ -8,7 +8,7 @@
 
 劣势是当前还不够深入，很多问题你可能需要再看原始的文档（如果是以 **系统性学习** 为目的，尽可能远离 百度，’XXX速成‘ 之类的东西）或者源码才能获得更深的理解（当然我也会尽量整理一些链接附上）。
 
-模块间排序一般无特定意义（每个模块开头一般会写一句话小结），模块内主要按面试频次冒泡排序。
+模块间排序一般无特定意义（每个模块开头一般会写一句话小结），模块内主要按面试频次排序。
 
 如果觉得有帮助，请 `Star` ，善用 `Ctrl` + `F` :)。
 
@@ -29,7 +29,7 @@
 
 ### 基础问题
 
-一些Java的基础问题，面试一般由可由这些点切入，由浅入深。
+（一些Java的基础问题，面试一般由可由这些点切入，由浅入深。）
 
 
 * **序列化（Serialization）和反序列化（小红书）**
@@ -66,7 +66,7 @@
 
 ### IO相关
 
-这部分深挖可以问得很难，可从IO模型开始，到Java中的IO实现，甚至到框架的实现。*`TODO`* *`HARD`* 
+（这部分深挖可以问得很难，可从IO模型开始，到Java中的IO实现，甚至到框架的实现。*`TODO`* *`HARD`* ）
 
 * **描述BIO / NIO（网易）** 
   * [The difference between BIO and NIO, AIO](https://www.programmersought.com/article/10551850908/) （参考1）
@@ -85,7 +85,7 @@
 
 ### 集合框架
 
-这部分是面试常见八股，可以作为你是否有过一些源码阅读的基础。
+（这部分是面试常见八股，可以作为你是否有过一些源码阅读的基础。）
 
 * **描述 HashMap 的底层实现（远景智能/字节跳动/百度）**
   * 一般可以从基本方法，capacity / load factor 作用及配置，如何解决哈希冲突，为什么HashMap不是线程安全的等方面展开。
@@ -191,8 +191,6 @@
 
 * **描述 Java 中的类加载机制（星环）**
   * Java虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这个过程被称作虚拟机的类加载机制（《深入理解Java虚拟机》第三版 P262）
-* **如何自定义类加载器** 
-  * [JVM——自定义类加载器](https://blog.csdn.net/SEU_Calvin/article/details/52315125) 
 
 
 * **描述JVM中常见的垃圾回收器，如CMS，以及JVM调优思路（美团）** 
@@ -202,17 +200,24 @@
 
 
 * **Java中什么时候会发生OOM（华为）** 
-  
   * 除了程序计数器，虚拟机内存的其他几个运行时区域都哟与发生OOM异常的可能
   * 《深入理解Java虚拟机》第三版 2.4
   * [Java内存溢出(OOM)异常完全指南](https://www.jianshu.com/p/2fdee831ed03) 
 * **NoClassDefFoundError和ClassNotFoundException的场景和解决办法（星环）**
+* **如何判断内存泄漏（腾讯）**
+  * 因为长生命周期持有它的引用而导致不能被回收，这就是Java中内存泄漏的发生场景
+  * [Java内存泄漏分析和解决](https://www.jianshu.com/p/54b5da7c6816)
+* **CPU使用率突然升高如何排查（soul）** 
+
+  * 这个其实是想问JVM相关的内容
+* **如何自定义类加载器** 
+  * [JVM——自定义类加载器](https://blog.csdn.net/SEU_Calvin/article/details/52315125) 
 
 
 
 ### Java并发编程
 
-面试常见，如果没有海量并发经验的话（像我Orz），一般会从概念到源码，问到你答不上为止。
+（面试常见，如果没有海量并发经验的话（像我Orz），一般会从概念到源码，问到你答不上为止。）
 
 * **描述Java下的并发编程（阿里）**
 	* Java中实现并发编程的手段 --> 多线程
@@ -227,40 +232,47 @@
 	* [Java 多线程编程](https://www.runoob.com/java/java-multithreading.html) （生命周期）
 
 
-* **synchronized 和 ReentrantLock（Lock） 比较（字节跳动）**
-  * synchronized 锁住的是括号里的对象，而不是代码
-  * synchronized 的底层实现（爱奇艺） *`TODO`*
+* **synchronized 和 volatile（字节跳动/阿里/网易/爱奇艺）**
+  * synchronized 一般会问使用，底层实现等
+  * volatile 一般会问实现，可见性，指令重排等
+    * 只能用于变量（is used to mark a Java variable as "being stored in main memory"）
+    * 保证变量的可见性（指示 JVM，这个变量是不稳定的，每次使用它都到主存中进行读取） && 防止指令重排序
+    * 对一个 volatile 变量的写操作， Happens-Before 后续对这个 volatile 变量的读操作
+  * [Difference Between Atomic, Volatile and Synchronized in Java](https://www.geeksforgeeks.org/difference-between-atomic-volatile-and-synchronized-in-java/)（概述）
+  * [Java Volatile Keyword](http://tutorials.jenkov.com/java-concurrency/volatile.html) （volatile tutorial）
+  * [synchronized 实现原理](https://xiaomi-info.github.io/2020/03/24/synchronized/)
+
+
+* **ReentrantLock 源码阅读**
+
   * 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
-  * ReentrantLock 源码阅读 *`TODO`*
-  	* 描述 AQS（AbstractQueuedSynchronizer）的作用（网易）（原始问法为 “ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？”（星环））
-  * [Java线程同步：synchronized锁住的是代码还是对象](https://blog.csdn.net/xiao__gui/article/details/8188833) 
-  * [第15讲 | synchronized和ReentrantLock有什么区别呢？](https://time.geekbang.org/column/article/8799) 
+  * 描述 AQS（AbstractQueuedSynchronizer）的作用（网易/小红书）（另一种问法为 “ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？”（星环））
+  * 可从基本思想，主要方法，实现细节等 narrow down
+  * [从ReentrantLock的实现看AQS的原理及应用](https://tech.meituan.com/2019/12/05/aqs-theory-and-apply.html)
+  * [Class AbstractQueuedSynchronizer](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html)
 
+* **synchronized和Lock的比较（使用/性能/效率），以及为什么会有这种差别（字节跳动）** 
 
-* **介绍 volatile 关键字（阿里/网易）**
-	* 只能用于变量（is used to mark a Java variable as "being stored in main memory"）
-	* 保证变量的可见性（指示 JVM，这个变量是不稳定的，每次使用它都到主存中进行读取） && 防止指令重排序
-	* 对一个 volatile 变量的写操作， Happens-Before 后续对这个 volatile 变量的读操作
-	* [Java Volatile Keyword](http://tutorials.jenkov.com/java-concurrency/volatile.html) 
+  * 这个问题等于上述两个一起问了，分别解答
 
-* **Java中如何使用线程池，以及线程池有哪些重要的参数（阿里/字节跳动） / 线程池有哪些类型（百度）**
-	* 生产者 - 消费者 模式的一种实现
-	* 线程池的好处
-		* 降低资源消耗 / 提高响应速度 / 提高线程的可管理性
-	* 使用方法
-		* ThreadPoolExecutor类
-			* 线程池中的每一个线程被封装成一个 Worker 对象，ThreadPool 维护的其实就是一组 Worker 对象
-			* 一些主要参数
-				* corePoolSize --> 核心线程数
-				* maximumPoolSize --> 最大能创建的线程数（可以理解为当任务量突然过大时的一种补救措施）
-				* workQueue --> 工作队列，为 BlockingQueue，用于存储等待执行的任务
-	* IO密集型和计算密集型任务如何配置线程池参数（字节跳动）
-	  * [Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html) 
-	* [《码出高效》](https://book.douban.com/subject/30333948/)  7.4.2（线程池源码详解，关键方法逐行解释）
-	* [22 | Executor与线程池：如何创建正确的线程池？](https://time.geekbang.org/column/article/90771)（基本介绍和主要参数）
-	* [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)（ThreadPoolExecutor 源码和关键类分析）
-	* [Java并发编程：线程池的使用](https://www.cnblogs.com/dolphin0520/p/3932921.html)（ThreadPoolExecutor 源码 和 基本用法）
-	* [第21讲 | Java并发类库提供的线程池有哪几种？ 分别有什么特点？](https://time.geekbang.org/column/article/9712)（介绍 Executor 框架和从设计角度介绍ThreadPoolExecutor类）
+* **Java中如何使用线程池，线程池有哪些参数（阿里/字节跳动） ， 线程池有哪些类型（百度）**
+  * 线程池的好处（另一种问法是 “我每次创建线程就可以了，为什么要用线程池？”）
+    * 降低资源消耗 / 提高响应速度 / 提高线程的可管理性 / 提供可扩展功能 等
+  * ThreadPoolExecutor类
+    * 线程池中的每一个线程被封装成一个 Worker 对象，ThreadPool 维护的其实就是一组 Worker 对象
+    * 一些主要参数
+    	* corePoolSize --> 核心线程数
+    	* maximumPoolSize --> 最大能创建的线程数（可以理解为当任务量突然过大时的一种补救措施）
+    	* keepAliveTime
+    	* workQueue --> 工作队列，为 BlockingQueue，用于存储等待执行的任务
+    	* threadFactory --> 如何定义创建线程，如命名等
+    	* handler --> 拒绝策略
+  * IO密集型 和 计算密集型 任务如何配置线程池参数（字节跳动）
+  * [Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html) 
+  * [22 | Executor与线程池：如何创建正确的线程池？](https://time.geekbang.org/column/article/90771)（基本介绍和主要参数）
+  * [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)（ThreadPoolExecutor 源码和关键类分析）
+  * [第21讲 | Java并发类库提供的线程池有哪几种？ 分别有什么特点？](https://time.geekbang.org/column/article/9712)（介绍 Executor 框架和从设计角度介绍ThreadPoolExecutor类）
+  * [《码出高效》](https://book.douban.com/subject/30333948/)  7.4.2（线程池源码详解，关键方法逐行解释）
 
 
 * **乐观锁与悲观锁的概念，常见实现（阿里）**
@@ -273,53 +285,46 @@
 	* MySQL中如何使用和实现悲观锁和乐观锁（Shopee）
 
 
-* **描述 Atomic 类的底层实现（美团）** 
-
-
-* **描述ThreadLocal 的实现（美团），什么情况ThreadLocal会发生OOM（星环）** *`TODO`*
+* **描述ThreadLocal 的实现（美团），什么情况ThreadLocal会发生OOM（星环）**
   * "它通常用于同一个线程内，跨类、跨方法传递数据"
   * [Java ThreadLocal](http://tutorials.jenkov.com/java-concurrency/threadlocal.html) 
   * [《码出高效》](https://book.douban.com/subject/30333948/)  7.5
-* **synchronized和Lock的比较（使用/性能/效率），以及为什么会有这种差别（字节跳动）** 
+* **描述 Atomic 类的底层实现（美团）** 
+* **sleep()和wait()的区别，应用场景（字节跳动）** 
+  * [Difference between Wait and Sleep, Yield in Java](https://javarevisited.blogspot.com/2011/12/difference-between-wait-sleep-yield.html#axzz6jzKp3QZM) 
+
+
 * **什么是线程安全**
   * a class is thread safe when it continues to behave correctly when accessed from multiple threads
   * 指某个函数、函数库在多线程环境中被调用时，能够正确地处理多个线程之间的共享变量，使程序功能正确完成
   * [线程安全 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8) 
-* **join() 方法有什么用**
+* **join() 方法的作用**
   * Thread.join() 把指定的线程加入到当前线程，可以将两个交替执行的线程合并为顺序执行的线程。比如在线程B中调用了线程A的join()方法，直到线程A执行完毕后，才会继续执行线程B
   * [Java多线程中join方法的理解](https://uule.iteye.com/blog/1101994)
   * [简谈Java的join()方法](https://www.cnblogs.com/techyc/p/3286678.html)  
 
 
-* **Java并发学习资源** 
-  * [Java并发编程学习路线](https://zhuanlan.zhihu.com/p/25577863)（学习思路篇）
-  * [Java Concurrency in Practice](https://book.douban.com/subject/1888733/)（*`TODO`*）
-  * [Java并发编程实战](https://time.geekbang.org/column/intro/159) （极客时间课程）
-  * [《码出高效》](https://book.douban.com/subject/30333948/)  7（几个并发工具类源码阅读）
-
-
 
 ## Python
 
-由于国内Python的Web开发岗位较少，所以碰到的Python的实际面试问题不多，这里只罗列基本的面试问题（由于我有过Python Web开发经验，其实Python也有很多能问的东西）。
+由于国内Python Web开发岗位较少，所以碰到的Python的实际面试问题不多，这里只罗列基本的面试问题（由于我有些Python Web开发经验，其实Python也有很多能问的东西）。
 
 
-* **Python里如何实现真正的多线程（阿里/腾讯）**  *`TODO`*
-* **给一段Python代码，有哪些优化思路和策略（阿里）**   *`TODO`* 
+* **Python里如何实现真正的多线程（阿里/腾讯）**  
+* **给一段Python代码，有哪些优化思路和策略（阿里）**   
 
 
-* **Python爬虫中存在环引用该如何处理（阿里）** *`TODO`* 
-* **如何写一个程序计算一段Python代码的耗时（腾讯） **  *`TODO`* 
+* **Python爬虫中存在环引用该如何处理（阿里）** 
+* **如何写一个程序计算一段Python代码的耗时（腾讯） **
 
 
 * **实现一个lambda表达式（字节跳动）**
   * [Lambda 表达式有何用处？如何使用？](https://www.zhihu.com/question/20125256)
 * **用map/reduce实现数组求和（PayPal）**
-
   * map --> 将传入函数依次作用于序列中的每个元素，并把结果作为新的Iterator返回;
   * reduce --> 累积计算, 求和 ```reduce(lambda x, y : x + y, [1,2,3,4,5])```.
   * [map/reduce](https://www.liaoxuefeng.com/wiki/1016959663602400/1017329367486080)
-* **描述Python的迭代器和生成器（DaoCloud）** *`TODO`* 
+* **描述Python的迭代器和生成器（DaoCloud）** 
   * [Python3 迭代器与生成器](https://www.runoob.com/python3/python3-iterator-generator.html) 
 
 
@@ -335,23 +340,20 @@
 
 ## 操作系统
 
-计算机的基础，八股重地，可以问得很深入（尤其字节跳动等非语言倾向公司）。
+（计算机基础，八股重地，可以问得很深入（尤其字节跳动等非语言倾向公司）。）
 
 * **进程/线程的概念和区别（字节跳动/拼多多）** 
   * 进程 --> 计算机中运行中的程序，具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位
   * 线程 --> 操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程中的实际运作单位
   * 进程和线程都是一个CPU工作时间段的描述，不过是颗粒大小不同。一个程序至少有一个进程，一个进程至少有一个线程
-  * 类比 --> 进程=火车，线程=车厢
-  * [腾讯面试题04.进程和线程的区别？](https://blog.csdn.net/mxsgoden/article/details/8821936) 
   * [线程和进程的区别是什么？](https://www.zhihu.com/question/25532384) 
   * [线程 Wiki](https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B) / [进程 Wiki](https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B)
   * [进程与线程的一个简单解释](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html) （科普，类比：进程 -- 车间 / 线程 -- 车间里的工人）
 
 
-* **线程同步（通信）的方式（字节跳动）**   *`TODO`* 
-  
+* **线程同步（通信）的方式（字节跳动）**   
   * 同步 -- 协同步调，按预定的先后次序进行运行
-
+  
     * wait() -- It tells the calling thread to give up the lock and go to sleep until some other thread enters the same monitor and calls notify().（线程自动释放其占有的对象锁，并等待notify）
     * notify() -- It wakes up one single thread that called wait() on the same object. It should be noted that calling notify() does not actually give up a lock on a resource.（唤醒一个正在wait当前对象锁的线程，并让它拿到对象锁）
     * notifyAll() -- It wakes up all the threads that called wait() on the same object.（唤醒所有正在wait当前对象锁的线程）
@@ -362,16 +364,13 @@
 		* 管道（数据只能单向流动）
 		* 系统IPC（InterProcess Communication）（包括消息队列，信号量，共享存储）
 		* Socket（可用于不同机器间的进程通信）
-	* [进程间的几种通信方式](https://blog.csdn.net/yufaw/article/details/7409596)
+	* [Inter Process Communication (IPC) in OS](https://www.guru99.com/inter-process-communication-ipc.html)
 	* [进程间8种通信方式详解](https://blog.csdn.net/violet_echo_0908/article/details/51201278) 
 * **Java中start() 和 run() 方法的区别（字节跳动）** 
 
   * start() -- Creates a new thread and the run() method is executed on the newly created thread. (Can’t be invoked more than one time otherwise throws *java.lang.IllegalStateException*)
   * run() -- No new thread is created and the run() method is executed on the calling thread itself. (Multiple invocation is possible)
   * [Difference between Thread.start() and Thread.run() in Java](https://www.geeksforgeeks.org/difference-between-thread-start-and-thread-run-in-java/) 
-* **sleep()和wait()的区别，应用场景（字节跳动）** 
-
-  * [Difference between Wait and Sleep, Yield in Java](https://javarevisited.blogspot.com/2011/12/difference-between-wait-sleep-yield.html#axzz6jzKp3QZM) 
 
 
 * **描述操作系统的启动过程（字节跳动）**
@@ -394,10 +393,7 @@
 
 
 * **kill掉一个进程（从指令输入开始），操作系统做了什么事情（字节跳动）**
-* **分页&&分段存储（字节跳动）** 
-* **如何判断内存泄漏（腾讯）**
-	* 因为长生命周期持有它的引用而导致不能被回收，这就是Java中内存泄漏的发生场景
-	* [Java内存泄漏分析和解决](https://www.jianshu.com/p/54b5da7c6816)
+* **描述分页&&分段存储（字节跳动）** 
 
 
 * **什么是系统调用（爱奇艺）**
@@ -406,15 +402,15 @@
   * [系统调用 Wiki](https://zh.wikipedia.org/wiki/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8)
   * [Linux系统调用详解（实现机制分析）--linux内核剖析（六）](https://blog.csdn.net/gatieme/article/details/50779184)
   * [用户态和内核态的区别](https://blog.csdn.net/youngyoungla/article/details/53106671) 
-* **CPU使用率突然升高如何排查（soul）** 
 
 
 
 ## 数据库
 
-### 数据库理论
+### 基础问题
 
-* **描述事务的隔离级别（野村证券/远景智能/网易）**
+* **描述事务的隔离级别（野村证券/远景智能/网易/小红书）**
+	* 经典面试题，一般八股过后还会追问MySQL隔离级别的实现等等
 	* Serializable（序列化） --> 可避免脏读，不可重复读，幻读
 	* Repeatable read（可重复读） --> 可避免脏读，不可重复读，但可能出现幻读 
 	* Read committed（已提交读） --> 可避免脏读，但是可能会造成不可重复读
@@ -422,9 +418,9 @@
 	* 脏读 --> 当一个事务允许读取另外一个事务修改但未提交的数据时，就可能发生 脏读
 	* 不可重复度 --> 在一次事务中，当一行数据获取两遍得到不同的结果表示发生了 不可重复读
 	* 幻读 --> 在事务执行过程中，当两个完全相同的查询语句执行得到不同的结果集。这种现象称为 幻读
-	* [MySQL 事务隔离级别和锁](https://developer.ibm.com/zh/technologies/databases/articles/os-mysql-transaction-isolation-levels-and-locks/) 
-	* [ACID Wiki](https://zh.wikipedia.org/wiki/ACID)
+	* [Transaction Isolation Levels](https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html)
 	* [事务隔离 Wiki](https://zh.wikipedia.org/wiki/%E4%BA%8B%E5%8B%99%E9%9A%94%E9%9B%A2) 
+	
 
 
 * **delete、 drop、truncate 的区别（PayPal）**
@@ -441,7 +437,7 @@
 
 ### 索引
 
-面试常见八股（我真的怀疑有多少面试官实际有做过大规模的索引性能测试）。
+（面试常见八股（我真的怀疑有多少面试官实际有做过大规模的索引性能测试）。）
 
 * **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（字节跳动/腾讯/美团/星环/网易）**
 	* 索引 --> 一种数据结构
@@ -495,7 +491,7 @@
 
 ### MySQL
 
-国内互联网公司一般会从SQL问题过渡到MySQL问题（技术栈还是太单一了啊）。
+（国内互联网公司一般会从SQL问题过渡到MySQL问题（技术栈还是太单一了啊）。）
 
 * **MySQL索引不命中（索引失效）的可能原因及策略（美团/腾讯）**  
   * [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html) 
@@ -522,7 +518,7 @@
 
 ## 计算机网络
 
-八股重地，但其实可以问得非常深入，这是Web的基础。
+（八股重地，但其实可以问得非常深入，这是Web的基础。）
 
 * **描述三次握手四次挥手以及原因，每个包具体传递什么信息（阿里/腾讯/字节跳动）** 
   * 三次握手
@@ -626,7 +622,7 @@
 
 ## Linux指令
 
-这部分可以平时工作做一些刻意练习，更多是个意识问题。
+（这部分可以平时工作做一些刻意练习，更多是个意识问题。）
 
 * cpu load 和 cpu utilization的区别（阿里）
 * top，load 指令，free 中 cached和buffers的区别（阿里）
@@ -643,7 +639,7 @@
 
 ## 框架
 
-该部分罗列的都差不多是后端工程师的必修课了。
+（该部分罗列的都差不多是后端工程师的必修课了。）
 
 ### Spring & SpringBoot
 
@@ -790,7 +786,7 @@ TBD
 
 ## 其他
 
-本部分罗列一些计算机基本问题，一般都比较简单。
+（本部分罗列一些计算机基本问题，一般都比较简单。）
 
 * **浅拷贝 & 深拷贝（字节跳动）**
   * 浅拷贝 --> 对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，**没有真实的创建一个新的对象**
