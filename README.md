@@ -118,7 +118,7 @@
 
 ### JVM相关
 
-面试常见八股，深入可以涉及到JVM调优，OOM等相关内容。
+（面试常见八股，深入可以涉及到JVM调优，OOM等相关内容。）
 
 * **描述Java的内存模型（阿里/美团/网易）** 
 
@@ -282,7 +282,7 @@
 			* 自旋 --> 循环尝试
 			* ABA 问题
 	* [何谓悲观锁与乐观锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87%E4%B9%8B%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81.md) （基本介绍）
-	* MySQL中如何使用和实现悲观锁和乐观锁（Shopee）
+	* [Optimistic vs. Pessimistic locking](https://stackoverflow.com/questions/129329/optimistic-vs-pessimistic-locking)
 
 
 * **描述ThreadLocal 的实现（美团），什么情况ThreadLocal会发生OOM（星环）**
@@ -410,7 +410,7 @@
 ### 基础问题
 
 * **描述事务的隔离级别（野村证券/远景智能/网易/小红书）**
-	* 经典面试题，一般八股过后还会追问MySQL隔离级别的实现等等
+	* 经典面试题，一般八股过后还会追问MySQL（InnoDB）隔离级别的实现等等
 	* Serializable（序列化） --> 可避免脏读，不可重复读，幻读
 	* Repeatable read（可重复读） --> 可避免脏读，不可重复读，但可能出现幻读 
 	* Read committed（已提交读） --> 可避免脏读，但是可能会造成不可重复读
@@ -424,9 +424,9 @@
 
 
 * **delete、 drop、truncate 的区别（PayPal）**
-	* drop 直接删掉表（不再需要一张表的时候，用drop）
-	* truncate 删除的是表中的数据，再插入数据时自增长的数据id又重新从1开始（保留表而删除所有数据的时候用truncate，实际是删除原来的表并重建一张新表）
-	* delete 删除表中数据，可以在后面添加where字句（想删除部分数据行时候，用delete，并且带上where子句）
+	* drop --> 直接删掉表（不再需要一张表的时候，用drop）
+	* truncate --> 删除的是表中的数据，再插入数据时自增长的数据id又重新从1开始（保留表而删除所有数据的时候用truncate，实际是删除原来的表并重建一张新表）
+	* delete --> 删除表中数据，可以在后面添加where字句（想删除部分数据行时候，用delete，并且带上where子句）
 	* [SQL truncate 、delete与drop区别](https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html)
 * **第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题（阿里）**
 	* 区分快照 & 冗余
@@ -440,26 +440,25 @@
 （面试常见八股（我真的怀疑有多少面试官实际有做过大规模的索引性能测试）。）
 
 * **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（字节跳动/腾讯/美团/星环/网易）**
-	* 索引 --> 一种数据结构
 	* B+ 树做索引的优势
-		* 相较AVL, 红黑树等二叉树，这些查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远）
-		* 较 B树 的优势（字节跳动）
-			* 相较于B树B+每个**非叶子**节点存储的关键字数更多，树的层级更少所以查询数据更快（层级更少）
-			* B+所有关键字数据地址都存在**叶子**节点上，所以每次查找的次数都相同所以查询速度要比B树更稳定（更稳定）
-			* B+树所有的**叶子**节点数据构成了一个有序链表，在查询大小区间（范围查询）的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高（天然具有排序）
-			* B+树遍历整棵树只需要遍历所有的**叶子**节点即可，而不需要像B树一样需要对每一层进行遍历，这有利于数据库做全表扫描
-	* [数据库索引到底是什么，是怎样工作的？](https://blog.csdn.net/weiliangliang111/article/details/51333169) 
+	  * 相较AVL, 红黑树等二叉树，这些查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远），需要降低树的高度
+	  * 较 B树 的优势（字节跳动）
+	    * 相较于B树，B+每个**非叶子**节点存储的关键字数更多，树的层级更少所以查询数据更快（层级更少）
+	    * B+所有关键字数据地址都存在**叶子**节点上，所以每次查找的次数都相同所以查询速度要比B树更稳定（更稳定）
+	    * B+树所有的**叶子**节点数据构成了一个有序链表，在查询大小区间（范围查询）的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高（天然具有排序）
+	    * B+树遍历整棵树只需要遍历所有的**叶子**节点即可，而不需要像B树一样需要对每一层进行遍历，这有利于数据库做全表扫描
+	* [为什么 MySQL 使用 B+Tree？](https://smartkeyerror.oss-cn-shenzhen.aliyuncs.com/Phyduck/database/%E4%B8%BA%E4%BB%80%E4%B9%88MySQL%E4%BD%BF%E7%94%A8B%2BTree.pdf)
 	* [一步步分析为什么B+树适合作为索引的结构](https://blog.csdn.net/weixin_30531261/article/details/79312676)
 	* [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
 
 
 * **聚集索引（Clustered Index）和非聚集索引的区别（拼多多/网易/字节跳动/Wish/携程）**
-	* 聚集索引 --> 指数据库表行中数据的物理顺序与键值的逻辑（索引）顺序相同
+	* 聚集索引 --> 指数据库表行中数据的物理顺序与索引键值的逻辑顺序相同
 	* 每个表只能有一个聚集索引，因为目录只能按照一种方法进行排序
 	* [聚集索引与非聚集索引的总结](https://www.imooc.com/article/22915) 
 	* [聚合索引(clustered index) / 非聚合索引(nonclustered index)](https://blog.csdn.net/ak913/article/details/8026743)
 	* [快速理解聚集索引和非聚集索引](https://blog.csdn.net/zc474235918/article/details/50580639)
-	* [聚集索引 百度百科](https://baike.baidu.com/item/%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95) 
+	* [聚集索引](https://baike.baidu.com/item/%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95) 
 
 
 * **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）** 
@@ -495,18 +494,19 @@
 
 * **MySQL索引不命中（索引失效）的可能原因及策略（美团/腾讯）**  
   * [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html) 
-* **MySQL联合索引命中情景分析（美团） **
-
-
-* **InnoDB的索引结构（字节跳动）** 
-* **MySQL常见的数据库引擎（网易）**
-  * [Mysql四种常见数据库引擎](https://yq.aliyun.com/articles/636314) 
 * **MySQL如何实现隔离级别的（如可重复读的实现原理）（拼多多/字节跳动）** 
   * MySQL Inno DB 默认隔离级别 --> 可重复读
   * MVCC（多版本并发控制）（Inno DB引擎实现）
   * [InnoDB---可重复读隔离级别的底层实现原理](https://blog.csdn.net/huanghanqian/article/details/79517480)
   * [MySQL事务隔离级别的实现原理](https://www.cnblogs.com/cjsblog/p/8365921.html)
   * [轻松理解MYSQL MVCC 实现机制](https://blog.csdn.net/whoamiyang/article/details/51901888)
+* **MySQL联合索引命中情景分析（美团） **
+
+
+* **InnoDB的索引结构（字节跳动）** 
+* **MySQL常见的数据库引擎（网易）**
+  * [Mysql四种常见数据库引擎](https://yq.aliyun.com/articles/636314) 
+* **MySQL中如何使用和实现悲观锁和乐观锁（Shopee）**
 
 
 
@@ -545,22 +545,23 @@
 	* [Understanding TCP Sequence and Acknowledgment Numbers](https://packetlife.net/blog/2010/jun/7/understanding-tcp-sequence-acknowledgment-numbers/)
 
 
-* **用Socket描述TCP的三次握手（腾讯）** *`TODO`* 
+* **用Socket描述TCP的三次握手（腾讯）** 
 	* [Socket过程详细解释（包括三次握手建立连接，四次握手断开连接）](https://blog.csdn.net/u013782203/article/details/51767763)（C++实现， *`TODO`* ）
 
 
-* **网络间的进程如何表示（腾讯）** *`TODO`* 
+* **网络间的进程如何表示（腾讯）** 
 	* [网络中进程之间如何通信](https://blog.csdn.net/bajiudongfeng/article/details/51568874) 
-
-* **TCP和UDP的特点和区别（腾讯）**
+* **TCP和UDP的特点和区别，分别适用于什么场景（腾讯）**
+	
 	* TCP --> 面向连接 / UDP --> 无连接（发送数据前不需要建立连接）
 	* TCP 提供可靠的服务（数据传输）/ UDP 无法保证
 	* TCP --> 字节流 / UDP --> 数据报文段
 	* [TCP和UDP的区别](https://zhuanlan.zhihu.com/p/24860273)
 	* [常见面试题整理--计算机网络篇（每位开发者必备）](https://zhuanlan.zhihu.com/p/24001696)
+	* [TCP vs UDP: Key Difference between TCP and UDP Protocol](https://www.guru99.com/tcp-vs-udp-understanding-the-difference.html)
 
 
-* **TIME_WAIT状态产生（腾讯）** *`TODO`* 
+* **TIME_WAIT状态产生（腾讯）** 
 	* [理解TIME_WAIT，彻底弄清解决TCP: time wait bucket table overflow](https://blog.51cto.com/benpaozhe/1767612)
 
 
@@ -576,38 +577,38 @@
 	* [从输入URL到页面加载发生了什么](https://segmentfault.com/a/1190000006879700)（依次逐步解释）
 	 	* [在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？](https://www.zhihu.com/question/34873227)（更具体的解释）
 	 	* [DNS递归查询和迭代查询的区别](https://blog.csdn.net/wuchuanpingstone/article/details/6720723)
+	 	* [What happens when...](https://github.com/alex/what-happens-when) （最全面的解释）
 
 
 * **DNS的过程（字节跳动）** 
-* **HTTP 与 HTTPS 的区别（字节跳动）**  *`TODO`* 
-
+* **HTTP 与 HTTPS 的区别（字节跳动）**  
   * HTTP协议以明文方式发送内容，不提供任何方式的数据加密
   * HTTPS其实就是建构在SSL（Secure Sockets Layer） / TLS之上的 HTTP协议
   * HTTPS密文传输 / HTTP 明文传输
   * HTTPS协议需要到CA申请证书
   * [详细解析 HTTP 与 HTTPS 的区别](https://juejin.im/entry/58d7635e5c497d0057fae036) 
+  * [What Is the Difference Between HTTP and HTTPS?](https://www.keycdn.com/blog/difference-between-http-and-https)
 
 
 * **描述HTTPS的加密过程（字节跳动）** 
-* **对称加密&非对称加密在HTTPS加密过程中如何实践（字节跳动/阿里）** *`TODO`* 
-
+* **对称加密&非对称加密在HTTPS加密过程中如何实践（字节跳动/阿里）** 
   * [HTTPS加密过程和TLS证书验证](https://juejin.im/post/5a4f4884518825732b19a3ce)
   * [HTTPS中的TLS](https://github.com/Snailclimb/JavaGuide/blob/master/docs/network/HTTPS%E4%B8%AD%E7%9A%84TLS.md)（密码学角度）
-  * [How does HTTPS work? What's a CA? What's a self-signed Certificate?](https://www.youtube.com/watch?v=T4Df5_cojAs) （HTTPS工作流程举例，需要时再看 *`TODO`* ）
+  * [How does HTTPS work? What's a CA? What's a self-signed Certificate?](https://www.youtube.com/watch?v=T4Df5_cojAs) （HTTPS工作流程举例）
 
 
-* **HTTP代理如何实现（阿里）** *`TODO`* 
+* **HTTP代理如何实现（阿里）** 
 	* [如何实现一个HTTP/HTTPS代理客户端 ](https://github.com/fwon/blog/issues/38)
 
 
-* **描述SSO的原理（拼多多）** *`TODO`*
+* **描述SSO的原理（拼多多）** 
   * [CAS实现单点登录SSO执行原理探究(终于明白了)](https://blog.csdn.net/javaloveiphone/article/details/52439613)
-  * [How does single sign-on work?](https://www.onelogin.com/learn/how-single-sign-on-works) *`TODO`*
+  * [How does single sign-on work?](https://www.onelogin.com/learn/how-single-sign-on-works) 
 * **网络拥塞的解决方案（字节跳动）** 
 
   * [网络拥塞成因与处理](https://blog.csdn.net/oZhuZhiYuan/article/details/52167246) 
-* **描述Session的实现原理（或者如何设计一个Session）（拼多多）** *`TODO`*
-* **如何保证token不被劫持和篡改（大概意思，项目相关）（微软）**   `TODO`
+* **描述Session的实现原理（或者如何设计一个Session）（拼多多）** 
+* **如何保证token不被劫持和篡改（大概意思，项目相关）（微软）**   
 
 * **业界有哪些网络认证的方法（基于设备认证项目提问）（阿里）** 
 
@@ -622,7 +623,7 @@
 
 ## Linux指令
 
-（这部分可以平时工作做一些刻意练习，更多是个意识问题。）
+（这部分可以平时工作做一些刻意练习，更多是个人意识问题。）
 
 * cpu load 和 cpu utilization的区别（阿里）
 * top，load 指令，free 中 cached和buffers的区别（阿里）
@@ -671,7 +672,7 @@
     * 织入(weaving) --> 把切面应用到目标函数的过程
   * 好处
     * 显示地声明在何处如何应用该行为，有效减少代码冗余，让类更加关注自身主要功能
-  * Spring AOP 具体实现（源码级别）*`TODO`*
+  * Spring AOP 具体实现（源码级别）
     * Java JDK 动态代理 （默认）
     * CGLIB 动态代理
   * 爱奇艺项目中AOP的实现（切面设计）（eBay）
@@ -680,7 +681,12 @@
   * [《Spring设计思想》AOP设计基本原理](https://blog.csdn.net/luanlouis/article/details/51095702)（从程序运行角度解释AOP的工作原理）
   * 《Spring实战（第四版）》第四章
   * [Spring AOP就是这么简单啦](https://juejin.im/post/5b06bf2df265da0de2574ee1)（可在面试前看的纯干货）
-  * [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) （Spring AOP的完整实现过程 *`TODO`*）
+  * [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](https://blog.csdn.net/luanlouis/article/details/51155821) （Spring AOP的完整实现过程）
+* **什么是Spring注解，Spring中有哪些常用的注解，以及注解自身是如何实现的（阿里/字节跳动）** 
+  * 注解 --> 减少配置文件内容
+  * [Java annotation Wiki](https://en.wikipedia.org/wiki/Java_annotation)
+  * [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解： 注解 --> 标签）
+  * [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
 * **描述Spring的IoC**
   * IoC是一种思想，并非一个具体技术
     * 基于 **依赖倒置原则（Dependency Inversion Principle）**
@@ -699,13 +705,13 @@
   * 好处
     * 让你脱离对依赖对象的维护，只需要随用随取，不需要关心依赖对象的任何过程
     * 可以有效地改善模块之间的紧耦合问题
-  * 源码阅读问题（星环）*`TODO`* 
+  * 源码阅读问题（星环）
   * [IoC-spring 的灵魂(带你轻松理解IOC思想及bean对象的生成过程)](https://juejin.im/post/593386ca2f301e00584f8036)（基本概念）
   * [【第二章】 IoC 之 2.1 IoC基础 ——跟我学Spring3](https://jinnianshilongnian.iteye.com/blog/1413846)（IoC思想详解）
   * [Spring IoC有什么好处呢？](https://www.zhihu.com/question/23277575/answer/169698662)（汽车的例子有助于理解IoC）
-  * [Inversion of Control Containers and the Dependency Injection pattern](https://martinfowler.com/articles/injection.html)（Martin文章 *`TODO`*）
+  * [Inversion of Control Containers and the Dependency Injection pattern](https://martinfowler.com/articles/injection.html)（Martin文章）
   * [Spring IOC 容器源码分析](https://javadoop.com/post/spring-ioc)（源码阅读 *`TODO`*）
-  * [What is difference between BeanFactory and ApplicationContext in Spring framework](https://javarevisited.blogspot.com/2012/11/difference-between-beanfactory-vs-applicationcontext-spring-framework.html) *`TODO`*
+  * [What is difference between BeanFactory and ApplicationContext in Spring framework](https://javarevisited.blogspot.com/2012/11/difference-between-beanfactory-vs-applicationcontext-spring-framework.html)
 
 
 * **描述一个Spring Boot项目的启动过程（阿里）**
@@ -713,11 +719,6 @@
   * [SpringBoot 应用程序启动过程探秘](https://juejin.im/post/5b8f05a5f265da43296c6102)
 
 
-* **什么是Spring注解，Spring中有哪些常用的注解，以及注解自身是如何实现的（阿里/字节跳动）** *`TODO`*
-  * 注解 --> 减少配置文件内容
-  * [Java annotation Wiki](https://en.wikipedia.org/wiki/Java_annotation)
-  * [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解： 注解 --> 标签）
-  * [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
 * **什么是JPA**
   * [Java持久化API Wiki](https://zh.wikipedia.org/wiki/Java%E6%8C%81%E4%B9%85%E5%8C%96API)
 * **简述Spring Boot框架**
@@ -731,8 +732,8 @@
 
 ### Elasticsearch 
 
-* ES的索引是怎么实现的（爱奇艺）
-* 项目中ES是如何使用的（soul）
+* **ES的索引是怎么实现的（爱奇艺）**
+* **项目中ES是如何使用的（soul）**
 
 
 
