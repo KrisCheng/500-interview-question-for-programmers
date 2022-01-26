@@ -4,9 +4,9 @@
 
 对我而言，这是个人整理平时工作和面试中碰到的一些实际问题的一份索引（持续更新）；对你而言，这可以作为一份可参考的面试手册。
 
-优势是这里罗列的基本都是大公司的实际面试题或者个人工作中的系统性输出，对准备面试有一定参考价值；
+优势是这里罗列的基本都是大公司的实际面试题或者个人工作中的系统性输出，且由于面试公司较多，比较全面，对准备面试有一定参考价值；
 
-劣势是当前还不够深入，很多问题你可能需要再看原始的文档（如果是以 **系统性学习** 为目的，尽可能远离 百度，’XXX速成‘ 之类的东西）或者源码才能获得更深的理解（当然我也会尽量整理一些链接附上）。
+劣势是当前还不够深入，很多问题你可能需要再看原始的文档（如果是以 **系统性学习** 为目的，尽可能远离 百度，’XXX速成‘ 之类的东西）甚至源码才能获得更深的理解（当然我也会尽量整理一些链接附上），你不太能仅仅通过本页面就获得非常有见地的观点。
 
 模块间排序一般无特定意义（每个模块开头一般会写一句话小结），模块内主要按面试频次排序。
 
@@ -88,7 +88,7 @@
 
 （这部分是面试常见八股，可以作为你是否有过一些源码阅读的基础。）
 
-* **描述 HashMap 的底层实现（远景智能/字节跳动/百度）**
+* **描述 HashMap 的底层实现（远景智能/字节跳动/百度/喜马拉雅）**
   * 一般可以从基本方法，capacity / load factor 作用及配置，如何解决哈希冲突，为什么HashMap不是线程安全的等方面展开。
   * [Java HashMap工作原理及实现](https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/) （基本参考）
   * [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html) （主要参考）
@@ -110,10 +110,15 @@
 * **HashMap 和 TreeMap 的区别和应用场景（PayPal/依图）**
   * [HashMap和TreeMap区别详解以及底层实现](https://blog.csdn.net/xlgen157387/article/details/47907721)（概念+比较）
   * [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？ ](https://time.geekbang.org/column/article/8053) （概念+源码分析） 
-* **ArrayList和LinkedList的区别（源码级别）（字节跳动）** 
-* **HashSet 如何判断重复元素（小红书）**
+  
+* **HashSet 如何判断重复元素（小红书/喜马拉雅）**
+
   * [HashSet重复元素判断](https://itfafa.iteye.com/blog/1698690) 
   * [Java提高篇——equals()与hashCode()方法详解](https://www.cnblogs.com/Qian123/p/5703507.html) 
+
+* **ArrayList和LinkedList的区别（源码级别）（字节跳动）** 
+
+  
 
 
 
@@ -244,10 +249,10 @@
   * [synchronized 实现原理](https://xiaomi-info.github.io/2020/03/24/synchronized/)
 
 
-* **ReentrantLock 源码阅读**
+* **ReentrantLock 源码阅读（网易/小红书/星环）**
 
   * 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
-  * 描述 AQS（AbstractQueuedSynchronizer）的作用（网易/小红书）（另一种问法为 “ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？”（星环））
+  * 描述 AQS（AbstractQueuedSynchronizer）的作用（另一种问法为 “ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？”）
   * 可从基本思想，主要方法，实现细节等 narrow down
   * [从ReentrantLock的实现看AQS的原理及应用](https://tech.meituan.com/2019/12/05/aqs-theory-and-apply.html)
   * [Class AbstractQueuedSynchronizer](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html)
@@ -256,7 +261,7 @@
 
   * 这个问题等于上述两个一起问了，分别解答
 
-* **Java中如何使用线程池，线程池有哪些参数（阿里/字节跳动） ， 线程池有哪些类型（百度）**
+* **Java中如何使用线程池，线程池有哪些参数（阿里/字节跳动/喜马拉雅） ， 线程池有哪些类型（百度）**
   * 线程池的好处（另一种问法是 “我每次创建线程就可以了，为什么要用线程池？”）
     * 降低资源消耗 / 提高响应速度 / 提高线程的可管理性 / 提供可扩展功能 等
   * ThreadPoolExecutor类
@@ -513,7 +518,7 @@
 
 ### MongoDB
 
-个人工作项目使用，但由于国内不太常用，没怎么碰到过实际面试题。
+（个人工作项目使用，但由于国内目前用得不是很多，没怎么碰到过实际面试题。）
 
 
 
@@ -641,7 +646,7 @@
 
 ## 框架
 
-（该部分罗列的都差不多是后端工程师的必修课了。）
+（该部分罗列的都差不多是后端工程师的必修课了。每个框架应该秉承 1.解决什么问题 2.怎么解决的 3.实现细节 来逐一分析）
 
 ### Spring & SpringBoot
 
@@ -770,8 +775,6 @@
 
 
 ### Netty
-
-TBD
 
 
 
