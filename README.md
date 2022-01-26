@@ -66,17 +66,18 @@
 
 ### IO相关
 
-（这部分深挖可以问得很难，可从IO模型开始，到Java中的IO实现，甚至到框架的实现。*`TODO`* *`HARD`* ）
+（这部分深挖可以问得很难，一般可从常见IO模型，适用场景开始，到Java中的IO模型实现，深入到框架的实现。）*`TODO`*
 
-* **描述BIO / NIO（网易）** 
-  * [The difference between BIO and NIO, AIO](https://www.programmersought.com/article/10551850908/) （参考1）
-  * [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473) 
-* **描述常见的IO模型（小红书）**
+* **描述BIO / NIO（网易）/ 描述常见的IO模型（小红书）** 
+  * [The difference between BIO and NIO, AIO](https://www.programmersought.com/article/10551850908/) （一些基本的概念解释）
+  * [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473/answer/241673170) （评价很高的答案，从操作系统本身进行解释）
 * **Java提供了哪些IO方式（拼多多/字节跳动）** 
-  * [Java NIO浅析](https://zhuanlan.zhihu.com/p/23488863)（技术blog + 实例）
+  * BIO/NIO/AIO
+  * [Java NIO浅析](https://tech.meituan.com/2016/11/04/nio.html)
   * [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)
-  * [Java NIO Tutorial](http://tutorials.jenkov.com/java-nio/index.html) （一份实操教程）
+  * [Java NIO Tutorial](http://tutorials.jenkov.com/java-nio/index.html) （一份实操练习教程）
   * [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 Docs）
+
 * **描述Spring中的IO方式（字节跳动）**
 * **select 和 epoll 的区别（字节跳动）**  
   * [select和epoll区别](https://www.jianshu.com/p/430141f95ddb) 
@@ -141,7 +142,7 @@
 
   * [Java内存模型（JMM）总结](https://zhuanlan.zhihu.com/p/29881777)
 
-  * [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html)（官方 Docs *`TODO`* ）
+  * [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html)（官方 Docs）
 
 * **描述 Java 中的类加载过程（阿里/星环）**
   * 这部分可以答类加载的步骤，每个步骤的具体行为。简单总结，
@@ -166,7 +167,7 @@
     * 1. 检查请求加载的类型是否已经被加载过，没有则调用父加载器的 loadClass() 方法；
       2. 若父加载器为空则默认使用启动类加载器作为附加载器；
       3. 加入父类加载器加载失败，抛出ClassNotFoundException，才调用自己的 findClass() 方法尝试进行加载。
-    * 为什么要用双亲委派模型，有没有别的实现，或者Java为什么要这么设计（阿里）*`TODO`* 
+    * 为什么要用双亲委派模型，有没有别的实现，或者Java为什么要这么设计（阿里）
 
   * [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
   * [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs）
@@ -331,7 +332,7 @@
 
 ### Async IO
 
-这是个人Sharing的整理，夹带私货。
+（这是个人Sharing的整理，夹带私货。）
 
 * [python_asyncio_learning](https://github.com/KrisCheng/python_asyncio_learning)
 
@@ -546,7 +547,7 @@
 
 
 * **用Socket描述TCP的三次握手（腾讯）** 
-	* [Socket过程详细解释（包括三次握手建立连接，四次握手断开连接）](https://blog.csdn.net/u013782203/article/details/51767763)（C++实现， *`TODO`* ）
+	* [Socket过程详细解释（包括三次握手建立连接，四次握手断开连接）](https://blog.csdn.net/u013782203/article/details/51767763)（C++实现）
 
 
 * **网络间的进程如何表示（腾讯）** 
@@ -612,7 +613,7 @@
 
 * **业界有哪些网络认证的方法（基于设备认证项目提问）（阿里）** 
 
-* **介绍 OSI 七层模型**
+* **介绍 OSI 七层模型（蔚来）**
   * 应用层（应用层 --> 表示层 --> 会话层） --> 传输层 --> 网络层 --> 数据链路层 --> 物理层 (7层)
   * 应用层 --> 传输层 --> 网络层 --> 数据链路层 --> 物理层 （5层）
   * 并非标准，一个概念性框架
@@ -710,7 +711,7 @@
   * [【第二章】 IoC 之 2.1 IoC基础 ——跟我学Spring3](https://jinnianshilongnian.iteye.com/blog/1413846)（IoC思想详解）
   * [Spring IoC有什么好处呢？](https://www.zhihu.com/question/23277575/answer/169698662)（汽车的例子有助于理解IoC）
   * [Inversion of Control Containers and the Dependency Injection pattern](https://martinfowler.com/articles/injection.html)（Martin文章）
-  * [Spring IOC 容器源码分析](https://javadoop.com/post/spring-ioc)（源码阅读 *`TODO`*）
+  * [Spring IOC 容器源码分析](https://javadoop.com/post/spring-ioc)（源码阅读）
   * [What is difference between BeanFactory and ApplicationContext in Spring framework](https://javarevisited.blogspot.com/2012/11/difference-between-beanfactory-vs-applicationcontext-spring-framework.html)
 
 
