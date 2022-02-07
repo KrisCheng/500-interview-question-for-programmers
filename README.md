@@ -110,15 +110,10 @@
 * **HashMap 和 TreeMap 的区别和应用场景（PayPal/依图）**
   * [HashMap和TreeMap区别详解以及底层实现](https://blog.csdn.net/xlgen157387/article/details/47907721)（概念+比较）
   * [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？ ](https://time.geekbang.org/column/article/8053) （概念+源码分析） 
-  
 * **HashSet 如何判断重复元素（小红书/喜马拉雅）**
-
   * [HashSet重复元素判断](https://itfafa.iteye.com/blog/1698690) 
   * [Java提高篇——equals()与hashCode()方法详解](https://www.cnblogs.com/Qian123/p/5703507.html) 
-
 * **ArrayList和LinkedList的区别（源码级别）（字节跳动）** 
-
-  
 
 
 
@@ -128,29 +123,27 @@
 
 * **描述Java的内存模型（阿里/美团/网易）** 
 
-  * 可回答JVM内存区域划分，我一般从线程私有和线程共享两个方面回答，水平一般的（自己也没怎么用过的）面试官听完一般也就没下文了。
+  * 可回答JVM内存区域的划分，我一般从线程私有和线程共享两个方面回答，水平一般的（自己也没怎么用过的）面试官听完一般也就结束了。
 
-  * * 程序计数器（PC, Program Counter Register） --> 它的作用可以看做是当前线程所执行的字节码的行号指示器
+    - 程序计数器（PC, Program Counter Register） --> 它的作用可以看做是当前线程所执行的字节码的行号指示器（字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令）
 
-    * 虚拟机栈（Virtual Machine Stack） --> 保存一个个**栈帧（Stack Frame）**，对应着一次次的 Java **方法调用** 
+    - 虚拟机栈（Virtual Machine Stack） --> 保存一个个**栈帧（Stack Frame）**，对应着一次次的 Java **方法调用** 
 
-    * 本地方法栈（Native Method Stack） --> 和虚拟机栈类似，区别为虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈为虚拟机使用到的Native方法服务
+    - 本地方法栈（Native Method Stack） --> 和虚拟机栈类似，区别为虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈为虚拟机使用到的Native方法服务
 
-       ⬆️（线程私有）--- （线程共享） ⬇️ 
+       ↑（线程私有）--- （线程共享） ↓
 
-    * 堆（Heap） --> 虚拟机管理的内存中最大的一块，所有线程共享的内存区域，几乎所有的 **对象实例** 都在这里分配内存
+    - 堆（Heap） --> 虚拟机管理的内存中最大的一块，所有线程共享的内存区域，“几乎”所有的 **对象实例** 都在这里分配内存
 
-    * 方法区（Method Area） --> 所有线程共享的一块内存区域，用于存储所谓的元（Meta）数据，如类结构信息，以及对应的运行时常量池、字段、方法代码等 
-    * 运行时常量池（Run-Time Constant Pool） --> 属于方法区的一部分，存放各种常量信息
-
-  * [第25讲 | 谈谈JVM内存区域的划分，哪些区域可能发生OutOfMemoryError?](https://time.geekbang.org/column/article/10192)
+    - 方法区（Method Area） --> 所有线程共享的一块内存区域，用于存储所谓的元（Meta）数据，如类结构信息，以及对应的运行时常量池、字段、方法代码等 
+    - 运行时常量池（Run-Time Constant Pool） --> 属于方法区的一部分，存放各种常量信息
 
   * [Java内存模型（JMM）总结](https://zhuanlan.zhihu.com/p/29881777)
 
   * [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html)（官方 Docs）
 
 * **描述 Java 中的类加载过程（阿里/星环）**
-  * 这部分可以答类加载的步骤，每个步骤的具体行为。简单总结，
+  * 这部分可以答类加载的步骤，以及每个步骤的具体行为。简单总结：
     * 加载（Loading） --> 链接（Linking） --> 初始化（Initializing）
     * 加载
       * 将字节码数据从不同的数据源读取到 JVM 中，并映射为 JVM 认可的数据结构（Class对象），用户可以自定义类加载器（用户参与），实现类加载过程
@@ -162,16 +155,16 @@
       * 解析（Resolution）
         * 虚拟机将常量池内的符号引用替换为直接引用的过程（直接引用是可以直接指向目标的指针、相对偏移量或者是一个能间接定位到目标的句柄）
     * 初始化（Initializing）
-      * 真正执行类中定义的 Java 程序代码(字节码)，初始化阶段就是执行类构造器  <clinit>() 方法（Javac编译器的自动生成物）的过程。 （《深入理解Java虚拟机》第三版 P277）
+      * 真正执行类中定义的 Java 程序代码(字节码)，初始化阶段就是执行类构造器 <clinit>() 方法（Javac编译器的自动生成物）的过程。 （《深入理解Java虚拟机》第三版 P277）
 
   * 一般会继续追问到Parents Delegation Model（宜译作“溯源委派加载模型”（[《码出高效》](https://book.douban.com/subject/30333948/) P119）
     * 概念，好处，实现等
     * 如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载都是如此，因此所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请求时，子加载器才会尝试自己去完成加载
     * 好处 --> Java中的类随着它的加载器一起具备了一种带有优先级的层次关系，避免类的重复加载
     * 实现
-    * 1. 检查请求加载的类型是否已经被加载过，没有则调用父加载器的 loadClass() 方法；
-      2. 若父加载器为空则默认使用启动类加载器作为附加载器；
-      3. 加入父类加载器加载失败，抛出ClassNotFoundException，才调用自己的 findClass() 方法尝试进行加载。
+    * 1. 检查请求加载的类型是否已经被加载过，没有则调用父加载器的 loadClass() 方法
+      2. 若父加载器为空则默认使用启动类加载器作为附加载器
+      3. 加入父类加载器加载失败，抛出ClassNotFoundException，才调用自己的 findClass() 方法尝试进行加载
     * 为什么要用双亲委派模型，有没有别的实现，或者Java为什么要这么设计（阿里）
 
   * [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
@@ -189,12 +182,13 @@
     * 标记-整理算法（Mark-Compact） --> 类似于标记-清除，但为了避免内存碎片化，**在清理过程中移动对象，以确保移动后的对象占用连续的内存空间**
     * 分代收集算法 --> 根据对象存活周期的不同将内存分为几块 （eg: 新生代/老生代）
   * 频繁的 Full GC 怎么排查（阿里）
+  * Full GC 和 Major GC 的区别（阿里）
   * 《深入理解Java虚拟机》第三版 第3章
   * [Garbage Collection in Java – What is GC and How it Works in the JVM](https://www.freecodecamp.org/news/garbage-collection-in-java-what-is-gc-and-how-it-works-in-the-jvm/)
   * [Java Garbage Collection Basics](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html) (Oracle Guides)
   * [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
   * [咱们从头到尾说一次 Java 垃圾回收](https://mp.weixin.qq.com/s/aA1eDYIUHuIfigTw2ffouw)
-
+  
 * **描述 Java 中的类加载机制（星环）**
   * Java虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这个过程被称作虚拟机的类加载机制（《深入理解Java虚拟机》第三版 P262）
 
@@ -259,7 +253,7 @@
 
 * **synchronized和Lock的比较（使用/性能/效率），以及为什么会有这种差别（字节跳动）** 
 
-  * 这个问题等于上述两个一起问了，分别解答
+  * 这个问题等于上述两个一起问了，可分别解答
 
 * **Java中如何使用线程池，线程池有哪些参数（阿里/字节跳动/喜马拉雅） ， 线程池有哪些类型（百度）**
   * 线程池的好处（另一种问法是 “我每次创建线程就可以了，为什么要用线程池？”）
@@ -273,7 +267,7 @@
     	* workQueue --> 工作队列，为 BlockingQueue，用于存储等待执行的任务
     	* threadFactory --> 如何定义创建线程，如命名等
     	* handler --> 拒绝策略
-  * IO密集型 和 计算密集型 任务如何配置线程池参数（字节跳动）
+  * IO密集型 和 计算密集型 任务如何配置线程池参数（字节跳动）/ 线程池参数配置策略（喜马拉雅）
   * [Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html) 
   * [22 | Executor与线程池：如何创建正确的线程池？](https://time.geekbang.org/column/article/90771)（基本介绍和主要参数）
   * [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)（ThreadPoolExecutor 源码和关键类分析）
@@ -506,7 +500,7 @@
   * [InnoDB---可重复读隔离级别的底层实现原理](https://blog.csdn.net/huanghanqian/article/details/79517480)
   * [MySQL事务隔离级别的实现原理](https://www.cnblogs.com/cjsblog/p/8365921.html)
   * [轻松理解MYSQL MVCC 实现机制](https://blog.csdn.net/whoamiyang/article/details/51901888)
-* **MySQL联合索引命中情景分析（美团） **
+* **MySQL联合索引命中情景分析（美团）**
 
 
 * **InnoDB的索引结构（字节跳动）** 
