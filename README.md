@@ -144,8 +144,9 @@
 
   * [Java内存模型（JMM）总结](https://zhuanlan.zhihu.com/p/29881777)
 
-* **描述GC（百度/美团/soul）**
-  * 一般八股回答即可，如果没有指定问题，我一般从GC这件事情本身开始谈（抛开语言），真正有实战的面试官可能会继续追问调优策略。
+* **描述GC（百度/美团/Soul）**
+  
+  * 一般八股回答即可，如果没有指定问题，我一般从GC这件事情本身开始谈（抛开语言），真正有实战的面试官可能会继续追问调优策略和指令区别。
   * 对象存活判断
     * 引用计数，无法解决对象相互循环引用的问题，Java中没有使用（在 Python GC有应用）
     * 可达性分析（如果某个对象到GC Roots间没有任何引用链相连， 则证明此对象是不可能再被使用的。GC Roots --> 虚拟机栈和本地方法栈中正在引用的对象、静态属性引用的对象和常量）
@@ -161,7 +162,7 @@
   * [Java Garbage Collection Basics](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html) (Oracle Guides)
   * [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
   * [咱们从头到尾说一次 Java 垃圾回收](https://mp.weixin.qq.com/s/aA1eDYIUHuIfigTw2ffouw)
-
+  
 * **描述 Java 中的类加载过程（阿里/星环）**
 
   * 这部分可以答类加载的步骤，以及每个步骤的具体行为。简单总结：
@@ -210,9 +211,8 @@
 * **如何判断内存泄漏（腾讯）**
   * 因为长生命周期持有它的引用而导致不能被回收，这就是Java中内存泄漏的发生场景
   * [Java内存泄漏分析和解决](https://www.jianshu.com/p/54b5da7c6816)
-* **CPU使用率突然升高如何排查（soul）** 
-
-  * 其实是想问JVM相关的内容
+* **CPU使用率突然升高如何排查（Soul）** 
+* 其实是想问JVM相关的内容
 * **如何自定义类加载器** 
   * [JVM——自定义类加载器](https://blog.csdn.net/SEU_Calvin/article/details/52315125) 
 
@@ -270,7 +270,7 @@
     	* workQueue --> 工作队列，为 BlockingQueue，用于存储等待执行的任务
     	* threadFactory --> 如何定义创建线程，如命名等
     	* handler --> 拒绝策略
-  * IO密集型 和 计算密集型 任务如何配置线程池参数（字节跳动）/ 线程池参数配置策略（喜马拉雅）
+  * IO密集型 和 计算密集型 任务如何配置线程池参数（字节跳动）/ 线程池参数配置策略及原因（喜马拉雅/拼多多）
   * [Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html) 
   * [22 | Executor与线程池：如何创建正确的线程池？](https://time.geekbang.org/column/article/90771)（基本介绍和主要参数）
   * [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)（ThreadPoolExecutor 源码和关键类分析）
@@ -665,7 +665,7 @@
       * Spring Bean 的销毁过程会依次调用 DisposableBean 的 destroy 方法和 Bean 自身定制的 destroy 方法
   * [Spring Bean是什么？](https://www.awaimai.com/2596.html)
   * [第37讲 | 谈谈Spring Bean的生命周期和作用域？](https://time.geekbang.org/column/article/12472)
-* **描述Spring的AOP（小红书）** 
+* **描述Spring的AOP（小红书/拼多多）** 
   * AOP的理念
     * 将分散在各个业务逻辑代码中 相同的代码 通过 **横向切割** 的方式抽取到一个独立的模块中（模块化）
     * 将相同逻辑的重复代码横向抽取出来，使用动态代理技术将这些重复代码**织入**到目标对象方法中，实现和原来一样的功能
@@ -692,7 +692,7 @@
   * [Java annotation Wiki](https://en.wikipedia.org/wiki/Java_annotation)
   * [秒懂，Java 注解 （Annotation）你可以这样学](https://blog.csdn.net/briblue/article/details/73824058)（简单理解： 注解 --> 标签）
   * [精进Spring—Spring常用注解](https://blog.csdn.net/u010648555/article/details/76299467)（常见注解）
-* **描述Spring的IoC**
+* **描述Spring的IoC（拼多多）**
   * IoC是一种思想，并非一个具体技术
     * 基于 **依赖倒置原则（Dependency Inversion Principle）**
       * 把原本的高层建筑依赖底层建筑“倒置”过来，变成底层建筑依赖高层建筑。高层建筑决定需要什么，底层去实现这样的需求，但是高层并不用管底层是怎么实现的。这样就不会出现前面的“牵一发动全身”的情况
@@ -738,7 +738,7 @@
 ### Elasticsearch 
 
 * **ES的索引是怎么实现的（爱奇艺）**
-* **项目中ES是如何使用的（soul）**
+* **项目中ES是如何使用的（Soul）**
 
 
 
