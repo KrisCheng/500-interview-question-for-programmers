@@ -123,26 +123,47 @@
 
 * **描述Java的内存模型（阿里/美团/网易）** 
 
-  * 可回答JVM内存区域的划分，我一般从线程私有和线程共享两个方面回答，水平一般的（自己也没怎么用过的）面试官听完一般也就结束了。
+  * 可回答JVM对内存区域的划分，由于JVM支持多线程同时执行，我一般从线程私有和线程共享两个方面回答，水平一般（自己也没什么经验）的面试官听完一般也就结束了。
 
-    - 程序计数器（PC, Program Counter Register） --> 它的作用可以看做是当前线程所执行的字节码的行号指示器（字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令）
+    - 程序计数器（Program Counter Register） --> 可以看做是当前线程所执行的字节码的行号指示器（字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令）
 
-    - 虚拟机栈（Virtual Machine Stack） --> 保存一个个**栈帧（Stack Frame）**，对应着一次次的 Java **方法调用** 
+    - 虚拟机栈（Virtual Machine Stack） --> 方法执行时创建**栈帧（Stack Frame）**，对应着一次次的 Java **方法调用**
 
-    - 本地方法栈（Native Method Stack） --> 和虚拟机栈类似，区别为虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈为虚拟机使用到的Native方法服务
+    - 本地方法栈（Native Method Stack） --> 和虚拟机栈类似，区别为虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈为虚拟机使用到的Native方法服务（甚至有的Java虚拟机（譬如Hot-Spot虚拟机）直接把 本地方法栈 和 虚拟机栈 合二为一）
 
-       ↑（线程私有）--- （线程共享） ↓
+       ( ↑（线程私有）--- （线程共享） ↓ )
 
     - 堆（Heap） --> 虚拟机管理的内存中最大的一块，所有线程共享的内存区域，“几乎”所有的 **对象实例** 都在这里分配内存
 
     - 方法区（Method Area） --> 所有线程共享的一块内存区域，用于存储所谓的元（Meta）数据，如类结构信息，以及对应的运行时常量池、字段、方法代码等 
     - 运行时常量池（Run-Time Constant Pool） --> 属于方法区的一部分，存放各种常量信息
 
-  * [Java内存模型（JMM）总结](https://zhuanlan.zhihu.com/p/29881777)
-
   * [The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se9/html/jvms-2.html)（官方 Docs）
 
+  * 《深入理解Java虚拟机》 第三版 2.2
+
+  * [Java内存模型（JMM）总结](https://zhuanlan.zhihu.com/p/29881777)
+
+* **描述GC（百度/美团/soul）**
+  * 一般八股回答即可，如果没有指定问题，我一般从GC这件事情本身开始谈（抛开语言），真正有实战的面试官可能会继续追问调优策略。
+  * 对象存活判断
+    * 引用计数，无法解决对象相互循环引用的问题，Java中没有使用（在 Python GC有应用）
+    * 可达性分析（如果某个对象到GC Roots间没有任何引用链相连， 则证明此对象是不可能再被使用的。GC Roots --> 虚拟机栈和本地方法栈中正在引用的对象、静态属性引用的对象和常量）
+  * 垃圾收集算法
+    * 标记-清除算法（Mark-Sweep） --> 内存碎片化问题
+    * 标记-复制算法（Copying） --> 将内存分为大小相同的两块（“半区复制”），每次使用其中的一块。每次将活着的对象复制到 to 区域，拷贝过程中将对象顺序放置，避免内存碎片化
+    * 标记-整理算法（Mark-Compact） --> 类似于标记-清除，但为了避免内存碎片化，**在清理过程中移动对象，以确保移动后的对象占用连续的内存空间**
+    * 分代收集算法 --> 根据对象存活周期的不同将内存分为几块 （eg: 新生代/老生代）
+  * 频繁的 Full GC 怎么排查（阿里）
+  * Full GC 和 Major GC 的区别（阿里）
+  * 《深入理解Java虚拟机》第三版 第3章
+  * [Garbage Collection in Java – What is GC and How it Works in the JVM](https://www.freecodecamp.org/news/garbage-collection-in-java-what-is-gc-and-how-it-works-in-the-jvm/)
+  * [Java Garbage Collection Basics](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html) (Oracle Guides)
+  * [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
+  * [咱们从头到尾说一次 Java 垃圾回收](https://mp.weixin.qq.com/s/aA1eDYIUHuIfigTw2ffouw)
+
 * **描述 Java 中的类加载过程（阿里/星环）**
+
   * 这部分可以答类加载的步骤，以及每个步骤的具体行为。简单总结：
     * 加载（Loading） --> 链接（Linking） --> 初始化（Initializing）
     * 加载
@@ -157,7 +178,7 @@
     * 初始化（Initializing）
       * 真正执行类中定义的 Java 程序代码(字节码)，初始化阶段就是执行类构造器 <clinit>() 方法（Javac编译器的自动生成物）的过程。 （《深入理解Java虚拟机》第三版 P277）
 
-  * 一般会继续追问到Parents Delegation Model（宜译作“溯源委派加载模型”（[《码出高效》](https://book.douban.com/subject/30333948/) P119）
+  * 一般会继续追问到 Parents Delegation Model（宜译作“溯源委派加载模型”（[《码出高效》](https://book.douban.com/subject/30333948/) P119）
     * 概念，好处，实现等
     * 如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载都是如此，因此所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请求时，子加载器才会尝试自己去完成加载
     * 好处 --> Java中的类随着它的加载器一起具备了一种带有优先级的层次关系，避免类的重复加载
@@ -171,24 +192,6 @@
   * [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs）
   * 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制
 
-* **描述GC（百度/美团/soul）**
-  * 一般八股回答即可，真正有实战的面试官可能会继续追问调优策略。
-  * 对象存活判断
-    * 引用计数（Python 的 GC），无法解决对象相互循环引用的问题，Java中没有使用（Python GC有应用）
-    * 可达性分析（GC Roots --> 虚拟机栈和本地方法栈中正在引用的对象、静态属性引用的对象和常量）
-  * 垃圾收集算法
-    * 标记-清除算法（Mark-Sweep） --> 内存碎片化问题
-    * 复制算法（Copying） --> 将内存分为大小相同的两块，每次使用其中的一块。每次将活着的对象复制到 to 区域，拷贝过程中将对象顺序放置，避免内存碎片化
-    * 标记-整理算法（Mark-Compact） --> 类似于标记-清除，但为了避免内存碎片化，**在清理过程中移动对象，以确保移动后的对象占用连续的内存空间**
-    * 分代收集算法 --> 根据对象存活周期的不同将内存分为几块 （eg: 新生代/老生代）
-  * 频繁的 Full GC 怎么排查（阿里）
-  * Full GC 和 Major GC 的区别（阿里）
-  * 《深入理解Java虚拟机》第三版 第3章
-  * [Garbage Collection in Java – What is GC and How it Works in the JVM](https://www.freecodecamp.org/news/garbage-collection-in-java-what-is-gc-and-how-it-works-in-the-jvm/)
-  * [Java Garbage Collection Basics](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html) (Oracle Guides)
-  * [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
-  * [咱们从头到尾说一次 Java 垃圾回收](https://mp.weixin.qq.com/s/aA1eDYIUHuIfigTw2ffouw)
-  
 * **描述 Java 中的类加载机制（星环）**
   * Java虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这个过程被称作虚拟机的类加载机制（《深入理解Java虚拟机》第三版 P262）
 
@@ -200,7 +203,7 @@
 
 
 * **Java中什么时候会发生OOM（华为）** 
-  * 除了程序计数器，虚拟机内存的其他几个运行时区域都哟与发生OOM异常的可能
+  * 除了程序计数器，虚拟机内存的其他几个运行时区域都有可能发生OOM异常的可能
   * 《深入理解Java虚拟机》第三版 2.4
   * [Java内存溢出(OOM)异常完全指南](https://www.jianshu.com/p/2fdee831ed03) 
 * **NoClassDefFoundError和ClassNotFoundException的场景和解决办法（星环）**
@@ -209,7 +212,7 @@
   * [Java内存泄漏分析和解决](https://www.jianshu.com/p/54b5da7c6816)
 * **CPU使用率突然升高如何排查（soul）** 
 
-  * 这个其实是想问JVM相关的内容
+  * 其实是想问JVM相关的内容
 * **如何自定义类加载器** 
   * [JVM——自定义类加载器](https://blog.csdn.net/SEU_Calvin/article/details/52315125) 
 
@@ -513,6 +516,8 @@
 ### MongoDB
 
 （个人工作项目使用，但由于国内目前用得不是很多，没怎么碰到过实际面试题。）
+
+* **项目中使用Mongo的优势**
 
 
 
