@@ -2,11 +2,11 @@
 
 ## 概述
 
-对我而言，这是个人整理平时工作和面试中碰到的一些实际问题的一份索引（持续更新）；对你而言，这可以作为一份可参考的面试手册。
+对我而言，这是个人整理平时工作和面试中碰到的一些实际问题的一份索引（持续维护）；对你而言，这可以作为一份可参考的面试手册。
 
 优势是这里罗列的基本都是大公司的实际面试题或者个人工作中的系统性输出，且由于面试公司较多，比较全面，对准备面试有一定参考价值；
 
-劣势是当前还不够深入，很多问题你可能需要再看原始的文档（如果是以 **系统性学习** 为目的，尽可能远离 百度，’XXX速成‘ 之类的东西）甚至源码才能获得更深的理解（当然我也会尽量整理一些链接附上），你不太能仅仅通过本页面就获得非常有见地的观点。
+劣势是当前还不够深入，很多问题你可能需要再看原始的文档（如果是以 **系统性学习** 为目的，尽可能远离 百度，’XXX速成‘ 之类的东西）甚至源码才能获得更深的理解（当然我也会尽量整理一些链接附上），**你不太可能仅仅通过本页面就获得非常有见地的观点**。
 
 模块间排序一般无特定意义（每个模块开头一般会写一句话小结），模块内主要按面试频次排序。
 
@@ -86,7 +86,7 @@
 
 ### 集合框架
 
-（这部分是面试常见八股，可以作为你是否有过一些源码阅读的基础。）
+（这部分是面试常见八股，可以作为你是否有过一些源码阅读的基础，也可能会和线程安全等内容结合来问。）
 
 * **描述 HashMap 的底层实现（远景智能/字节跳动/百度/喜马拉雅）**
   * 一般可以从基本方法，capacity / load factor 作用及配置，如何解决哈希冲突，为什么HashMap不是线程安全的等方面展开。
@@ -145,52 +145,64 @@
   * [Java内存模型（JMM）总结](https://zhuanlan.zhihu.com/p/29881777)
 
 * **描述GC（百度/美团/Soul）**
-  
+
   * 一般八股回答即可，如果没有指定问题，我一般从GC这件事情本身开始谈（抛开语言），真正有实战的面试官可能会继续追问调优策略和指令区别。
   * 对象存活判断
-    * 引用计数，无法解决对象相互循环引用的问题，Java中没有使用（在 Python GC有应用）
-    * 可达性分析（如果某个对象到GC Roots间没有任何引用链相连， 则证明此对象是不可能再被使用的。GC Roots --> 虚拟机栈和本地方法栈中正在引用的对象、静态属性引用的对象和常量）
+    * 引用计数算法，无法解决对象相互循环引用的问题，Java中没有使用（在 Python GC等场景有应用）
+    * 可达性分析算法（如果某个对象到GC Roots间没有任何引用链相连， 则证明此对象是不可能再被使用的。GC Roots --> 虚拟机栈和本地方法栈中正在引用的对象、静态属性引用的对象和常量）
   * 垃圾收集算法
-    * 标记-清除算法（Mark-Sweep） --> 内存碎片化问题
-    * 标记-复制算法（Copying） --> 将内存分为大小相同的两块（“半区复制”），每次使用其中的一块。每次将活着的对象复制到 to 区域，拷贝过程中将对象顺序放置，避免内存碎片化
-    * 标记-整理算法（Mark-Compact） --> 类似于标记-清除，但为了避免内存碎片化，**在清理过程中移动对象，以确保移动后的对象占用连续的内存空间**
+    * 标记-清除算法（Mark-Sweep） -->首先标记出所有需要回收的对象，在标记完成后，统一回收掉所有被标记的对象。执行效率不稳定 && 内存碎片化问题
+    * 标记-复制算法（Copying） --> 将内存分为大小相同的两块（“半区复制”），每次使用其中的一块。每次将活着的对象复制到 另一块区域，拷贝过程中将对象顺序放置，避免内存碎片化，代价是将可用内存缩小为了原来的一半
+    * 标记-整理算法（Mark-Compact） --> 类似于标记-清除，但为了避免内存碎片化，”移动式”的。清理过程中移动对象，以确保移动后的对象占用连续的内存空间
     * 分代收集算法 --> 根据对象存活周期的不同将内存分为几块 （eg: 新生代/老生代）
   * 频繁的 Full GC 怎么排查（阿里）
-  * Full GC 和 Major GC 的区别（阿里）
+  * Full GC 和 Minor GC 的区别（阿里）
   * 《深入理解Java虚拟机》第三版 第3章
   * [Garbage Collection in Java – What is GC and How it Works in the JVM](https://www.freecodecamp.org/news/garbage-collection-in-java-what-is-gc-and-how-it-works-in-the-jvm/)
   * [Java Garbage Collection Basics](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html) (Oracle Guides)
   * [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
   * [咱们从头到尾说一次 Java 垃圾回收](https://mp.weixin.qq.com/s/aA1eDYIUHuIfigTw2ffouw)
-  
+
+* **工作中JVM内存调优的经验和工具**
+
+
+  * App内存基线调优（数据类型转换 / 静态资源压缩 / 池化资源及时释放等）
+  * 知道一些常见的JVM调优指令，但没有实际使用案例（jmap / jstack 等）
+
 * **描述 Java 中的类加载过程（阿里/星环）**
 
-  * 这部分可以答类加载的步骤，以及每个步骤的具体行为。简单总结：
+  * 这部分可以答类加载的步骤，以及每个步骤的具体行为，记忆即可。简单总结：
     * 加载（Loading） --> 链接（Linking） --> 初始化（Initializing）
-    * 加载
+    * 加载（Loading）
       * 将字节码数据从不同的数据源读取到 JVM 中，并映射为 JVM 认可的数据结构（Class对象），用户可以自定义类加载器（用户参与），实现类加载过程
-    * 链接 --> 把原始的类定义信息平滑地转化到JVM运行的过程中，细分为：
-      * 验证（Verification）
-        * 确保Class文件的字节流中包含的信息符合JVM的全部约束要求，保证这些信息被当做代码后不会危害虚拟机自身的安全
-      * 准备（Preparation）
-        * 正式为类变量分配内存并设置类变量初始值的阶段
-      * 解析（Resolution）
-        * 虚拟机将常量池内的符号引用替换为直接引用的过程（直接引用是可以直接指向目标的指针、相对偏移量或者是一个能间接定位到目标的句柄）
+    * 链接（Linking） --> 把原始的类定义信息平滑地转化到JVM运行的过程中，细分为：
+      * 验证（Verification） --> 确保Class文件的字节流中包含的信息符合JVM的全部约束要求，保证这些信息被当做代码后不会危害虚拟机自身的安全
+      * 准备（Preparation） --> 正式为类变量分配内存并设置类变量初始值的阶段
+      * 解析（Resolution） --> 虚拟机将常量池内的符号引用替换为直接引用的过程（直接引用是可以直接指向目标的指针、相对偏移量或者是一个能间接定位到目标的句柄）
     * 初始化（Initializing）
       * 真正执行类中定义的 Java 程序代码(字节码)，初始化阶段就是执行类构造器 <clinit>() 方法（Javac编译器的自动生成物）的过程。 （《深入理解Java虚拟机》第三版 P277）
-
+    
   * 一般会继续追问到 Parents Delegation Model（宜译作“溯源委派加载模型”（[《码出高效》](https://book.douban.com/subject/30333948/) P119）
     * 概念，好处，实现等
+    
     * 如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载都是如此，因此所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请求时，子加载器才会尝试自己去完成加载
+    
     * 好处 --> Java中的类随着它的加载器一起具备了一种带有优先级的层次关系，避免类的重复加载
+    
     * 实现
-    * 1. 检查请求加载的类型是否已经被加载过，没有则调用父加载器的 loadClass() 方法
-      2. 若父加载器为空则默认使用启动类加载器作为附加载器
+    
+      1. 检查请求加载的类型是否已经被加载过，没有则调用父加载器的 loadClass() 方法
+    
+      2. 若父加载器为空则默认使用启动类加载器作为父加载器
+    
       3. 加入父类加载器加载失败，抛出ClassNotFoundException，才调用自己的 findClass() 方法尝试进行加载
-    * 为什么要用双亲委派模型，有没有别的实现，或者Java为什么要这么设计（阿里）
-
+    
+    * 为什么要用双亲委派模型，有没有别的实现，或者说Java为什么要这么设计（阿里）
+    
   * [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
+
   * [Java Virtual Machine Specification Chapter 5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)（官方JVM虚拟机规范 Docs）
+
   * 《深入理解Java虚拟机：JVM高级特性与最佳实践》第7章 -- 虚拟机类加载机制
 
 * **描述 Java 中的类加载机制（星环）**
@@ -212,7 +224,7 @@
   * 因为长生命周期持有它的引用而导致不能被回收，这就是Java中内存泄漏的发生场景
   * [Java内存泄漏分析和解决](https://www.jianshu.com/p/54b5da7c6816)
 * **CPU使用率突然升高如何排查（Soul）** 
-* 其实是想问JVM相关的内容
+  * 其实是想问JVM相关的内容
 * **如何自定义类加载器** 
   * [JVM——自定义类加载器](https://blog.csdn.net/SEU_Calvin/article/details/52315125) 
 
@@ -228,7 +240,7 @@
 	  * 线程阻塞和等待的区别（网易）
 	  * [啃碎并发（二）：Java线程的生命周期](https://juejin.cn/post/6844903558433734669) 
 	  * [Difference between WAIT and BLOCKED thread states](https://stackoverflow.com/questions/15680422/difference-between-wait-and-blocked-thread-states) 
-	* 创建线程的方法
+	* 创建线程的方法（阿里）
 		* Runnable 接口
 		* 继承 Thread
 		* 通过 Callable 和 Future 创建线程
@@ -253,24 +265,26 @@
   * 可从基本思想，主要方法，实现细节等 narrow down
   * [从ReentrantLock的实现看AQS的原理及应用](https://tech.meituan.com/2019/12/05/aqs-theory-and-apply.html)
   * [Class AbstractQueuedSynchronizer](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html)
-
 * **synchronized和Lock的比较（使用/性能/效率），以及为什么会有这种差别（字节跳动）** 
 
   * 这个问题等于上述两个一起问了，可分别解答
-
 * **Java中如何使用线程池，线程池有哪些参数（阿里/字节跳动/喜马拉雅） ， 线程池有哪些类型（百度）**
   * 线程池的好处（另一种问法是 “我每次创建线程就可以了，为什么要用线程池？”）
     * 降低资源消耗 / 提高响应速度 / 提高线程的可管理性 / 提供可扩展功能 等
   * ThreadPoolExecutor类
     * 线程池中的每一个线程被封装成一个 Worker 对象，ThreadPool 维护的其实就是一组 Worker 对象
     * 一些主要参数
-    	* corePoolSize --> 核心线程数
-    	* maximumPoolSize --> 最大能创建的线程数（可以理解为当任务量突然过大时的一种补救措施）
-    	* keepAliveTime
-    	* workQueue --> 工作队列，为 BlockingQueue，用于存储等待执行的任务
-    	* threadFactory --> 如何定义创建线程，如命名等
-    	* handler --> 拒绝策略
-  * IO密集型 和 计算密集型 任务如何配置线程池参数（字节跳动）/ 线程池参数配置策略及原因（喜马拉雅/拼多多）
+      * corePoolSize --> 核心线程数
+      * maximumPoolSize --> 最大能创建的线程数（可以理解为当任务量突然过大时的一种补救措施）
+      * keepAliveTime
+      * workQueue --> 工作队列，为 BlockingQueue，用于存储等待执行的任务
+      * threadFactory --> 如何定义创建线程，如命名等
+      * handler --> 拒绝策略
+    * 参数配置
+      * IO密集型 和 计算密集型 任务如何配置线程池参数（字节跳动）/ 线程池参数配置策略及原因（喜马拉雅/拼多多/阿里）
+      * 实际业务需求预估
+      * IO密集型 和 计算密集型 的经验值配置 (如 《Java并发编程》，经验值)
+      * 运行时动态化配置（[Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html) ）
   * [Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html) 
   * [22 | Executor与线程池：如何创建正确的线程池？](https://time.geekbang.org/column/article/90771)（基本介绍和主要参数）
   * [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)（ThreadPoolExecutor 源码和关键类分析）
@@ -481,13 +495,13 @@
 * **SQL优化策略** 
   * [SQL优化2020最全干货总结---MySQL](https://developer.aliyun.com/article/779151)
   * [这大概是最全的sql优化方案了](https://zhuanlan.zhihu.com/p/48385127) 		
-
-* **各种join操作的区别（left, right, inner join）** 
-  * [mysql join操作](https://www.cnblogs.com/ggjucheng/archive/2012/11/06/2757972.html)
 * **找出在表A中但不在表B中的记录（根据某一个共同的column）（PayPal）**
   * [查询A、B表中，A表中B表没有的数据](https://blog.csdn.net/long636/article/details/51733273)（三种方法）
 * **having 和 where 用法上的区别（网易）**
   * [What is the difference between HAVING and WHERE in SQL?](https://stackoverflow.com/questions/287474/what-is-the-difference-between-having-and-where-in-sql) 
+* **in 和 exists 的区别和使用场景（阿里）**
+* **各种join操作的区别（left, right, inner join）** 
+  * [mysql join操作](https://www.cnblogs.com/ggjucheng/archive/2012/11/06/2757972.html)
 
 
 
@@ -518,6 +532,10 @@
 （个人工作项目使用，但由于国内目前用得不是很多，没怎么碰到过实际面试题。）
 
 * **项目中使用Mongo的优势**
+  * 敏捷迭代，初期变化频繁
+  * embeded document场景匹配
+  * 弱一致性，保证了性能（对于Payment等场景还是需要使用支持事务的数据库）
+
 
 
 
@@ -744,6 +762,8 @@
 
 ### Redis 
 
+(缓存基本是后端基本问题了，可惜个人当前实战经验不够，TBD)
+
 * **缓存一致性问题怎么解决（Shopee）** 
 
 
@@ -775,15 +795,15 @@
 
 ### Netty
 
-
+（TBD）
 
 ## Android && Frontend
 
-个人有一些Android和 前端 的经验，但无奈没有深入了，这里简单提一嘴。
+个人有一些Android和 前端 的经验，但无奈后续没有深入了，这里简单提一嘴。
 
 对于前端，一般会有 打包过程，框架（Vue.js），JS语法（回调，异步）等问题。
 
-对于Android，会涉及 关键类，App生命周期，主要组件，AIDL通讯，回调 等内容。
+对于Android，会涉及 关键类，App生命周期，主要组件，AIDL通讯，回调 等内容，以及 App 性能优化等问题。
 
 
 
@@ -792,16 +812,6 @@
 
 （本部分罗列一些计算机基本问题，一般都比较简单。）
 
-* **浅拷贝 & 深拷贝（字节跳动）**
-  * 浅拷贝 --> 对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，**没有真实的创建一个新的对象**
-  * 深拷贝 --> 对基本数据类型进行值传递，对引用数据类型，**创建一个新的对象**，并复制其内容
-  * [细说 Java 的深拷贝和浅拷贝](https://segmentfault.com/a/1190000010648514) 
-  * [8.6: Pass by Value vs. Pass by Reference - Processing Tutorial](https://www.youtube.com/watch?v=hNR6fsksEu8)
-* **值传递 & 引用传递**
-  * Java中方法参数传递方式是按**值传递**
-  * 如果参数是基本类型，传递的是基本类型的字面量值的拷贝
-  * 如果参数是引用类型，传递的是该参量所引用的对象在堆中地址值的拷贝
-  * [什么是值传递和引用传递？](https://www.zhihu.com/question/31203609/answer/50992895) 
 * **git rebase 和 git merge 有什么区别（小红书/野村证券/PayPal）**
   * 同：都是用于从一个分支获取并且合并到当前分支
   * 异：rebase --> 会合并之前的commit历史（带有破坏性的修改 commit 历史的命令）
@@ -809,8 +819,19 @@
   * 保留完整的历史记录，并且想要避免重写commit history的风险 --> git merge
   * [git rebase 和 git merge 的区别](https://www.jianshu.com/p/f23f72251abc) 
 
+* **浅拷贝 & 深拷贝（字节跳动）**
+  * 浅拷贝 --> 对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，**没有真实的创建一个新的对象**
+  * 深拷贝 --> 对基本数据类型进行值传递，对引用数据类型，**创建一个新的对象**，并复制其内容
+  * [细说 Java 的深拷贝和浅拷贝](https://segmentfault.com/a/1190000010648514) 
+  * [8.6: Pass by Value vs. Pass by Reference - Processing Tutorial](https://www.youtube.com/watch?v=hNR6fsksEu8)
+
 
 * **git fetch 和 git pull 有什么区别（PayPal）**
-	* pull = fetch + merge
-	* [详解git fetch与git pull的区别](https://blog.csdn.net/riddle1981/article/details/74938111) 
+  * pull = fetch + merge
+  * [详解git fetch与git pull的区别](https://blog.csdn.net/riddle1981/article/details/74938111) 
+* **值传递 & 引用传递**
+  * Java中方法参数传递方式是按**值传递**
+  * 如果参数是基本类型，传递的是基本类型的字面量值的拷贝
+  * 如果参数是引用类型，传递的是该参量所引用的对象在堆中地址值的拷贝
+  * [什么是值传递和引用传递？](https://www.zhihu.com/question/31203609/answer/50992895) 
 
