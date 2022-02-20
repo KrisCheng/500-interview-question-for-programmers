@@ -35,12 +35,12 @@
 * **序列化（Serialization）和反序列化（小红书）**
 
   * [Java 序列化](https://www.runoob.com/java/java-serialization.html)（基本介绍）
-  * [二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/) （一道经典算法题）
+  * [二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/) （经典coding题）
 * **Java中父类和子类初始化顺序（小红书）**
   * [java中父类和子类初始化顺序](https://blog.csdn.net/yuxin6866/article/details/53107578) 
 
 
-* **描述 Java8 的新特性（星环）**
+* **描述 Java8及之后的新特性（星环）**
   * 开放题，如 lambda 表达式，Stream 编程 等
   * [What's New in JDK 8](https://www.oracle.com/java/technologies/javase/8-whats-new.html)
   * [Stream (Java Platform SE 8 ) - Oracle Help Center](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html) 
@@ -54,11 +54,11 @@
   * ***static***
     * the keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type
     * [A Guide to the Static Keyword in Java](https://www.baeldung.com/java-static)
-* **字符串**
+* **字符串相关类**
   * 常见问题如 StringBuffer，StringBuilder 差别，进而扩展到如线程安全等相关问题
   * [第5讲 | String、StringBuffer、StringBuilder有什么区别？](https://time.geekbang.org/column/article/7349)
 * **什么是反射 && 反射的具体应用**
-  * 本题可从概念，使用，应用场景等几个方面考察，由浅入深
+  * 可从概念，使用，应用场景等几个方面考察，由浅入深
   * [详解面试中常考的 Java 反射机制](https://zhuanlan.zhihu.com/p/86293659) （参考1）
   * [Guide to Java Reflection](https://www.baeldung.com/java-reflection) （参考2）
 
@@ -66,13 +66,13 @@
 
 ### IO相关
 
-（这部分深挖可以问得很难，一般可从常见IO模型，适用场景开始，到Java中的IO模型实现，深入到框架的实现。）*`TODO`*
+（这部分深挖可以问得很难，一般可从常见IO模型，适用场景开始，到Java中的IO模型实现，深入到框架的实现。）*`TODO`* *`HARD`*
 
 * **描述BIO / NIO（网易）/ 描述常见的IO模型（小红书）** 
   * [The difference between BIO and NIO, AIO](https://www.programmersought.com/article/10551850908/) （一些基本的概念解释）
   * [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473/answer/241673170) （评价很高的答案，从操作系统本身进行解释）
 * **Java提供了哪些IO方式（拼多多/字节跳动）** 
-  * BIO/NIO/AIO
+  * BIO / NIO / AIO
   * [Java NIO浅析](https://tech.meituan.com/2016/11/04/nio.html)
   * [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)
   * [Java NIO Tutorial](http://tutorials.jenkov.com/java-nio/index.html) （一份实操练习教程）
@@ -89,7 +89,7 @@
 （这部分是面试常见八股，可以作为你是否有过一些源码阅读的基础，也可能会和线程安全等内容结合来问。）
 
 * **描述 HashMap 的底层实现（远景智能/字节跳动/百度/喜马拉雅）**
-  * 一般可以从基本方法，capacity / load factor 作用及配置，如何解决哈希冲突，为什么HashMap不是线程安全的等方面展开。
+  * 一般可以从基本方法，capacity / load factor 作用及配置，如何解决哈希冲突，为什么HashMap不是线程安全的等方面展开
   * [Java HashMap工作原理及实现](https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/) （基本参考）
   * [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html) （主要参考）
   * [Class HashMap<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html) （Java 8 Docs）
@@ -98,7 +98,7 @@
 
 * **ConcurrentHashMap 实现原理，或者说它是怎么保证线程安全的（星环/字节跳动/阿里）**
 	
-	* 一般是上一个提问的进阶提问。
+	* 一般是上一个提问的进阶提问
 	* [HashMap? ConcurrentHashMap? 相信看完这篇没人能难住你！](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)
 	* [深入浅出ConcurrentHashMap1.8](https://www.jianshu.com/p/c0642afe03e0)（1.8版本的详细解释）
 	* [老生常谈，HashMap的死循环](https://juejin.im/post/5a66a08d5188253dc3321da0)（具体分析 非线程安全带来的无限循环占用 CPU100% 问题）
@@ -273,18 +273,18 @@
     * 降低资源消耗 / 提高响应速度 / 提高线程的可管理性 / 提供可扩展功能 等
   * ThreadPoolExecutor类
     * 线程池中的每一个线程被封装成一个 Worker 对象，ThreadPool 维护的其实就是一组 Worker 对象
-    * 一些主要参数
+    * 一些主要参数（线程分配 && 任务分配）
       * corePoolSize --> 核心线程数
       * maximumPoolSize --> 最大能创建的线程数（可以理解为当任务量突然过大时的一种补救措施）
-      * keepAliveTime
       * workQueue --> 工作队列，为 BlockingQueue，用于存储等待执行的任务
+      * keepAliveTime
       * threadFactory --> 如何定义创建线程，如命名等
       * handler --> 拒绝策略
     * 参数配置
       * IO密集型 和 计算密集型 任务如何配置线程池参数（字节跳动）/ 线程池参数配置策略及原因（喜马拉雅/拼多多/阿里）
-      * 实际业务需求预估
-      * IO密集型 和 计算密集型 的经验值配置 (如 《Java并发编程》，经验值)
-      * 运行时动态化配置（[Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html) ）
+        * 实际业务需求预估
+        * IO密集型 和 计算密集型 的经验值配置 (如 《Java并发编程》，经验值)
+        * 运行时动态化配置（[Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html) ）
   * [Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html) 
   * [22 | Executor与线程池：如何创建正确的线程池？](https://time.geekbang.org/column/article/90771)（基本介绍和主要参数）
   * [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)（ThreadPoolExecutor 源码和关键类分析）
@@ -533,7 +533,7 @@
 
 * **项目中使用Mongo的优势**
   * 敏捷迭代，初期变化频繁
-  * embeded document场景匹配
+  * embeded document场景匹配（如Order）
   * 弱一致性，保证了性能（对于Payment等场景还是需要使用支持事务的数据库）
 
 
