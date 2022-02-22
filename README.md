@@ -238,7 +238,7 @@
 	* Java中实现并发编程的手段 --> 多线程
 	* 线程的生命周期（新建 / 就绪 / 运行 / 阻塞 / 死亡）（网易）
 	  * 线程阻塞和等待的区别（网易）
-	  * [啃碎并发（二）：Java线程的生命周期](https://juejin.cn/post/6844903558433734669) 
+	  * [Java线程的生命周期](https://juejin.cn/post/6844903558433734669) 
 	  * [Difference between WAIT and BLOCKED thread states](https://stackoverflow.com/questions/15680422/difference-between-wait-and-blocked-thread-states) 
 	* 创建线程的方法（阿里）
 		* Runnable 接口
@@ -533,7 +533,7 @@
 
 * **项目中使用Mongo的优势**
   * 敏捷迭代，初期变化频繁
-  * embeded document场景匹配（如Order）
+  * embedded document 场景匹配（表示包含关系，一对多，如Order等Model）
   * 弱一致性，保证了性能（对于Payment等场景还是需要使用支持事务的数据库）
 
 
@@ -764,7 +764,10 @@
 
 (缓存基本是后端基本问题了，可惜个人当前实战经验不够，TBD)
 
-* **缓存一致性问题怎么解决（Shopee）** 
+* **缓存穿透(penetration)/击穿(breakdown)/雪崩(avalanche)（Shopee）**
+  * [What are redis cache penetration, cache breakdown and cache avalanche?](https://cdmana.com/2021/01/20210117114056733b.html)
+
+* **缓存一致性问题怎么解决（Shopee）**
 
 
 
@@ -796,6 +799,8 @@
 ### Netty
 
 （TBD）
+
+
 
 ## Android && Frontend
 
