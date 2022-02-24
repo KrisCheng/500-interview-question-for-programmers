@@ -2,11 +2,11 @@
 
 ## 概述
 
-对我而言，这是个人整理平时工作和面试中碰到的一些实际问题的一份索引（持续维护）；对你而言，这可以作为一份可参考的面试手册。
+对我而言，这是个人整理平时工作和面试中碰到的一些实际问题的一份手册（持续维护）；对你而言，这可以作为一份可参考的面试手册。
 
-优势是这里罗列的基本都是大公司的实际面试题或者个人工作中的系统性输出，且由于面试公司较多，比较全面，对准备面试有一定参考价值；
+优势是这里罗列的基本都是大公司的实际面试题或者个人工作中的总结输出，且由于面试公司较多，比较全面，对准备面试有一定参考价值；
 
-劣势是当前还不够深入，很多问题你可能需要再看原始的文档（如果是以 **系统性学习** 为目的，尽可能远离 百度，’XXX速成‘ 之类的东西）甚至源码才能获得更深的理解（当然我也会尽量整理一些链接附上），**你不太可能仅仅通过本页面就获得非常有见地的观点**。
+劣势是当前阶段还不够深入，很多问题你可能需要再看原始的文档或者源码才能获得更深的理解（当然我也会尽量整理一些链接附上），**你不太可能仅仅通过本页面就获得非常有见地的观点**。
 
 模块间排序一般无特定意义（每个模块开头一般会写一句话小结），模块内主要按面试频次排序。
 
@@ -40,7 +40,7 @@
   * [java中父类和子类初始化顺序](https://blog.csdn.net/yuxin6866/article/details/53107578) 
 
 
-* **描述 Java8及之后的新特性（星环）**
+* **描述 Java8及之后的新特性（星环） / Java 17有什么新特性（小红书）**
   * 开放题，如 lambda 表达式，Stream 编程 等
   * [What's New in JDK 8](https://www.oracle.com/java/technologies/javase/8-whats-new.html)
   * [Stream (Java Platform SE 8 ) - Oracle Help Center](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html) 
@@ -75,7 +75,7 @@
   * BIO / NIO / AIO
   * [Java NIO浅析](https://tech.meituan.com/2016/11/04/nio.html)
   * [第11讲 | Java提供了哪些IO方式？ NIO如何实现多路复用？](https://time.geekbang.org/column/article/8369)
-  * [Java NIO Tutorial](http://tutorials.jenkov.com/java-nio/index.html) （一份实操练习教程）
+  * [Java NIO Tutorial](http://tutorials.jenkov.com/java-nio/index.html) （一份实操教程）
   * [Lesson: Basic I/O](https://docs.oracle.com/javase/tutorial/essential/io/index.html)（官方 Docs）
 
 * **描述Spring中的IO方式（字节跳动）**
@@ -86,7 +86,7 @@
 
 ### 集合框架
 
-（这部分是面试常见八股，可以作为你是否有过一些源码阅读的基础，也可能会和线程安全等内容结合来问。）
+（Java常见八股，可以作为你是否有过一些源码阅读的基础，也可能会和线程安全等内容结合来问。）
 
 * **描述 HashMap 的底层实现（远景智能/字节跳动/百度/喜马拉雅）**
   * 一般可以从基本方法，capacity / load factor 作用及配置，如何解决哈希冲突，为什么HashMap不是线程安全的等方面展开
@@ -119,7 +119,7 @@
 
 ### JVM相关
 
-（面试常见八股，深入可以涉及到JVM调优，OOM等相关内容。）
+（Java常见八股，深入可以涉及到JVM调优，OOM等相关内容。）
 
 * **描述Java的内存模型（阿里/美团/网易）** 
 
@@ -158,16 +158,20 @@
   * 频繁的 Full GC 怎么排查（阿里）
   * Full GC 和 Minor GC 的区别（阿里）
   * 《深入理解Java虚拟机》第三版 第3章
-  * [Garbage Collection in Java – What is GC and How it Works in the JVM](https://www.freecodecamp.org/news/garbage-collection-in-java-what-is-gc-and-how-it-works-in-the-jvm/)
   * [Java Garbage Collection Basics](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html) (Oracle Guides)
+  * [Garbage Collection in Java – What is GC and How it Works in the JVM](https://www.freecodecamp.org/news/garbage-collection-in-java-what-is-gc-and-how-it-works-in-the-jvm/)
   * [jvm系列(三):GC算法 垃圾收集器](https://mp.weixin.qq.com/s?__biz=MzI4NDY5Mjc1Mg==&mid=2247483952&idx=1&sn=ea12792a9b7c67baddfaf425d8272d33&chksm=ebf6da4fdc815359869107a4acd15538b3596ba006b4005b216688b69372650dbd18c0184643&scene=21#wechat_redirect)
   * [咱们从头到尾说一次 Java 垃圾回收](https://mp.weixin.qq.com/s/aA1eDYIUHuIfigTw2ffouw)
 
 * **工作中JVM内存调优的经验和工具**
 
 
-  * App内存基线调优（数据类型转换 / 静态资源压缩 / 池化资源及时释放等）
-  * 知道一些常见的JVM调优指令，但没有实际使用案例（jmap / jstack 等）
+    * App内存基线调优（数据类型转换 / 静态资源压缩 / 池化资源及时释放等）
+
+
+    * 知道一些常见的JVM调优指令，但没有实际使用案例（jmap / jstack 等）*`TODO`*
+
+
 
 * **描述 Java 中的类加载过程（阿里/星环）**
 
@@ -197,7 +201,7 @@
     
       3. 加入父类加载器加载失败，抛出ClassNotFoundException，才调用自己的 findClass() 方法尝试进行加载
     
-    * 为什么要用双亲委派模型，有没有别的实现，或者说Java为什么要这么设计（阿里）
+    * 为什么要用双亲委派模型，有没有别的实现，或者说Java为什么要这么设计（阿里）*`TODO`*
     
   * [第23讲 | 请介绍类加载过程，什么是双亲委派模型？](https://time.geekbang.org/column/article/9946)（简介 + 各步骤实例）
 
@@ -225,6 +229,9 @@
   * [Java内存泄漏分析和解决](https://www.jianshu.com/p/54b5da7c6816)
 * **CPU使用率突然升高如何排查（Soul）** 
   * 其实是想问JVM相关的内容
+* **已知某个类的路径，如何在代码中实例化这个类（星环）** 
+  * 获取 Class对象 + newInstance() 实例化
+  * [根据指定类名创建实例（Java的反射机制）](https://blog.csdn.net/u010729348/article/details/16819693) 
 * **如何自定义类加载器** 
   * [JVM——自定义类加载器](https://blog.csdn.net/SEU_Calvin/article/details/52315125) 
 
@@ -232,7 +239,7 @@
 
 ### Java并发编程
 
-（面试常见，如果没有海量并发经验的话（像我Orz），一般会从概念到源码，问到你答不上为止。）
+（常见八股，如果没有海量并发经验的话（像我Orz），一般会从概念到源码，问到答不上为止。）
 
 * **描述Java下的并发编程（阿里）**
 	* Java中实现并发编程的手段 --> 多线程
@@ -248,7 +255,7 @@
 
 
 * **synchronized 和 volatile（字节跳动/阿里/网易/爱奇艺）**
-  * synchronized 一般会问使用，底层实现等
+  * synchronized 一般会问如何使用，底层实现等
   * volatile 一般会问实现，可见性，指令重排等
     * 只能用于变量（is used to mark a Java variable as "being stored in main memory"）
     * 保证变量的可见性（指示 JVM，这个变量是不稳定的，每次使用它都到主存中进行读取） && 防止指令重排序
@@ -256,18 +263,18 @@
   * [Difference Between Atomic, Volatile and Synchronized in Java](https://www.geeksforgeeks.org/difference-between-atomic-volatile-and-synchronized-in-java/)（概述）
   * [Java Volatile Keyword](http://tutorials.jenkov.com/java-concurrency/volatile.html) （volatile tutorial）
   * [synchronized 实现原理](https://xiaomi-info.github.io/2020/03/24/synchronized/)
+* **描述 synchronized 和 wait() 搭配使用的场景（星环）** 
+  * 为什么 synchronized 要搭配 wait() 使用，见 [Java: Why wait must be called in a synchronized block](https://programming.guide/java/why-wait-must-be-in-synchronized.html)
 
 
 * **ReentrantLock 源码阅读（网易/小红书/星环）**
-
   * 可重入 --> 当一个线程试图获取一个它已经获取的锁时，这个获取动作就自动成功（自己可以再次获取自己的内部锁）
   * 描述 AQS（AbstractQueuedSynchronizer）的作用（另一种问法为 “ReentrantLock里提供了一个很好的工具，你知道这个工具是什么吗？”）
   * 可从基本思想，主要方法，实现细节等 narrow down
   * [从ReentrantLock的实现看AQS的原理及应用](https://tech.meituan.com/2019/12/05/aqs-theory-and-apply.html)
   * [Class AbstractQueuedSynchronizer](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html)
-* **synchronized和Lock的比较（使用/性能/效率），以及为什么会有这种差别（字节跳动）** 
-
-  * 这个问题等于上述两个一起问了，可分别解答
+* **synchronized和Lock的比较（使用/性能/效率），以及为什么会有这种差别（字节跳动）** *`TODO`*
+* 这个问题等于上述两个一起问了，可分别解答
 * **Java中如何使用线程池，线程池有哪些参数（阿里/字节跳动/喜马拉雅） ， 线程池有哪些类型（百度）**
   * 线程池的好处（另一种问法是 “我每次创建线程就可以了，为什么要用线程池？”）
     * 降低资源消耗 / 提高响应速度 / 提高线程的可管理性 / 提供可扩展功能 等
@@ -354,6 +361,120 @@
 
 
 
+## 数据库
+
+### 基础问题
+
+* **描述事务的隔离级别（野村证券/远景智能/网易/小红书）**
+  * 经典面试题，一般八股过后还会追问MySQL（InnoDB）隔离级别的实现等等
+  * Serializable（序列化） --> 可避免脏读，不可重复读，幻读
+  * Repeatable read（可重复读） --> 可避免脏读，不可重复读，但可能出现幻读 
+  * Read committed（已提交读） --> 可避免脏读，但是可能会造成不可重复读
+  * Read uncommitted（未提交读） --> 级别最低，什么都避免不了（事务可以看到其他事务“尚未提交”的修改）
+  * 脏读 --> 当一个事务允许读取另外一个事务修改但未提交的数据时，就可能发生 脏读
+  * 不可重复度 --> 在一次事务中，当一行数据获取两遍得到不同的结果表示发生了 不可重复读
+  * 幻读 --> 在事务执行过程中，当两个完全相同的查询语句执行得到不同的结果集。这种现象称为 幻读
+  * [Transaction Isolation Levels](https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html)
+  * [事务隔离 Wiki](https://zh.wikipedia.org/wiki/%E4%BA%8B%E5%8B%99%E9%9A%94%E9%9B%A2) 
+
+
+* **delete、 drop、truncate 的区别（PayPal）**
+  * drop --> 直接删掉表（不再需要一张表的时候，用drop）
+  * truncate --> 删除的是表中的数据，再插入数据时自增长的数据id又重新从1开始（保留表而删除所有数据的时候用truncate，实际是删除原来的表并重建一张新表）
+  * delete --> 删除表中数据，可以在后面添加where字句（想删除部分数据行时候，用delete，并且带上where子句）
+  * [SQL truncate 、delete与drop区别](https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html)
+* **第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题（阿里）**
+  * 区分快照 & 冗余
+  * [数据库设计冗余字段问题？](https://www.zhihu.com/question/50662784)
+  * [如何解释关系数据库的第一第二第三范式？](https://www.zhihu.com/question/24696366) 
+
+
+
+### 索引
+
+（面试常见八股（我真的怀疑有多少面试官实际有做过大规模的索引性能测试）。）
+
+* **索引是什么，为什么MySQL使用B+树做索引（字节跳动/腾讯/美团/星环/网易）**
+  * B+ 树做索引的优势
+    * 相较AVL, 红黑树等二叉树，这些查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远），需要降低树的高度
+    * 较 B树 的优势（字节跳动）
+      * 相较于B树，B+每个**非叶子**节点存储的关键字数更多，树的层级更少所以查询数据更快（层级更少）
+      * B+所有关键字数据地址都存在**叶子**节点上，所以每次查找的次数都相同所以查询速度要比B树更稳定（更稳定）
+      * B+树所有的**叶子**节点数据构成了一个有序链表，在查询大小区间（范围查询）的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高（天然具有排序）
+      * B+树遍历整棵树只需要遍历所有的**叶子**节点即可，而不需要像B树一样需要对每一层进行遍历，这有利于数据库做全表扫描
+  * [为什么 MySQL 使用 B+Tree？](https://smartkeyerror.oss-cn-shenzhen.aliyuncs.com/Phyduck/database/%E4%B8%BA%E4%BB%80%E4%B9%88MySQL%E4%BD%BF%E7%94%A8B%2BTree.pdf)
+  * [一步步分析为什么B+树适合作为索引的结构](https://blog.csdn.net/weixin_30531261/article/details/79312676)
+  * [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
+
+
+* **聚集索引（Clustered Index）和非聚集索引的区别（拼多多/网易/字节跳动/Wish/携程）**
+  * 聚集索引 --> 指数据库表行中数据的物理顺序与索引键值的逻辑顺序相同
+  * 每个表只能有一个聚集索引，因为目录只能按照一种方法进行排序
+  * [聚集索引与非聚集索引的总结](https://www.imooc.com/article/22915) 
+  * [聚合索引(clustered index) / 非聚合索引(nonclustered index)](https://blog.csdn.net/ak913/article/details/8026743)
+  * [快速理解聚集索引和非聚集索引](https://blog.csdn.net/zc474235918/article/details/50580639)
+  * [聚集索引](https://baike.baidu.com/item/%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95) 
+
+
+* **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）** 
+  * [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
+* **一个本来很快的SQL突然效率变慢，如何排查原因（阿里）**
+* **慢查询的优化思路（字节跳动）** 
+* **给定常用SQL语句，如何建立索引（Shopee）**
+  * 有A,B,C三个字段，常用SQL 语句为 `SELECT A,B,C where B=80 AND C > 200`, `SELECT A,B,C where A=50 AND B=80 AND C = 200`，如何建立索引
+
+
+
+### SQL语句
+
+（一些基本的SQL问题，有时也会碰到给定基本需求的写SQL题。）
+
+* **SQL优化策略** 
+  * [SQL优化2020最全干货总结---MySQL](https://developer.aliyun.com/article/779151)
+  * [这大概是最全的sql优化方案了](https://zhuanlan.zhihu.com/p/48385127)	
+* **having 和 where 用法上的区别（网易）**
+  * [What is the difference between HAVING and WHERE in SQL?](https://stackoverflow.com/questions/287474/what-is-the-difference-between-having-and-where-in-sql) 
+* **in 和 exists 的区别和使用场景（阿里）**
+* **各种join操作的区别（left, right, inner join）** 
+  * [mysql join操作](https://www.cnblogs.com/ggjucheng/archive/2012/11/06/2757972.html)
+
+
+
+### MySQL
+
+（国内互联网公司一般会从SQL问题过渡到MySQL问题（技术栈还是太单一了啊）。）
+
+* **MySQL索引不命中（索引失效）的可能原因及策略（美团/腾讯）**  
+  * [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html) 
+* **MySQL如何实现隔离级别的（如可重复读的实现原理）（拼多多/字节跳动）** 
+  * MySQL Inno DB 默认隔离级别 --> 可重复读
+  * MVCC（多版本并发控制）（Inno DB引擎实现）
+  * [InnoDB---可重复读隔离级别的底层实现原理](https://blog.csdn.net/huanghanqian/article/details/79517480)
+  * [MySQL事务隔离级别的实现原理](https://www.cnblogs.com/cjsblog/p/8365921.html)
+  * [轻松理解MYSQL MVCC 实现机制](https://blog.csdn.net/whoamiyang/article/details/51901888)
+* **MySQL联合索引命中情景分析（美团）**
+
+
+* **InnoDB的索引结构（字节跳动）** 
+* **MySQL常见的数据库引擎（网易）**
+  * [Mysql四种常见数据库引擎](https://yq.aliyun.com/articles/636314) 
+* **MySQL中如何使用和实现悲观锁和乐观锁（Shopee）**
+* **MySQL有哪些常见的锁和具体的实现（百度）**
+* **分库分表实践（百度）**
+
+
+
+### MongoDB
+
+（个人工作项目使用，但由于国内目前用得不是很多，没怎么碰到过实际面试题。）
+
+* **项目中使用Mongo的优势**
+  * 敏捷迭代，初期变化频繁
+  * embedded document 场景匹配（表示包含关系，一对多，如Order等Model）
+  * 弱一致性，保证了性能（对于Payment等场景还是需要使用支持事务的数据库）
+
+
+
 
 ## 操作系统
 
@@ -422,126 +543,10 @@
 
 
 
-## 数据库
-
-### 基础问题
-
-* **描述事务的隔离级别（野村证券/远景智能/网易/小红书）**
-	* 经典面试题，一般八股过后还会追问MySQL（InnoDB）隔离级别的实现等等
-	* Serializable（序列化） --> 可避免脏读，不可重复读，幻读
-	* Repeatable read（可重复读） --> 可避免脏读，不可重复读，但可能出现幻读 
-	* Read committed（已提交读） --> 可避免脏读，但是可能会造成不可重复读
-	* Read uncommitted（未提交读） --> 级别最低，什么都避免不了（事务可以看到其他事务“尚未提交”的修改）
-	* 脏读 --> 当一个事务允许读取另外一个事务修改但未提交的数据时，就可能发生 脏读
-	* 不可重复度 --> 在一次事务中，当一行数据获取两遍得到不同的结果表示发生了 不可重复读
-	* 幻读 --> 在事务执行过程中，当两个完全相同的查询语句执行得到不同的结果集。这种现象称为 幻读
-	* [Transaction Isolation Levels](https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html)
-	* [事务隔离 Wiki](https://zh.wikipedia.org/wiki/%E4%BA%8B%E5%8B%99%E9%9A%94%E9%9B%A2) 
-	
-
-
-* **delete、 drop、truncate 的区别（PayPal）**
-	* drop --> 直接删掉表（不再需要一张表的时候，用drop）
-	* truncate --> 删除的是表中的数据，再插入数据时自增长的数据id又重新从1开始（保留表而删除所有数据的时候用truncate，实际是删除原来的表并重建一张新表）
-	* delete --> 删除表中数据，可以在后面添加where字句（想删除部分数据行时候，用delete，并且带上where子句）
-	* [SQL truncate 、delete与drop区别](https://www.cnblogs.com/8765h/archive/2011/11/25/2374167.html)
-* **第一/第三/BC范式，以及我们实际建表时为什么要设计冗余字段，同时设计冗余字段会带来什么问题（阿里）**
-	* 区分快照 & 冗余
-	* [数据库设计冗余字段问题？](https://www.zhihu.com/question/50662784)
-	* [如何解释关系数据库的第一第二第三范式？](https://www.zhihu.com/question/24696366) 
-
-
-
-### 索引
-
-（面试常见八股（我真的怀疑有多少面试官实际有做过大规模的索引性能测试）。）
-
-* **索引是什么，有哪些常见索引，以及为什么MySQL使用B+树做索引（字节跳动/腾讯/美团/星环/网易）**
-	* B+ 树做索引的优势
-	  * 相较AVL, 红黑树等二叉树，这些查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远），需要降低树的高度
-	  * 较 B树 的优势（字节跳动）
-	    * 相较于B树，B+每个**非叶子**节点存储的关键字数更多，树的层级更少所以查询数据更快（层级更少）
-	    * B+所有关键字数据地址都存在**叶子**节点上，所以每次查找的次数都相同所以查询速度要比B树更稳定（更稳定）
-	    * B+树所有的**叶子**节点数据构成了一个有序链表，在查询大小区间（范围查询）的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高（天然具有排序）
-	    * B+树遍历整棵树只需要遍历所有的**叶子**节点即可，而不需要像B树一样需要对每一层进行遍历，这有利于数据库做全表扫描
-	* [为什么 MySQL 使用 B+Tree？](https://smartkeyerror.oss-cn-shenzhen.aliyuncs.com/Phyduck/database/%E4%B8%BA%E4%BB%80%E4%B9%88MySQL%E4%BD%BF%E7%94%A8B%2BTree.pdf)
-	* [一步步分析为什么B+树适合作为索引的结构](https://blog.csdn.net/weixin_30531261/article/details/79312676)
-	* [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
-
-
-* **聚集索引（Clustered Index）和非聚集索引的区别（拼多多/网易/字节跳动/Wish/携程）**
-	* 聚集索引 --> 指数据库表行中数据的物理顺序与索引键值的逻辑顺序相同
-	* 每个表只能有一个聚集索引，因为目录只能按照一种方法进行排序
-	* [聚集索引与非聚集索引的总结](https://www.imooc.com/article/22915) 
-	* [聚合索引(clustered index) / 非聚合索引(nonclustered index)](https://blog.csdn.net/ak913/article/details/8026743)
-	* [快速理解聚集索引和非聚集索引](https://blog.csdn.net/zc474235918/article/details/50580639)
-	* [聚集索引](https://baike.baidu.com/item/%E8%81%9A%E9%9B%86%E7%B4%A2%E5%BC%95) 
-
-
-* **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）** 
-  * [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
-* **一个本来很快的SQL突然效率变慢，如何排查原因（阿里）**
-* **慢查询的优化思路（字节跳动）** 
-* **给定常用SQL语句，如何建立索引（Shopee）**
-
-  * 有A,B,C三个字段，常用SQL 语句为 `SELECT A,B,C where B=80 AND C > 200`, `SELECT A,B,C where A=50 AND B=80 AND C = 200`，如何建立索引
-
-
-
-### SQL语句
-
-（一些基本的SQL问题，有时也会碰到给定基本需求的写SQL题。）
-
-* **SQL优化策略** 
-  * [SQL优化2020最全干货总结---MySQL](https://developer.aliyun.com/article/779151)
-  * [这大概是最全的sql优化方案了](https://zhuanlan.zhihu.com/p/48385127) 		
-* **找出在表A中但不在表B中的记录（根据某一个共同的column）（PayPal）**
-  * [查询A、B表中，A表中B表没有的数据](https://blog.csdn.net/long636/article/details/51733273)（三种方法）
-* **having 和 where 用法上的区别（网易）**
-  * [What is the difference between HAVING and WHERE in SQL?](https://stackoverflow.com/questions/287474/what-is-the-difference-between-having-and-where-in-sql) 
-* **in 和 exists 的区别和使用场景（阿里）**
-* **各种join操作的区别（left, right, inner join）** 
-  * [mysql join操作](https://www.cnblogs.com/ggjucheng/archive/2012/11/06/2757972.html)
-
-
-
-### MySQL
-
-（国内互联网公司一般会从SQL问题过渡到MySQL问题（技术栈还是太单一了啊）。）
-
-* **MySQL索引不命中（索引失效）的可能原因及策略（美团/腾讯）**  
-  * [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html) 
-* **MySQL如何实现隔离级别的（如可重复读的实现原理）（拼多多/字节跳动）** 
-  * MySQL Inno DB 默认隔离级别 --> 可重复读
-  * MVCC（多版本并发控制）（Inno DB引擎实现）
-  * [InnoDB---可重复读隔离级别的底层实现原理](https://blog.csdn.net/huanghanqian/article/details/79517480)
-  * [MySQL事务隔离级别的实现原理](https://www.cnblogs.com/cjsblog/p/8365921.html)
-  * [轻松理解MYSQL MVCC 实现机制](https://blog.csdn.net/whoamiyang/article/details/51901888)
-* **MySQL联合索引命中情景分析（美团）**
-
-
-* **InnoDB的索引结构（字节跳动）** 
-* **MySQL常见的数据库引擎（网易）**
-  * [Mysql四种常见数据库引擎](https://yq.aliyun.com/articles/636314) 
-* **MySQL中如何使用和实现悲观锁和乐观锁（Shopee）**
-
-
-
-### MongoDB
-
-（个人工作项目使用，但由于国内目前用得不是很多，没怎么碰到过实际面试题。）
-
-* **项目中使用Mongo的优势**
-  * 敏捷迭代，初期变化频繁
-  * embedded document 场景匹配（表示包含关系，一对多，如Order等Model）
-  * 弱一致性，保证了性能（对于Payment等场景还是需要使用支持事务的数据库）
-
-
-
 
 ## 计算机网络
 
-（八股重地，但其实可以问得非常深入，这是Web的基础。）
+（八股重地，可以问得非常深入，这是Web的基础。）
 
 * **描述三次握手四次挥手以及原因，每个包具体传递什么信息（阿里/腾讯/字节跳动）** 
   * 三次握手
@@ -597,10 +602,10 @@
 	* 服务器处理请求并返回HTTP报文
 	* 浏览器解析并渲染页面
 	* 连接结束
+	* [What happens when...](https://github.com/alex/what-happens-when) （最全面的解释）
 	* [从输入URL到页面加载发生了什么](https://segmentfault.com/a/1190000006879700)（依次逐步解释）
 	 	* [在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？](https://www.zhihu.com/question/34873227)（更具体的解释）
 	 	* [DNS递归查询和迭代查询的区别](https://blog.csdn.net/wuchuanpingstone/article/details/6720723)
-	 	* [What happens when...](https://github.com/alex/what-happens-when) （最全面的解释）
 
 
 * **DNS的过程（字节跳动）** 
@@ -753,13 +758,6 @@
 
 
 
-### Elasticsearch 
-
-* **ES的索引是怎么实现的（爱奇艺）**
-* **项目中ES是如何使用的（Soul）**
-
-
-
 ### Redis 
 
 (缓存基本是后端基本问题了，可惜个人当前实战经验不够，TBD)
@@ -768,6 +766,13 @@
   * [What are redis cache penetration, cache breakdown and cache avalanche?](https://cdmana.com/2021/01/20210117114056733b.html)
 
 * **缓存一致性问题怎么解决（Shopee）**
+
+
+
+### Elasticsearch 
+
+* **ES的索引是怎么实现的（爱奇艺）**
+* **项目中ES是如何使用的（Soul）**
 
 
 
