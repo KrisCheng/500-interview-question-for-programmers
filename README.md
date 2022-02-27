@@ -299,16 +299,6 @@
   * [《码出高效》](https://book.douban.com/subject/30333948/)  7.4.2（线程池源码详解，关键方法逐行解释）
 
 
-* **乐观锁与悲观锁的概念，常见实现（阿里）**
-	* 乐观锁适用于**多读**的应用类型，这样可以提高吞吐量 / 悲观锁适合于**多写**
-	* 乐观锁常见实现 --> 版本号机制 / CAS 算法
-		* CAS 算法概念 / 缺点
-			* 自旋 --> 循环尝试
-			* ABA 问题
-	* [何谓悲观锁与乐观锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87%E4%B9%8B%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81.md) （基本介绍）
-	* [Optimistic vs. Pessimistic locking](https://stackoverflow.com/questions/129329/optimistic-vs-pessimistic-locking)
-
-
 * **描述ThreadLocal 的实现（美团），什么情况ThreadLocal会发生OOM（星环）**
   * "它通常用于同一个线程内，跨类、跨方法传递数据"
   * [Java ThreadLocal](http://tutorials.jenkov.com/java-concurrency/threadlocal.html) 
@@ -366,7 +356,7 @@
 ### 基础问题
 
 * **描述事务的隔离级别（野村证券/远景智能/网易/小红书）**
-  * 经典面试题，一般八股过后还会追问MySQL（InnoDB）隔离级别的实现等等
+  * 起手面试题，一般八股过后还会追问MySQL（InnoDB）隔离级别的实现等等
   * Serializable（序列化） --> 可避免脏读，不可重复读，幻读
   * Repeatable read（可重复读） --> 可避免脏读，不可重复读，但可能出现幻读 
   * Read committed（已提交读） --> 可避免脏读，但是可能会造成不可重复读
@@ -442,7 +432,7 @@
 
 ### MySQL
 
-（国内互联网公司一般会从SQL问题过渡到MySQL问题（技术栈还是太单一了啊）。）
+（国内互联网公司一般会从数据库基本问题过渡到MySQL问题（技术栈还是太单一了啊）。）
 
 * **MySQL索引不命中（索引失效）的可能原因及策略（美团/腾讯）**  
   * [MySQL索引无法命中的几种情况及索引验证方法](http://www.chinacion.cn/article/4907.html) 
@@ -458,6 +448,14 @@
 * **InnoDB的索引结构（字节跳动）** 
 * **MySQL常见的数据库引擎（网易）**
   * [Mysql四种常见数据库引擎](https://yq.aliyun.com/articles/636314) 
+* **乐观锁与悲观锁的概念，常见实现（阿里）**
+  * 乐观锁适用于**多读**的应用类型，这样可以提高吞吐量 / 悲观锁适合于**多写**
+  * 乐观锁常见实现 --> 版本号机制 / CAS 算法
+    * CAS 算法概念 / 缺点
+      * 自旋 --> 循环尝试
+      * ABA 问题
+  * [何谓悲观锁与乐观锁](https://github.com/Snailclimb/JavaGuide/blob/master/docs/essential-content-for-interview/%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87%E4%B9%8B%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81.md) （基本介绍）
+  * [Optimistic vs. Pessimistic locking](https://stackoverflow.com/questions/129329/optimistic-vs-pessimistic-locking)
 * **MySQL中如何使用和实现悲观锁和乐观锁（Shopee）**
 * **MySQL有哪些常见的锁和具体的实现（百度）**
 * **分库分表实践（百度）**
@@ -469,7 +467,7 @@
 （个人工作项目使用，但由于国内目前用得不是很多，没怎么碰到过实际面试题。）
 
 * **项目中使用Mongo的优势**
-  * 敏捷迭代，初期变化频繁
+  * 敏捷迭代，初期需求变化频繁
   * embedded document 场景匹配（表示包含关系，一对多，如Order等Model）
   * 弱一致性，保证了性能（对于Payment等场景还是需要使用支持事务的数据库）
 
@@ -760,7 +758,7 @@
 
 ### Redis 
 
-(缓存基本是后端基本问题了，可惜个人当前实战经验不够，TBD)
+(缓存基本是后端基本问题了)
 
 * **缓存穿透(penetration)/击穿(breakdown)/雪崩(avalanche)（Shopee）**
   * [What are redis cache penetration, cache breakdown and cache avalanche?](https://cdmana.com/2021/01/20210117114056733b.html)
@@ -772,13 +770,13 @@
 ### Elasticsearch 
 
 * **ES的索引是怎么实现的（爱奇艺）**
-* **项目中ES是如何使用的（Soul）**
+* **项目中ES是如何使用的，为什么用ES（Soul）**
 
 
 
 ### Kafka
 
-* 基于发布-订阅模式(publish-subscribe)
+* 基于发布-订阅模式 (publish-subscribe)
 * 术语
   * topic
     * A topic is a category or feed name to which records are published
@@ -797,13 +795,7 @@
   * [Introduction](http://kafka.apache.org/intro)
   * [kafka解决了什么问题?](https://www.zhihu.com/question/53331259)
   * [《Apache Kafka实战》](https://book.douban.com/subject/30221096/)
-  * [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)（扫盲篇）
-
-
-
-### Netty
-
-（TBD）
+  * [消息队列其实很简单](https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/data-communication/message-queue.md)
 
 
 
