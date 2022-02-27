@@ -274,7 +274,9 @@
   * [从ReentrantLock的实现看AQS的原理及应用](https://tech.meituan.com/2019/12/05/aqs-theory-and-apply.html)
   * [Class AbstractQueuedSynchronizer](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html)
 * **synchronized和Lock的比较（使用/性能/效率），以及为什么会有这种差别（字节跳动）** *`TODO`*
-* 这个问题等于上述两个一起问了，可分别解答
+
+  * 这个问题等于上述两个一起问了，可分别解答
+
 * **Java中如何使用线程池，线程池有哪些参数（阿里/字节跳动/喜马拉雅） ， 线程池有哪些类型（百度）**
   * 线程池的好处（另一种问法是 “我每次创建线程就可以了，为什么要用线程池？”）
     * 降低资源消耗 / 提高响应速度 / 提高线程的可管理性 / 提供可扩展功能 等
@@ -291,7 +293,7 @@
       * IO密集型 和 计算密集型 任务如何配置线程池参数（字节跳动）/ 线程池参数配置策略及原因（喜马拉雅/拼多多/阿里）
         * 实际业务需求预估
         * IO密集型 和 计算密集型 的经验值配置 (如 《Java并发编程》，经验值)
-        * 运行时动态化配置（[Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html) ）
+        * 运行时动态化配置（[Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html)）
   * [Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html) 
   * [22 | Executor与线程池：如何创建正确的线程池？](https://time.geekbang.org/column/article/90771)（基本介绍和主要参数）
   * [深入理解 Java 线程池：ThreadPoolExecutor](https://juejin.im/entry/58fada5d570c350058d3aaad)（ThreadPoolExecutor 源码和关键类分析）
@@ -358,14 +360,15 @@
 * **描述事务的隔离级别（野村证券/远景智能/网易/小红书）**
   * 起手面试题，一般八股过后还会追问MySQL（InnoDB）隔离级别的实现等等
   * Serializable（序列化） --> 可避免脏读，不可重复读，幻读
-  * Repeatable read（可重复读） --> 可避免脏读，不可重复读，但可能出现幻读 
+  * Repeatable read（可重复读） --> 可避免脏读，不可重复读，但可能出现 幻读 (phantom read) 
   * Read committed（已提交读） --> 可避免脏读，但是可能会造成不可重复读
   * Read uncommitted（未提交读） --> 级别最低，什么都避免不了（事务可以看到其他事务“尚未提交”的修改）
   * 脏读 --> 当一个事务允许读取另外一个事务修改但未提交的数据时，就可能发生 脏读
   * 不可重复度 --> 在一次事务中，当一行数据获取两遍得到不同的结果表示发生了 不可重复读
-  * 幻读 --> 在事务执行过程中，当两个完全相同的查询语句执行得到不同的结果集。这种现象称为 幻读
+  * 幻读 --> 在事务执行过程中，当两个完全相同的查询语句执行得到不同的结果集，这种现象称为 幻读
   * [Transaction Isolation Levels](https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html)
   * [事务隔离 Wiki](https://zh.wikipedia.org/wiki/%E4%BA%8B%E5%8B%99%E9%9A%94%E9%9B%A2) 
+  * [What is the difference between Non-Repeatable Read and Phantom Read?](https://stackoverflow.com/questions/11043712/what-is-the-difference-between-non-repeatable-read-and-phantom-read)
 
 
 * **delete、 drop、truncate 的区别（PayPal）**
@@ -389,8 +392,7 @@
     * 相较AVL, 红黑树等二叉树，这些查找过程中要进行许多次的磁盘读取操作，非常耗时（逻辑结构上相近的节点在物理结构上可能会差很远），需要降低树的高度
     * 较 B树 的优势（字节跳动）
       * 相较于B树，B+每个**非叶子**节点存储的关键字数更多，树的层级更少所以查询数据更快（层级更少）
-      * B+所有关键字数据地址都存在**叶子**节点上，所以每次查找的次数都相同所以查询速度要比B树更稳定（更稳定）
-      * B+树所有的**叶子**节点数据构成了一个有序链表，在查询大小区间（范围查询）的数据时候更方便，数据紧密性很高，缓存的命中率也会比B树高（天然具有排序）
+      * B+树所有的**叶子**节点数据构成了一个有序链表，在查询大小区间（范围查询）的数据时候更方便，缓存的命中率也会比B树高（天然具有排序）
       * B+树遍历整棵树只需要遍历所有的**叶子**节点即可，而不需要像B树一样需要对每一层进行遍历，这有利于数据库做全表扫描
   * [为什么 MySQL 使用 B+Tree？](https://smartkeyerror.oss-cn-shenzhen.aliyuncs.com/Phyduck/database/%E4%B8%BA%E4%BB%80%E4%B9%88MySQL%E4%BD%BF%E7%94%A8B%2BTree.pdf)
   * [一步步分析为什么B+树适合作为索引的结构](https://blog.csdn.net/weixin_30531261/article/details/79312676)
@@ -407,7 +409,6 @@
 
 
 * **对于海量数据，如何提高查询效率（数据库优化策略）（野村证券）** 
-  * [优化1——数据库优化面试题](https://blog.csdn.net/u010796790/article/details/52194850) 
 * **一个本来很快的SQL突然效率变慢，如何排查原因（阿里）**
 * **慢查询的优化思路（字节跳动）** 
 * **给定常用SQL语句，如何建立索引（Shopee）**
@@ -421,7 +422,6 @@
 
 * **SQL优化策略** 
   * [SQL优化2020最全干货总结---MySQL](https://developer.aliyun.com/article/779151)
-  * [这大概是最全的sql优化方案了](https://zhuanlan.zhihu.com/p/48385127)	
 * **having 和 where 用法上的区别（网易）**
   * [What is the difference between HAVING and WHERE in SQL?](https://stackoverflow.com/questions/287474/what-is-the-difference-between-having-and-where-in-sql) 
 * **in 和 exists 的区别和使用场景（阿里）**
