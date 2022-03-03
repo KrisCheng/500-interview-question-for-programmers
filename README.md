@@ -84,13 +84,13 @@
 
 
 
-### 集合框架
+### 集合类
 
 （Java常见八股，可以作为你是否有过一些源码阅读的基础，也可能会和线程安全等内容结合来问。）
 
 * **描述 HashMap 的底层实现（远景智能/字节跳动/百度/喜马拉雅）**
   * 一般可以从基本方法，capacity / load factor 作用及配置，如何解决哈希冲突，为什么HashMap不是线程安全的等方面展开
-  * [HashMap面试指南](https://zhuanlan.zhihu.com/p/76735726)
+  * [HashMap面试指南](https://zhuanlan.zhihu.com/p/76735726)（无聊的面试大全）
   * [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html) 
   * [Class HashMap<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html) （Java 8 Docs）
   * [Java源码分析：关于 HashMap 1.8 的重大更新](https://blog.csdn.net/carson_ho/article/details/79373134)（1.7 vs 1.8 详细比较）
@@ -127,7 +127,7 @@
 
     - 程序计数器（Program Counter Register） --> 可以看做是当前线程所执行的字节码的行号指示器（字节码解释器工作时通过改变这个计数器的值来选取下一条需要执行的字节码指令）
 
-    - 虚拟机栈（Virtual Machine Stack） --> 方法执行时创建**栈帧（Stack Frame）**，对应着一次次的 Java **方法调用**
+    - 虚拟机栈（Virtual Machine Stack） --> 方法执行时创建 **栈帧（Stack Frame）**，对应着一次次的 Java **方法调用**
 
     - 本地方法栈（Native Method Stack） --> 和虚拟机栈类似，区别为虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈为虚拟机使用到的Native方法服务（甚至有的Java虚拟机（譬如Hot-Spot虚拟机）直接把 本地方法栈 和 虚拟机栈 合二为一）
 
@@ -167,8 +167,6 @@
 
   * App内存基线调优（数据类型转换 / 静态资源压缩 / 池化资源及时释放等）
   * 知道一些常见的JVM调优指令，但没有实际使用案例（jmap / jstack 等）*`TODO`*
-
-
 
 * **描述 Java 中的类加载过程（阿里/星环）**
 
@@ -228,7 +226,7 @@
   * 其实是想问JVM相关的内容
 * **已知某个类的路径，如何在代码中实例化这个类（星环）** 
   * 获取 Class对象 + newInstance() 实例化
-  * [根据指定类名创建实例（Java的反射机制）](https://blog.csdn.net/u010729348/article/details/16819693) 
+  * [根据指定类名创建实例（Java的反射机制）](https://blog.csdn.net/u010729348/article/details/16819693)
 * **如何自定义类加载器** 
   * [JVM——自定义类加载器](https://blog.csdn.net/SEU_Calvin/article/details/52315125) 
 
@@ -274,7 +272,7 @@
 
   * 这个问题等于上述两个一起问了，可分别解答
 
-* **Java中如何使用线程池，线程池有哪些参数（阿里/字节跳动/喜马拉雅） ， 线程池有哪些类型（百度）**
+* **Java中如何使用线程池，线程池有哪些参数（阿里/字节跳动/喜马拉雅），线程池有哪些类型（百度）**
   * 线程池的好处（另一种问法是 “我每次创建线程就可以了，为什么要用线程池？”）
     * 降低资源消耗 / 提高响应速度 / 提高线程的可管理性 / 提供可扩展功能 等
   * ThreadPoolExecutor类
@@ -392,8 +390,6 @@
       * B+树所有的**叶子**节点数据构成了一个有序链表，在查询大小区间（范围查询）的数据时候更方便，缓存的命中率也会比B树高（天然具有排序）
       * B+树遍历整棵树只需要遍历所有的**叶子**节点即可，而不需要像B树一样需要对每一层进行遍历，这有利于数据库做全表扫描
   * [为什么 MySQL 使用 B+Tree？](https://smartkeyerror.oss-cn-shenzhen.aliyuncs.com/Phyduck/database/%E4%B8%BA%E4%BB%80%E4%B9%88MySQL%E4%BD%BF%E7%94%A8B%2BTree.pdf)
-  * [一步步分析为什么B+树适合作为索引的结构](https://blog.csdn.net/weixin_30531261/article/details/79312676)
-  * [平衡二叉树、B树、B+树、B*树 理解其中一种你就都明白了](https://zhuanlan.zhihu.com/p/27700617)
 
 
 * **聚集索引（Clustered Index）和非聚集索引的区别（拼多多/网易/字节跳动/Wish/携程）**
