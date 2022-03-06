@@ -4,7 +4,7 @@
 
 对我而言，这是个人整理平时工作和面试中碰到的一些实际问题的一份手册（持续维护）；对你而言，这可以作为一份可参考的面试手册。
 
-优势是这里罗列的基本都是大公司的实际面试题或者个人工作中的总结输出，且由于面试公司较多，比较全面，对准备面试有一定参考价值；
+优势是这里罗列的基本都是大公司的实际面试题或者个人工作中的总结输出，且由于面试公司较多，比较全面，对准备面试（工作经验0~3年）有一定参考价值；
 
 劣势是当前阶段还不够深入，很多问题你可能需要再看原始的文档或者源码才能获得更深的理解（当然我也会尽量整理一些链接附上），**你不太可能仅仅通过本页面就获得非常有见地的观点**。
 
@@ -110,7 +110,7 @@
 * **HashMap 和 TreeMap 的区别和应用场景（PayPal/依图）**
   * [HashMap和TreeMap区别详解以及底层实现](https://blog.csdn.net/xlgen157387/article/details/47907721)（概念+比较）
   * [第9讲 | 对比Hashtable、HashMap、TreeMap有什么不同？ ](https://time.geekbang.org/column/article/8053) （概念+源码分析） 
-* **HashSet 如何判断重复元素（小红书/喜马拉雅）**
+* **HashSet 如何判断重复元素（小红书/喜马拉雅/拼多多）**
   * [HashSet重复元素判断](https://itfafa.iteye.com/blog/1698690) 
   * [Java提高篇——equals()与hashCode()方法详解](https://www.cnblogs.com/Qian123/p/5703507.html) 
 * **ArrayList和LinkedList的区别（源码级别）（字节跳动）** 
@@ -736,6 +736,7 @@
 * **描述一个Spring Boot项目的启动过程（阿里）**
   * @SpringBootApplication --> 复合注解（@SpringBootConfiguration / @EnableAutoConfiguration / @ComponentScan）
   * [SpringBoot 应用程序启动过程探秘](https://juejin.im/post/5b8f05a5f265da43296c6102)
+* **SpringBoot 的starter启动机制（拼多多）**
 
 
 * **什么是JPA**
