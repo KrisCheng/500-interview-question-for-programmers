@@ -1,6 +1,6 @@
 ## Hard Interview Questions
 
-本页面用于记录一些我认为比较难或者不太好回答的面试题（非算法，一般都是质量还不错的题），如果你有好的答案，请不吝赐教。
+本页面用于记录一些我认为比较难或者不太好回答的面试题（非算法，一般都是质量还不错的题，有些基于项目来问），如果你有更好的答案，请不吝赐教。
 
 
 
@@ -13,12 +13,39 @@
 
 
 
-* **订单限流系统是怎么实现的（小红书）**
-  * 三个指标（服务ID，当前单量，最大单量）
-  * [常见限流方案设计与实现](https://zhuanlan.zhihu.com/p/72980217)
-  * [Understanding Rate Limiting Algorithms](https://www.quinbay.com/blog/understanding-rate-limiting-algorithms)
+* **订单限流是怎么实现的（多），分布式场景下的限流又如何实现（字节跳动）**
+  * 滑动窗口限流，基于redis [setnx](https://redis.io/commands/setnx) 命令实现分布式锁（时间区间段while循环中获取，拿到直接返回，key为服务ID，value为uuid随机生成，[expire](https://redis.io/commands/expire) 命令设置超时），拿到锁后进行当前单量判断和更新redis操作（hget，hset），超过max则向上抛出异常（setnx + expire的实现，问题在于这两步非原子操作）
+  * 基于value释放锁
+  * 三个指标（物流服务ID为key，当前单量，最大单量，slot为0.001）
+  * 最大单量的更新为一个cronjob，更新redis
+  * [如何设计一个分布式限流器（distributed rate limiter）](https://guanhonly.github.io/2020/05/30/distributed-rate-limiter/)（概念扫盲篇）
+  * [Understanding Rate Limiting Algorithms](https://www.quinbay.com/blog/understanding-rate-limiting-algorithms) （概念扫盲篇，EN）
+  * [限流算法基本代码实现](https://juejin.cn/post/6870396751178629127)
+  * [分布式锁的实现之 redis 篇](https://xiaomi-info.github.io/2019/12/17/redis-distributed-lock/)
+  * [Distributed locks with Redis](https://redis.io/topics/distlock)
+  
 
 
+
+* **对分布式事务的理解（字节跳动）**
+  * 两阶段提交
+    * 准备（投票）阶段：”对于数据库来说，准备操作是在重做日志中记录全部事务提交操作所要做的内容，它与本地事务中真正提交的区别只是暂不写入最后一条 Commit Record 而已“
+    * 提交阶段：”阶段的提交操作应是很轻量的，仅仅是持久化一条 Commit Record 而已“
+  * 三阶段提交
+    * CanCommit
+    * PreCommit
+    * DoCommit
+  * TCC事务（"Try-Confirm-Cancel"）
+    * Try：尝试执行阶段，完成所有业务可执行性的检查（保障一致性），并且预留好全部需用到的业务资源（保障隔离性）
+    * Confirm：确认执行阶段，不进行任何业务检查，直接使用 Try 阶段准备的资源来完成业务处理。Confirm 阶段可能会重复执行，因此本阶段所执行的操作需要具备幂等性
+    * Cancel：取消执行阶段，释放 Try 阶段预留的业务资源。Cancel 阶段可能会重复执行，也需要满足幂等性
+  * [《凤凰架构》第3章 事务处理](http://icyfenix.cn/architect-perspective/general-architecture/transaction/)
+* **物流商鉴权是怎么做的（比如如何判断某些单只能某物流商下）（多）**
+  * api key
+    
+* **接口幂等如何实现**
+  * 
+    
 
 * **设计一个服务，用于实时统计一个直播间的在线人数（技术选型，实现等）（Shopee）**
   * 
@@ -44,6 +71,9 @@
   * 横向扩展能力
   * [Why Use MongoDB](https://www.mongodb.com/why-use-mongodb)
   * [41 | MongoDB应用场景及选型](https://time.geekbang.org/course/detail/100040001-193615)
+
+
+
 * **使用ES的场景和原因（多）**
   * 
 
@@ -56,14 +86,16 @@
 
 
 * **建索引的策略（如 A,B,C三个字段，常用SQL 语句为 SELECT A,B,C where B=80 AND C > 200, SELECT A,B,C where A=50 AND B=80 AND C = 200，如何分别建立索引）（Shopee）**
-  * 
+  * 最左匹配原则
 
 
 
 * **有哪些常用的负载均衡算法和实现（Shopee）**
+
   * 
-    
-    
+
+  
+
 * **DDD的应用实践（多）**
   * [领域驱动设计在互联网业务开发中的实践](https://tech.meituan.com/2017/12/22/ddd-in-practice.html)
 
