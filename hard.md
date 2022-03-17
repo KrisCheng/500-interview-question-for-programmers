@@ -14,9 +14,8 @@
 
 
 * **订单限流是怎么实现的（多），分布式场景下的限流又如何实现（字节跳动）**
-  * 滑动窗口限流，基于redis [setnx](https://redis.io/commands/setnx) 命令实现分布式锁（时间区间段while循环中获取，拿到直接返回，key为服务ID，value为uuid随机生成，[expire](https://redis.io/commands/expire) 命令设置超时），拿到锁后进行当前单量判断和更新redis操作（hget，hset），超过max则向上抛出异常（setnx + expire的实现，问题在于这两步非原子操作）
-  * 基于value释放锁
-  * 三个指标（物流服务ID为key，当前单量，最大单量，slot为0.001）
+  * 基于redis [setnx](https://redis.io/commands/setnx) 命令实现分布式锁（时间区间段while循环中获取，拿到直接返回，key为服务ID，value为uuid随机生成，[expire](https://redis.io/commands/expire) 命令设置超时），拿到锁后进行当前单量判断和更新redis操作（hget，hset），超过max则向上抛出异常（setnx + expire的实现，问题在于这两步非原子操作）
+  * 三个指标（物流服务ID为key，当前单量，最大单量）
   * 最大单量的更新为一个cronjob，更新redis
   * [如何设计一个分布式限流器（distributed rate limiter）](https://guanhonly.github.io/2020/05/30/distributed-rate-limiter/)（概念扫盲篇）
   * [Understanding Rate Limiting Algorithms](https://www.quinbay.com/blog/understanding-rate-limiting-algorithms) （概念扫盲篇，EN）
@@ -44,7 +43,7 @@
   * api key
     
 * **接口幂等如何实现**
-  * 
+  * 基于transaction_id判断
     
 
 * **设计一个服务，用于实时统计一个直播间的在线人数（技术选型，实现等）（Shopee）**
@@ -60,7 +59,9 @@
 * **消息中间件和Redis等缓存在当前系统中的使用实践（多）**
   * MQ（kafka）用于订单创建和三方物流商通信两个模块，为异步过程
   * 基于redis 实现CacheManager，提供load，override，evict等方法
-  * 如某些耗时或常用query（物流商列表，渠道列表等），添加ttl，保证读取效率
+  * 某些耗时或常用query（物流商列表，渠道列表等），添加ttl，保证读取效率，减少数据库访问
+  * redis用于分布式锁（订单限流等场景）
+  * reidis pub/sub机制（某些数据（如ENUM）需常驻内存，更新时避免机器反复重启）[参考](https://redis.com/redis-best-practices/communication-patterns/pub-sub/)
 
 
 
@@ -71,6 +72,7 @@
   * 横向扩展能力
   * [Why Use MongoDB](https://www.mongodb.com/why-use-mongodb)
   * [41 | MongoDB应用场景及选型](https://time.geekbang.org/course/detail/100040001-193615)
+  * [Indexes](https://docs.mongodb.com/manual/indexes/)
 
 
 
@@ -86,7 +88,8 @@
 
 
 * **建索引的策略（如 A,B,C三个字段，常用SQL 语句为 SELECT A,B,C where B=80 AND C > 200, SELECT A,B,C where A=50 AND B=80 AND C = 200，如何分别建立索引）（Shopee）**
-  * 最左匹配原则
+  * 最左匹配原则 -- 联合索引的B+Tree是按照第一个关键字进行索引排列的，遇到范围查询就停止匹配
+  * [【原创】面试官:谈谈你对mysql联合索引的认识？ ](https://www.cnblogs.com/rjzheng/p/12557314.html)
 
 
 
