@@ -1,4 +1,4 @@
-# 科学刷题指北
+# Algorithm
 
 > “科学刷题就是伪命题，多刷多总结才是王道。” -- XXX
 
@@ -260,13 +260,23 @@
 ### 动态规划
 
 
+* **最佳折扣问题（EA）**
+
+  * double calculateMinPrice(int [] counts, double [] prices, Map<int[], Double> promotions)
+  * counts表示一个要买的商品数量列表（如0011表示第3件和第4件都买一个），prices表示单价，promotions表示折扣表 比如 0011->9 表示第3件和第4件一起打包买打9折，输出一个最低价格
+  * 实现类似 [动态规划_最小费用购物问题](https://blog.csdn.net/OddSmurfs/article/details/94107909)
+
+* **设计一个模糊匹配算法，给定一个字符串列表和一个字符串，输出列表中最匹配的那个（若都不匹配可输出空串）（微软）**
+
+  * 类似于 [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)，基于字符长度配置好阈值（个人实现，不知道是否为意向答案）
+
 * **最长回文子串（百度/字节跳动）**
   * [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) 
 * **正则表达式匹配**
   * [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/) 
 * **零钱兑换** 
   * [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
-* **鸡蛋掉落** *`TODO`* *`HARD`* 
+* **鸡蛋掉落**
   * dp[K] [N] = 1 + max(dp[K - 1] [i - 1] + dp[K] [N - i]) + 1  (i~(1,N)) （K蛋N层，最直观的DP，还有其他解法）
   * [887. 鸡蛋掉落](https://leetcode-cn.com/problems/super-egg-drop/) 
   * [Egg Dropping Dynamic Programming](https://www.youtube.com/watch?v=3hcaVyX00_4) （画状态转移表）
@@ -279,36 +289,6 @@
 * **完全平方数**
 
   * [279. 完全平方数](https://leetcode-cn.com/problems/perfect-squares/) 
-
-
-
-
-### 系统设计
-
-* **给定一个任务序列执行顺序如 A --> B1,B2,B3 --> C，如何保证该任务执行先后顺序的准确性（拼多多）**  
-  * 使用 CountDownLatch，可以让线程等待其它线程完成一组操作后才能执行，对各任务执行结果进行汇总，具体使用见 [CountDownLatch详解](https://www.jianshu.com/p/128476015902) 
-  * FutureTask 应该也是一种方案，创建多个FutureTask，详见 [23 | Future：如何用多线程实现最优的“烧水泡茶”程序？](https://time.geekbang.org/column/article/91292) 
-
-
-* **如何设计一个秒杀系统（小红书）**
-  * 应付答案见 [Java开发面试：高并发秒杀系统如何设计与优化](https://blog.csdn.net/CSDN_Terence/article/details/77744042) / [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
-  * 进阶执行方案见 [如何设计一个百万级用户的抽奖系统](https://note.youdao.com/ynoteshare1/index.html?id=5c04dccbffd0b6fc511dc920e6be12e3&type=note) （携程大佬）
-  * 详细实战经验见 [秒杀系统设计与实现.互联网工程师进阶与分析](https://github.com/qiurunze123/miaosha)
-  * 面试装逼可看 [如何设计一个秒杀系统](https://time.geekbang.org/column/article/40153) 
-
-
-* **现有5个待投放广告，如何设计一个函数，每次返回其中的2个投放广告，且满足各广告投放频次为1：2：3：4：5？（腾讯）**  *`TODO`* 
-
-  * 设置 [1,2,2,3,3,3,4,4,4,4,5,5,5,5,5] 数组，每次抽一个数，但这样可能会重复抽到（面试官不满意的点）
-* **现有100w*100w的像素格点，已有一组坐标数据[x,y]，该数据组成一个封闭的曲线，现在给定一组数据（格式为[x,y]），如何判断这些数据是否在该封闭曲线内？（需要考虑数据量大小）（腾讯）**  *`TODO`* 
-* **高并发访问下如何保证用户名不冲突，比如多个用户同时创建同一个用户名（拼多多）** *`TODO`* 
-* **(爱奇艺项目相关) 权限管理是如何设计的(星环)**   *`TODO`* 
-* **如何保证代码测试的覆盖率（开放题）（华为）**  *`TODO`* 
-* **设计一个延迟在10ms以内，QPS 在10000的服务，需要考虑哪些点，或者怎么设计（得物）** *`TODO`* 
-* **如果当前系统访问量（如QPS，订单量）扩展10倍，有哪些方面需要考量（Shopee）** *`TODO`* 
-* **设计一个服务，用于实时统计一个直播间的在线人数（Shopee）** *`TODO`* 
-* **有哪些常用的负载均衡算法和实现（策略）（Shopee）** *`TODO`* 
-* **有哪些常用的限流算法和实现（WishPost的订单限流怎么实现）（小红书）** *`TODO`* 
 
 
 

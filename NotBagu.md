@@ -1,20 +1,11 @@
-## Hard Interview Questions
+## Not Bagu
 
-本页面用于记录一些我认为比较难或者不太好回答的面试题（非算法，一般都是质量还不错的题，有些基于项目来问），如果你有更好的答案，请不吝赐教。
-
-
-
-* **设计一个延迟在10ms以内，QPS 在10000的服务，需要考虑哪些点，或者怎么设计（技术选型等）（得物）**
-  * 这种题一般问简历上没有实际高并发经验的人（比如我 Orz），属于抛个方向看看你有没有做过这方面研究，属于答得好不加分，答不上减分的题。最好分治，说一些基本的理解，表示至少你知道一些基本的东西
-  * 缓存（多读少写场景）
-  * 异步（系统解耦，消息队列）
-  * 数据库（索引，分库分表，读写分离）
-  * [high-concurrency-design.md](https://github.com/doocs/advanced-java/blob/main/docs/high-concurrency/high-concurrency-design.md)
+本页面用于记录一些我认为比较难或者不太好回答的面试题（非算法/系统设计，一般都是质量还不错的题，有些基于项目来问），如果你有更好的答案，请不吝赐教。
 
 
 
 * **订单限流是怎么实现的（多），分布式场景下的限流又如何实现（字节跳动）**
-  * 基于redis [setnx](https://redis.io/commands/setnx) 命令实现分布式锁（时间区间段while循环中获取，拿到直接返回，key为服务ID，value为uuid随机生成，[expire](https://redis.io/commands/expire) 命令设置超时），拿到锁后进行当前单量判断和更新redis操作（hget，hset），超过max则向上抛出异常（setnx + expire的实现，问题在于这两步非原子操作）
+  * 基于redis [setnx](https://redis.io/commands/setnx) 命令实现分布式锁（时间区间段的while循环中获取，拿到直接返回，key为服务ID，value为uuid随机生成，[expire](https://redis.io/commands/expire) 指令设置超时时间），拿到锁后进行当前单量判断和更新redis操作（hget，hset），超过max则向上抛出异常（setnx + expire的实现，问题在于这两步非原子操作）
   * 三个指标（物流服务ID为key，当前单量，最大单量）
   * 最大单量的更新为一个cronjob，更新redis
   * [如何设计一个分布式限流器（distributed rate limiter）](https://guanhonly.github.io/2020/05/30/distributed-rate-limiter/)（概念扫盲篇）
@@ -39,20 +30,18 @@
     * Confirm：确认执行阶段，不进行任何业务检查，直接使用 Try 阶段准备的资源来完成业务处理。Confirm 阶段可能会重复执行，因此本阶段所执行的操作需要具备幂等性
     * Cancel：取消执行阶段，释放 Try 阶段预留的业务资源。Cancel 阶段可能会重复执行，也需要满足幂等性
   * [《凤凰架构》第3章 事务处理](http://icyfenix.cn/architect-perspective/general-architecture/transaction/)
+
+
+
 * **物流商鉴权是怎么做的（比如如何判断某些单只能某物流商下）（多）**
   * api key
     
 * **接口幂等如何实现**
   * 基于transaction_id判断
-    
-
-* **设计一个服务，用于实时统计一个直播间的在线人数（技术选型，实现等）（Shopee）**
-  * 
 
 
 
 * **如果当前系统访问量（比如下单量）扩展10倍，有哪些方面需要考量（Shopee）**
-  * 
 
 
 
@@ -99,7 +88,9 @@
 
   
 
-* **DDD的应用实践（多）**
+* **DDD的应用实践（WishPost领域模型的设计）（多）**
+
+  * 物流服务（数据和行为，首/中/末，国家），物流商的Client（特别的校验和处理逻辑）等
   * [领域驱动设计在互联网业务开发中的实践](https://tech.meituan.com/2017/12/22/ddd-in-practice.html)
 
 

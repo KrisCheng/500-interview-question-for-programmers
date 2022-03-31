@@ -18,12 +18,26 @@
 
 *`TODO`* --> 内容待进一步优化
 
-## 算法和设计
 
 
-* 详见 [科学刷题指北](科学刷题指北.md)
+## 算法
 
 
+* 见 [Algorithm](Algorithm.md)
+
+
+
+## 系统设计
+
+
+* 见 [System Design](SystemDesign.md)
+
+
+
+## Not Bagu
+
+* 见 [NotBagu](NotBagu.md)
+  
 
 ## Java
 
@@ -464,6 +478,7 @@
   * 敏捷迭代，初期需求变化频繁
   * embedded document 场景匹配（表示包含关系，一对多，如Order等Model）
   * 弱一致性，保证了性能（对于Payment等场景还是需要使用支持事务的数据库）
+* **MongoDB的索引实现**
 
 
 
@@ -692,7 +707,7 @@
     * 织入(weaving) --> 把切面应用到目标函数的过程
   * 好处
     * 显示地声明在何处如何应用该行为，有效减少代码冗余，让类更加关注自身主要功能
-  * Spring AOP 具体实现（源码级别）
+  * Spring AOP 具体实现（源码级别）（重要）
     * Java JDK 动态代理 （默认）
     * CGLIB 动态代理
   * 爱奇艺项目中AOP的实现（切面设计）（eBay）
