@@ -84,7 +84,8 @@
 
 * **有哪些常用的负载均衡算法和实现（Shopee）**
 
-  * 
+  * [What Is Load Balancing?](https://www.nginx.com/resources/glossary/load-balancing/)
+  * [Types of load balancing algorithms](https://www.cloudflare.com/zh-cn/learning/performance/types-of-load-balancing-algorithms/)
 
   
 

@@ -36,7 +36,7 @@
 
 ## Not Bagu
 
-* 见 [NotBagu](NotBagu.md)
+* 见 [NotBagu](NotBagu.md) （某些问题有更好的答案欢迎联系带带我）
   
 
 ## Java
