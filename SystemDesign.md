@@ -1,6 +1,6 @@
 ## System Design
 
-System Design 已经成了面试标配了，这个问题有很多种问法，比如外企会有专门的System Design 面，从API，技术选型，到DB，表结构，国内有些公司也会面，但大多没那么严谨，但这已经越来越成为面试必备项了，所以作为单独页面拆分开来准备（这不比考八股好玩？）。
+System Design 已经成了面试标配了，这个问题有很多种问法，比如外企会有专门的System Design 面，从API，技术选型，到DB，表结构，国内有些公司也会面，但大多没那么严谨。不过这已经越来越成为面试必备项了，所以作为单独页面拆分开来准备（这不比考八股好玩？）。
 
 
 
@@ -14,27 +14,28 @@ System Design 已经成了面试标配了，这个问题有很多种问法，比
 
 
 * **设计一个服务，用于实时统计一个直播间的在线人数（技术选型，实现等）（Shopee）**
-  * 
-    
+
+
+
 * **设计一个点赞系统（字节跳动）**
   * [Design a system that tracks the number of “likes”](https://medium.com/@morefree7/design-a-system-that-tracks-the-number-of-likes-ea69fdb41cf2)
 
 
 
 * **如果当前系统访问量（比如下单量）扩展10倍，有哪些方面需要考量（Shopee）**
-  * 
 
 
 
 * **设计一个Event Driven Framework（Nvidia）**
 
   * 由多个微服务构成一个pipeline，下一个执行哪个微服务依赖于之前的中间生成数据，设计一个类似这样的Event Driven Framework（可包括DB, API等）
-  * 面试的时候毫无思路，瞎整了这一张图<img src="imgs/system_design/event_driven_framework_before.png" style="zoom:50%;" />
 
-  * 面试时：
+    <img src="imgs/system_design/event_driven_framework_before.png" style="zoom:50%;" />
+
+  * 面试时（基本毫无思路，瞎整了上面这一张图）：
 
     1. 抽象化流程，用一种什么数据结构表示运行的状态（我答List<Stage>，每个Stage 包含一个HandlerList，表示这个状态可以接收/调用的微服务列表（基于pre决定调用哪一个），输出outconde到下一个 ）
-    2. 微服务要考虑同/异步调用（在面试官提醒下，我说考虑添加状态（如Reviewing表示正在等到调用结果），并引入MQ消费调用过程，不置可否）
+    2. 微服务要考虑同/异步调用（在面试官提醒下，我说考虑添加状态（如Reviewing表示正在等到调用结果），并引入MQ消费调用过程）
 
   * 面试后：
 
