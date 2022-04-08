@@ -4,7 +4,7 @@
 
 对我而言，这是个人整理平时工作和面试中碰到的一些实际问题的一份手册（持续维护）；对你而言，这可以作为一份可参考的面试手册。
 
-优势是这里罗列的基本都是大公司的实际面试题或者个人工作中的总结输出，且由于面试公司较多，比较全面，对准备面试（**工作经验0~3年**）有一定参考价值；
+优势是这里罗列的基本都是大公司的实际面试题或者个人工作中的总结输出，且由于面试公司较多，比较全面，对准备面试（**工作经验0~3年*）有一定参考价值；
 
 劣势是当前阶段还不够深入，很多问题你可能需要再看原始的文档或者源码才能获得更深的理解（当然我也会尽量整理一些链接附上），**你不太可能仅仅通过本页面就获得非常有见地的观点**。
 
@@ -679,7 +679,7 @@
 
 ### Spring & SpringBoot
 
-* **什么是Bean以及描述Bean的生命周期（美团/网易）**
+* **什么是Bean以及描述Bean的生命周期（美团/网易/Nvidia）**
   * 在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为Bean。一个Bean是一个由Spring IoC容器实例化、组装和管理的对象
   * 生命周期
     * 创建Bean
@@ -753,6 +753,7 @@
   * @SpringBootApplication --> 复合注解（@SpringBootConfiguration / @EnableAutoConfiguration / @ComponentScan）
   * [SpringBoot 应用程序启动过程探秘](https://juejin.im/post/5b8f05a5f265da43296c6102)
 * **SpringBoot 的starter启动机制（拼多多）**
+* **Spring循环依赖怎么解决（Nvidia）**
 
 
 * **什么是JPA**
@@ -770,7 +771,7 @@
 
 (缓存基本是后端基本问题了)
 
-* **缓存穿透(penetration)/击穿(breakdown)/雪崩(avalanche)（Shopee）**
+* **缓存穿透(penetration) / 击穿(breakdown) / 雪崩(avalanche)（Shopee）**
   * [What are redis cache penetration, cache breakdown and cache avalanche?](https://cdmana.com/2021/01/20210117114056733b.html)
 
 * **缓存一致性问题怎么解决（Shopee）**
@@ -779,7 +780,7 @@
 
 ### Elasticsearch 
 
-* **ES的索引是怎么实现的（爱奇艺）**
+* **ES的索引是怎么实现的（爱奇艺/Nvidia）**
   * [倒排索引](https://www.elastic.co/guide/cn/elasticsearch/guide/current/inverted-index.html)
 * **项目中ES是如何使用的，为什么用ES（Soul）**
   * 项目为垂直搜索场景，数据格式基本可控，基于ES构建查询引擎

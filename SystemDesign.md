@@ -1,6 +1,6 @@
 ## System Design
 
-System Design 已经成了面试标配了，这个问题有很多种问法，比如外企会有专门的System Design 面，从API，技术选型，到DB，表结构，国内有些公司也会面，但大多没那么严谨。不过这已经越来越成为面试必备项了，所以作为单独页面拆分开来准备（这不比考八股好玩？）。
+System Design 已经逐渐成了面试标配了，这个问题有很多种问法，比如外企会有专门的System Design 面，从架构，技术选型。API，到DB，表结构 等持续1小时左右的面试，当前阶段国内有些公司也会面，但大多没那么严谨，可能就几分钟。不过这已经越来越成为面试必备项了，所以作为单独页面拆分开来准备也是有必要的（BTW，这不比考八股好玩？）。
 
 
 
@@ -14,10 +14,13 @@ System Design 已经成了面试标配了，这个问题有很多种问法，比
 
 
 * **设计一个服务，用于实时统计一个直播间的在线人数（技术选型，实现等）（Shopee）**
+  * 
 
 
 
 * **设计一个点赞系统（字节跳动）**
+  * 这个题当时拿到就开始讲，其实这种做法是不对的，点赞千千万，有对朋友圈的点赞，有对文章的点赞，视频的点赞
+  * 是否需要查看点赞的具体人数，点赞是否能取消（这可以决定你的存储如何设计，如果不需要记录由谁点赞，可以做成批处理，减少对DB的访问，pre-aggregate）
   * [Design a system that tracks the number of “likes”](https://medium.com/@morefree7/design-a-system-that-tracks-the-number-of-likes-ea69fdb41cf2)
 
 
@@ -28,7 +31,7 @@ System Design 已经成了面试标配了，这个问题有很多种问法，比
 
 * **设计一个Event Driven Framework（Nvidia）**
 
-  * 由多个微服务构成一个pipeline，下一个执行哪个微服务依赖于之前的中间生成数据，设计一个类似这样的Event Driven Framework（可包括DB, API等）
+  * 需求：由多个微服务构成一个pipeline，下一个执行哪个微服务依赖于之前的中间生成数据，设计一个类似这样的Event Driven Framework（可包括DB, API等）
 
     <img src="imgs/system_design/event_driven_framework_before.png" style="zoom:50%;" />
 
@@ -39,9 +42,11 @@ System Design 已经成了面试标配了，这个问题有很多种问法，比
 
   * 面试后：
 
-  * 自己想了一下，其实也就是在上边基础上优化，不知道ok不ok
+  * 自己想了一下，其实也就是在上边基础上优化，不知道ok不ok，反正这面算通过了
 
     <img src="imgs/system_design/event_driven_framework_after.png" style="zoom:50%;" />
+
+  * 或许在API和存储方面（表结构）也可以再展开一下
 
   
 
@@ -54,8 +59,22 @@ System Design 已经成了面试标配了，这个问题有很多种问法，比
 
 
 
-* **高并发访问下如何保证用户名不冲突，比如多个用户同时创建同一个用户名（拼多多）** 
+* **权限管理是如何设计的（项目相关，也可以作为一个单独的System Design 题）(星环)**  
 
 
 
-* **权限管理是如何设计的(星环)**  
+* **一个前端页面，需要加载一个大的数据集（横坐标为时间，纵坐标为数据），还需要支持缩放，点击查看元数据等功能，可从前后端角度讲讲怎么设计和优化（开放题）（Nvidia）**
+
+
+
+* **设计一个日志系统**
+  * 需求：设计一个日志收集系统，手机端网页端的client发送数据过来，然后有两种使用场景，一种是data analyst需要用原始数据写sql做分析，另一种dashboard，可以拉时间条，显示时间段里的统计数量
+
+
+
+* **设计一个分布式Rate Limiter**
+
+
+
+* **设计一个物流系统**
+
