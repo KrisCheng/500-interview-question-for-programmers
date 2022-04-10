@@ -29,8 +29,7 @@
   * 中序遍历求值
   * 类似于 [230. 二叉搜索树中第K小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/) 
 * **二叉树的完全性检验（Unity）**
-
-  * [958. 二叉树的完全性检验](https://leetcode-cn.com/problems/check-completeness-of-a-binary-tree/) 
+* [958. 二叉树的完全性检验](https://leetcode-cn.com/problems/check-completeness-of-a-binary-tree/) 
 * **根据前&中序遍历结果重建二叉树（Unity）**
 
   * 首先找到根节点，再划分左右子树区域，逐层递归找到左右子节点
@@ -166,12 +165,15 @@
   * [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/) 
 * **判断一个序列是否为合理的出栈顺序（网易）** 
   * [946. 验证栈序列](https://leetcode-cn.com/problems/validate-stack-sequences/) 
-
 * **最长有效括号（Wish）**
   * [32. 最长有效括号](https://leetcode-cn.com/problems/longest-valid-parentheses/) 
 * **旋转链表（字节跳动）**
 
   * [61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/) 
+* **删除链表 M 个节点之后的 N 个节点（微软）**
+  * 要求用递归，不能循环
+  * [删除链表 M 个节点之后的 N 个节点](https://leetcode-cn.com/problems/delete-n-nodes-after-m-nodes-of-a-linked-list/)
+
 * **复杂链表的复制**
   * 连接一个重复链表
   * 断链，拆分成两个链表
@@ -223,7 +225,6 @@
 * **分割回文串**
   * [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) 
 * **八皇后问题**
-
   * [面试题 08.12. 八皇后](https://leetcode-cn.com/problems/eight-queens-lcci/)
 * **24点问题及其优化（叽里呱啦）**
   * 大意和 [679. 24 点游戏](https://leetcode-cn.com/problems/24-game/) 类似
@@ -233,9 +234,9 @@
 ### 图
 
 * **岛屿数量（爱奇艺/依图）**
-  
+
   * [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/) 
-  
+
 * **连通网络的操作次数（eBay）**
   * [1319. 连通网络的操作次数](https://leetcode-cn.com/problems/number-of-operations-to-make-network-connected/) 
 
@@ -247,6 +248,10 @@
 
   [x] <= [x] >= [x] <= [x] ...
   **列元素也是相同逻辑，交替大于小于（输出一个候选解即可）  （NewsBreak）**
+
+* **解数独（微软）**
+
+  * [解数独](https://leetcode-cn.com/problems/sudoku-solver/)
 
 * **课程表问题**
 
@@ -339,6 +344,11 @@
 * **LRU Cache（腾讯/Shopee/PayPal）**
   * 头尾两个伪节点（避免判断） + 双向链表
   * [146. LRU 缓存](https://leetcode-cn.com/problems/lru-cache/)
+
+* **实现一个HashMap（微软）**
+  * 要求：1. 定义内部存储结构； 2.实现 insert(key, value) 和 remove(key)；3.不能使用任何Java集合框架。
+  * [706. 设计哈希映射](https://leetcode-cn.com/problems/design-hashmap/)
+  * [自己动手实现一个HashMap](https://winnerchen.github.io/yiheng.github.io/2017/08/26/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAHashMap/) （将Entry设置为单链表节点，删除时参考 [剑指 Offer 18. 删除链表的节点 ](https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof/)）
 
 
 

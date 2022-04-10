@@ -67,6 +67,25 @@ System Design 已经逐渐成了面试标配了，这个问题有很多种问法
 
 
 
+* **设计一个ATM系统（微软）**
+  * ATM
+    * [ATMInfo, State]
+    * autherUser()
+  * User
+    * [UserInfo, availableBalance, totalBalance] (金额信息也可以单独成 Account对象，或者方法调用) 
+    * makeTransaction() --> 统一的事务操作对象（查询 / 存入 / 提现 / 转账）
+    * 注：此处可以讨巧，问一个用户是否应该只有一张卡，如果是，设计可以省一些事情
+  * Card
+    * [No, CardInfo, pin]
+  * Transation (由BankService 调用 ，不同Bank具体实现)
+    * 所有操作（查询 / 存入 / 提现 / 转账）均继承自Transaction (Type / Status)
+  * [ATM — An Object-Oriented Design](https://medium.com/swlh/atm-an-object-oriented-design-e3a2435a0830) （OOP设计思路）
+  * [Design an ATM](https://github.com/tssovi/grokking-the-object-oriented-design-interview/blob/master/object-oriented-design-case-studies/design-an-atm.md)
+  * [ATM LOW LEVEL DESIGN ](https://www.youtube.com/watch?v=_ppHN3SeFnw) （YouTube low level design of OOP）
+  * [Database design: Calculating the Account Balance](https://stackoverflow.com/questions/4373968/database-design-calculating-the-account-balance)
+
+
+
 * **设计一个日志系统**
   * 需求：设计一个日志收集系统，手机端网页端的client发送数据过来，然后有两种使用场景，一种是data analyst需要用原始数据写sql做分析，另一种dashboard，可以拉时间条，显示时间段里的统计数量
 
@@ -77,4 +96,6 @@ System Design 已经逐渐成了面试标配了，这个问题有很多种问法
 
 
 * **设计一个物流系统**
+
+
 
