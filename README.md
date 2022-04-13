@@ -781,7 +781,7 @@
 ### Elasticsearch 
 
 * **ES的索引是怎么实现的（爱奇艺/Nvidia）**
-  * [倒排索引](https://www.elastic.co/guide/cn/elasticsearch/guide/current/inverted-index.html)
+  * [倒排索引为什么叫倒排索引？](https://www.zhihu.com/question/23202010) （Inverted，“反向”更为合适）
 * **项目中ES是如何使用的，为什么用ES（Soul）**
   * 项目为垂直搜索场景，数据格式基本可控，基于ES构建查询引擎
   * 项目多为时序数据（如成本数据等），便于出报表等业务

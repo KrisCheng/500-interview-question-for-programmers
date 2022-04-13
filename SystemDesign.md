@@ -14,14 +14,18 @@ System Design 已经逐渐成了面试标配了，这个问题有很多种问法
 
 
 * **设计一个服务，用于实时统计一个直播间的在线人数（技术选型，实现等）（Shopee）**
-  * 
 
 
 
 * **设计一个点赞系统（字节跳动）**
-  * 这个题当时拿到就开始讲，其实这种做法是不对的，点赞千千万，有对朋友圈的点赞，有对文章的点赞，视频的点赞
-  * 是否需要查看点赞的具体人数，点赞是否能取消（这可以决定你的存储如何设计，如果不需要记录由谁点赞，可以做成批处理，减少对DB的访问，pre-aggregate）
-  * [Design a system that tracks the number of “likes”](https://medium.com/@morefree7/design-a-system-that-tracks-the-number-of-likes-ea69fdb41cf2)
+  * 这个题当时拿到就开始讲，其实这种做法是不对的，点赞千千万，有对朋友圈的点赞，有对文章的点赞，视频的点赞，需要先问清楚点赞的对象（DB设计的基础）
+  * 是否需要查看点赞的具体人数，点赞是否能取消（这可以决定你的存储如何设计，如：如果不需要记录由谁点赞，可以做成批处理，减少对DB的访问，pre-aggregate）
+  * 强调使用  Eventually Consistence（缓存，batch update）
+  * 如果需要看点赞详情，可以取消赞（如：朋友圈点赞）
+    * [如何使用Redis设计个简单的点赞系统？](https://aijishu.com/a/1060000000059449)
+  * 如果只需要统计数目，不能取消赞（如：直播场景等）
+    * batch processing，比如每分钟的count（直播等短时场景） || 点赞细则 + 一张额外的counter表（batch update）
+    * [Design a system that tracks the number of “likes”](https://medium.com/@morefree7/design-a-system-that-tracks-the-number-of-likes-ea69fdb41cf2)
 
 
 
@@ -85,6 +89,17 @@ System Design 已经逐渐成了面试标配了，这个问题有很多种问法
   * [Database design: Calculating the Account Balance](https://stackoverflow.com/questions/4373968/database-design-calculating-the-account-balance)
 
 
+
+* **设计一个生产者-消费者模型（Nvidia）**
+  * 需求：1.每个时钟生产者会接收记录，形式为数据区间，如[0,2]（为了简单，可认为各个数据区间没有交集）；2.每个时钟消费者也会消费数据，可能是[0,5]，如果和生产者的区间有交集，比如[3,6]，这条记录计算消费掉；3.输出未被消费的数据
+
+
+
+* **设计一个日志收集系统（Nvidia）**
+
+  * 需求：100台服务器，每台均会生成log，有一台额外的专门服务器同于收集汇总这些log，设计一个这样的系统，同时改log服务器还要满足一些数据需求（比如差一段时间内某些异常抛出的次数）
+
+  
 
 * **设计一个日志系统**
   * 需求：设计一个日志收集系统，手机端网页端的client发送数据过来，然后有两种使用场景，一种是data analyst需要用原始数据写sql做分析，另一种dashboard，可以拉时间条，显示时间段里的统计数量

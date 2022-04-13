@@ -253,6 +253,10 @@
 
   * [解数独](https://leetcode-cn.com/problems/sudoku-solver/)
 
+* **一个无向图，实现isConnected(Node A, Node B) 和connect(Node A, Node B)方法（Morgan Stanley）**
+
+  * 类似 [面试题 04.01. 节点间通路](https://leetcode-cn.com/problems/route-between-nodes-lcci/)
+
 * **课程表问题**
 
   * 转化成DFS问题，定义好结点状态（未访问/当前已访问/过去已访问）
@@ -339,16 +343,19 @@
 
 ### 其他
 
-* **买卖股票的最佳时机系列（野村证券/字节跳动/携程）** 
-  * [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 
-* **LRU Cache（腾讯/Shopee/PayPal）**
+* **LRU Cache（腾讯/Shopee/PayPal/Morgan Stanley）**
   * 头尾两个伪节点（避免判断） + 双向链表
   * [146. LRU 缓存](https://leetcode-cn.com/problems/lru-cache/)
-
+* **买卖股票的最佳时机系列（野村证券/字节跳动/携程）** 
+  * [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 
 * **实现一个HashMap（微软）**
   * 要求：1. 定义内部存储结构； 2.实现 insert(key, value) 和 remove(key)；3.不能使用任何Java集合框架。
   * [706. 设计哈希映射](https://leetcode-cn.com/problems/design-hashmap/)
   * [自己动手实现一个HashMap](https://winnerchen.github.io/yiheng.github.io/2017/08/26/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAHashMap/) （将Entry设置为单链表节点，删除时参考 [剑指 Offer 18. 删除链表的节点 ](https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof/)）
+
+* **求给定区间内子区间的最大值（区间内最小值*区间元素相加）（字节跳动）**
+  * 时间复杂度O(n)
+  * [原题](https://www.nowcoder.com/questionTerminal/e6e57ef2771541dfa2f1720e50bebc9a) 
 
 
 
