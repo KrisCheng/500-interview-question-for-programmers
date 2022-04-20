@@ -253,13 +253,12 @@
 
   * [解数独](https://leetcode-cn.com/problems/sudoku-solver/)
 
-* **一个无向图，实现isConnected(Node A, Node B) 和connect(Node A, Node B)方法（Morgan Stanley）**
+* **一个无向图，实现 isConnected(Node A, Node B) 和 connect(Node A, Node B) 方法（Morgan Stanley）**
 
-  * 类似 [面试题 04.01. 节点间通路](https://leetcode-cn.com/problems/route-between-nodes-lcci/)
+  * 类似 [面试题 04.01. 节点间通路](https://leetcode-cn.com/problems/route-between-nodes-lcci/)，但不完全一样（有向、无向）
 
 * **课程表问题**
 
-  * 转化成DFS问题，定义好结点状态（未访问/当前已访问/过去已访问）
   * [207. 课程表](https://leetcode-cn.com/problems/course-schedule/) 
   * [210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/)
   * [630. 课程表 III](https://leetcode-cn.com/problems/course-schedule-iii/) 
@@ -277,10 +276,14 @@
 
 * **设计一个模糊匹配算法，给定一个字符串列表和一个字符串，输出列表中最匹配的那个（若都不匹配可输出空串）（微软）**
 
-  * 类似于 [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)，基于字符长度配置好阈值（个人实现，不知道是否为意向答案）
+  * 类似于 [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)，基于字符长度配置好阈值（个人实现，不知道是否为意向答案，反正过了）
 
 * **最长回文子串（百度/字节跳动）**
   * [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) 
+* **完全平方数（微软）**
+
+  * [279. 完全平方数](https://leetcode-cn.com/problems/perfect-squares/)
+
 * **正则表达式匹配**
   * [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/) 
 * **零钱兑换** 
