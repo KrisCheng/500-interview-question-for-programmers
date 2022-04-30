@@ -4,13 +4,7 @@
 
 本页面用于记录个人的刷题笔记（尤其是那些有启发，有趣的编程题）。部分附个人面试公司， 主要根据题型分类（跨题型随机分类2333）。
 
-**TAGS** 
-
-*`HARD`* --> 题目本身较难
-
-*`TODO`* --> 内容待进一步优化
-
-### 树
+### 二叉树
 
 * **非递归实现求二叉树的深度（小红书）** 
   * 引入队列，统计当前层次节点数目，逐层遍历
@@ -29,7 +23,9 @@
   * 中序遍历求值
   * 类似于 [230. 二叉搜索树中第K小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/) 
 * **二叉树的完全性检验（Unity）**
-* [958. 二叉树的完全性检验](https://leetcode-cn.com/problems/check-completeness-of-a-binary-tree/) 
+
+  * [958. 二叉树的完全性检验](https://leetcode-cn.com/problems/check-completeness-of-a-binary-tree/) 
+
 * **根据前&中序遍历结果重建二叉树（Unity）**
 
   * 首先找到根节点，再划分左右子树区域，逐层递归找到左右子节点
@@ -40,8 +36,7 @@
 
   * [199. 二叉树的右视图](https://leetcode-cn.com/problems/binary-tree-right-side-view/)
 
-
-
+* **给定一个二叉树根节点和指定路径，判断二叉树中是否存在给定指定路径，且要求指定路径最后一个元素为叶节点（微软）**
 * **将一颗二叉搜索树转化成一个排序的双向链表**
   * 不能创建新结点
   * [二叉搜索树与双向链表](https://www.nowcoder.com/practice/947f6eb80d944a84850b0538bf0ec3a5?tpId=13&tqId=11179&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) 
@@ -83,7 +78,7 @@
   * 面试官说需要 通过 [补位](https://codeleading.com/article/55991386629/) 思想（普通的compare再sort并不满意，但补位思想似乎不适用于有重复元素的情况）
 * **如何给一个很大的无序数组去重（腾讯）**
   * [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)（给排序数组去重）
-* **求两个排序数组的中位数（依图）**   *`HARD`* 
+* **求两个排序数组的中位数（依图）**   
   * 要求时间复杂度 O(log(m+n)) 
   * 二分查找，递归求整个数组中第K大的元素，完整代码需要仔细考虑多种边界条件
   * [4.寻找两个有序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/) 
@@ -144,7 +139,7 @@
   * DualPivotQuicksort（双轴快速排序）
   * [Arrays.sort和Collections.sort实现原理解析](https://blog.csdn.net/u011410529/article/details/56668545)
   * [Collections.sort()和Arrays.sort()排序算法选择](https://blog.csdn.net/TimHeath/article/details/68930482)
-* **写一个快速划分数据集的算法，要求测试集用新数据，训练集用老数据（第四范式）**  *`TODO`* 
+* **写一个快速划分数据集的算法，要求测试集用新数据，训练集用老数据（第四范式）**  
   * 数据格式为 Record（id, timestamp）
   * 函数签名为 division(ArrayList<Record> dataset, double ratio)， ratio为(0,1)的划分比例
   * 要求复杂度为O(n)
@@ -160,9 +155,9 @@
 
 * **反转链表（小红书/腾讯/字节跳动）** 
   * [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) 
-* **环形链表（星环）**
+* **环形链表（星环/微软）**
   * [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
-  * [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/) 
+  * [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
 * **判断一个序列是否为合理的出栈顺序（网易）** 
   * [946. 验证栈序列](https://leetcode-cn.com/problems/validate-stack-sequences/) 
 * **最长有效括号（Wish）**
@@ -273,16 +268,17 @@
   * double calculateMinPrice(int [] counts, double [] prices, Map<int[], Double> promotions)
   * counts表示一个要买的商品数量列表（如0011表示第3件和第4件都买一个），prices表示单价，promotions表示折扣表 比如 0011->9 表示第3件和第4件一起打包买打9折，输出一个最低价格
   * 实现类似 [动态规划_最小费用购物问题](https://blog.csdn.net/OddSmurfs/article/details/94107909)
-
 * **设计一个模糊匹配算法，给定一个字符串列表和一个字符串，输出列表中最匹配的那个（若都不匹配可输出空串）（微软）**
 
   * 类似于 [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/)，基于字符长度配置好阈值（个人实现，不知道是否为意向答案，反正过了）
-
 * **最长回文子串（百度/字节跳动）**
   * [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/) 
 * **完全平方数（微软）**
 
   * [279. 完全平方数](https://leetcode-cn.com/problems/perfect-squares/)
+* **最长递增子序列（微软）**
+
+  * [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
 
 * **正则表达式匹配**
   * [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/) 
@@ -357,10 +353,8 @@
   * [自己动手实现一个HashMap](https://winnerchen.github.io/yiheng.github.io/2017/08/26/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAHashMap/) （将Entry设置为单链表节点，删除时参考 [剑指 Offer 18. 删除链表的节点 ](https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof/)）
 
 * **求给定区间内子区间的最大值（区间内最小值*区间元素相加）（字节跳动）**
-  * 时间复杂度O(n)
+  * 要求时间复杂度O(n)
   * [原题](https://www.nowcoder.com/questionTerminal/e6e57ef2771541dfa2f1720e50bebc9a) 
-
-
 
 * **斐波那契数列的尾递归实现（Wish）**
   * 面试官原意是斐波那契的递归实现如何优化
@@ -394,10 +388,14 @@
 
   * 要求时间复杂度O(n)
   * 如 [2,1,4,3]，[2,3]，有[2],[2,1],[3]，返回3
+* **字符串相乘（微软）**
+
+  * [43. 字符串相乘](https://leetcode-cn.com/problems/multiply-strings/)
+
 * **用Java实现一个String转Map（Map<String,Object>）的函数，不能使用String的split和第三方库（喜马拉雅）**
 
 
-* **整数中1出现的次数（从1到n中1出现的次数）** *`TODO`*
+* **整数中1出现的次数（从1到n中1出现的次数）**
   * [233. 数字 1 的个数](https://leetcode-cn.com/problems/number-of-digit-one/) 
 
 
