@@ -4,8 +4,12 @@
 
 
 
-* **订单限流是怎么实现的（多），分布式场景下的限流又如何实现（字节跳动）**
-  * 基于redis [setnx](https://redis.io/commands/setnx) 命令实现分布式锁（时间区间段的while循环中获取，拿到直接返回，key为服务ID，value为uuid随机生成，[expire](https://redis.io/commands/expire) 指令设置超时时间），拿到锁后进行当前单量判断和更新redis操作（hget，hset），超过max则向上抛出异常（setnx + expire的实现，问题在于这两步非原子操作）
+* **订单限流是怎么实现的（多），分布式场景下的限流又如何实现（字节跳动/Amazon）**
+  * 基于redis [setnx](https://redis.io/commands/setnx) 命令实现分布式锁
+  * 在时间区间段的while循环中获取，拿到锁直接返回，key为 [PREFIX+物流服务ID]，value为uuid随机生成，[expire](https://redis.io/commands/expire) 指令设置超时时间，没拿到锁返回False，直接向上抛出异常
+  * 拿到锁后进行当前单量判断和更新redis操作（hget，hset），超过max则向上抛出异常
+  * finally中release锁（del key）
+  * （setnx + expire的实现，问题在于这两步非原子操作）
   * 三个指标（物流服务ID为key，当前单量，最大单量）
   * 最大单量的更新为一个cronjob，更新redis
   * [如何设计一个分布式限流器（distributed rate limiter）](https://guanhonly.github.io/2020/05/30/distributed-rate-limiter/)（概念扫盲篇）
@@ -35,7 +39,9 @@
 
 * **物流商鉴权是怎么做的（比如如何判断某些单只能某物流商下）（多）**
   * api key
-  
+
+
+
 * **接口幂等如何实现**
   * 基于transaction_id判断
 

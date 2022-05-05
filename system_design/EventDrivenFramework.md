@@ -1,6 +1,8 @@
 ## Event Driven Framework
 
-* 需求：由多个微服务构成一个pipeline，下一个执行哪个微服务依赖于之前的中间生成数据，设计一个类似这样的Event Driven Framework（可包括DB, API等）
+* 需求
+
+  * 由多个微服务构成一个pipeline，下一个执行哪个微服务依赖于之前的中间生成数据，设计一个类似这样的Event Driven Framework（可包括DB, API等）(Nvidia Interview)
 
   <img src="imgs/event_driven_framework_before.png" style="zoom:50%;" />
 

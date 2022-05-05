@@ -1,0 +1,19 @@
+## RateLimiter
+
+* Functional Requirement
+
+
+
+
+
+* Non Functional Requirement
+
+
+
+
+
+* Reference
+  * System Design Interview – An Insider's Guide [下载](https://hubpdf.com/e-books/computers/system-design-interview-pdf-book-free-download/) [Amazon](https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF) Chapter 4
+  * [a mock interview](https://docs.google.com/document/d/1haQzmxsdUTF7PdTN6bSpzhAokXLzDQIe4uC2WP3-VHM/edit#)
+  * [System Design — Rate limiter and Data modelling](https://medium.com/@saisandeepmopuri/system-design-rate-limiter-and-data-modelling-9304b0d18250#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MTY0OWU0NTAzMTUzODNmNmI5ZDUxMGI3Y2Q0ZTkyMjZjM2NkODgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NTE1ODg1MzksImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwODcwMDcwMzQyMTY5NzQzODM0NCIsImVtYWlsIjoia3Jpcy5kYWNwY0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXpwIjoiMjE2Mjk2MDM1ODM0LWsxazZxZTA2MHMydHAyYTJqYW00bGpkY21zMDBzdHRnLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwibmFtZSI6IuW9reeoiyIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZzRXQXI3c25zb1djYzRrdEhEb3h1N2xHQWp4bUJ6bzJYVEUtbFM9czk2LWMiLCJnaXZlbl9uYW1lIjoi56iLIiwiZmFtaWx5X25hbWUiOiLlva0iLCJpYXQiOjE2NTE1ODg4MzksImV4cCI6MTY1MTU5MjQzOSwianRpIjoiYjBhNDdmY2Y2MDI1YTY1YTUxODQyY2M3Y2M2OTgxOGU3NGQyMWY0NCJ9.o_J6dot2i7Po4gERAG3oTr9KU4ThrmPAVDektJ-ojeXh7LTKFEiLnAjAg2JX4_31BEYu093MHv7aW3UJQWXD052Kl1ZG7NmtRRIOEznkQZbqEDJaIoKJ9QCTzdE5mi6h1L50sRYa3yPXRIjKs8yijPAWN3VnQeoHBUJi-eNSm1iYbYF6LtaKDGQ3kArG6f2pbSkd54e7m89he8cgDirkrndsm72HBxRzZEz4dXKGR2LZo5VywurzCTcnGKkSP9HWk3nXi5H1UkVqxECM61mGlSgp5OaSChDO44y-zF80XYXboB9xEovCMhI2WOLq3g6LEY0kxG7xsEktYoPfnhxPbQ)
+  * [Designing a Rate Limiter](https://towardsdatascience.com/designing-a-rate-limiter-6351bd8762c6)

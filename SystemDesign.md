@@ -4,6 +4,13 @@ System Design 已经逐渐成了面试标配了，这个问题有很多种问法
 
 
 
+* **[Design a Event Driven Framework](system_design/EventDrivenFramework.md)**
+* **[Design a Logging System](system_design/LoggingSystem.md)**
+* **[Design a Rate Limiter](system_design/RateLimiter)**
+* **[Design a Weibo](system_design/Weibo)**
+
+
+
 * **设计一个延迟在10ms以内，QPS 在10000的服务，需要考虑哪些点，或者怎么设计（技术选型等）（得物）**
   * 这种题一般问简历上没有实际高并发经验的人（比如我 Orz），属于抛个方向看看你有没有做过这方面研究，属于答得好不加分，答不上减分的题。最好分治，说一些基本的理解，表示至少你知道一些基本的东西
   * 缓存（多读少写场景）
@@ -32,10 +39,6 @@ System Design 已经逐渐成了面试标配了，这个问题有很多种问法
 * **如果当前系统访问量（比如下单量）扩展10倍，有哪些方面需要考量（Shopee）**
 
 
-
-* **[设计一个Event Driven Framework](system_design/EventDrivenFramework.md)（Nvidia）**
-
-  
 
 * **如何设计一个秒杀系统（小红书）**
 
@@ -76,24 +79,10 @@ System Design 已经逐渐成了面试标配了，这个问题有很多种问法
 
 
 * **设计一个生产者-消费者模型（Nvidia）**
-  * 需求：1.每个时钟生产者会接收记录，形式为数据区间，如[0,2]（为了简单，可认为各个数据区间没有交集）；2.每个时钟消费者也会消费数据，可能是[0,5]，如果和生产者的区间有交集，比如[3,6]，这条记录计算消费掉；3.输出未被消费的数据
-
-
-
-* **设计一个日志收集系统（Nvidia）**
-
-  * 需求：现有100台服务器，每台均会生成log，用一台额外的专门服务器同于收集汇总这些log，设计一个这样的系统，同时该log服务器还要满足一些数据需求（比如差一段时间内某些异常抛出的次数）
-  * 
-
-  
-
-* **设计一个日志系统**
-  * 需求：设计一个日志收集系统，手机端网页端的client发送数据过来，然后有两种使用场景，一种是data analyst需要用原始数据写sql做分析，另一种dashboard，可以拉时间条，显示时间段里的统计数量
-  * https://www.youtube.com/watch?v=aiSoZBfFk0M
-
-
-
-* **设计一个分布式Rate Limiter**
+  * 需求：
+    1. 每个时钟生产者会产生记录，形式为数据区间，如[0,2]（为了简单，可认为各个数据区间没有交集）；
+    2. 每个时钟消费者也会消费数据，可能是[0,5]，如果和生产者的区间有交集，比如[3,6]，这条记录计算消费掉；
+    3. 输出未被消费的数据
 
 
 
@@ -101,3 +90,19 @@ System Design 已经逐渐成了面试标配了，这个问题有很多种问法
 
 
 
+* **Design a ID generator**
+  * System Design Interview – An Insider's Guide [Download](https://hubpdf.com/e-books/computers/system-design-interview-pdf-book-free-download/) Chapter 7
+  * [Ace the System Design Interview — Distributed ID Generator](https://towardsdatascience.com/ace-the-system-design-interview-distributed-id-generator-c65c6b568027)
+  * [Design Unique ID Generator](https://docs.google.com/presentation/d/1Eb1L-eyVdbLaywfi6MCqsdvwXZCRGhVREFrUcvM-azg/edit#slide=id.p)
+
+
+
+* **Design a key-value storage**
+  * System Design Interview – An Insider's Guide [Download](https://hubpdf.com/e-books/computers/system-design-interview-pdf-book-free-download/) Chapter 6
+  * [Mock1](https://docs.google.com/document/d/1vKQyUat_C3RP55LskPHfYRxhYZn5Y5I2szXX-4ixi6U/edit) / [Mock2](https://docs.google.com/document/d/1pqsaPts9fLFt2x3YFmG6D0KK-u3-wPIP6Nq4JAinGhY/edit)
+
+
+
+* **Design a Tiny URL**
+  * [系统设计(五) Design Tiny URL System](https://docs.google.com/presentation/d/1v5QA1h-kPQ3EXdxMbyKGkYhlkaf8otqf9TubnY00vQo/edit#slide=id.ge7b631cedb_0_0)
+  * System Design Interview – An Insider's Guide [Download](https://hubpdf.com/e-books/computers/system-design-interview-pdf-book-free-download/) Chapter 8
