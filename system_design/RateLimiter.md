@@ -2,13 +2,7 @@
 
 * Functional Requirement
 
-
-
-
-
 * Non Functional Requirement
-
-
 
 
 

@@ -8,8 +8,6 @@
 
 * Functional Requirement
 
-  * 
-
 * Non Functional Requirement
 
 * sharding key
@@ -17,5 +15,4 @@
 * Reference
 
   * [System Design Mock Interview - Design distributed metrics logging system](https://www.youtube.com/watch?v=aiSoZBfFk0M)
-  * 
 

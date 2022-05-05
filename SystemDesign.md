@@ -6,8 +6,8 @@ System Design 已经逐渐成了面试标配了，这个问题有很多种问法
 
 * **[Design a Event Driven Framework](system_design/EventDrivenFramework.md)**
 * **[Design a Logging System](system_design/LoggingSystem.md)**
-* **[Design a Rate Limiter](system_design/RateLimiter)**
-* **[Design a Weibo](system_design/Weibo)**
+* **[Design a Rate Limiter](system_design/RateLimiter.md)**
+* **[Design a Weibo](system_design/Weibo.md)**
 
 
 
