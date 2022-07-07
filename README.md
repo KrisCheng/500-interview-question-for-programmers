@@ -1,5 +1,7 @@
 # 500-interview-question-for-programmers
 
+([如何跳槽](https://www.bilibili.com/video/BV17t4y187CS/) 帮忙点个赞，看的人多再更 Orz...)
+
 ## 概述
 
 对我而言，这是个人整理平时工作和面试中碰到的一些实际问题的一份手册（持续维护）；对你而言，这可以作为一份可参考的面试手册。
