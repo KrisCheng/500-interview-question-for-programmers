@@ -1,6 +1,6 @@
 # 500-interview-question-for-programmers
 
-([如何跳槽](https://www.bilibili.com/video/BV17t4y187CS/) 帮忙点个赞，看的人多再更 Orz...)
+([如何跳槽](https://www.bilibili.com/video/BV17t4y187CS/) 帮忙点个赞，试试水，真的有人看再更 Orz...)
 
 ## 概述
 
