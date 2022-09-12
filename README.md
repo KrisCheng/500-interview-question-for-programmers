@@ -2,7 +2,7 @@
 
 ([如何跳槽](https://www.bilibili.com/video/BV17t4y187CS/) 帮忙点个赞，试试水，真的有人看再更 Orz...)
 
-提供初级工程师（后端，全栈 0～3年）面试准备咨询，名企内推，模拟面试，有需要请联系 **kris.dacpc@gmail.com** 或 vx: **hammer_peng**.
+提供初级工程师（后端，全栈， 0～3年）面试准备咨询，名企内推，模拟面试，有需要请联系 **kris.dacpc@gmail.com** 或 vx: **hammer_peng**.
 
 ## 概述
 
