@@ -1,9 +1,10 @@
 ## System Design
 
-System Design 已经逐渐成了面试标配了，这个问题有很多种问法，比如外企会有专门的System Design 面，从架构，技术选型。API，到DB，表结构 等持续1小时左右的面试，当前阶段国内有些公司也会面，但大多没那么严谨，可能就几分钟。不过这已经越来越成为面试必备项了，所以作为单独页面拆分开来准备也是有必要的（BTW，这不比考八股好玩？）。
+System Design 已经逐渐成了面试标配了，这个问题有很多种问法，比如外企会有专门的System Design 面，从架构，技术选型。API，到DB，表结构 等持续1小时左右的面试，当前阶段国内有些公司也会面，但大多没那么严谨，可能就几分钟。不过这已经越来越成为面试必备项了，所以作为单独页面拆分开来准备也是有必要的
 
 
 
+* [设计一个物流数据监测系统](system_design/TrackingDataQualitySystem.md)
 * **[Design a Event Driven Framework](system_design/EventDrivenFramework.md)**
 * **[Design a Logging System](system_design/LoggingSystem.md)**
 * **[Design a Rate Limiter](system_design/RateLimiter.md)**
@@ -41,7 +42,6 @@ System Design 已经逐渐成了面试标配了，这个问题有很多种问法
 
 
 * **如何设计一个秒杀系统（小红书）**
-
   * 应付答案见 [Java开发面试：高并发秒杀系统如何设计与优化](https://blog.csdn.net/CSDN_Terence/article/details/77744042) / [如何设计一个秒杀系统](https://blog.csdn.net/suifeng3051/article/details/52607544)
   * 进阶执行方案见 [如何设计一个百万级用户的抽奖系统](https://note.youdao.com/ynoteshare1/index.html?id=5c04dccbffd0b6fc511dc920e6be12e3&type=note) （携程大佬）
   * 详细实战经验见 [秒杀系统设计与实现.互联网工程师进阶与分析](https://github.com/qiurunze123/miaosha)
