@@ -1,8 +1,8 @@
 # 500-interview-question-for-programmers
 
-【视频】程序员如何准备跳槽 [B站](https://space.bilibili.com/65980675/lists/919942?type=season)
+Update: 2025.10，又开始找工作了，会经常更新，欢迎关注。
 
-提供初中级工程师（后端，全栈， -1～5年）面试准备咨询，名企内推，模拟面试，有需要请联系 **kris.dacpc@gmail.com**
+【视频】程序员如何准备跳槽 [B站](https://space.bilibili.com/65980675/lists/919942?type=season)
 
 ## 概述
 
