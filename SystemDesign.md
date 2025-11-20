@@ -1,10 +1,8 @@
-## System Design
-
-System Design 已经逐渐成了面试标配了，这个问题有很多种问法，比如外企会有专门的System Design 面，从架构，技术选型。API，到DB，表结构 等持续1小时左右的面试，当前阶段国内有些公司也会面，但大多没那么严谨，可能就几分钟。不过这已经越来越成为面试必备项了，所以作为单独页面拆分开来准备也是有必要的
+# System Design
 
 
 
-* [设计一个物流数据监测系统](system_design/TrackingDataQualitySystem.md)
+* **[设计一个物流数据监测系统](system_design/TrackingDataQualitySystem.md)**
 * **[Design a Event Driven Framework](system_design/EventDrivenFramework.md)**
 * **[Design a Logging System](system_design/LoggingSystem.md)**
 * **[Design a Rate Limiter](system_design/RateLimiter.md)**

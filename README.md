@@ -44,7 +44,7 @@ Cons:
 
 
 
-## Not Bagu（一些我认为比较好的问题）
+## Not Bagu
 
 * 见 [NotBagu](NotBagu.md) 
   
@@ -458,7 +458,7 @@ Cons:
 * **MySQL如何实现隔离级别的（如可重复读的实现原理）（拼多多/字节跳动）** 
   * “其实不同隔离级别以及幻读、不可重复读、脏读等问题都只是表面现象，是各种锁在不同加锁时间上组合应用所产生的结果，以锁为手段来实现隔离性才是数据库表现出不同隔离级别的根本原因。“ [参考](http://icyfenix.cn/architect-perspective/general-architecture/transaction/local.html#%E5%AE%9E%E7%8E%B0%E9%9A%94%E7%A6%BB%E6%80%A7)
   * MVCC（多版本并发控制）（Inno DB引擎实现） ”读“+”写“场景
-  * ”MVCC 的基本思路是对数据库的任何修改都不会直接覆盖之前的数据，而是产生一个新版副本与老版本共存，以此达到读取时可以完全不加锁的目的“
+  * “MVCC 的基本思路是对数据库的任何修改都不会直接覆盖之前的数据，而是产生一个新版副本与老版本共存，以此达到读取时可以完全不加锁的目的”
   * [InnoDB---可重复读隔离级别的底层实现原理](https://blog.csdn.net/huanghanqian/article/details/79517480)
   * [MySQL事务隔离级别的实现原理](https://www.cnblogs.com/cjsblog/p/8365921.html)
   
