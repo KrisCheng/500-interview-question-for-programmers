@@ -92,8 +92,6 @@ Cons:
 
 ### IO相关
 
-（这部分深挖可以问得很难，一般可从常见IO模型，适用场景开始，到Java中的IO模型实现，深入到框架的实现。）*`TODO`* *`HARD`*
-
 * **描述BIO / NIO（网易）/ 描述常见的IO模型（小红书）** 
   * [The difference between BIO and NIO, AIO](https://www.programmersought.com/article/10551850908/) （一些基本的概念解释）
   * [怎样理解阻塞非阻塞与同步异步的区别？](https://www.zhihu.com/question/19732473/answer/241673170) （评价很高的答案，从操作系统本身进行解释）
@@ -781,12 +779,13 @@ Cons:
 
 ### Redis 
 
-(缓存基本是后端基本问题了)
-
+* **Overview**
+  * redis doc
+  * how to use redis in system design [video](https://www.hellointerview.com/learn/system-design/deep-dives/redis)
+  * redis for Pub/Sub
+  
 * **缓存穿透(penetration) / 击穿(breakdown) / 雪崩(avalanche)（Shopee）**
-  * [What are redis cache penetration, cache breakdown and cache avalanche?](https://cdmana.com/2021/01/20210117114056733b.html)
-
-* **缓存一致性问题怎么解决（Shopee）**
+  * [What are redis cache penetration, cache breakdown and cache avalanche?](https://cdmana.com/2021/01/20210117114056733b.html) 
 
 
 

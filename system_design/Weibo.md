@@ -1,10 +1,11 @@
-## Weibo
+## Weibo Feed
 
+* [Update in 2025.12](https://excalidraw.com/#json=a_Xp9rTRjmZv1nXYiKzJ-,iAaC7Xev66cxFt50y_pSAg)
 * 需求（Amazon）
   1. 创建 / 查看微博
   2. 关注和被关注者，被关注者发了一条微博后，关注者要能接受到相关微博Feed流
   3. 给出 系统架构 / API / DB设计
-* 面试中
+* 复盘
   1. 这算是自己第一次纯System Design面试,应该说效果是比较糟糕的,面试官不断让我想好再说,或者说“这样就够了么？”我多次提问"是否make sense"也没有得到一个正面的反馈,整体比较失败,主要真的没经验,无法谈笑风生 Orz
   2. 面试中自己把自己带坑里，说到条数限流，用redis+expire实现，结果这部分也没答得特别满意，最后草草结束了面试（真的菜啊，菜爆了）
 

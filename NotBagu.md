@@ -70,6 +70,9 @@
 
 * **缓存一致性如何解决（Shopee）**
 
+  * 先更新 DB + 再删除缓存
+
+
 
 
 * **建索引的策略（如 A,B,C三个字段，常用SQL 语句为 SELECT A,B,C where B=80 AND C > 200, SELECT A,B,C where A=50 AND B=80 AND C = 200，如何分别建立索引）（Shopee）**
@@ -111,4 +114,4 @@
 
 
 
-* **Guice 依赖注入的实现（携程）**
+* **Guice 依赖注入的实现，循环依赖如何处理（携程）**

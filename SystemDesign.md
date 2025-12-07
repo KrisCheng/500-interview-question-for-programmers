@@ -1,14 +1,13 @@
 # System Design
 
-
-
-* **[设计一个物流数据监测系统](system_design/TrackingDataQualitySystem.md)**
+* **[System Design hello Interview](https://www.hellointerview.com/learn/system-design/in-a-hurry/introduction)（学习材料）**
 * **[Design a Event Driven Framework](system_design/EventDrivenFramework.md)**
 * **[Design a Logging System](system_design/LoggingSystem.md)**
 * **[Design a Rate Limiter](system_design/RateLimiter.md)**
-* **[Design a Weibo](system_design/Weibo.md)**
+* **[Design a Weibo Feed](system_design/Weibo.md)**
+* **[Design a Advertisement System](https://excalidraw.com/#json=sWz8ru7qZUobM170aBC8w,iYQLu0fv5mfcq2pKva5seQ) （蚂蚁金服）**
 
-
+* **[设计一个物流数据监测系统](system_design/TrackingDataQualitySystem.md)**
 
 * **设计一个延迟在10ms以内，QPS 在10000的服务，需要考虑哪些点，或者怎么设计（技术选型等）（得物）**
   * 这种题一般问简历上没有实际高并发经验的人（比如我 Orz），属于抛个方向看看你有没有做过这方面研究，属于答得好不加分，答不上减分的题。最好分治，说一些基本的理解，表示至少你知道一些基本的东西
