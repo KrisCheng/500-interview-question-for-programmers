@@ -1,6 +1,7 @@
 # System Design
 
 * **[System Design hello Interview](https://www.hellointerview.com/learn/system-design/in-a-hurry/introduction)（学习材料）**
+* **[PracHub 系统设计面试题库](https://prachub.com/categories/system-design)（按公司筛选的练习题）**
 * **[Design a Event Driven Framework](system_design/EventDrivenFramework.md)**
 * **[Design a Logging System](system_design/LoggingSystem.md)**
 * **[Design a Rate Limiter](system_design/RateLimiter.md)**
